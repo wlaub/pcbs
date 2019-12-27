@@ -683,7 +683,7 @@ $EndComp
 Wire Wire Line
 	1300 3200 1550 3200
 Wire Wire Line
-	1550 6200 2250 6200
+	1550 6200 2350 6200
 Connection ~ 1550 6200
 $Comp
 L Transistor_FET:BSS138 Q?
@@ -1000,7 +1000,7 @@ Wire Wire Line
 	2900 5200 2900 5850
 Text HLabel 3700 3950 2    50   Input ~ 0
 GLITCH
-Text HLabel 2250 6200 2    50   Input ~ 0
+Text HLabel 2650 6200 2    50   Input ~ 0
 OUT
 Text HLabel 5500 4950 2    50   Input ~ 0
 EXT_CLK_EN
@@ -2714,6 +2714,7 @@ F 1 "BSS138" H 4756 5850 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 4750 5775 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf" H 4550 5850 50  0001 L CNN
 F 4 "0.8/1.3/1.5" H 4756 5759 50  0000 L CNN "VGS"
+F 5 "DNP" H 4450 5700 50  0000 L CNN "Assembly"
 	1    4550 5850
 	1    0    0    -1  
 $EndComp
@@ -2742,6 +2743,7 @@ F 0 "R?" V 5050 5650 50  0000 C CNN
 F 1 "0" V 5050 5550 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 4950 5600 50  0001 C CNN
 F 3 "~" H 4950 5600 50  0001 C CNN
+F 4 "DNP" V 4850 5600 50  0000 C CNN "Assembly"
 	1    4950 5600
 	0    1    -1   0   
 $EndComp
@@ -2813,4 +2815,19 @@ Wire Wire Line
 	5250 5600 5900 5600
 Text Notes 4050 5800 0    50   ~ 0
 Optional Buffer\n> 5V In
+$Comp
+L Device:R_Small_US R?
+U 1 1 610AC9C3
+P 2450 6200
+AR Path="/610AC9C3" Ref="R?"  Part="1" 
+AR Path="/6032E556/610AC9C3" Ref="R?"  Part="1" 
+F 0 "R?" V 2550 6100 50  0000 C CNN
+F 1 "499" V 2550 6300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 2450 6200 50  0001 C CNN
+F 3 "~" H 2450 6200 50  0001 C CNN
+	1    2450 6200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2550 6200 2650 6200
 $EndSCHEMATC
