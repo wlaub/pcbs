@@ -1072,14 +1072,14 @@ Wire Wire Line
 $Comp
 L Device:R_POT RV?
 U 1 1 6037474E
-P 3750 3450
+P 3750 3400
 AR Path="/6037474E" Ref="RV?"  Part="1" 
 AR Path="/6032E556/6037474E" Ref="CHANCE_ATV"  Part="1" 
-F 0 "CHANCE_ATV" H 3681 3496 50  0000 R CNN
-F 1 "100k" H 3681 3405 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 3750 3450 50  0001 C CNN
-F 3 "~" H 3750 3450 50  0001 C CNN
-	1    3750 3450
+F 0 "CHANCE_ATV" H 3681 3446 50  0000 R CNN
+F 1 "100k" H 3681 3355 50  0000 R CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 3750 3400 50  0001 C CNN
+F 3 "~" H 3750 3400 50  0001 C CNN
+	1    3750 3400
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1098,37 +1098,18 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 6070E01C
-P 3750 3600
+P 3750 3550
 AR Path="/6070E01C" Ref="#PWR?"  Part="1" 
 AR Path="/6032E556/6070E01C" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3750 3350 50  0001 C CNN
-F 1 "GND" H 3755 3427 50  0000 C CNN
-F 2 "" H 3750 3600 50  0001 C CNN
-F 3 "" H 3750 3600 50  0001 C CNN
-	1    3750 3600
+F 0 "#PWR?" H 3750 3300 50  0001 C CNN
+F 1 "GND" H 3755 3377 50  0000 C CNN
+F 2 "" H 3750 3550 50  0001 C CNN
+F 3 "" H 3750 3550 50  0001 C CNN
+	1    3750 3550
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	3900 3450 4000 3450
-$Comp
-L Device:R_Small_US R?
-U 1 1 6078A403
-P 2450 3200
-AR Path="/6078A403" Ref="R?"  Part="1" 
-AR Path="/6032E556/6078A403" Ref="R?"  Part="1" 
-F 0 "R?" V 2550 3100 50  0000 C CNN
-F 1 "212.5k" V 2550 3300 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 2450 3200 50  0001 C CNN
-F 3 "~" H 2450 3200 50  0001 C CNN
-	1    2450 3200
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	1550 3200 2350 3200
-Wire Wire Line
-	2550 3200 3750 3200
-Wire Wire Line
-	3750 3200 3750 3300
+	3750 3200 3750 3250
 Connection ~ 1550 3200
 Text Notes 1000 4950 0    50   ~ 0
 0-5 V
@@ -1144,8 +1125,6 @@ Text Notes 1000 950  0    50   ~ 0
 -3 to 3 V ?
 Text Notes 500  800  0    50   ~ 0
 5V / 256 = 19.5 mV = 23.4 cents\n6V / 256 = 23.4 mV = 28.1 cents\n8V / 256 = 31.25 mV = 37.5 cents\n10V / 256 = 39.1 mV = 47 cents
-Text Notes 3200 3150 0    50   ~ 0
--1.6 to 1.6
 Text Notes 2300 3000 0    50   ~ 0
 212.5k nom
 $Comp
@@ -1163,7 +1142,7 @@ $Comp
 L Amplifier_Operational:MCP6002-xMS U?
 U 2 1 6084B93F
 P 3950 2300
-F 0 "U?" H 3850 2300 50  0000 L CNN
+F 0 "U?" H 3800 2300 50  0000 L CNN
 F 1 "MCP6002-xMS" H 4250 2450 50  0000 C CNN
 F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 3950 2300 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 3950 2300 50  0001 C CNN
@@ -1184,23 +1163,23 @@ $EndComp
 $Comp
 L Amplifier_Operational:MCP6002-xMS U?
 U 2 1 60873BA2
-P 6850 3800
-F 0 "U?" H 6700 3800 50  0000 L CNN
-F 1 "MCP6002-xMS" H 7150 3650 50  0000 C CNN
-F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 6850 3800 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6850 3800 50  0001 C CNN
-	2    6850 3800
+P 6450 3400
+F 0 "U?" H 6300 3400 50  0000 L CNN
+F 1 "MCP6002-xMS" H 6750 3250 50  0000 C CNN
+F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 6450 3400 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6450 3400 50  0001 C CNN
+	2    6450 3400
 	1    0    0    -1  
 $EndComp
 $Comp
 L Amplifier_Operational:MCP6002-xMS U?
 U 3 1 60873BA8
-P 5650 2700
-F 0 "U?" V 5750 2650 50  0000 L CNN
-F 1 "MCP6002-xMS" V 5650 2450 50  0000 L CNN
-F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 5650 2700 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 5650 2700 50  0001 C CNN
-	3    5650 2700
+P 6600 4000
+F 0 "U?" V 6700 3950 50  0000 L CNN
+F 1 "MCP6002-xMS" V 6600 3750 50  0000 L CNN
+F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 6600 4000 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6600 4000 50  0001 C CNN
+	3    6600 4000
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -1242,9 +1221,9 @@ Wire Wire Line
 Wire Wire Line
 	6050 1900 6050 2000
 Wire Wire Line
-	5250 2800 5350 2800
+	6200 4100 6300 4100
 Wire Wire Line
-	5950 2800 6050 2800
+	6900 4100 7000 4100
 $Comp
 L power:GND #PWR?
 U 1 1 60A22C2E
@@ -1444,21 +1423,21 @@ F 3 "~" H 4000 1800 50  0001 C CNN
 	1    4000 1800
 	0    1    -1   0   
 $EndComp
-Text Notes 4150 2000 0    50   ~ 0
-9.17 -> 3.3 V\n-9.17 -> 0 V
+Text Notes 4100 2000 0    50   ~ 0
+-9.17 -> 3.3 V\n+9.17 -> 0 V
 $Comp
 L Amplifier_Operational:MCP6002-xMS U?
 U 1 1 60873B9C
-P 4800 3400
-F 0 "U?" H 4650 3400 50  0000 L CNN
-F 1 "MCP6002-xMS" H 5100 3250 50  0000 C CNN
-F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 4800 3400 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 4800 3400 50  0001 C CNN
-	1    4800 3400
-	1    0    0    -1  
+P 4550 3300
+F 0 "U?" H 4400 3300 50  0000 L CNN
+F 1 "MCP6002-xMS" H 4800 3500 50  0000 C CNN
+F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 4550 3300 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 4550 3300 50  0001 C CNN
+	1    4550 3300
+	1    0    0    1   
 $EndComp
-Text Notes 4200 1000 0    50   ~ 0
-2.95 -> 3.3 V\n-2.95 -> 0 V
+Text Notes 4150 1000 0    50   ~ 0
+-2.95 -> 3.3 V\n+2.95 -> 0 V
 $Comp
 L Device:C C?
 U 1 1 60D4A9F6
@@ -1555,66 +1534,53 @@ Wire Wire Line
 $Comp
 L power:GND #PWR?
 U 1 1 60F15857
-P 6150 4300
+P 5750 3900
 AR Path="/60F15857" Ref="#PWR?"  Part="1" 
 AR Path="/6032E556/60F15857" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6150 4050 50  0001 C CNN
-F 1 "GND" H 6155 4127 50  0000 C CNN
-F 2 "" H 6150 4300 50  0001 C CNN
-F 3 "" H 6150 4300 50  0001 C CNN
-	1    6150 4300
+F 0 "#PWR?" H 5750 3650 50  0001 C CNN
+F 1 "GND" H 5755 3727 50  0000 C CNN
+F 2 "" H 5750 3900 50  0001 C CNN
+F 3 "" H 5750 3900 50  0001 C CNN
+	1    5750 3900
 	-1   0    0    -1  
 $EndComp
 $Comp
 L Device:R_Small_US R?
 U 1 1 60F1585D
-P 5950 3900
+P 5550 3500
 AR Path="/60F1585D" Ref="R?"  Part="1" 
 AR Path="/6032E556/60F1585D" Ref="R?"  Part="1" 
-F 0 "R?" V 6050 3800 50  0000 L CNN
-F 1 "10k" V 6050 3950 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 5950 3900 50  0001 C CNN
-F 3 "~" H 5950 3900 50  0001 C CNN
-	1    5950 3900
+F 0 "R?" V 5650 3400 50  0000 L CNN
+F 1 "24.9k" V 5650 3550 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5550 3500 50  0001 C CNN
+F 3 "~" H 5550 3500 50  0001 C CNN
+	1    5550 3500
 	0    1    -1   0   
 $EndComp
 Wire Wire Line
-	5750 3900 5850 3900
-$Comp
-L Device:R_Small_US R?
-U 1 1 60F15864
-P 6150 4100
-AR Path="/60F15864" Ref="R?"  Part="1" 
-AR Path="/6032E556/60F15864" Ref="R?"  Part="1" 
-F 0 "R?" H 6200 4050 50  0000 L CNN
-F 1 "10k" H 6200 4150 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 6150 4100 50  0001 C CNN
-F 3 "~" H 6150 4100 50  0001 C CNN
-	1    6150 4100
-	1    0    0    1   
-$EndComp
+	5350 3500 5450 3500
 Wire Wire Line
-	6150 3900 6150 4000
+	5750 3500 5750 3600
 Wire Wire Line
-	6150 4200 6150 4300
+	5750 3800 5750 3900
 Wire Wire Line
-	6050 3900 6150 3900
+	5650 3500 5750 3500
 $Comp
 L power:+3V3 #PWR?
 U 1 1 60F1586D
-P 5750 3900
+P 5350 3500
 AR Path="/60F1586D" Ref="#PWR?"  Part="1" 
 AR Path="/6032E556/60F1586D" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5750 3750 50  0001 C CNN
-F 1 "+3V3" H 5765 4073 50  0000 C CNN
-F 2 "" H 5750 3900 50  0001 C CNN
-F 3 "" H 5750 3900 50  0001 C CNN
-	1    5750 3900
+F 0 "#PWR?" H 5350 3350 50  0001 C CNN
+F 1 "+3V3" H 5365 3673 50  0000 C CNN
+F 2 "" H 5350 3500 50  0001 C CNN
+F 3 "" H 5350 3500 50  0001 C CNN
+	1    5350 3500
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	6150 3900 6550 3900
-Connection ~ 6150 3900
+	5750 3500 6150 3500
+Connection ~ 5750 3500
 Wire Wire Line
 	5850 1100 5850 1200
 $Comp
@@ -1637,91 +1603,91 @@ Wire Wire Line
 $Comp
 L Device:C C?
 U 1 1 6117F76F
-P 5650 3000
+P 6600 4300
 AR Path="/6117F76F" Ref="C?"  Part="1" 
 AR Path="/6032E556/6117F76F" Ref="C?"  Part="1" 
-F 0 "C?" H 5765 3046 50  0000 L CNN
-F 1 "1u" H 5765 2955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 5688 2850 50  0001 C CNN
-F 3 "~" H 5650 3000 50  0001 C CNN
-	1    5650 3000
+F 0 "C?" H 6715 4346 50  0000 L CNN
+F 1 "1u" H 6715 4255 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6638 4150 50  0001 C CNN
+F 3 "~" H 6600 4300 50  0001 C CNN
+	1    6600 4300
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6050 3000 6050 2800
+	7000 4300 7000 4100
 Wire Wire Line
-	5250 3000 5250 2800
+	6200 4300 6200 4100
 $Comp
 L power:GND #PWR?
 U 1 1 6117F777
-P 6050 3100
+P 7000 4400
 AR Path="/6117F777" Ref="#PWR?"  Part="1" 
 AR Path="/6032E556/6117F777" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6050 2850 50  0001 C CNN
-F 1 "GND" H 6055 2927 50  0000 C CNN
-F 2 "" H 6050 3100 50  0001 C CNN
-F 3 "" H 6050 3100 50  0001 C CNN
-	1    6050 3100
+F 0 "#PWR?" H 7000 4150 50  0001 C CNN
+F 1 "GND" H 7005 4227 50  0000 C CNN
+F 2 "" H 7000 4400 50  0001 C CNN
+F 3 "" H 7000 4400 50  0001 C CNN
+	1    7000 4400
 	-1   0    0    -1  
 $EndComp
 $Comp
 L power:+3V3 #PWR?
 U 1 1 6117F781
-P 5250 2700
+P 6200 4000
 AR Path="/6117F781" Ref="#PWR?"  Part="1" 
 AR Path="/6032E556/6117F781" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5250 2550 50  0001 C CNN
-F 1 "+3V3" H 5265 2873 50  0000 C CNN
-F 2 "" H 5250 2700 50  0001 C CNN
-F 3 "" H 5250 2700 50  0001 C CNN
-	1    5250 2700
+F 0 "#PWR?" H 6200 3850 50  0001 C CNN
+F 1 "+3V3" H 6215 4173 50  0000 C CNN
+F 2 "" H 6200 4000 50  0001 C CNN
+F 3 "" H 6200 4000 50  0001 C CNN
+	1    6200 4000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5250 3000 5500 3000
+	6200 4300 6450 4300
 Wire Wire Line
-	5800 3000 6050 3000
+	6750 4300 7000 4300
 Wire Wire Line
-	5250 2700 5250 2800
-Connection ~ 5250 2800
+	6200 4000 6200 4100
+Connection ~ 6200 4100
 Wire Wire Line
-	6050 3000 6050 3100
-Connection ~ 6050 3000
+	7000 4300 7000 4400
+Connection ~ 7000 4300
 $Comp
 L Device:R_Small_US R?
 U 1 1 612F0030
-P 6900 3300
+P 6500 2900
 AR Path="/612F0030" Ref="R?"  Part="1" 
 AR Path="/6032E556/612F0030" Ref="R?"  Part="1" 
-F 0 "R?" V 7000 3200 50  0000 L CNN
-F 1 "18k" V 7000 3350 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 6900 3300 50  0001 C CNN
-F 3 "~" H 6900 3300 50  0001 C CNN
-	1    6900 3300
+F 0 "R?" V 6600 2800 50  0000 L CNN
+F 1 "33k" V 6600 2950 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 6500 2900 50  0001 C CNN
+F 3 "~" H 6500 2900 50  0001 C CNN
+	1    6500 2900
 	0    1    -1   0   
 $EndComp
 $Comp
 L Device:C C?
 U 1 1 612F0036
-P 6900 3550
+P 6500 3150
 AR Path="/612F0036" Ref="C?"  Part="1" 
 AR Path="/6032E556/612F0036" Ref="C?"  Part="1" 
-F 0 "C?" V 7050 3600 50  0000 L CNN
-F 1 "1n" V 7050 3450 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 6938 3400 50  0001 C CNN
-F 3 "~" H 6900 3550 50  0001 C CNN
-	1    6900 3550
+F 0 "C?" V 6650 3200 50  0000 L CNN
+F 1 "1n" V 6650 3050 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6538 3000 50  0001 C CNN
+F 3 "~" H 6500 3150 50  0001 C CNN
+	1    6500 3150
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	6750 3550 6450 3550
+	6350 3150 6050 3150
 Wire Wire Line
-	6450 3550 6450 3700
+	6050 3150 6050 3300
 Wire Wire Line
-	6450 3300 6450 3550
-Connection ~ 6450 3550
+	6050 2900 6050 3150
+Connection ~ 6050 3150
 Wire Wire Line
-	6450 3300 6800 3300
+	6050 2900 6400 2900
 Connection ~ 1550 1200
 Connection ~ 1550 2200
 Text Notes 2550 750  0    50   ~ 0
@@ -1730,4 +1696,118 @@ Text Notes 2600 2800 0    50   ~ 0
 RT/RB = 1.36\nActual = 1.36\n0V -> 1.669 V\n1.650 / 1.688
 Text Notes 2450 1800 0    50   ~ 0
 RT/RB = 2.120\nActual = 2.121\n0V -> 1.650 V\n1.6461 / 1.6530 V
+Text Notes 5050 3900 0    50   ~ 0
+RT/RB = 1.66\nActual = 1.66\n0V -> 1.650 V\n1.6471 / 1.6528
+$Comp
+L Device:R_Small_US R?
+U 1 1 61479065
+P 5750 3300
+AR Path="/61479065" Ref="R?"  Part="1" 
+AR Path="/6032E556/61479065" Ref="R?"  Part="1" 
+F 0 "R?" V 5850 3200 50  0000 L CNN
+F 1 "100k" V 5850 3350 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5750 3300 50  0001 C CNN
+F 3 "~" H 5750 3300 50  0001 C CNN
+	1    5750 3300
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	5850 3300 6050 3300
+Connection ~ 6050 3300
+Wire Wire Line
+	6050 3300 6150 3300
+Wire Wire Line
+	6650 3150 6850 3150
+Wire Wire Line
+	6850 3150 6850 3400
+Wire Wire Line
+	6850 3400 6750 3400
+$Comp
+L Device:R_Small_US R?
+U 1 1 6149DAF8
+P 7050 3400
+AR Path="/6149DAF8" Ref="R?"  Part="1" 
+AR Path="/6032E556/6149DAF8" Ref="R?"  Part="1" 
+F 0 "R?" V 7250 3300 50  0000 L CNN
+F 1 "100" V 7150 3300 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 7050 3400 50  0001 C CNN
+F 3 "~" H 7050 3400 50  0001 C CNN
+	1    7050 3400
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	6850 3400 6950 3400
+Connection ~ 6850 3400
+Wire Wire Line
+	7150 3400 7250 3400
+Wire Wire Line
+	7250 3400 7250 2900
+Wire Wire Line
+	7250 2900 6600 2900
+$Comp
+L Device:R_Small_US R?
+U 1 1 614FC94D
+P 3950 3200
+AR Path="/614FC94D" Ref="R?"  Part="1" 
+AR Path="/6032E556/614FC94D" Ref="R?"  Part="1" 
+F 0 "R?" V 4050 3050 50  0000 L CNN
+F 1 "100k" V 4050 3200 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3950 3200 50  0001 C CNN
+F 3 "~" H 3950 3200 50  0001 C CNN
+	1    3950 3200
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	1550 3200 3750 3200
+Wire Wire Line
+	3750 3200 3850 3200
+Connection ~ 3750 3200
+Wire Wire Line
+	4050 3200 4150 3200
+Wire Wire Line
+	3900 3400 4250 3400
+$Comp
+L Device:R_Small_US R?
+U 1 1 61577B22
+P 4550 2950
+AR Path="/61577B22" Ref="R?"  Part="1" 
+AR Path="/6032E556/61577B22" Ref="R?"  Part="1" 
+F 0 "R?" V 4650 2800 50  0000 L CNN
+F 1 "100k" V 4650 2950 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 4550 2950 50  0001 C CNN
+F 3 "~" H 4550 2950 50  0001 C CNN
+	1    4550 2950
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	4450 2950 4150 2950
+Wire Wire Line
+	4150 2950 4150 3200
+Connection ~ 4150 3200
+Wire Wire Line
+	4150 3200 4250 3200
+Wire Wire Line
+	4650 2950 4950 2950
+Wire Wire Line
+	4950 2950 4950 3300
+Wire Wire Line
+	4950 3300 4850 3300
+$Comp
+L Device:R_Small_US R?
+U 1 1 60F15864
+P 5750 3700
+AR Path="/60F15864" Ref="R?"  Part="1" 
+AR Path="/6032E556/60F15864" Ref="R?"  Part="1" 
+F 0 "R?" H 5800 3650 50  0000 L CNN
+F 1 "15k" H 5800 3750 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5750 3700 50  0001 C CNN
+F 3 "~" H 5750 3700 50  0001 C CNN
+	1    5750 3700
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	4950 3300 5650 3300
+Connection ~ 4950 3300
+Text Notes 6700 3100 0    50   ~ 0
+-5 -> 3.3 V\n+5 -> 0 V
 $EndSCHEMATC
