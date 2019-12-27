@@ -22,7 +22,7 @@ AR Path="/6037478A" Ref="SW?"  Part="1"
 AR Path="/6032E556/6037478A" Ref="GLITCH_EN"  Part="1" 
 F 0 "GLITCH_EN" H 3750 7535 50  0000 C CNN
 F 1 "SW_SPDT" H 3750 7444 50  0000 C CNN
-F 2 "" H 3750 7250 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3750 7250 50  0001 C CNN
 F 3 "~" H 3750 7250 50  0001 C CNN
 	1    3750 7250
 	-1   0    0    -1  
@@ -35,7 +35,7 @@ AR Path="/60374784" Ref="SW?"  Part="1"
 AR Path="/6032E556/60374784" Ref="FREQ_LOCK"  Part="1" 
 F 0 "FREQ_LOCK" H 3750 6835 50  0000 C CNN
 F 1 "SW_SPDT" H 3750 6744 50  0000 C CNN
-F 2 "" H 3750 6550 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3750 6550 50  0001 C CNN
 F 3 "~" H 3750 6550 50  0001 C CNN
 	1    3750 6550
 	-1   0    0    -1  
@@ -180,7 +180,7 @@ AR Path="/604CD7AC" Ref="D?"  Part="1"
 AR Path="/6032E556/604CD7AC" Ref="D?"  Part="1" 
 F 0 "D?" V 1504 6429 50  0000 L CNN
 F 1 "D_TVS" V 1595 6429 50  0000 L CNN
-F 2 "" H 1550 6350 50  0001 C CNN
+F 2 "Diode_SMD:D_0603_1608Metric" H 1550 6350 50  0001 C CNN
 F 3 "~" H 1550 6350 50  0001 C CNN
 	1    1550 6350
 	0    1    1    0   
@@ -206,7 +206,7 @@ AR Path="/604CD79F" Ref="D?"  Part="1"
 AR Path="/6032E556/604CD79F" Ref="D?"  Part="1" 
 F 0 "D?" V 1504 5429 50  0000 L CNN
 F 1 "D_TVS" V 1595 5429 50  0000 L CNN
-F 2 "" H 1550 5350 50  0001 C CNN
+F 2 "Diode_SMD:D_0603_1608Metric" H 1550 5350 50  0001 C CNN
 F 3 "~" H 1550 5350 50  0001 C CNN
 	1    1550 5350
 	0    1    1    0   
@@ -358,7 +358,7 @@ AR Path="/60498558" Ref="D?"  Part="1"
 AR Path="/6032E556/60498558" Ref="D?"  Part="1" 
 F 0 "D?" V 1504 1429 50  0000 L CNN
 F 1 "D_TVS" V 1595 1429 50  0000 L CNN
-F 2 "" H 1550 1350 50  0001 C CNN
+F 2 "Diode_SMD:D_0603_1608Metric" H 1550 1350 50  0001 C CNN
 F 3 "~" H 1550 1350 50  0001 C CNN
 	1    1550 1350
 	0    1    1    0   
@@ -448,7 +448,7 @@ AR Path="/60462834" Ref="D?"  Part="1"
 AR Path="/6032E556/60462834" Ref="D?"  Part="1" 
 F 0 "D?" V 1504 4429 50  0000 L CNN
 F 1 "D_TVS" V 1595 4429 50  0000 L CNN
-F 2 "" H 1550 4350 50  0001 C CNN
+F 2 "Diode_SMD:D_0603_1608Metric" H 1550 4350 50  0001 C CNN
 F 3 "~" H 1550 4350 50  0001 C CNN
 	1    1550 4350
 	0    1    1    0   
@@ -585,7 +585,7 @@ AR Path="/60498565" Ref="D?"  Part="1"
 AR Path="/6032E556/60498565" Ref="D?"  Part="1" 
 F 0 "D?" V 1504 2429 50  0000 L CNN
 F 1 "D_TVS" V 1595 2429 50  0000 L CNN
-F 2 "" H 1550 2350 50  0001 C CNN
+F 2 "Diode_SMD:D_0603_1608Metric" H 1550 2350 50  0001 C CNN
 F 3 "~" H 1550 2350 50  0001 C CNN
 	1    1550 2350
 	0    1    1    0   
@@ -662,7 +662,7 @@ AR Path="/60431727" Ref="D?"  Part="1"
 AR Path="/6032E556/60431727" Ref="D?"  Part="1" 
 F 0 "D?" V 1504 3429 50  0000 L CNN
 F 1 "D_TVS" V 1595 3429 50  0000 L CNN
-F 2 "" H 1550 3350 50  0001 C CNN
+F 2 "Diode_SMD:D_0603_1608Metric" H 1550 3350 50  0001 C CNN
 F 3 "~" H 1550 3350 50  0001 C CNN
 	1    1550 3350
 	0    1    1    0   
@@ -1840,8 +1840,8 @@ P 4000 2300
 AR Path="/61C6E9F8" Ref="U?"  Part="1" 
 AR Path="/6032E556/61C6E9F8" Ref="U?"  Part="1" 
 F 0 "U?" H 3850 2300 50  0000 L CNN
-F 1 "TL072" H 4150 2450 50  0000 C CNN
-F 2 "" H 4000 2300 50  0001 C CNN
+F 1 "TL072CDR" H 4150 2450 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 4000 2300 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 4000 2300 50  0001 C CNN
 	1    4000 2300
 	1    0    0    1   
@@ -1853,8 +1853,8 @@ P 4550 3300
 AR Path="/61C6E9FE" Ref="U?"  Part="2" 
 AR Path="/6032E556/61C6E9FE" Ref="U?"  Part="2" 
 F 0 "U?" H 4400 3300 50  0000 L CNN
-F 1 "TL072" H 4700 3450 50  0000 C CNN
-F 2 "" H 4550 3300 50  0001 C CNN
+F 1 "TL072CDR" H 4700 3450 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 4550 3300 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 4550 3300 50  0001 C CNN
 	2    4550 3300
 	1    0    0    1   
@@ -1866,8 +1866,8 @@ P 2600 3050
 AR Path="/61C6EA04" Ref="U?"  Part="3" 
 AR Path="/6032E556/61C6EA04" Ref="U?"  Part="3" 
 F 0 "U?" V 2600 3200 50  0000 C CNN
-F 1 "TL072" V 2600 2950 50  0000 C CNN
-F 2 "" H 2600 3050 50  0001 C CNN
+F 1 "TL072CDR" V 2600 2950 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 2600 3050 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 2600 3050 50  0001 C CNN
 	3    2600 3050
 	0    -1   1    0   
@@ -2830,4 +2830,6 @@ F 3 "~" H 2450 6200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2550 6200 2650 6200
+Text Notes 3300 7750 0    50   ~ 0
+PCB Connection is pin header
 $EndSCHEMATC
