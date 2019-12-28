@@ -537,7 +537,7 @@
   )
 
   (module Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical (layer F.Cu) (tedit 5A3D4993) (tstamp 5E07BB19)
-    (at 63.746 98.512)
+    (at 63.746 97.722)
     (descr "Potentiometer, vertical, Bourns PTV09A-1 Single, http://www.bourns.com/docs/Product-Datasheets/ptv09.pdf")
     (tags "Potentiometer vertical Bourns PTV09A-1 Single")
     (path /6032E556/60374754)
@@ -631,7 +631,7 @@
   )
 
   (module Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical (layer F.Cu) (tedit 5A3D4993) (tstamp 5E085CE1)
-    (at 79.75 98.512)
+    (at 79.75 97.722)
     (descr "Potentiometer, vertical, Bourns PTV09A-1 Single, http://www.bourns.com/docs/Product-Datasheets/ptv09.pdf")
     (tags "Potentiometer vertical Bourns PTV09A-1 Single")
     (path /6032E556/60374766)
@@ -678,7 +678,7 @@
   )
 
   (module Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical (layer F.Cu) (tedit 5A3D4993) (tstamp 5E07BC0C)
-    (at 47.746 98.512)
+    (at 47.746 97.722)
     (descr "Potentiometer, vertical, Bourns PTV09A-1 Single, http://www.bourns.com/docs/Product-Datasheets/ptv09.pdf")
     (tags "Potentiometer vertical Bourns PTV09A-1 Single")
     (path /6032E556/60374742)
@@ -725,7 +725,7 @@
   )
 
   (module ttt_lib:Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles (layer F.Cu) (tedit 5C2B6BB2) (tstamp 5E07BC63)
-    (at 32.766 96.012 90)
+    (at 32.766 95.222 90)
     (descr "TRS 3.5mm, vertical, Thonkiconn, PCB mount, (http://www.qingpu-electronics.com/en/products/WQP-PJ398SM-362.html)")
     (tags "WQP-PJ398SM WQP-PJ301M-12 TRS 3.5mm mono vertical jack thonkiconn qingpu")
     (path /6032E556/60498552)
@@ -4822,7 +4822,7 @@
   )
 
   (module Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical (layer F.Cu) (tedit 5A3D4993) (tstamp 5E085D32)
-    (at 79.75 124.928)
+    (at 79.75 125.718)
     (descr "Potentiometer, vertical, Bourns PTV09A-1 Single, http://www.bourns.com/docs/Product-Datasheets/ptv09.pdf")
     (tags "Potentiometer vertical Bourns PTV09A-1 Single")
     (path /6032E556/60374772)
@@ -4869,7 +4869,7 @@
   )
 
   (module Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical (layer F.Cu) (tedit 5A3D4993) (tstamp 5E085B03)
-    (at 47.746 124.928)
+    (at 47.746 125.718)
     (descr "Potentiometer, vertical, Bourns PTV09A-1 Single, http://www.bourns.com/docs/Product-Datasheets/ptv09.pdf")
     (tags "Potentiometer vertical Bourns PTV09A-1 Single")
     (path /6032E556/6037474E)
@@ -4916,7 +4916,7 @@
   )
 
   (module Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical (layer F.Cu) (tedit 5A3D4993) (tstamp 5E07BECA)
-    (at 63.746 124.928)
+    (at 63.746 125.718)
     (descr "Potentiometer, vertical, Bourns PTV09A-1 Single, http://www.bourns.com/docs/Product-Datasheets/ptv09.pdf")
     (tags "Potentiometer vertical Bourns PTV09A-1 Single")
     (path /6032E556/60374760)
@@ -4963,7 +4963,7 @@
   )
 
   (module ttt_lib:Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles (layer F.Cu) (tedit 5C2B6BB2) (tstamp 5E084D69)
-    (at 32.766 122.428 90)
+    (at 32.766 123.218 90)
     (descr "TRS 3.5mm, vertical, Thonkiconn, PCB mount, (http://www.qingpu-electronics.com/en/products/WQP-PJ398SM-362.html)")
     (tags "WQP-PJ398SM WQP-PJ301M-12 TRS 3.5mm mono vertical jack thonkiconn qingpu")
     (path /6032E556/60374736)
@@ -5018,7 +5018,7 @@
   )
 
   (module ttt_lib:Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles (layer F.Cu) (tedit 5C2B6BB2) (tstamp 5E07BFD5)
-    (at 18.034 122.428 90)
+    (at 18.034 123.218 90)
     (descr "TRS 3.5mm, vertical, Thonkiconn, PCB mount, (http://www.qingpu-electronics.com/en/products/WQP-PJ398SM-362.html)")
     (tags "WQP-PJ398SM WQP-PJ301M-12 TRS 3.5mm mono vertical jack thonkiconn qingpu")
     (path /6032E556/604CD783)
@@ -5571,7 +5571,7 @@
   )
 
   (module ttt_lib:Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles (layer F.Cu) (tedit 5C2B6BB2) (tstamp 5E07BCC6)
-    (at 18.034 96.012 90)
+    (at 18.034 95.222 90)
     (descr "TRS 3.5mm, vertical, Thonkiconn, PCB mount, (http://www.qingpu-electronics.com/en/products/WQP-PJ398SM-362.html)")
     (tags "WQP-PJ398SM WQP-PJ301M-12 TRS 3.5mm mono vertical jack thonkiconn qingpu")
     (path /6032E556/604CD799)
@@ -7603,10 +7603,10 @@
   )
 
   (gr_line (start 103.246 120.928) (end 103.246 123.928) (layer Dwgs.User) (width 0.15) (tstamp 5E085BCA))
-  (gr_line (start 87.246 120.928) (end 87.246 123.928) (layer Dwgs.User) (width 0.15) (tstamp 5E085BCA))
-  (gr_line (start 71.246 120.928) (end 71.246 123.928) (layer Dwgs.User) (width 0.15) (tstamp 5E085BCA))
-  (gr_line (start 55.246 120.928) (end 55.246 123.928) (layer Dwgs.User) (width 0.15) (tstamp 5E085B73))
-  (gr_line (start 39.246 120.928) (end 39.246 123.928) (layer Dwgs.User) (width 0.15))
+  (gr_line (start 87.246 121.718) (end 87.246 124.718) (layer Dwgs.User) (width 0.15) (tstamp 5E085BCA))
+  (gr_line (start 71.246 121.718) (end 71.246 124.718) (layer Dwgs.User) (width 0.15) (tstamp 5E085BCA))
+  (gr_line (start 55.246 121.718) (end 55.246 124.718) (layer Dwgs.User) (width 0.15) (tstamp 5E085B73))
+  (gr_line (start 39.246 121.718) (end 39.246 124.718) (layer Dwgs.User) (width 0.15))
   (gr_poly (pts (xy 129.54 101.6) (xy 143.51 102.235) (xy 143.51 40.005) (xy 129.54 39.37)) (layer F.Cu) (width 0.1) (tstamp 5D80BB7D))
   (gr_poly (pts (xy 156.21 101.6) (xy 169.672 101.6) (xy 169.672 39.37) (xy 156.21 39.37)) (layer F.Cu) (width 0.1) (tstamp 5D80BB77))
   (gr_poly (pts (xy 135.89 39.37) (xy 163.83 39.37) (xy 163.83 1.27) (xy 135.89 1.27)) (layer F.Cu) (width 0.1) (tstamp 5D80B620))
