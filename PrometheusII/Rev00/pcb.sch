@@ -17,41 +17,28 @@ $EndDescr
 $Comp
 L Switch:SW_SPDT SW?
 U 1 1 6037478A
-P 3750 7250
+P 3350 7350
 AR Path="/6037478A" Ref="SW?"  Part="1" 
 AR Path="/6032E556/6037478A" Ref="GLITCH_EN1"  Part="1" 
-F 0 "GLITCH_EN1" H 3750 7535 50  0000 C CNN
-F 1 "SW_SPDT" H 3750 7444 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3750 7250 50  0001 C CNN
-F 3 "~" H 3750 7250 50  0001 C CNN
-	1    3750 7250
+F 0 "GLITCH_EN1" H 3350 7550 50  0000 C CNN
+F 1 "100SP5T1B1M2QEH" H 3350 7544 50  0001 C CNN
+F 2 "digikey-footprints:Toggle_Switch_100SP1T1B4M2QE" H 3350 7350 50  0001 C CNN
+F 3 "~" H 3350 7350 50  0001 C CNN
+	1    3350 7350
 	-1   0    0    -1  
 $EndComp
 $Comp
 L Switch:SW_SPDT SW?
 U 1 1 60374784
-P 3750 6550
+P 3350 6650
 AR Path="/60374784" Ref="SW?"  Part="1" 
 AR Path="/6032E556/60374784" Ref="FREQ_LOCK1"  Part="1" 
-F 0 "FREQ_LOCK1" H 3750 6835 50  0000 C CNN
-F 1 "SW_SPDT" H 3750 6744 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3750 6550 50  0001 C CNN
-F 3 "~" H 3750 6550 50  0001 C CNN
-	1    3750 6550
+F 0 "FREQ_LOCK1" H 3350 6850 50  0000 C CNN
+F 1 "100SP5T1B1M2QEH" H 3200 6350 50  0000 C CNN
+F 2 "digikey-footprints:Toggle_Switch_100SP1T1B4M2QE" H 3350 6650 50  0001 C CNN
+F 3 "~" H 3350 6650 50  0001 C CNN
+	1    3350 6650
 	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:R_POT RV?
-U 1 1 6037477E
-P 5350 7000
-AR Path="/6037477E" Ref="RV?"  Part="1" 
-AR Path="/6032E556/6037477E" Ref="LFO1"  Part="1" 
-F 0 "LFO1" H 5281 7046 50  0000 R CNN
-F 1 "100k" H 5281 6955 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 5350 7000 50  0001 C CNN
-F 3 "~" H 5350 7000 50  0001 C CNN
-	1    5350 7000
-	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_POT RV?
@@ -2481,120 +2468,60 @@ Wire Wire Line
 Text Notes 9600 4500 0    50   ~ 0
 From GPIO 32
 $Comp
-L power:+3V3 #PWR?
-U 1 1 5FB42AC7
-P 5350 6750
-AR Path="/5FB42AC7" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/5FB42AC7" Ref="#PWR093"  Part="1" 
-F 0 "#PWR093" H 5350 6600 50  0001 C CNN
-F 1 "+3V3" H 5365 6923 50  0000 C CNN
-F 2 "" H 5350 6750 50  0001 C CNN
-F 3 "" H 5350 6750 50  0001 C CNN
-	1    5350 6750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5350 6750 5350 6850
-$Comp
-L power:GND #PWR?
-U 1 1 5FB57B34
-P 5350 7250
-AR Path="/5FB57B34" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/5FB57B34" Ref="#PWR094"  Part="1" 
-F 0 "#PWR094" H 5350 7000 50  0001 C CNN
-F 1 "GND" H 5355 7077 50  0000 C CNN
-F 2 "" H 5350 7250 50  0001 C CNN
-F 3 "" H 5350 7250 50  0001 C CNN
-	1    5350 7250
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	5350 7150 5350 7250
-Text HLabel 5500 7000 2    50   Input ~ 0
-LFO
-Text Notes 5550 6950 0    50   ~ 0
-To A11
-$Comp
 L power:GND #PWR?
 U 1 1 5FCAE062
-P 3450 7450
+P 3050 7550
 AR Path="/5FCAE062" Ref="#PWR?"  Part="1" 
 AR Path="/6032E556/5FCAE062" Ref="#PWR083"  Part="1" 
-F 0 "#PWR083" H 3450 7200 50  0001 C CNN
-F 1 "GND" H 3455 7277 50  0000 C CNN
-F 2 "" H 3450 7450 50  0001 C CNN
-F 3 "" H 3450 7450 50  0001 C CNN
-	1    3450 7450
+F 0 "#PWR083" H 3050 7300 50  0001 C CNN
+F 1 "GND" H 3055 7377 50  0000 C CNN
+F 2 "" H 3050 7550 50  0001 C CNN
+F 3 "" H 3050 7550 50  0001 C CNN
+	1    3050 7550
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	3550 7350 3450 7350
+	3150 7450 3050 7450
 Wire Wire Line
-	3450 7350 3450 7450
+	3050 7450 3050 7550
 Wire Wire Line
-	3550 6650 3450 6650
+	3150 6750 3050 6750
 Wire Wire Line
-	3450 6650 3450 7350
-Connection ~ 3450 7350
+	3050 6750 3050 7250
+Connection ~ 3050 7450
 $Comp
 L Device:R_Small_US R?
 U 1 1 5FD89EDA
-P 3200 6450
+P 4000 6450
 AR Path="/5FD89EDA" Ref="R?"  Part="1" 
 AR Path="/6032E556/5FD89EDA" Ref="R56"  Part="1" 
-F 0 "R56" V 3300 6350 50  0000 C CNN
-F 1 "100k" V 3300 6550 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3200 6450 50  0001 C CNN
-F 3 "~" H 3200 6450 50  0001 C CNN
-	1    3200 6450
-	0    1    -1   0   
+F 0 "R56" H 4050 6400 50  0000 L CNN
+F 1 "100k" H 4050 6500 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 4000 6450 50  0001 C CNN
+F 3 "~" H 4000 6450 50  0001 C CNN
+	1    4000 6450
+	1    0    0    1   
 $EndComp
 $Comp
 L Device:R_Small_US R?
 U 1 1 5FDB0C8A
-P 3250 7150
+P 3900 7150
 AR Path="/5FDB0C8A" Ref="R?"  Part="1" 
 AR Path="/6032E556/5FDB0C8A" Ref="R59"  Part="1" 
-F 0 "R59" V 3350 7050 50  0000 C CNN
-F 1 "100k" V 3350 7250 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3250 7150 50  0001 C CNN
-F 3 "~" H 3250 7150 50  0001 C CNN
-	1    3250 7150
-	0    1    -1   0   
+F 0 "R59" H 3950 7100 50  0000 L CNN
+F 1 "100k" H 3950 7200 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3900 7150 50  0001 C CNN
+F 3 "~" H 3900 7150 50  0001 C CNN
+	1    3900 7150
+	1    0    0    1   
 $EndComp
-Wire Wire Line
-	3550 7150 3350 7150
-Wire Wire Line
-	3300 6450 3550 6450
-$Comp
-L power:+3V3 #PWR?
-U 1 1 5FE00483
-P 3000 6350
-AR Path="/5FE00483" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/5FE00483" Ref="#PWR080"  Part="1" 
-F 0 "#PWR080" H 3000 6200 50  0001 C CNN
-F 1 "+3V3" H 3015 6523 50  0000 C CNN
-F 2 "" H 3000 6350 50  0001 C CNN
-F 3 "" H 3000 6350 50  0001 C CNN
-	1    3000 6350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3000 6350 3000 6450
-Wire Wire Line
-	3000 7150 3150 7150
-Wire Wire Line
-	3100 6450 3000 6450
-Connection ~ 3000 6450
-Wire Wire Line
-	3000 6450 3000 7150
-Text HLabel 3950 6550 2    50   Input ~ 0
+Text HLabel 4250 6650 2    50   Input ~ 0
 FREQ_LOCK
-Text HLabel 3950 7250 2    50   Input ~ 0
+Text HLabel 4200 7350 2    50   Input ~ 0
 GLITCH_EN
-Text Notes 4000 6500 0    50   ~ 0
+Text Notes 4250 6750 0    50   ~ 0
 To GPIO 31
-Text Notes 4000 7200 0    50   ~ 0
+Text Notes 4250 7300 0    50   ~ 0
 To GPIO 27
 $Comp
 L power:+3V3 #PWR?
@@ -2759,8 +2686,6 @@ F 3 "~" H 2450 6200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2550 6200 2650 6200
-Text Notes 3300 7750 0    50   ~ 0
-PCB Connection is pin header
 $Comp
 L power:+3V3 #PWR?
 U 1 1 5E3C9655
@@ -2857,4 +2782,99 @@ Wire Wire Line
 Connection ~ 4400 2300
 Text Notes 6550 1350 0    50   ~ 0
 Unused Channels
+Wire Wire Line
+	3150 6550 3050 6550
+Wire Wire Line
+	3050 6550 3050 6750
+Connection ~ 3050 6750
+Wire Wire Line
+	3150 7250 3050 7250
+Connection ~ 3050 7250
+Wire Wire Line
+	3050 7250 3050 7450
+Text Notes 3450 7650 0    50   ~ 0
+Pin 3 momentary\nKeyway on pin 3 side
+Wire Wire Line
+	3550 7350 3900 7350
+Wire Wire Line
+	4000 6550 4000 6650
+Connection ~ 4000 6650
+Wire Wire Line
+	4000 6650 4250 6650
+Wire Wire Line
+	3900 7250 3900 7350
+Connection ~ 3900 7350
+Wire Wire Line
+	3900 7350 4200 7350
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5F105A04
+P 4000 6250
+AR Path="/5F105A04" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5F105A04" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4000 6100 50  0001 C CNN
+F 1 "+3V3" H 4015 6423 50  0000 C CNN
+F 2 "" H 4000 6250 50  0001 C CNN
+F 3 "" H 4000 6250 50  0001 C CNN
+	1    4000 6250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4000 6250 4000 6300
+Wire Wire Line
+	4000 6300 3900 6300
+Wire Wire Line
+	3900 6300 3900 7050
+Connection ~ 4000 6300
+Wire Wire Line
+	4000 6300 4000 6350
+Text Notes 5550 6950 0    50   ~ 0
+To A11
+Text HLabel 5500 7000 2    50   Input ~ 0
+LFO
+Wire Wire Line
+	5350 7150 5350 7250
+$Comp
+L power:GND #PWR?
+U 1 1 5FB57B34
+P 5350 7250
+AR Path="/5FB57B34" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5FB57B34" Ref="#PWR094"  Part="1" 
+F 0 "#PWR094" H 5350 7000 50  0001 C CNN
+F 1 "GND" H 5355 7077 50  0000 C CNN
+F 2 "" H 5350 7250 50  0001 C CNN
+F 3 "" H 5350 7250 50  0001 C CNN
+	1    5350 7250
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 6750 5350 6850
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5FB42AC7
+P 5350 6750
+AR Path="/5FB42AC7" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5FB42AC7" Ref="#PWR093"  Part="1" 
+F 0 "#PWR093" H 5350 6600 50  0001 C CNN
+F 1 "+3V3" H 5365 6923 50  0000 C CNN
+F 2 "" H 5350 6750 50  0001 C CNN
+F 3 "" H 5350 6750 50  0001 C CNN
+	1    5350 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_POT RV?
+U 1 1 6037477E
+P 5350 7000
+AR Path="/6037477E" Ref="RV?"  Part="1" 
+AR Path="/6032E556/6037477E" Ref="LFO1"  Part="1" 
+F 0 "LFO1" H 5281 7046 50  0000 R CNN
+F 1 "100k" H 5281 6955 50  0000 R CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 5350 7000 50  0001 C CNN
+F 3 "~" H 5350 7000 50  0001 C CNN
+	1    5350 7000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 6650 4000 6650
 $EndSCHEMATC
