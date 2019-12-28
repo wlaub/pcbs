@@ -962,7 +962,7 @@ Connection ~ 6250 6350
 Wire Wire Line
 	6250 6350 6250 6000
 Wire Wire Line
-	5900 5700 5350 5700
+	5900 5700 5500 5700
 Wire Wire Line
 	5350 5700 5350 4950
 Connection ~ 2900 5200
@@ -2229,7 +2229,7 @@ Wire Wire Line
 Text HLabel 7650 4850 0    50   Input ~ 0
 LFO_LED
 Wire Wire Line
-	7750 4850 7650 4850
+	7750 4850 7700 4850
 Text Notes 7200 4950 0    50   ~ 0
 From GPIO 30
 $Comp
@@ -2560,7 +2560,7 @@ To coupling control
 Text HLabel 2250 7150 2    50   Input ~ 0
 FILT_CV
 Wire Wire Line
-	1250 7150 2250 7150
+	1250 7150 1850 7150
 $Comp
 L Transistor_FET:BSS138 Q5
 U 1 1 5FFE5F7B
@@ -2665,7 +2665,7 @@ Wire Wire Line
 Wire Wire Line
 	5050 6200 5250 6200
 Wire Wire Line
-	5250 6200 5250 5600
+	5250 6200 5250 5900
 Connection ~ 5250 5600
 Wire Wire Line
 	5250 5600 5900 5600
@@ -2685,7 +2685,7 @@ F 3 "~" H 2450 6200 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2550 6200 2650 6200
+	2550 6200 2600 6200
 $Comp
 L power:+3V3 #PWR?
 U 1 1 5E3C9655
@@ -2800,12 +2800,12 @@ Wire Wire Line
 	4000 6550 4000 6650
 Connection ~ 4000 6650
 Wire Wire Line
-	4000 6650 4250 6650
+	4000 6650 4100 6650
 Wire Wire Line
 	3900 7250 3900 7350
 Connection ~ 3900 7350
 Wire Wire Line
-	3900 7350 4200 7350
+	3900 7350 4050 7350
 $Comp
 L power:+3V3 #PWR?
 U 1 1 5F105A04
@@ -2877,4 +2877,618 @@ F 3 "~" H 5350 7000 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3550 6650 4000 6650
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E27AA9B
+P 8100 1400
+F 0 "J?" V 8104 1480 50  0000 L CNN
+F 1 "Conn_02x01" V 8195 1480 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8100 1400 50  0001 C CNN
+F 3 "~" H 8100 1400 50  0001 C CNN
+	1    8100 1400
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E2AF78C
+P 8100 1700
+AR Path="/5E2AF78C" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E2AF78C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8100 1450 50  0001 C CNN
+F 1 "GND" H 8105 1527 50  0000 C CNN
+F 2 "" H 8100 1700 50  0001 C CNN
+F 3 "" H 8100 1700 50  0001 C CNN
+	1    8100 1700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 1000 7850 1200
+Wire Wire Line
+	7850 1200 8100 1200
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E2D7B27
+P 9250 1400
+F 0 "J?" V 9254 1480 50  0000 L CNN
+F 1 "Conn_02x01" V 9345 1480 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 9250 1400 50  0001 C CNN
+F 3 "~" H 9250 1400 50  0001 C CNN
+	1    9250 1400
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E2D7B2D
+P 9250 1700
+AR Path="/5E2D7B2D" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E2D7B2D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 1450 50  0001 C CNN
+F 1 "GND" H 9255 1527 50  0000 C CNN
+F 2 "" H 9250 1700 50  0001 C CNN
+F 3 "" H 9250 1700 50  0001 C CNN
+	1    9250 1700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9000 1200 9250 1200
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E2E9DAF
+P 10700 1400
+F 0 "J?" V 10704 1480 50  0000 L CNN
+F 1 "Conn_02x01" V 10795 1480 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10700 1400 50  0001 C CNN
+F 3 "~" H 10700 1400 50  0001 C CNN
+	1    10700 1400
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E2E9DB5
+P 10700 1700
+AR Path="/5E2E9DB5" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E2E9DB5" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 10700 1450 50  0001 C CNN
+F 1 "GND" H 10705 1527 50  0000 C CNN
+F 2 "" H 10700 1700 50  0001 C CNN
+F 3 "" H 10700 1700 50  0001 C CNN
+	1    10700 1700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10450 1200 10700 1200
+Wire Wire Line
+	10450 1200 10450 1000
+Wire Wire Line
+	9000 1000 9000 1200
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E31DE83
+P 9250 2850
+F 0 "J?" V 9254 2930 50  0000 L CNN
+F 1 "Conn_02x01" V 9345 2930 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 9250 2850 50  0001 C CNN
+F 3 "~" H 9250 2850 50  0001 C CNN
+	1    9250 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E31DE89
+P 9250 3150
+AR Path="/5E31DE89" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E31DE89" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 2900 50  0001 C CNN
+F 1 "GND" H 9255 2977 50  0000 C CNN
+F 2 "" H 9250 3150 50  0001 C CNN
+F 3 "" H 9250 3150 50  0001 C CNN
+	1    9250 3150
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9000 2650 9250 2650
+Wire Wire Line
+	9000 2500 9000 2650
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E34153E
+P 10750 2850
+F 0 "J?" V 10754 2930 50  0000 L CNN
+F 1 "Conn_02x01" V 10845 2930 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10750 2850 50  0001 C CNN
+F 3 "~" H 10750 2850 50  0001 C CNN
+	1    10750 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E341544
+P 10750 3150
+AR Path="/5E341544" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E341544" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 10750 2900 50  0001 C CNN
+F 1 "GND" H 10755 2977 50  0000 C CNN
+F 2 "" H 10750 3150 50  0001 C CNN
+F 3 "" H 10750 3150 50  0001 C CNN
+	1    10750 3150
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10500 2650 10750 2650
+Wire Wire Line
+	10500 2650 10500 2500
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E363F91
+P 10750 3900
+F 0 "J?" V 10754 3980 50  0000 L CNN
+F 1 "Conn_02x01" V 10845 3980 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10750 3900 50  0001 C CNN
+F 3 "~" H 10750 3900 50  0001 C CNN
+	1    10750 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E363F97
+P 10750 4200
+AR Path="/5E363F97" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E363F97" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 10750 3950 50  0001 C CNN
+F 1 "GND" H 10755 4027 50  0000 C CNN
+F 2 "" H 10750 4200 50  0001 C CNN
+F 3 "" H 10750 4200 50  0001 C CNN
+	1    10750 4200
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10500 3700 10750 3700
+Wire Wire Line
+	10500 3700 10500 3500
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E386B77
+P 9250 3900
+F 0 "J?" V 9254 3980 50  0000 L CNN
+F 1 "Conn_02x01" V 9345 3980 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 9250 3900 50  0001 C CNN
+F 3 "~" H 9250 3900 50  0001 C CNN
+	1    9250 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E386B7D
+P 9250 4200
+AR Path="/5E386B7D" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E386B7D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 3950 50  0001 C CNN
+F 1 "GND" H 9255 4027 50  0000 C CNN
+F 2 "" H 9250 4200 50  0001 C CNN
+F 3 "" H 9250 4200 50  0001 C CNN
+	1    9250 4200
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9000 3700 9250 3700
+Wire Wire Line
+	9000 3500 9000 3700
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E3AB383
+P 7750 3900
+F 0 "J?" V 7754 3980 50  0000 L CNN
+F 1 "Conn_02x01" V 7845 3980 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7750 3900 50  0001 C CNN
+F 3 "~" H 7750 3900 50  0001 C CNN
+	1    7750 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E3AB389
+P 7750 4200
+AR Path="/5E3AB389" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E3AB389" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7750 3950 50  0001 C CNN
+F 1 "GND" H 7755 4027 50  0000 C CNN
+F 2 "" H 7750 4200 50  0001 C CNN
+F 3 "" H 7750 4200 50  0001 C CNN
+	1    7750 4200
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 3700 7750 3700
+Wire Wire Line
+	7500 3500 7500 3700
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E3EB196
+P 10950 4750
+F 0 "J?" V 10954 4830 50  0000 L CNN
+F 1 "Conn_02x01" V 11045 4830 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10950 4750 50  0001 C CNN
+F 3 "~" H 10950 4750 50  0001 C CNN
+	1    10950 4750
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E3EB19C
+P 10950 5050
+AR Path="/5E3EB19C" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E3EB19C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 10950 4800 50  0001 C CNN
+F 1 "GND" H 10955 4877 50  0000 C CNN
+F 2 "" H 10950 5050 50  0001 C CNN
+F 3 "" H 10950 5050 50  0001 C CNN
+	1    10950 5050
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10150 4550 10950 4550
+Connection ~ 10150 4550
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E41AFF6
+P 7400 5300
+F 0 "J?" V 7404 5380 50  0000 L CNN
+F 1 "Conn_02x01" V 7495 5380 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7400 5300 50  0001 C CNN
+F 3 "~" H 7400 5300 50  0001 C CNN
+	1    7400 5300
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E41AFFC
+P 7400 5600
+AR Path="/5E41AFFC" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E41AFFC" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7400 5350 50  0001 C CNN
+F 1 "GND" H 7405 5427 50  0000 C CNN
+F 2 "" H 7400 5600 50  0001 C CNN
+F 3 "" H 7400 5600 50  0001 C CNN
+	1    7400 5600
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 5100 7700 5100
+Wire Wire Line
+	7700 5100 7700 4850
+Connection ~ 7700 4850
+Wire Wire Line
+	7700 4850 7650 4850
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E4480FE
+P 5750 7400
+F 0 "J?" V 5754 7480 50  0000 L CNN
+F 1 "Conn_02x01" V 5845 7480 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5750 7400 50  0001 C CNN
+F 3 "~" H 5750 7400 50  0001 C CNN
+	1    5750 7400
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E448104
+P 5750 7700
+AR Path="/5E448104" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E448104" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5750 7450 50  0001 C CNN
+F 1 "GND" H 5755 7527 50  0000 C CNN
+F 2 "" H 5750 7700 50  0001 C CNN
+F 3 "" H 5750 7700 50  0001 C CNN
+	1    5750 7700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 7200 5750 7200
+Wire Wire Line
+	5500 7000 5500 7200
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E46FDEA
+P 5750 6050
+F 0 "J?" V 5754 6130 50  0000 L CNN
+F 1 "Conn_02x01" V 5845 6130 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5750 6050 50  0001 C CNN
+F 3 "~" H 5750 6050 50  0001 C CNN
+	1    5750 6050
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E46FDF0
+P 5750 6350
+AR Path="/5E46FDF0" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E46FDF0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5750 6100 50  0001 C CNN
+F 1 "GND" H 5755 6177 50  0000 C CNN
+F 2 "" H 5750 6350 50  0001 C CNN
+F 3 "" H 5750 6350 50  0001 C CNN
+	1    5750 6350
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 5850 5750 5850
+Wire Wire Line
+	5500 5850 5500 5700
+Connection ~ 5500 5700
+Wire Wire Line
+	5500 5700 5350 5700
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E496032
+P 5600 6100
+F 0 "J?" V 5604 6180 50  0000 L CNN
+F 1 "Conn_02x01" V 5695 6180 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5600 6100 50  0001 C CNN
+F 3 "~" H 5600 6100 50  0001 C CNN
+	1    5600 6100
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E496038
+P 5600 6400
+AR Path="/5E496038" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E496038" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5600 6150 50  0001 C CNN
+F 1 "GND" H 5605 6227 50  0000 C CNN
+F 2 "" H 5600 6400 50  0001 C CNN
+F 3 "" H 5600 6400 50  0001 C CNN
+	1    5600 6400
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 5900 5600 5900
+Connection ~ 5250 5900
+Wire Wire Line
+	5250 5900 5250 5600
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E4C0803
+P 2100 7550
+F 0 "J?" V 2104 7630 50  0000 L CNN
+F 1 "Conn_02x01" V 2195 7630 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2100 7550 50  0001 C CNN
+F 3 "~" H 2100 7550 50  0001 C CNN
+	1    2100 7550
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E4C0809
+P 2100 7850
+AR Path="/5E4C0809" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E4C0809" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2100 7600 50  0001 C CNN
+F 1 "GND" H 2105 7677 50  0000 C CNN
+F 2 "" H 2100 7850 50  0001 C CNN
+F 3 "" H 2100 7850 50  0001 C CNN
+	1    2100 7850
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1850 7350 2100 7350
+Wire Wire Line
+	1850 7350 1850 7150
+Connection ~ 1850 7150
+Wire Wire Line
+	1850 7150 2250 7150
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E4EC38C
+P 2650 6800
+F 0 "J?" V 2654 6880 50  0000 L CNN
+F 1 "Conn_02x01" V 2745 6880 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2650 6800 50  0001 C CNN
+F 3 "~" H 2650 6800 50  0001 C CNN
+	1    2650 6800
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E4EC392
+P 2650 7100
+AR Path="/5E4EC392" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E4EC392" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2650 6850 50  0001 C CNN
+F 1 "GND" H 2655 6927 50  0000 C CNN
+F 2 "" H 2650 7100 50  0001 C CNN
+F 3 "" H 2650 7100 50  0001 C CNN
+	1    2650 7100
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 6600 2600 6600
+Wire Wire Line
+	2600 6200 2600 6600
+Connection ~ 2600 6200
+Wire Wire Line
+	2600 6200 2650 6200
+Connection ~ 2600 6600
+Wire Wire Line
+	2600 6600 2650 6600
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E516595
+P 4900 7200
+F 0 "J?" V 4904 7280 50  0000 L CNN
+F 1 "Conn_02x01" V 4995 7280 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4900 7200 50  0001 C CNN
+F 3 "~" H 4900 7200 50  0001 C CNN
+	1    4900 7200
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E51659B
+P 4900 7500
+AR Path="/5E51659B" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E51659B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4900 7250 50  0001 C CNN
+F 1 "GND" H 4905 7327 50  0000 C CNN
+F 2 "" H 4900 7500 50  0001 C CNN
+F 3 "" H 4900 7500 50  0001 C CNN
+	1    4900 7500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E52B500
+P 4650 7800
+F 0 "J?" V 4654 7880 50  0000 L CNN
+F 1 "Conn_02x01" V 4745 7880 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4650 7800 50  0001 C CNN
+F 3 "~" H 4650 7800 50  0001 C CNN
+	1    4650 7800
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E52B506
+P 4650 8100
+AR Path="/5E52B506" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E52B506" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4650 7850 50  0001 C CNN
+F 1 "GND" H 4655 7927 50  0000 C CNN
+F 2 "" H 4650 8100 50  0001 C CNN
+F 3 "" H 4650 8100 50  0001 C CNN
+	1    4650 8100
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 7350 4050 7600
+Wire Wire Line
+	4050 7600 4650 7600
+Connection ~ 4050 7350
+Wire Wire Line
+	4050 7350 4200 7350
+Wire Wire Line
+	4100 6650 4100 7000
+Wire Wire Line
+	4100 7000 4900 7000
+Connection ~ 4100 6650
+Wire Wire Line
+	4100 6650 4250 6650
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E57363B
+P 6800 7000
+F 0 "J?" V 6804 7080 50  0000 L CNN
+F 1 "Conn_02x01" V 6895 7080 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6800 7000 50  0001 C CNN
+F 3 "~" H 6800 7000 50  0001 C CNN
+	1    6800 7000
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E573641
+P 6800 7300
+AR Path="/5E573641" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E573641" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6800 7050 50  0001 C CNN
+F 1 "GND" H 6805 7127 50  0000 C CNN
+F 2 "" H 6800 7300 50  0001 C CNN
+F 3 "" H 6800 7300 50  0001 C CNN
+	1    6800 7300
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 6800 6800 6800
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E589344
+P 7050 6900
+F 0 "J?" V 7054 6980 50  0000 L CNN
+F 1 "Conn_02x01" V 7145 6980 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7050 6900 50  0001 C CNN
+F 3 "~" H 7050 6900 50  0001 C CNN
+	1    7050 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E58934A
+P 7050 7200
+AR Path="/5E58934A" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E58934A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7050 6950 50  0001 C CNN
+F 1 "GND" H 7055 7027 50  0000 C CNN
+F 2 "" H 7050 7200 50  0001 C CNN
+F 3 "" H 7050 7200 50  0001 C CNN
+	1    7050 7200
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 6700 7050 6700
+$Comp
+L Connector_Generic:Conn_02x01 J?
+U 1 1 5E59F1DE
+P 7350 6800
+F 0 "J?" V 7354 6880 50  0000 L CNN
+F 1 "Conn_02x01" V 7445 6880 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7350 6800 50  0001 C CNN
+F 3 "~" H 7350 6800 50  0001 C CNN
+	1    7350 6800
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E59F1E4
+P 7350 7100
+AR Path="/5E59F1E4" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E59F1E4" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7350 6850 50  0001 C CNN
+F 1 "GND" H 7355 6927 50  0000 C CNN
+F 2 "" H 7350 7100 50  0001 C CNN
+F 3 "" H 7350 7100 50  0001 C CNN
+	1    7350 7100
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7100 6600 7350 6600
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5E5B9E00
+P 7100 6600
+AR Path="/5E5B9E00" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E5B9E00" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7100 6450 50  0001 C CNN
+F 1 "+3V3" H 7115 6773 50  0000 C CNN
+F 2 "" H 7100 6600 50  0001 C CNN
+F 3 "" H 7100 6600 50  0001 C CNN
+	1    7100 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR?
+U 1 1 5E5EC643
+P 6750 6700
+AR Path="/5E5EC643" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E5EC643" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6750 6550 50  0001 C CNN
+F 1 "+12V" H 6765 6873 50  0000 C CNN
+F 2 "" H 6750 6700 50  0001 C CNN
+F 3 "" H 6750 6700 50  0001 C CNN
+	1    6750 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:-12V #PWR?
+U 1 1 5E5EC649
+P 6550 6750
+AR Path="/5E5EC649" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5E5EC649" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6550 6850 50  0001 C CNN
+F 1 "-12V" H 6565 6923 50  0000 C CNN
+F 2 "" H 6550 6750 50  0001 C CNN
+F 3 "" H 6550 6750 50  0001 C CNN
+	1    6550 6750
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
