@@ -2937,17 +2937,10 @@ $EndComp
 Wire Wire Line
 	9300 4450 9200 4450
 Wire Wire Line
-	9200 4450 9200 4550
-Wire Wire Line
 	9300 4650 9200 4650
 Connection ~ 9200 4650
 Wire Wire Line
 	9200 4650 9200 4750
-Wire Wire Line
-	9300 4550 9200 4550
-Connection ~ 9200 4550
-Wire Wire Line
-	9200 4550 9200 4650
 $Comp
 L Connector_Generic:Conn_02x05_Odd_Even J3
 U 1 1 5E372E9C
@@ -2972,16 +2965,9 @@ F 3 "~" H 9600 5550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9800 4250 9900 4250
-Wire Wire Line
-	9900 4250 9900 4350
-Wire Wire Line
-	9800 4350 9900 4350
-Connection ~ 9900 4350
-Wire Wire Line
-	9900 4350 9900 4750
-Text Label 10000 4450 0    50   ~ 0
+Text Label 10000 4350 0    50   ~ 0
 VOCT_ATV
-Text Label 10000 4550 0    50   ~ 0
+Text Label 10000 4450 0    50   ~ 0
 VOCT_CV
 $Comp
 L power:-12V #PWR0132
@@ -2999,10 +2985,8 @@ Wire Wire Line
 Wire Wire Line
 	10100 4650 10100 4750
 Wire Wire Line
-	10000 4550 9800 4550
-Wire Wire Line
 	9800 4450 10000 4450
-Text Label 9100 4250 2    50   ~ 0
+Text Label 9100 4550 2    50   ~ 0
 EXT_CLK_EN_T
 Wire Wire Line
 	9300 4250 9100 4250
@@ -3114,10 +3098,8 @@ Wire Wire Line
 	13550 6750 13450 6750
 Text Label 13450 6750 2    50   ~ 0
 EXT_CLK
-Text Label 9100 4350 2    50   ~ 0
+Text Label 9100 4250 2    50   ~ 0
 EXT_CLK
-Wire Wire Line
-	9100 4350 9300 4350
 Wire Wire Line
 	4700 10150 4600 10150
 Text Label 4700 10150 0    50   ~ 0
@@ -3244,10 +3226,10 @@ CV_FILT
 Text Label 14150 3350 0    50   ~ 0
 FREQ_LOCK_T
 $Comp
-L Connector_Generic:Conn_02x03_Odd_Even J?
+L Connector_Generic:Conn_02x03_Odd_Even J8
 U 1 1 5F6BDC8E
 P 14150 8700
-F 0 "J?" V 14246 8880 50  0000 L CNN
+F 0 "J8" V 14246 8880 50  0000 L CNN
 F 1 "Conn_02x03_Odd_Even" V 14155 8880 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 14150 8700 50  0001 C CNN
 F 3 "~" H 14150 8700 50  0001 C CNN
@@ -3255,10 +3237,10 @@ F 3 "~" H 14150 8700 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x03_Odd_Even J?
+L Connector_Generic:Conn_02x03_Odd_Even J9
 U 1 1 5F73F209
 P 14250 3000
-F 0 "J?" V 14346 3180 50  0000 L CNN
+F 0 "J9" V 14346 3180 50  0000 L CNN
 F 1 "Conn_02x03_Odd_Even" V 14255 3180 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 14250 3000 50  0001 C CNN
 F 3 "~" H 14250 3000 50  0001 C CNN
@@ -3284,10 +3266,10 @@ Connection ~ 13450 8900
 Wire Wire Line
 	13450 8900 14050 8900
 $Comp
-L Connector_Generic:Conn_02x04_Odd_Even J?
+L Connector_Generic:Conn_02x04_Odd_Even J5
 U 1 1 5F873E3A
 P 13350 3000
-F 0 "J?" V 13446 3180 50  0000 L CNN
+F 0 "J5" V 13446 3180 50  0000 L CNN
 F 1 "Conn_02x04_Odd_Even" V 13355 3180 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical" H 13350 3000 50  0001 C CNN
 F 3 "~" H 13350 3000 50  0001 C CNN
@@ -3295,10 +3277,10 @@ F 3 "~" H 13350 3000 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x04_Odd_Even J?
+L Connector_Generic:Conn_02x04_Odd_Even J6
 U 1 1 5F7BFCE5
 P 13350 8700
-F 0 "J?" V 13446 8880 50  0000 L CNN
+F 0 "J6" V 13446 8880 50  0000 L CNN
 F 1 "Conn_02x04_Odd_Even" V 13355 8880 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical" H 13350 8700 50  0001 C CNN
 F 3 "~" H 13350 8700 50  0001 C CNN
@@ -3306,10 +3288,10 @@ F 3 "~" H 13350 8700 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0139
 U 1 1 5F8EF85F
 P 12950 2750
-F 0 "#PWR?" H 12950 2500 50  0001 C CNN
+F 0 "#PWR0139" H 12950 2500 50  0001 C CNN
 F 1 "GND" H 12955 2577 50  0000 C CNN
 F 2 "" H 12950 2750 50  0001 C CNN
 F 3 "" H 12950 2750 50  0001 C CNN
@@ -3339,10 +3321,10 @@ Connection ~ 14250 2700
 Wire Wire Line
 	14250 2700 14350 2700
 $Comp
-L power:+3V3 #PWR?
+L power:+3V3 #PWR0140
 U 1 1 5F967125
 P 12950 3150
-F 0 "#PWR?" H 12950 3000 50  0001 C CNN
+F 0 "#PWR0140" H 12950 3000 50  0001 C CNN
 F 1 "+3V3" H 12965 3323 50  0000 C CNN
 F 2 "" H 12950 3150 50  0001 C CNN
 F 3 "" H 12950 3150 50  0001 C CNN
@@ -3353,4 +3335,22 @@ Wire Wire Line
 	12950 3150 12950 3200
 Wire Wire Line
 	12950 3200 13150 3200
+Wire Wire Line
+	9900 4250 9900 4550
+Wire Wire Line
+	9200 4450 9200 4650
+Wire Wire Line
+	9300 4550 9100 4550
+Wire Wire Line
+	10000 4350 9800 4350
+Wire Wire Line
+	9300 4350 9200 4350
+Wire Wire Line
+	9200 4350 9200 4450
+Connection ~ 9200 4450
+Wire Wire Line
+	9800 4550 9900 4550
+Connection ~ 9900 4550
+Wire Wire Line
+	9900 4550 9900 4750
 $EndSCHEMATC
