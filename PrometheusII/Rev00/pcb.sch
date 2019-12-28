@@ -2733,10 +2733,10 @@ $EndComp
 Wire Wire Line
 	3550 6650 4000 6650
 $Comp
-L Connector_Generic:Conn_02x06_Odd_Even J?
+L Connector_Generic:Conn_02x06_Odd_Even J7
 U 1 1 5E8185C5
 P 6200 9500
-F 0 "J?" H 6250 9917 50  0000 C CNN
+F 0 "J7" H 6250 9917 50  0000 C CNN
 F 1 "Conn_02x06_Odd_Even" H 6250 9826 50  0000 C CNN
 F 2 "" H 6200 9500 50  0001 C CNN
 F 3 "~" H 6200 9500 50  0001 C CNN
