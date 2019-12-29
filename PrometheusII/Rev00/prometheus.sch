@@ -1371,18 +1371,6 @@ F 3 "~" H 13750 1550 50  0001 C CNN
 	1    13750 1550
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:R_Small_US R42
-U 1 1 5EE411E9
-P 14200 1750
-F 0 "R42" H 14250 1750 50  0000 L CNN
-F 1 "0" H 14250 1850 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 14200 1750 50  0001 C CNN
-F 3 "~" H 14200 1750 50  0001 C CNN
-F 4 "DNP" H 14250 1650 50  0000 L CNN "Assembly"
-	1    14200 1750
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	14200 1600 14450 1600
 Connection ~ 14850 1900
@@ -1424,16 +1412,6 @@ Connection ~ 13100 1400
 Wire Wire Line
 	13750 1700 13750 1900
 Wire Wire Line
-	14200 1900 14200 1850
-Wire Wire Line
-	13750 1900 14200 1900
-Connection ~ 14200 1900
-Wire Wire Line
-	14200 1900 14850 1900
-Wire Wire Line
-	14200 1650 14200 1600
-Connection ~ 14200 1600
-Wire Wire Line
 	3350 1400 4350 1400
 Wire Wire Line
 	3350 1200 4700 1200
@@ -1460,17 +1438,6 @@ F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 7900 9900 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L Amplifier_Operational:TL072 U5
-U 2 1 5F2BA50F
-P 9950 7250
-F 0 "U5" H 9800 7250 50  0000 L CNN
-F 1 "TL072CDR" H 10100 7100 50  0000 C CNN
-F 2 "digikey-footprints:SOIC-8_W3.9mm" H 9950 7250 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 9950 7250 50  0001 C CNN
-	2    9950 7250
-	1    0    0    -1  
-$EndComp
-$Comp
 L Amplifier_Operational:TL072 U4
 U 3 1 5F2BC2B1
 P 10200 9050
@@ -1482,7 +1449,7 @@ F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 10200 9050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6450 6800 6700 6800
+	6450 6800 6500 6800
 Wire Wire Line
 	6700 6800 6700 7150
 Wire Wire Line
@@ -1601,17 +1568,6 @@ Wire Wire Line
 	8700 7700 8700 7150
 Wire Wire Line
 	8700 8400 8700 8100
-$Comp
-L Amplifier_Operational:TL072 U5
-U 1 1 5F58D48E
-P 6150 6800
-F 0 "U5" H 6000 6800 50  0000 L CNN
-F 1 "TL072CDR" H 6300 6950 50  0000 C CNN
-F 2 "digikey-footprints:SOIC-8_W3.9mm" H 6150 6800 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 6150 6800 50  0001 C CNN
-	1    6150 6800
-	1    0    0    -1  
-$EndComp
 $Comp
 L Amplifier_Operational:TL072 U4
 U 2 1 5F58EF70
@@ -1914,18 +1870,6 @@ F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 8250 7050 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R_Small_US R25
-U 1 1 5FABE0B2
-P 6700 8050
-F 0 "R25" V 6600 8000 50  0000 C CNN
-F 1 "0" V 6600 8150 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 6700 8050 50  0001 C CNN
-F 3 "~" H 6700 8050 50  0001 C CNN
-F 4 "DNP" V 6800 8050 50  0000 C CNN "Assembly"
-	1    6700 8050
-	0    1    1    0   
-$EndComp
-$Comp
 L Device:R_Small_US R21
 U 1 1 5FADB542
 P 6100 8400
@@ -1937,25 +1881,7 @@ F 3 "~" H 6100 8400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6600 8050 6300 8050
-Wire Wire Line
-	6300 8050 6300 8400
-Wire Wire Line
-	6300 8400 6400 8400
-Wire Wire Line
-	6300 8400 6200 8400
-Connection ~ 6300 8400
-Wire Wire Line
-	7100 8050 7100 8500
-Wire Wire Line
-	7100 8500 7000 8500
-Wire Wire Line
-	6800 8050 7100 8050
-Wire Wire Line
-	7100 8500 7550 8500
-Wire Wire Line
 	7550 8500 7550 8050
-Connection ~ 7100 8500
 $Comp
 L Device:R_Small_US R24
 U 1 1 5FBAF915
@@ -2091,7 +2017,7 @@ Wire Wire Line
 Wire Wire Line
 	10350 7650 10350 7250
 Wire Wire Line
-	10350 7250 10250 7250
+	10350 7250 10300 7250
 Text Label 4550 6700 0    50   ~ 0
 OUTA
 Text Label 6700 6800 0    50   ~ 0
@@ -4507,4 +4433,38 @@ Wire Wire Line
 	4100 3450 4800 3450
 Wire Wire Line
 	4800 3450 4800 3150
+Connection ~ 10300 7250
+Wire Wire Line
+	10300 7250 10250 7250
+Connection ~ 6500 6800
+Wire Wire Line
+	6500 6800 6700 6800
+$Comp
+L Amplifier_Operational:TL072 U5
+U 2 1 5F2BA50F
+P 6150 6800
+F 0 "U5" H 6000 6800 50  0000 L CNN
+F 1 "TL072CDR" H 6300 6650 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 6150 6800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 6150 6800 50  0001 C CNN
+	2    6150 6800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:TL072 U5
+U 1 1 5F58D48E
+P 9950 7250
+F 0 "U5" H 9800 7250 50  0000 L CNN
+F 1 "TL072CDR" H 10100 7400 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 9950 7250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 9950 7250 50  0001 C CNN
+	1    9950 7250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6200 8400 6400 8400
+Wire Wire Line
+	7000 8500 7550 8500
+Wire Wire Line
+	13750 1900 14850 1900
 $EndSCHEMATC
