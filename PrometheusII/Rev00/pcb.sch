@@ -659,84 +659,7 @@ Wire Wire Line
 Wire Wire Line
 	1550 6200 2350 6200
 Connection ~ 1550 6200
-$Comp
-L Transistor_FET:BSS138 Q3
-U 1 1 60562CDC
-P 4350 4200
-F 0 "Q3" H 4556 4291 50  0000 L CNN
-F 1 "BSS138" H 4556 4200 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 4550 4125 50  0001 L CIN
-F 3 "https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf" H 4350 4200 50  0001 L CNN
-F 4 "0.8/1.3/1.5" H 4556 4109 50  0000 L CNN "VGS"
-	1    4350 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 6056BC0A
-P 4450 4500
-AR Path="/6056BC0A" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/6056BC0A" Ref="#PWR078"  Part="1" 
-F 0 "#PWR078" H 4450 4250 50  0001 C CNN
-F 1 "GND" H 4455 4327 50  0000 C CNN
-F 2 "" H 4450 4500 50  0001 C CNN
-F 3 "" H 4450 4500 50  0001 C CNN
-	1    4450 4500
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	4450 4500 4450 4400
-$Comp
-L Device:R_Small_US R?
-U 1 1 605727AF
-P 3950 4200
-AR Path="/605727AF" Ref="R?"  Part="1" 
-AR Path="/6032E556/605727AF" Ref="R50"  Part="1" 
-F 0 "R50" V 4050 4100 50  0000 C CNN
-F 1 "499" V 4050 4300 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3950 4200 50  0001 C CNN
-F 3 "~" H 3950 4200 50  0001 C CNN
-	1    3950 4200
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	1550 4200 3850 4200
 Connection ~ 1550 4200
-Wire Wire Line
-	4050 4200 4150 4200
-$Comp
-L Device:R_Small_US R?
-U 1 1 6057815B
-P 4450 3800
-AR Path="/6057815B" Ref="R?"  Part="1" 
-AR Path="/6032E556/6057815B" Ref="R52"  Part="1" 
-F 0 "R52" H 4650 3750 50  0000 C CNN
-F 1 "100k" H 4600 3850 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 4450 3800 50  0001 C CNN
-F 3 "~" H 4450 3800 50  0001 C CNN
-	1    4450 3800
-	1    0    0    1   
-$EndComp
-$Comp
-L power:+3V3 #PWR?
-U 1 1 605844B2
-P 4450 3600
-AR Path="/605844B2" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/605844B2" Ref="#PWR077"  Part="1" 
-F 0 "#PWR077" H 4450 3450 50  0001 C CNN
-F 1 "+3V3" H 4465 3773 50  0000 C CNN
-F 2 "" H 4450 3600 50  0001 C CNN
-F 3 "" H 4450 3600 50  0001 C CNN
-	1    4450 3600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4450 3600 4450 3700
-Wire Wire Line
-	4450 3900 4450 3950
-Connection ~ 4450 3950
-Wire Wire Line
-	4450 3950 4450 4000
 $Comp
 L power:-12V #PWR?
 U 1 1 6059D7D6
@@ -801,8 +724,6 @@ F 3 "~" H 3200 5200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3400 5200 3300 5200
-Wire Wire Line
-	3100 5200 2900 5200
 Connection ~ 1550 5200
 $Comp
 L power:GND #PWR?
@@ -821,37 +742,6 @@ Wire Wire Line
 	3700 5500 3700 5400
 $Comp
 L Device:R_Small_US R?
-U 1 1 605BFCFC
-P 3700 4800
-AR Path="/605BFCFC" Ref="R?"  Part="1" 
-AR Path="/6032E556/605BFCFC" Ref="R61"  Part="1" 
-F 0 "R61" H 3750 4750 50  0000 L CNN
-F 1 "10k" H 3750 4850 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3700 4800 50  0001 C CNN
-F 3 "~" H 3700 4800 50  0001 C CNN
-	1    3700 4800
-	1    0    0    1   
-$EndComp
-$Comp
-L power:+3V3 #PWR?
-U 1 1 605BFD02
-P 3700 4600
-AR Path="/605BFD02" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/605BFD02" Ref="#PWR084"  Part="1" 
-F 0 "#PWR084" H 3700 4450 50  0001 C CNN
-F 1 "+3V3" H 3715 4773 50  0000 C CNN
-F 2 "" H 3700 4600 50  0001 C CNN
-F 3 "" H 3700 4600 50  0001 C CNN
-	1    3700 4600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3700 4600 3700 4700
-Connection ~ 2900 5200
-Wire Wire Line
-	2900 5200 1550 5200
-$Comp
-L Device:R_Small_US R?
 U 1 1 60649E12
 P 3200 5850
 AR Path="/60649E12" Ref="R?"  Part="1" 
@@ -863,12 +753,6 @@ F 3 "~" H 3200 5850 50  0001 C CNN
 	1    3200 5850
 	0    1    -1   0   
 $EndComp
-Wire Wire Line
-	2900 5850 3100 5850
-Wire Wire Line
-	2900 5200 2900 5850
-Text HLabel 5200 3950 2    50   Input ~ 0
-GLITCH
 Text HLabel 2650 6200 2    50   Input ~ 0
 OUT
 $Comp
@@ -1151,8 +1035,6 @@ RT/RB = 2.120\nActual = 2.121\n0V -> 1.650 V\n1.6461 / 1.6530 V
 Text HLabel 5000 1300 2    50   Input ~ 0
 VOCT_CV
 Connection ~ 4800 1300
-Text HLabel 2200 3200 2    50   Input ~ 0
-PARAM_0_CV
 Text Notes 5100 1250 0    50   ~ 0
 To A4
 Text Notes 500  2750 0    50   ~ 0
@@ -1163,10 +1045,6 @@ Connection ~ 5400 1850
 Wire Wire Line
 	6200 2050 6200 2150
 Connection ~ 6200 2050
-Text Notes 2250 3150 0    50   ~ 0
-To A7
-Text Notes 5150 3900 0    50   ~ 0
-To GPIO 29
 $Comp
 L power:+3V3 #PWR?
 U 1 1 5F108DC2
@@ -1760,32 +1638,6 @@ Wire Wire Line
 Wire Wire Line
 	3050 6750 3050 7250
 Connection ~ 3050 7450
-$Comp
-L Device:R_Small_US R?
-U 1 1 5FD89EDA
-P 4000 6450
-AR Path="/5FD89EDA" Ref="R?"  Part="1" 
-AR Path="/6032E556/5FD89EDA" Ref="R56"  Part="1" 
-F 0 "R56" H 4050 6400 50  0000 L CNN
-F 1 "100k" H 4050 6500 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 4000 6450 50  0001 C CNN
-F 3 "~" H 4000 6450 50  0001 C CNN
-	1    4000 6450
-	1    0    0    1   
-$EndComp
-$Comp
-L Device:R_Small_US R?
-U 1 1 5FDB0C8A
-P 3900 7150
-AR Path="/5FDB0C8A" Ref="R?"  Part="1" 
-AR Path="/6032E556/5FDB0C8A" Ref="R59"  Part="1" 
-F 0 "R59" H 3950 7100 50  0000 L CNN
-F 1 "100k" H 3950 7200 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3900 7150 50  0001 C CNN
-F 3 "~" H 3900 7150 50  0001 C CNN
-	1    3900 7150
-	1    0    0    1   
-$EndComp
 Text HLabel 4250 6650 2    50   Input ~ 0
 FREQ_LOCK
 Text HLabel 4200 7350 2    50   Input ~ 0
@@ -1861,56 +1713,25 @@ Wire Wire Line
 $Comp
 L Device:R_Small_US R?
 U 1 1 60118940
-P 4950 5600
+P 4950 5500
 AR Path="/60118940" Ref="R?"  Part="1" 
 AR Path="/6032E556/60118940" Ref="R68"  Part="1" 
-F 0 "R68" V 5050 5700 50  0000 C CNN
-F 1 "0" V 5050 5550 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 4950 5600 50  0001 C CNN
-F 3 "~" H 4950 5600 50  0001 C CNN
-F 4 "DNP" V 4850 5600 50  0000 C CNN "Assembly"
-	1    4950 5600
+F 0 "R68" V 5050 5600 50  0000 C CNN
+F 1 "0" V 5050 5450 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 4950 5500 50  0001 C CNN
+F 3 "~" H 4950 5500 50  0001 C CNN
+F 4 "DNP" V 4850 5500 50  0000 C CNN "Assembly"
+	1    4950 5500
 	0    1    -1   0   
 $EndComp
-$Comp
-L Device:R_Small_US R?
-U 1 1 601DCF9C
-P 4650 5450
-AR Path="/601DCF9C" Ref="R?"  Part="1" 
-AR Path="/6032E556/601DCF9C" Ref="R67"  Part="1" 
-F 0 "R67" H 4700 5400 50  0000 L CNN
-F 1 "1k" H 4700 5500 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 4650 5450 50  0001 C CNN
-F 3 "~" H 4650 5450 50  0001 C CNN
-	1    4650 5450
-	1    0    0    1   
-$EndComp
-$Comp
-L power:+3V3 #PWR?
-U 1 1 601DCFA2
-P 4650 5250
-AR Path="/601DCFA2" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/601DCFA2" Ref="#PWR088"  Part="1" 
-F 0 "#PWR088" H 4650 5100 50  0001 C CNN
-F 1 "+3V3" H 4665 5423 50  0000 C CNN
-F 2 "" H 4650 5250 50  0001 C CNN
-F 3 "" H 4650 5250 50  0001 C CNN
-	1    4650 5250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4650 5250 4650 5350
 Wire Wire Line
 	3300 5850 4300 5850
 Wire Wire Line
-	4650 5550 4650 5600
+	4850 5500 4650 5500
 Wire Wire Line
-	4850 5600 4650 5600
-Connection ~ 4650 5600
+	4650 5500 4650 5650
 Wire Wire Line
-	4650 5600 4650 5650
-Wire Wire Line
-	5050 5600 5250 5600
+	5050 5500 5250 5500
 $Comp
 L Device:R_Small_US R?
 U 1 1 60372D91
@@ -1996,36 +1817,6 @@ Wire Wire Line
 	3050 7250 3050 7450
 Text Notes 3450 7650 0    50   ~ 0
 Pin 3 momentary\nKeyway on pin 3 side
-Wire Wire Line
-	3550 7350 3900 7350
-Wire Wire Line
-	4000 6550 4000 6650
-Connection ~ 4000 6650
-Wire Wire Line
-	3900 7250 3900 7350
-Connection ~ 3900 7350
-$Comp
-L power:+3V3 #PWR?
-U 1 1 5F105A04
-P 4000 6250
-AR Path="/5F105A04" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/5F105A04" Ref="#PWR0129"  Part="1" 
-F 0 "#PWR0129" H 4000 6100 50  0001 C CNN
-F 1 "+3V3" H 4015 6423 50  0000 C CNN
-F 2 "" H 4000 6250 50  0001 C CNN
-F 3 "" H 4000 6250 50  0001 C CNN
-	1    4000 6250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4000 6250 4000 6300
-Wire Wire Line
-	4000 6300 3900 6300
-Wire Wire Line
-	3900 6300 3900 7050
-Connection ~ 4000 6300
-Wire Wire Line
-	4000 6300 4000 6350
 Text Notes 5550 6950 0    50   ~ 0
 To A11
 Text HLabel 5500 7000 2    50   Input ~ 0
@@ -2073,8 +1864,6 @@ F 3 "~" H 5350 7000 50  0001 C CNN
 	1    5350 7000
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3550 6650 4000 6650
 $Comp
 L Connector_Generic:Conn_02x06_Odd_Even J7
 U 1 1 5E8185C5
@@ -2087,12 +1876,6 @@ F 3 "~" H 6200 9500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4000 6650 4250 6650
-Wire Wire Line
-	3900 7350 4200 7350
-Wire Wire Line
-	4450 3950 5200 3950
-Wire Wire Line
 	1250 7150 2250 7150
 Wire Wire Line
 	2550 6200 2650 6200
@@ -2100,22 +1883,13 @@ Wire Wire Line
 	4800 1300 5000 1300
 Wire Wire Line
 	7650 4850 7750 4850
-Wire Wire Line
-	3700 4900 3700 4950
-Text HLabel 5800 4950 2    50   Input ~ 0
-EXT_CLK_EN
-Wire Wire Line
-	5800 4950 3700 4950
-Connection ~ 3700 4950
-Wire Wire Line
-	3700 4950 3700 5000
-Text HLabel 5800 5600 2    50   Input ~ 0
+Text HLabel 5800 5500 2    50   Input ~ 0
 EXT_CLK
 Wire Wire Line
-	5250 5600 5250 6200
+	5250 5500 5250 6200
 Wire Wire Line
-	5800 5600 5250 5600
-Connection ~ 5250 5600
+	5800 5500 5250 5500
+Connection ~ 5250 5500
 $Comp
 L Device:C C?
 U 1 1 5FCA1072
@@ -2170,8 +1944,6 @@ To A9
 Wire Wire Line
 	2850 2100 2600 2100
 Connection ~ 1900 2100
-Wire Wire Line
-	1550 3200 2200 3200
 Connection ~ 1550 3200
 $Comp
 L Device:R_POT LEN_ATV?
@@ -2186,19 +1958,6 @@ F 3 "~" H 2600 2350 50  0001 C CNN
 	1    2600 2350
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61BB8D67
-P 2800 3750
-AR Path="/61BB8D67" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/61BB8D67" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2800 3500 50  0001 C CNN
-F 1 "GND" H 2805 3577 50  0000 C CNN
-F 2 "" H 2800 3750 50  0001 C CNN
-F 3 "" H 2800 3750 50  0001 C CNN
-	1    2800 3750
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2600 2100 2600 2200
 Connection ~ 2600 2100
@@ -2211,8 +1970,8 @@ L power:GND #PWR?
 U 1 1 61C1435D
 P 2600 2600
 AR Path="/61C1435D" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/61C1435D" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2600 2350 50  0001 C CNN
+AR Path="/6032E556/61C1435D" Ref="#PWR0160"  Part="1" 
+F 0 "#PWR0160" H 2600 2350 50  0001 C CNN
 F 1 "GND" H 2605 2427 50  0000 C CNN
 F 2 "" H 2600 2600 50  0001 C CNN
 F 3 "" H 2600 2600 50  0001 C CNN
@@ -2223,4 +1982,89 @@ Text HLabel 2850 2350 2    50   Input ~ 0
 LENGTH_ATV
 Wire Wire Line
 	2850 2350 2750 2350
+Wire Wire Line
+	3550 6650 4250 6650
+Wire Wire Line
+	3550 7350 4200 7350
+Text Notes 4250 7000 0    50   ~ 0
+Pullup at other end
+Text Notes 5450 5450 0    50   ~ 0
+Pullup at other end
+Text HLabel 5650 4900 2    50   Input ~ 0
+EXT_CLK_EN
+Wire Wire Line
+	5650 4900 3700 4900
+Text Notes 5450 4850 0    50   ~ 0
+Pullup at other end
+Wire Wire Line
+	3700 4900 3700 5000
+$Comp
+L Transistor_FET:BSS138 Q3
+U 1 1 60562CDC
+P 3600 4200
+F 0 "Q3" H 3806 4291 50  0000 L CNN
+F 1 "BSS138" H 3806 4200 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3800 4125 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf" H 3600 4200 50  0001 L CNN
+F 4 "0.8/1.3/1.5" H 3806 4109 50  0000 L CNN "VGS"
+	1    3600 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6056BC0A
+P 3700 4500
+AR Path="/6056BC0A" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/6056BC0A" Ref="#PWR078"  Part="1" 
+F 0 "#PWR078" H 3700 4250 50  0001 C CNN
+F 1 "GND" H 3705 4327 50  0000 C CNN
+F 2 "" H 3700 4500 50  0001 C CNN
+F 3 "" H 3700 4500 50  0001 C CNN
+	1    3700 4500
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3700 4500 3700 4400
+$Comp
+L Device:R_Small_US R?
+U 1 1 605727AF
+P 3200 4200
+AR Path="/605727AF" Ref="R?"  Part="1" 
+AR Path="/6032E556/605727AF" Ref="R50"  Part="1" 
+F 0 "R50" V 3300 4100 50  0000 C CNN
+F 1 "499" V 3300 4300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3200 4200 50  0001 C CNN
+F 3 "~" H 3200 4200 50  0001 C CNN
+	1    3200 4200
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	1550 4200 3100 4200
+Wire Wire Line
+	3300 4200 3400 4200
+Wire Wire Line
+	3700 3950 3700 4000
+Text HLabel 4450 3950 2    50   Input ~ 0
+GLITCH
+Text Notes 4400 3800 0    50   ~ 0
+To GPIO 29
+Wire Wire Line
+	3700 3950 4450 3950
+Text Notes 4400 3900 0    50   ~ 0
+Pullup at other end
+Wire Wire Line
+	2750 5200 2750 5850
+Wire Wire Line
+	3100 5200 2750 5200
+Connection ~ 2750 5200
+Wire Wire Line
+	2750 5200 1550 5200
+Wire Wire Line
+	2750 5850 3100 5850
+Text HLabel 2900 3200 2    50   Input ~ 0
+PARAM_0_CV
+Text Notes 2950 3150 0    50   ~ 0
+To A7
+Wire Wire Line
+	1550 3200 2900 3200
 $EndSCHEMATC
