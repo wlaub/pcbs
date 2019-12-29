@@ -2103,148 +2103,136 @@ From GPIO 30
 $Comp
 L dk_LED-Indication-Discrete:LTST-C190KGKT LED_R1
 U 1 1 5F722D05
-P 9450 5850
-F 0 "LED_R1" V 9347 6078 50  0000 L CNN
-F 1 "LTST-C190KGKT" V 9446 6078 60  0000 L CNN
-F 2 "digikey-footprints:LED_0603" H 9650 6050 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 9650 6150 60  0001 L CNN
-F 4 "160-1435-1-ND" H 9650 6250 60  0001 L CNN "Digi-Key_PN"
-F 5 "LTST-C190KGKT" H 9650 6350 60  0001 L CNN "MPN"
-F 6 "Optoelectronics" H 9650 6450 60  0001 L CNN "Category"
-F 7 "LED Indication - Discrete" H 9650 6550 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 9650 6650 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 9650 6750 60  0001 L CNN "DK_Detail_Page"
-F 10 "LED GREEN CLEAR CHIP SMD" H 9650 6850 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 9650 6950 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 9650 7050 60  0001 L CNN "Status"
-	1    9450 5850
+P 8700 5850
+F 0 "LED_R1" V 8550 5950 50  0000 L CNN
+F 1 "LTST-C190KGKT" V 9200 5150 60  0000 L CNN
+F 2 "digikey-footprints:LED_0603" H 8900 6050 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 8900 6150 60  0001 L CNN
+F 4 "160-1435-1-ND" H 8900 6250 60  0001 L CNN "Digi-Key_PN"
+F 5 "LTST-C190KGKT" H 8900 6350 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 8900 6450 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 8900 6550 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 8900 6650 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 8900 6750 60  0001 L CNN "DK_Detail_Page"
+F 10 "LED GREEN CLEAR CHIP SMD" H 8900 6850 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 8900 6950 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 8900 7050 60  0001 L CNN "Status"
+	1    8700 5850
 	0    1    1    0   
 $EndComp
 $Comp
 L dk_LED-Indication-Discrete:LTST-C190KGKT LED_L1
 U 1 1 5F748F3D
-P 8800 5850
-F 0 "LED_L1" V 8750 6078 50  0000 L CNN
-F 1 "LTST-C190KGKT" V 8796 6078 60  0001 L CNN
-F 2 "digikey-footprints:LED_0603" H 9000 6050 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 9000 6150 60  0001 L CNN
-F 4 "160-1435-1-ND" H 9000 6250 60  0001 L CNN "Digi-Key_PN"
-F 5 "LTST-C190KGKT" H 9000 6350 60  0001 L CNN "MPN"
-F 6 "Optoelectronics" H 9000 6450 60  0001 L CNN "Category"
-F 7 "LED Indication - Discrete" H 9000 6550 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 9000 6650 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 9000 6750 60  0001 L CNN "DK_Detail_Page"
-F 10 "LED GREEN CLEAR CHIP SMD" H 9000 6850 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 9000 6950 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 9000 7050 60  0001 L CNN "Status"
-	1    8800 5850
+P 8000 5850
+F 0 "LED_L1" V 7850 6000 50  0000 L CNN
+F 1 "LTST-C190KGKT" V 7996 6078 60  0001 L CNN
+F 2 "digikey-footprints:LED_0603" H 8200 6050 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 8200 6150 60  0001 L CNN
+F 4 "160-1435-1-ND" H 8200 6250 60  0001 L CNN "Digi-Key_PN"
+F 5 "LTST-C190KGKT" H 8200 6350 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 8200 6450 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 8200 6550 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 8200 6650 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 8200 6750 60  0001 L CNN "DK_Detail_Page"
+F 10 "LED GREEN CLEAR CHIP SMD" H 8200 6850 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 8200 6950 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 8200 7050 60  0001 L CNN "Status"
+	1    8000 5850
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5F79B9A3
-P 8800 6050
+P 8000 6050
 AR Path="/5F79B9A3" Ref="#PWR?"  Part="1" 
 AR Path="/6032E556/5F79B9A3" Ref="#PWR0110"  Part="1" 
-F 0 "#PWR0110" H 8800 5800 50  0001 C CNN
-F 1 "GND" H 8805 5877 50  0000 C CNN
-F 2 "" H 8800 6050 50  0001 C CNN
-F 3 "" H 8800 6050 50  0001 C CNN
-	1    8800 6050
+F 0 "#PWR0110" H 8000 5800 50  0001 C CNN
+F 1 "GND" H 8005 5877 50  0000 C CNN
+F 2 "" H 8000 6050 50  0001 C CNN
+F 3 "" H 8000 6050 50  0001 C CNN
+	1    8000 6050
 	-1   0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5F7A570F
-P 9450 6050
+P 8700 6050
 AR Path="/5F7A570F" Ref="#PWR?"  Part="1" 
 AR Path="/6032E556/5F7A570F" Ref="#PWR0118"  Part="1" 
-F 0 "#PWR0118" H 9450 5800 50  0001 C CNN
-F 1 "GND" H 9455 5877 50  0000 C CNN
-F 2 "" H 9450 6050 50  0001 C CNN
-F 3 "" H 9450 6050 50  0001 C CNN
-	1    9450 6050
+F 0 "#PWR0118" H 8700 5800 50  0001 C CNN
+F 1 "GND" H 8705 5877 50  0000 C CNN
+F 2 "" H 8700 6050 50  0001 C CNN
+F 3 "" H 8700 6050 50  0001 C CNN
+	1    8700 6050
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	8800 5950 8800 6050
+	8000 5950 8000 6050
 Wire Wire Line
-	9450 5950 9450 6050
-Text Notes 8800 5650 0    50   ~ 0
+	8700 5950 8700 6050
+Text Notes 8050 5650 0    50   ~ 0
 2V nom @ 20mA\n13 mA @ 100
 $Comp
 L Device:R_Small_US R?
 U 1 1 5F7DA80E
-P 8800 5350
+P 8000 5350
 AR Path="/5F7DA80E" Ref="R?"  Part="1" 
 AR Path="/6032E556/5F7DA80E" Ref="R84"  Part="1" 
-F 0 "R84" H 8900 5300 50  0000 L CNN
-F 1 "100" H 8900 5400 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 8800 5350 50  0001 C CNN
-F 3 "~" H 8800 5350 50  0001 C CNN
-	1    8800 5350
+F 0 "R84" H 8100 5300 50  0000 L CNN
+F 1 "100" H 8100 5400 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 8000 5350 50  0001 C CNN
+F 3 "~" H 8000 5350 50  0001 C CNN
+	1    8000 5350
 	1    0    0    1   
 $EndComp
 $Comp
 L Device:R_Small_US R?
 U 1 1 5F7E6BA3
-P 9450 5350
+P 8700 5350
 AR Path="/5F7E6BA3" Ref="R?"  Part="1" 
 AR Path="/6032E556/5F7E6BA3" Ref="R85"  Part="1" 
-F 0 "R85" H 9550 5300 50  0000 L CNN
-F 1 "100" H 9550 5400 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 9450 5350 50  0001 C CNN
-F 3 "~" H 9450 5350 50  0001 C CNN
-	1    9450 5350
+F 0 "R85" H 8800 5300 50  0000 L CNN
+F 1 "100" H 8800 5400 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 8700 5350 50  0001 C CNN
+F 3 "~" H 8700 5350 50  0001 C CNN
+	1    8700 5350
 	1    0    0    1   
 $EndComp
 Wire Wire Line
-	8800 5450 8800 5650
+	8000 5450 8000 5650
 Wire Wire Line
-	9450 5450 9450 5650
-Wire Wire Line
-	9450 5250 9450 5150
-Wire Wire Line
-	9450 5150 8800 5150
-Wire Wire Line
-	8800 5250 8800 5150
-Connection ~ 8800 5150
+	8700 5450 8700 5650
 $Comp
 L Device:C C?
 U 1 1 5F894716
-P 8350 5600
+P 7550 5600
 AR Path="/5F894716" Ref="C?"  Part="1" 
 AR Path="/6032E556/5F894716" Ref="C41"  Part="1" 
-F 0 "C41" H 8100 5650 50  0000 L CNN
-F 1 "1u" H 8100 5550 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 8388 5450 50  0001 C CNN
-F 3 "~" H 8350 5600 50  0001 C CNN
-	1    8350 5600
+F 0 "C41" H 7300 5650 50  0000 L CNN
+F 1 "1u" H 7300 5550 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7588 5450 50  0001 C CNN
+F 3 "~" H 7550 5600 50  0001 C CNN
+	1    7550 5600
 	-1   0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5F8B92A1
-P 8350 6050
+P 7550 6050
 AR Path="/5F8B92A1" Ref="#PWR?"  Part="1" 
 AR Path="/6032E556/5F8B92A1" Ref="#PWR0105"  Part="1" 
-F 0 "#PWR0105" H 8350 5800 50  0001 C CNN
-F 1 "GND" H 8355 5877 50  0000 C CNN
-F 2 "" H 8350 6050 50  0001 C CNN
-F 3 "" H 8350 6050 50  0001 C CNN
-	1    8350 6050
+F 0 "#PWR0105" H 7550 5800 50  0001 C CNN
+F 1 "GND" H 7555 5877 50  0000 C CNN
+F 2 "" H 7550 6050 50  0001 C CNN
+F 3 "" H 7550 6050 50  0001 C CNN
+	1    7550 6050
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	8350 5150 8350 5450
-Wire Wire Line
-	8350 5150 8800 5150
-Wire Wire Line
-	8350 5750 8350 6050
+	7550 5750 7550 6050
 Wire Wire Line
 	8350 5050 8350 5150
-Connection ~ 8350 5150
-Text Notes 7550 5700 0    50   ~ 0
+Text Notes 6750 5650 0    50   ~ 0
 Timing capacitor\nAdjust to taste
 $Comp
 L Device:C C?
@@ -2777,4 +2765,51 @@ Wire Wire Line
 Wire Wire Line
 	5800 5600 5250 5600
 Connection ~ 5250 5600
+$Comp
+L Device:C C?
+U 1 1 5FCA1072
+P 9150 5600
+AR Path="/5FCA1072" Ref="C?"  Part="1" 
+AR Path="/6032E556/5FCA1072" Ref="C?"  Part="1" 
+F 0 "C?" H 8900 5650 50  0000 L CNN
+F 1 "1u" H 8900 5550 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9188 5450 50  0001 C CNN
+F 3 "~" H 9150 5600 50  0001 C CNN
+	1    9150 5600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FD11AD8
+P 9150 6050
+AR Path="/5FD11AD8" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5FD11AD8" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9150 5800 50  0001 C CNN
+F 1 "GND" H 9155 5877 50  0000 C CNN
+F 2 "" H 9150 6050 50  0001 C CNN
+F 3 "" H 9150 6050 50  0001 C CNN
+	1    9150 6050
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9150 5750 9150 6050
+Wire Wire Line
+	7550 5450 7550 5150
+Wire Wire Line
+	7550 5150 8000 5150
+Wire Wire Line
+	9150 5450 9150 5150
+Wire Wire Line
+	9150 5150 8700 5150
+Connection ~ 8350 5150
+Wire Wire Line
+	8700 5250 8700 5150
+Connection ~ 8700 5150
+Wire Wire Line
+	8700 5150 8350 5150
+Wire Wire Line
+	8000 5250 8000 5150
+Connection ~ 8000 5150
+Wire Wire Line
+	8000 5150 8350 5150
 $EndSCHEMATC

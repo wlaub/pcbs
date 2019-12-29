@@ -3203,15 +3203,15 @@ Text Label 12750 8200 2    50   ~ 0
 VOCT_OCT
 Text Label 12750 8500 2    50   ~ 0
 TAPS_LED_T
-Text Label 14950 8300 2    50   ~ 0
+Text Label 14350 8100 0    50   ~ 0
 LFO_LED_T
 Text Label 12750 8400 2    50   ~ 0
 POLY
 Text Label 12750 8300 2    50   ~ 0
 LEN_KNOB
-Text Label 14750 8200 2    50   ~ 0
+Text Label 14350 8200 0    50   ~ 0
 LFO
-Text Label 14950 8400 2    50   ~ 0
+Text Label 14350 8300 0    50   ~ 0
 GLITCH_EN_T
 Text Label 13450 3350 2    50   ~ 0
 PARAM_0_CV
@@ -3353,4 +3353,8 @@ Wire Wire Line
 Connection ~ 9900 4550
 Wire Wire Line
 	9900 4550 9900 4750
+Wire Wire Line
+	14350 8100 14050 8100
+Wire Wire Line
+	14050 8100 14050 8400
 $EndSCHEMATC
