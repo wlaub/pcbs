@@ -3703,8 +3703,8 @@ L Amplifier_Operational:MCP6002-xMS U?
 U 3 1 6161B439
 P 9150 5600
 AR Path="/6032E556/6161B439" Ref="U?"  Part="3" 
-AR Path="/6161B439" Ref="U?"  Part="3" 
-F 0 "U?" V 9250 5550 50  0000 L CNN
+AR Path="/6161B439" Ref="U7"  Part="3" 
+F 0 "U7" V 9250 5550 50  0000 L CNN
 F 1 "MCP6002-xMS" V 9150 5350 50  0000 L CNN
 F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 9150 5600 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 9150 5600 50  0001 C CNN
@@ -3716,12 +3716,12 @@ Wire Wire Line
 Wire Wire Line
 	9450 5700 9550 5700
 $Comp
-L Device:C C?
+L Device:C C39
 U 1 1 6161B431
 P 9150 5900
-AR Path="/6161B431" Ref="C?"  Part="1" 
+AR Path="/6161B431" Ref="C39"  Part="1" 
 AR Path="/6032E556/6161B431" Ref="C?"  Part="1" 
-F 0 "C?" H 9265 5946 50  0000 L CNN
+F 0 "C39" H 9265 5946 50  0000 L CNN
 F 1 "1u" H 9265 5855 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 9188 5750 50  0001 C CNN
 F 3 "~" H 9150 5900 50  0001 C CNN
@@ -3731,12 +3731,12 @@ $EndComp
 Wire Wire Line
 	9550 5900 9550 5700
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0137
 U 1 1 6161B42A
 P 9550 6000
-AR Path="/6161B42A" Ref="#PWR?"  Part="1" 
+AR Path="/6161B42A" Ref="#PWR0137"  Part="1" 
 AR Path="/6032E556/6161B42A" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9550 5750 50  0001 C CNN
+F 0 "#PWR0137" H 9550 5750 50  0001 C CNN
 F 1 "GND" H 9555 5827 50  0000 C CNN
 F 2 "" H 9550 6000 50  0001 C CNN
 F 3 "" H 9550 6000 50  0001 C CNN
@@ -3744,12 +3744,12 @@ F 3 "" H 9550 6000 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L power:+3V3 #PWR?
+L power:+3V3 #PWR0147
 U 1 1 6161B424
 P 8750 5600
-AR Path="/6161B424" Ref="#PWR?"  Part="1" 
+AR Path="/6161B424" Ref="#PWR0147"  Part="1" 
 AR Path="/6032E556/6161B424" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8750 5450 50  0001 C CNN
+F 0 "#PWR0147" H 8750 5450 50  0001 C CNN
 F 1 "+3V3" H 8765 5773 50  0000 C CNN
 F 2 "" H 8750 5600 50  0001 C CNN
 F 3 "" H 8750 5600 50  0001 C CNN
@@ -3782,12 +3782,12 @@ Connection ~ 6050 5800
 Text Notes 6600 5500 2    50   ~ 0
 -5 -> 3.3 V\n+5 -> 0 V
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R73
 U 1 1 60FB8131
 P 7550 6100
-AR Path="/60FB8131" Ref="R?"  Part="1" 
+AR Path="/60FB8131" Ref="R73"  Part="1" 
 AR Path="/6032E556/60FB8131" Ref="R?"  Part="1" 
-F 0 "R?" H 7600 6050 50  0000 L CNN
+F 0 "R73" H 7600 6050 50  0000 L CNN
 F 1 "15k" H 7600 6150 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7550 6100 50  0001 C CNN
 F 3 "~" H 7550 6100 50  0001 C CNN
@@ -3804,12 +3804,12 @@ Connection ~ 6450 5800
 Wire Wire Line
 	6450 5800 6350 5800
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R62
 U 1 1 60FB8126
 P 6250 5800
-AR Path="/60FB8126" Ref="R?"  Part="1" 
+AR Path="/60FB8126" Ref="R62"  Part="1" 
 AR Path="/6032E556/60FB8126" Ref="R?"  Part="1" 
-F 0 "R?" V 6450 5700 50  0000 L CNN
+F 0 "R62" V 6450 5700 50  0000 L CNN
 F 1 "100" V 6350 5700 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6250 5800 50  0001 C CNN
 F 3 "~" H 6250 5800 50  0001 C CNN
@@ -3828,12 +3828,12 @@ Connection ~ 7250 5700
 Wire Wire Line
 	7450 5700 7250 5700
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R72
 U 1 1 60FB811A
 P 7550 5700
-AR Path="/60FB811A" Ref="R?"  Part="1" 
+AR Path="/60FB811A" Ref="R72"  Part="1" 
 AR Path="/6032E556/60FB811A" Ref="R?"  Part="1" 
-F 0 "R?" V 7650 5550 50  0000 L CNN
+F 0 "R72" V 7650 5550 50  0000 L CNN
 F 1 "100k" V 7650 5750 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7550 5700 50  0001 C CNN
 F 3 "~" H 7550 5700 50  0001 C CNN
@@ -3852,12 +3852,12 @@ Wire Wire Line
 Wire Wire Line
 	6950 5550 7250 5550
 $Comp
-L Device:C C?
+L Device:C C34
 U 1 1 60FB810E
 P 6800 5550
-AR Path="/60FB810E" Ref="C?"  Part="1" 
+AR Path="/60FB810E" Ref="C34"  Part="1" 
 AR Path="/6032E556/60FB810E" Ref="C?"  Part="1" 
-F 0 "C?" V 6950 5600 50  0000 L CNN
+F 0 "C34" V 6950 5600 50  0000 L CNN
 F 1 "1n" V 6950 5450 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 6838 5400 50  0001 C CNN
 F 3 "~" H 6800 5550 50  0001 C CNN
@@ -3865,12 +3865,12 @@ F 3 "~" H 6800 5550 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R65
 U 1 1 60FB8108
 P 6800 5300
-AR Path="/60FB8108" Ref="R?"  Part="1" 
+AR Path="/60FB8108" Ref="R65"  Part="1" 
 AR Path="/6032E556/60FB8108" Ref="R?"  Part="1" 
-F 0 "R?" V 6900 5150 50  0000 L CNN
+F 0 "R65" V 6900 5150 50  0000 L CNN
 F 1 "33k" V 6900 5350 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6800 5300 50  0001 C CNN
 F 3 "~" H 6800 5300 50  0001 C CNN
@@ -3881,12 +3881,12 @@ Connection ~ 7550 5900
 Wire Wire Line
 	7550 5900 7150 5900
 $Comp
-L power:+3V3 #PWR?
+L power:+3V3 #PWR0151
 U 1 1 60FB8100
 P 7950 5900
-AR Path="/60FB8100" Ref="#PWR?"  Part="1" 
+AR Path="/60FB8100" Ref="#PWR0151"  Part="1" 
 AR Path="/6032E556/60FB8100" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7950 5750 50  0001 C CNN
+F 0 "#PWR0151" H 7950 5750 50  0001 C CNN
 F 1 "+3V3" H 7965 6073 50  0000 C CNN
 F 2 "" H 7950 5900 50  0001 C CNN
 F 3 "" H 7950 5900 50  0001 C CNN
@@ -3902,12 +3902,12 @@ Wire Wire Line
 Wire Wire Line
 	7950 5900 7850 5900
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R75
 U 1 1 60FB80F6
 P 7750 5900
-AR Path="/60FB80F6" Ref="R?"  Part="1" 
+AR Path="/60FB80F6" Ref="R75"  Part="1" 
 AR Path="/6032E556/60FB80F6" Ref="R?"  Part="1" 
-F 0 "R?" V 7850 5750 50  0000 L CNN
+F 0 "R75" V 7850 5750 50  0000 L CNN
 F 1 "24.9k" V 7850 5950 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7750 5900 50  0001 C CNN
 F 3 "~" H 7750 5900 50  0001 C CNN
@@ -3915,12 +3915,12 @@ F 3 "~" H 7750 5900 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0152
 U 1 1 60FB80F0
 P 7550 6300
-AR Path="/60FB80F0" Ref="#PWR?"  Part="1" 
+AR Path="/60FB80F0" Ref="#PWR0152"  Part="1" 
 AR Path="/6032E556/60FB80F0" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7550 6050 50  0001 C CNN
+F 0 "#PWR0152" H 7550 6050 50  0001 C CNN
 F 1 "GND" H 7555 6127 50  0000 C CNN
 F 2 "" H 7550 6300 50  0001 C CNN
 F 3 "" H 7550 6300 50  0001 C CNN
@@ -3932,8 +3932,8 @@ L Amplifier_Operational:MCP6002-xMS U?
 U 2 1 60FB80EA
 P 6850 5800
 AR Path="/6032E556/60FB80EA" Ref="U?"  Part="2" 
-AR Path="/60FB80EA" Ref="U?"  Part="2" 
-F 0 "U?" H 6700 5800 50  0000 L CNN
+AR Path="/60FB80EA" Ref="U7"  Part="2" 
+F 0 "U7" H 6700 5800 50  0000 L CNN
 F 1 "MCP6002-xMS" H 7150 5650 50  0000 C CNN
 F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 6850 5800 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6850 5800 50  0001 C CNN
@@ -3962,12 +3962,12 @@ Wire Wire Line
 Wire Wire Line
 	7250 3950 6900 3950
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R60
 U 1 1 6066758A
 P 6250 4450
-AR Path="/6066758A" Ref="R?"  Part="1" 
+AR Path="/6066758A" Ref="R60"  Part="1" 
 AR Path="/6032E556/6066758A" Ref="R?"  Part="1" 
-F 0 "R?" V 6450 4350 50  0000 L CNN
+F 0 "R60" V 6450 4350 50  0000 L CNN
 F 1 "100" V 6350 4350 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6250 4450 50  0001 C CNN
 F 3 "~" H 6250 4450 50  0001 C CNN
@@ -3994,12 +3994,12 @@ Wire Wire Line
 Wire Wire Line
 	6950 4200 7250 4200
 $Comp
-L Device:C C?
+L Device:C C33
 U 1 1 60667579
 P 6800 4200
-AR Path="/60667579" Ref="C?"  Part="1" 
+AR Path="/60667579" Ref="C33"  Part="1" 
 AR Path="/6032E556/60667579" Ref="C?"  Part="1" 
-F 0 "C?" V 6950 4250 50  0000 L CNN
+F 0 "C33" V 6950 4250 50  0000 L CNN
 F 1 "1n" V 6950 4100 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 6838 4050 50  0001 C CNN
 F 3 "~" H 6800 4200 50  0001 C CNN
@@ -4009,12 +4009,12 @@ $EndComp
 Text Notes 6700 4150 2    50   ~ 0
 -9.17 -> 3.3 V\n+9.17 -> 0 V
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R64
 U 1 1 60667572
 P 6800 3950
-AR Path="/60667572" Ref="R?"  Part="1" 
+AR Path="/60667572" Ref="R64"  Part="1" 
 AR Path="/6032E556/60667572" Ref="R?"  Part="1" 
-F 0 "R?" V 6900 3800 50  0000 L CNN
+F 0 "R64" V 6900 3800 50  0000 L CNN
 F 1 "18k" V 6900 4000 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6800 3950 50  0001 C CNN
 F 3 "~" H 6800 3950 50  0001 C CNN
@@ -4024,12 +4024,12 @@ $EndComp
 Wire Wire Line
 	7350 4350 7250 4350
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R70
 U 1 1 6066756B
 P 7450 4350
-AR Path="/6066756B" Ref="R?"  Part="1" 
+AR Path="/6066756B" Ref="R70"  Part="1" 
 AR Path="/6032E556/6066756B" Ref="R?"  Part="1" 
-F 0 "R?" V 7550 4150 50  0000 L CNN
+F 0 "R70" V 7550 4150 50  0000 L CNN
 F 1 "100k" V 7550 4350 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7450 4350 50  0001 C CNN
 F 3 "~" H 7450 4350 50  0001 C CNN
@@ -4040,12 +4040,12 @@ Connection ~ 7450 4550
 Wire Wire Line
 	7450 4550 7150 4550
 $Comp
-L power:+3V3 #PWR?
+L power:+3V3 #PWR0153
 U 1 1 60667563
 P 7850 4550
-AR Path="/60667563" Ref="#PWR?"  Part="1" 
+AR Path="/60667563" Ref="#PWR0153"  Part="1" 
 AR Path="/6032E556/60667563" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7850 4400 50  0001 C CNN
+F 0 "#PWR0153" H 7850 4400 50  0001 C CNN
 F 1 "+3V3" H 7865 4723 50  0000 C CNN
 F 2 "" H 7850 4550 50  0001 C CNN
 F 3 "" H 7850 4550 50  0001 C CNN
@@ -4059,12 +4059,12 @@ Wire Wire Line
 Wire Wire Line
 	7450 4550 7450 4650
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R71
 U 1 1 6066755A
 P 7450 4750
-AR Path="/6066755A" Ref="R?"  Part="1" 
+AR Path="/6066755A" Ref="R71"  Part="1" 
 AR Path="/6032E556/6066755A" Ref="R?"  Part="1" 
-F 0 "R?" H 7500 4700 50  0000 L CNN
+F 0 "R71" H 7500 4700 50  0000 L CNN
 F 1 "75k" H 7500 4800 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7450 4750 50  0001 C CNN
 F 3 "~" H 7450 4750 50  0001 C CNN
@@ -4074,12 +4074,12 @@ $EndComp
 Wire Wire Line
 	7850 4550 7750 4550
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R74
 U 1 1 60667553
 P 7650 4550
-AR Path="/60667553" Ref="R?"  Part="1" 
+AR Path="/60667553" Ref="R74"  Part="1" 
 AR Path="/6032E556/60667553" Ref="R?"  Part="1" 
-F 0 "R?" V 7750 4400 50  0000 L CNN
+F 0 "R74" V 7750 4400 50  0000 L CNN
 F 1 "102k" V 7750 4600 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7650 4550 50  0001 C CNN
 F 3 "~" H 7650 4550 50  0001 C CNN
@@ -4087,12 +4087,12 @@ F 3 "~" H 7650 4550 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0154
 U 1 1 6066754D
 P 7450 4950
-AR Path="/6066754D" Ref="#PWR?"  Part="1" 
+AR Path="/6066754D" Ref="#PWR0154"  Part="1" 
 AR Path="/6032E556/6066754D" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7450 4700 50  0001 C CNN
+F 0 "#PWR0154" H 7450 4700 50  0001 C CNN
 F 1 "GND" H 7455 4777 50  0000 C CNN
 F 2 "" H 7450 4950 50  0001 C CNN
 F 3 "" H 7450 4950 50  0001 C CNN
@@ -4104,8 +4104,8 @@ L Amplifier_Operational:MCP6002-xMS U?
 U 1 1 60667547
 P 6850 4450
 AR Path="/6032E556/60667547" Ref="U?"  Part="1" 
-AR Path="/60667547" Ref="U?"  Part="1" 
-F 0 "U?" H 6700 4450 50  0000 L CNN
+AR Path="/60667547" Ref="U7"  Part="1" 
+F 0 "U7" H 6700 4450 50  0000 L CNN
 F 1 "MCP6002-xMS" H 7150 4600 50  0000 C CNN
 F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 6850 4450 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6850 4450 50  0001 C CNN
@@ -4114,12 +4114,12 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6850 4450 50 
 $EndComp
 Connection ~ 8100 4350
 $Comp
-L Amplifier_Operational:TL072 U?
+L Amplifier_Operational:TL072 U8
 U 1 1 605986BA
 P 8500 4350
-AR Path="/605986BA" Ref="U?"  Part="1" 
+AR Path="/605986BA" Ref="U8"  Part="1" 
 AR Path="/6032E556/605986BA" Ref="U?"  Part="1" 
-F 0 "U?" H 8350 4350 50  0000 L CNN
+F 0 "U8" H 8350 4350 50  0000 L CNN
 F 1 "TL072CDR" H 8650 4500 50  0000 C CNN
 F 2 "digikey-footprints:SOIC-8_W3.9mm" H 8500 4350 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 8500 4350 50  0001 C CNN
@@ -4140,12 +4140,12 @@ Wire Wire Line
 Wire Wire Line
 	8600 4000 8900 4000
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R78
 U 1 1 605986A4
 P 8500 4000
-AR Path="/605986A4" Ref="R?"  Part="1" 
+AR Path="/605986A4" Ref="R78"  Part="1" 
 AR Path="/6032E556/605986A4" Ref="R?"  Part="1" 
-F 0 "R?" V 8600 4050 50  0000 L CNN
+F 0 "R78" V 8600 4050 50  0000 L CNN
 F 1 "100k" V 8600 3800 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8500 4000 50  0001 C CNN
 F 3 "~" H 8500 4000 50  0001 C CNN
@@ -4157,12 +4157,12 @@ Wire Wire Line
 Wire Wire Line
 	9000 4250 8900 4250
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R79
 U 1 1 6059869C
 P 9100 4250
-AR Path="/6059869C" Ref="R?"  Part="1" 
+AR Path="/6059869C" Ref="R79"  Part="1" 
 AR Path="/6032E556/6059869C" Ref="R?"  Part="1" 
-F 0 "R?" V 9200 4300 50  0000 L CNN
+F 0 "R79" V 9200 4300 50  0000 L CNN
 F 1 "100k" V 9200 4100 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 9100 4250 50  0001 C CNN
 F 3 "~" H 9100 4250 50  0001 C CNN
@@ -4181,12 +4181,12 @@ Wire Wire Line
 Wire Wire Line
 	8400 5150 8550 5150
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0155
 U 1 1 6050CC7E
 P 8850 4900
-AR Path="/6050CC7E" Ref="#PWR?"  Part="1" 
+AR Path="/6050CC7E" Ref="#PWR0155"  Part="1" 
 AR Path="/6032E556/6050CC7E" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8850 4650 50  0001 C CNN
+F 0 "#PWR0155" H 8850 4650 50  0001 C CNN
 F 1 "GND" H 8855 4727 50  0000 C CNN
 F 2 "" H 8850 4900 50  0001 C CNN
 F 3 "" H 8850 4900 50  0001 C CNN
@@ -4198,8 +4198,8 @@ L Device:C C?
 U 1 1 6050CC78
 P 8700 4900
 AR Path="/6032E556/6050CC78" Ref="C?"  Part="1" 
-AR Path="/6050CC78" Ref="C?"  Part="1" 
-F 0 "C?" H 8815 4946 50  0000 L CNN
+AR Path="/6050CC78" Ref="C36"  Part="1" 
+F 0 "C36" H 8815 4946 50  0000 L CNN
 F 1 "1u" H 8815 4855 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 8738 4750 50  0001 C CNN
 F 3 "~" H 8700 4900 50  0001 C CNN
@@ -4211,8 +4211,8 @@ L Device:C C?
 U 1 1 6050CC72
 P 9000 4900
 AR Path="/6032E556/6050CC72" Ref="C?"  Part="1" 
-AR Path="/6050CC72" Ref="C?"  Part="1" 
-F 0 "C?" H 9115 4946 50  0000 L CNN
+AR Path="/6050CC72" Ref="C38"  Part="1" 
+F 0 "C38" H 9115 4946 50  0000 L CNN
 F 1 "1u" H 9115 4855 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 9038 4750 50  0001 C CNN
 F 3 "~" H 9000 4900 50  0001 C CNN
@@ -4220,12 +4220,12 @@ F 3 "~" H 9000 4900 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:-12V #PWR?
+L power:-12V #PWR0156
 U 1 1 6050CC6C
 P 9250 5150
-AR Path="/6050CC6C" Ref="#PWR?"  Part="1" 
+AR Path="/6050CC6C" Ref="#PWR0156"  Part="1" 
 AR Path="/6032E556/6050CC6C" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9250 5250 50  0001 C CNN
+F 0 "#PWR0156" H 9250 5250 50  0001 C CNN
 F 1 "-12V" H 9265 5323 50  0000 C CNN
 F 2 "" H 9250 5150 50  0001 C CNN
 F 3 "" H 9250 5150 50  0001 C CNN
@@ -4233,12 +4233,12 @@ F 3 "" H 9250 5150 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:+12V #PWR?
+L power:+12V #PWR0157
 U 1 1 6050CC66
 P 8400 4900
-AR Path="/6050CC66" Ref="#PWR?"  Part="1" 
+AR Path="/6050CC66" Ref="#PWR0157"  Part="1" 
 AR Path="/6032E556/6050CC66" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8400 4750 50  0001 C CNN
+F 0 "#PWR0157" H 8400 4750 50  0001 C CNN
 F 1 "+12V" H 8415 5073 50  0000 C CNN
 F 2 "" H 8400 4900 50  0001 C CNN
 F 3 "" H 8400 4900 50  0001 C CNN
@@ -4250,12 +4250,12 @@ Wire Wire Line
 Wire Wire Line
 	9250 4900 9150 4900
 $Comp
-L Amplifier_Operational:TL072 U?
+L Amplifier_Operational:TL072 U8
 U 3 1 6050CC5E
 P 8850 5250
-AR Path="/6050CC5E" Ref="U?"  Part="3" 
+AR Path="/6050CC5E" Ref="U8"  Part="3" 
 AR Path="/6032E556/6050CC5E" Ref="U?"  Part="3" 
-F 0 "U?" V 8850 5400 50  0000 C CNN
+F 0 "U8" V 8850 5400 50  0000 C CNN
 F 1 "TL072CDR" V 8850 5150 50  0000 C CNN
 F 2 "digikey-footprints:SOIC-8_W3.9mm" H 8850 5250 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 8850 5250 50  0001 C CNN
@@ -4263,12 +4263,12 @@ F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 8850 5250 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R82
 U 1 1 604A71A5
 P 10150 4950
-AR Path="/604A71A5" Ref="R?"  Part="1" 
+AR Path="/604A71A5" Ref="R82"  Part="1" 
 AR Path="/6032E556/604A71A5" Ref="R?"  Part="1" 
-F 0 "R?" V 10250 4750 50  0000 L CNN
+F 0 "R82" V 10250 4750 50  0000 L CNN
 F 1 "0" V 10250 4950 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 10150 4950 50  0001 C CNN
 F 3 "~" H 10150 4950 50  0001 C CNN
@@ -4276,12 +4276,12 @@ F 3 "~" H 10150 4950 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L Device:R_Small_US R?
+L Device:R_Small_US R81
 U 1 1 604A719F
 P 9750 5250
-AR Path="/604A719F" Ref="R?"  Part="1" 
+AR Path="/604A719F" Ref="R81"  Part="1" 
 AR Path="/6032E556/604A719F" Ref="R?"  Part="1" 
-F 0 "R?" V 9850 5100 50  0000 L CNN
+F 0 "R81" V 9850 5100 50  0000 L CNN
 F 1 "0" V 9850 5300 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 9750 5250 50  0001 C CNN
 F 3 "~" H 9750 5250 50  0001 C CNN
@@ -4289,12 +4289,12 @@ F 3 "~" H 9750 5250 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L Amplifier_Operational:TL072 U?
+L Amplifier_Operational:TL072 U8
 U 2 1 604A7199
 P 10150 5150
-AR Path="/604A7199" Ref="U?"  Part="2" 
+AR Path="/604A7199" Ref="U8"  Part="2" 
 AR Path="/6032E556/604A7199" Ref="U?"  Part="2" 
-F 0 "U?" H 10000 5150 50  0000 L CNN
+F 0 "U8" H 10000 5150 50  0000 L CNN
 F 1 "TL072CDR" H 10300 5300 50  0000 C CNN
 F 2 "digikey-footprints:SOIC-8_W3.9mm" H 10150 5150 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 10150 5150 50  0001 C CNN
@@ -4314,12 +4314,12 @@ Wire Wire Line
 Wire Wire Line
 	10500 5150 10500 4950
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0158
 U 1 1 604A718D
 P 9650 5250
-AR Path="/604A718D" Ref="#PWR?"  Part="1" 
+AR Path="/604A718D" Ref="#PWR0158"  Part="1" 
 AR Path="/6032E556/604A718D" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9650 5000 50  0001 C CNN
+F 0 "#PWR0158" H 9650 5000 50  0001 C CNN
 F 1 "GND" H 9655 5077 50  0000 C CNN
 F 2 "" H 9650 5250 50  0001 C CNN
 F 3 "" H 9650 5250 50  0001 C CNN
