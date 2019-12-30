@@ -660,97 +660,23 @@ Wire Wire Line
 	1550 6200 2350 6200
 Connection ~ 1550 6200
 Connection ~ 1550 4200
-$Comp
-L power:-12V #PWR?
-U 1 1 6059D7D6
-P 2200 5550
-AR Path="/6059D7D6" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/6059D7D6" Ref="#PWR074"  Part="1" 
-F 0 "#PWR074" H 2200 5650 50  0001 C CNN
-F 1 "-12V" H 2215 5723 50  0000 C CNN
-F 2 "" H 2200 5550 50  0001 C CNN
-F 3 "" H 2200 5550 50  0001 C CNN
-	1    2200 5550
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:R_Small_US R?
-U 1 1 605A0AA3
-P 2200 5350
-AR Path="/605A0AA3" Ref="R?"  Part="1" 
-AR Path="/6032E556/605A0AA3" Ref="R49"  Part="1" 
-F 0 "R49" H 2350 5300 50  0000 C CNN
-F 1 "100k" H 2350 5400 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 2200 5350 50  0001 C CNN
-F 3 "~" H 2200 5350 50  0001 C CNN
-	1    2200 5350
-	1    0    0    1   
-$EndComp
-Wire Wire Line
-	2200 5550 2200 5450
-Wire Wire Line
-	2200 5250 2200 5100
-Wire Wire Line
-	2200 5100 1900 5100
 Connection ~ 1900 5100
 Text Notes 1900 5050 0    50   ~ 0
 -2.16 V
 Wire Wire Line
 	1300 5200 1550 5200
-$Comp
-L Transistor_FET:BSS84 Q4
-U 1 1 605A7EE6
-P 3600 5200
-F 0 "Q4" H 3806 5291 50  0000 L CNN
-F 1 "BSS84" H 3806 5200 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 3800 5125 50  0001 L CIN
-F 3 "http://assets.nexperia.com/documents/data-sheet/BSS84.pdf" H 3600 5200 50  0001 L CNN
-F 4 "-0.8/-1.7/-2" H 3806 5109 50  0000 L CNN "VGS"
-	1    3600 5200
-	1    0    0    -1  
-$EndComp
+Connection ~ 1550 5200
 $Comp
 L Device:R_Small_US R?
-U 1 1 605ADB0D
+U 1 1 60649E12
 P 3200 5200
-AR Path="/605ADB0D" Ref="R?"  Part="1" 
-AR Path="/6032E556/605ADB0D" Ref="R54"  Part="1" 
-F 0 "R54" V 3300 5100 50  0000 C CNN
+AR Path="/60649E12" Ref="R?"  Part="1" 
+AR Path="/6032E556/60649E12" Ref="R55"  Part="1" 
+F 0 "R55" V 3300 5100 50  0000 C CNN
 F 1 "499" V 3300 5300 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 3200 5200 50  0001 C CNN
 F 3 "~" H 3200 5200 50  0001 C CNN
 	1    3200 5200
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	3400 5200 3300 5200
-Connection ~ 1550 5200
-$Comp
-L power:GND #PWR?
-U 1 1 605BAE8D
-P 3700 5500
-AR Path="/605BAE8D" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/605BAE8D" Ref="#PWR085"  Part="1" 
-F 0 "#PWR085" H 3700 5250 50  0001 C CNN
-F 1 "GND" H 3705 5327 50  0000 C CNN
-F 2 "" H 3700 5500 50  0001 C CNN
-F 3 "" H 3700 5500 50  0001 C CNN
-	1    3700 5500
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	3700 5500 3700 5400
-$Comp
-L Device:R_Small_US R?
-U 1 1 60649E12
-P 3200 5850
-AR Path="/60649E12" Ref="R?"  Part="1" 
-AR Path="/6032E556/60649E12" Ref="R55"  Part="1" 
-F 0 "R55" V 3300 5750 50  0000 C CNN
-F 1 "499" V 3300 5950 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3200 5850 50  0001 C CNN
-F 3 "~" H 3200 5850 50  0001 C CNN
-	1    3200 5850
 	0    1    -1   0   
 $EndComp
 Text HLabel 2650 6200 2    50   Input ~ 0
@@ -787,8 +713,6 @@ Text Notes 1000 3950 0    50   ~ 0
 VIH = 0.8/1.3/1.5
 Text Notes 1000 2950 0    50   ~ 0
 -5 to 5 V
-Text Notes 1000 4850 0    50   ~ 0
-6.5 V Abs Max
 Text Notes 1000 1950 0    50   ~ 0
 -10 to 10 V
 Text Notes 1000 950  0    50   ~ 0
@@ -1683,19 +1607,6 @@ To coupling control
 Text HLabel 2250 7150 2    50   Input ~ 0
 FILT_CV
 $Comp
-L Transistor_FET:BSS138 Q5
-U 1 1 5FFE5F7B
-P 4550 5850
-F 0 "Q5" H 4756 5941 50  0000 L CNN
-F 1 "BSS138" H 4756 5850 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 4750 5775 50  0001 L CIN
-F 3 "https://www.fairchildsemi.com/datasheets/BS/BSS138.pdf" H 4550 5850 50  0001 L CNN
-F 4 "0.8/1.3/1.5" H 4756 5759 50  0000 L CNN "VGS"
-F 5 "DNP" H 4450 5700 50  0000 L CNN "Assembly"
-	1    4550 5850
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR?
 U 1 1 5FFE5F81
 P 4650 6250
@@ -1708,54 +1619,6 @@ F 3 "" H 4650 6250 50  0001 C CNN
 	1    4650 6250
 	-1   0    0    -1  
 $EndComp
-Wire Wire Line
-	4650 6250 4650 6050
-$Comp
-L Device:R_Small_US R?
-U 1 1 60118940
-P 4950 5500
-AR Path="/60118940" Ref="R?"  Part="1" 
-AR Path="/6032E556/60118940" Ref="R68"  Part="1" 
-F 0 "R68" V 5050 5600 50  0000 C CNN
-F 1 "0" V 5050 5450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 4950 5500 50  0001 C CNN
-F 3 "~" H 4950 5500 50  0001 C CNN
-F 4 "DNP" V 4850 5500 50  0000 C CNN "Assembly"
-	1    4950 5500
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	3300 5850 4300 5850
-Wire Wire Line
-	4850 5500 4650 5500
-Wire Wire Line
-	4650 5500 4650 5650
-Wire Wire Line
-	5050 5500 5250 5500
-$Comp
-L Device:R_Small_US R?
-U 1 1 60372D91
-P 4950 6200
-AR Path="/60372D91" Ref="R?"  Part="1" 
-AR Path="/6032E556/60372D91" Ref="R69"  Part="1" 
-F 0 "R69" V 5050 6300 50  0000 C CNN
-F 1 "0" V 5050 6150 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 4950 6200 50  0001 C CNN
-F 3 "~" H 4950 6200 50  0001 C CNN
-	1    4950 6200
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	4850 6200 4300 6200
-Wire Wire Line
-	4300 6200 4300 5850
-Connection ~ 4300 5850
-Wire Wire Line
-	4300 5850 4350 5850
-Wire Wire Line
-	5050 6200 5250 6200
-Text Notes 4050 5800 0    50   ~ 0
-Optional Buffer\n> 5V In
 $Comp
 L Device:R_Small_US R?
 U 1 1 610AC9C3
@@ -1883,13 +1746,8 @@ Wire Wire Line
 	4800 1300 5000 1300
 Wire Wire Line
 	7650 4850 7750 4850
-Text HLabel 5800 5500 2    50   Input ~ 0
+Text HLabel 4300 5200 2    50   Input ~ 0
 EXT_CLK
-Wire Wire Line
-	5250 5500 5250 6200
-Wire Wire Line
-	5800 5500 5250 5500
-Connection ~ 5250 5500
 $Comp
 L Device:C C?
 U 1 1 5FCA1072
@@ -1988,16 +1846,8 @@ Wire Wire Line
 	3550 7350 4200 7350
 Text Notes 4250 7000 0    50   ~ 0
 Pullup at other end
-Text Notes 5450 5450 0    50   ~ 0
-Pullup at other end
-Text HLabel 5650 4900 2    50   Input ~ 0
-EXT_CLK_EN
-Wire Wire Line
-	5650 4900 3700 4900
-Text Notes 5450 4850 0    50   ~ 0
-Pullup at other end
-Wire Wire Line
-	3700 4900 3700 5000
+Text Notes 4300 5150 0    50   ~ 0
+To Mux
 $Comp
 L Transistor_FET:BSS138 Q3
 U 1 1 60562CDC
@@ -2044,27 +1894,98 @@ Wire Wire Line
 	3300 4200 3400 4200
 Wire Wire Line
 	3700 3950 3700 4000
-Text HLabel 4450 3950 2    50   Input ~ 0
+Text HLabel 4300 3950 2    50   Input ~ 0
 GLITCH
-Text Notes 4400 3800 0    50   ~ 0
+Text Notes 4250 3800 0    50   ~ 0
 To GPIO 29
 Wire Wire Line
-	3700 3950 4450 3950
-Text Notes 4400 3900 0    50   ~ 0
+	3700 3950 4300 3950
+Text Notes 4250 3900 0    50   ~ 0
 Pullup at other end
-Wire Wire Line
-	2750 5200 2750 5850
-Wire Wire Line
-	3100 5200 2750 5200
-Connection ~ 2750 5200
-Wire Wire Line
-	2750 5200 1550 5200
-Wire Wire Line
-	2750 5850 3100 5850
 Text HLabel 2900 3200 2    50   Input ~ 0
 PARAM_0_CV
 Text Notes 2950 3150 0    50   ~ 0
 To A7
 Wire Wire Line
 	1550 3200 2900 3200
+Text HLabel 2400 5100 2    50   Input ~ 0
+EXC_CLK_SW
+$Comp
+L dk_Diodes-Zener-Single:MMSZ5231B-7-F Z1
+U 1 1 5F627CE0
+P 3500 5400
+F 0 "Z1" V 3553 5297 60  0000 R CNN
+F 1 "MMSZ5231B-7-F" V 3447 5297 60  0000 R CNN
+F 2 "digikey-footprints:SOD-123" H 3700 5600 60  0001 L CNN
+F 3 "https://www.diodes.com/assets/Datasheets/ds18010.pdf" H 3700 5700 60  0001 L CNN
+F 4 "MMSZ5231B-FDICT-ND" H 3700 5800 60  0001 L CNN "Digi-Key_PN"
+F 5 "MMSZ5231B-7-F" H 3700 5900 60  0001 L CNN "MPN"
+F 6 "Discrete Semiconductor Products" H 3700 6000 60  0001 L CNN "Category"
+F 7 "Diodes - Zener - Single" H 3700 6100 60  0001 L CNN "Family"
+F 8 "https://www.diodes.com/assets/Datasheets/ds18010.pdf" H 3700 6200 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/diodes-incorporated/MMSZ5231B-7-F/MMSZ5231B-FDICT-ND/755506" H 3700 6300 60  0001 L CNN "DK_Detail_Page"
+F 10 "DIODE ZENER 5.1V 500MW SOD123" H 3700 6400 60  0001 L CNN "Description"
+F 11 "Diodes Incorporated" H 3700 6500 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 3700 6600 60  0001 L CNN "Status"
+F 13 "5.1 V" V 3350 5050 50  0000 L CNN "VZ"
+	1    3500 5400
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	3300 5200 3500 5200
+Wire Wire Line
+	1550 5200 3100 5200
+Connection ~ 3500 5200
+$Comp
+L power:GND #PWR?
+U 1 1 5F696702
+P 3500 5700
+AR Path="/5F696702" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5F696702" Ref="#PWR0135"  Part="1" 
+F 0 "#PWR0135" H 3500 5450 50  0001 C CNN
+F 1 "GND" H 3505 5527 50  0000 C CNN
+F 2 "" H 3500 5700 50  0001 C CNN
+F 3 "" H 3500 5700 50  0001 C CNN
+	1    3500 5700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 5600 3500 5700
+Wire Wire Line
+	3500 5200 3750 5200
+$Comp
+L Device:D D?
+U 1 1 5F6F3CBE
+P 3750 5400
+AR Path="/5F6F3CBE" Ref="D?"  Part="1" 
+AR Path="/6032E556/5F6F3CBE" Ref="D12"  Part="1" 
+F 0 "D12" H 3750 5616 50  0000 C CNN
+F 1 "D" H 3750 5525 50  0000 C CNN
+F 2 "Diode_SMD:D_0603_1608Metric" H 3750 5400 50  0001 C CNN
+F 3 "~" H 3750 5400 50  0001 C CNN
+	1    3750 5400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3750 5250 3750 5200
+Connection ~ 3750 5200
+Wire Wire Line
+	3750 5200 4300 5200
+$Comp
+L power:GND #PWR?
+U 1 1 5F736859
+P 3750 5700
+AR Path="/5F736859" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5F736859" Ref="#PWR0142"  Part="1" 
+F 0 "#PWR0142" H 3750 5450 50  0001 C CNN
+F 1 "GND" H 3755 5527 50  0000 C CNN
+F 2 "" H 3750 5700 50  0001 C CNN
+F 3 "" H 3750 5700 50  0001 C CNN
+	1    3750 5700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 5550 3750 5700
+Wire Wire Line
+	1900 5100 2400 5100
 $EndSCHEMATC
