@@ -4403,7 +4403,9 @@ $Comp
 L Mechanical:MountingHole_Pad H?
 U 1 1 5E19033E
 P 12300 3350
-F 0 "H?" H 12300 3550 50  0000 L CNN
+AR Path="/6032E556/5E19033E" Ref="H?"  Part="1" 
+AR Path="/5E19033E" Ref="H6"  Part="1" 
+F 0 "H6" H 12300 3550 50  0000 L CNN
 F 1 "R30-1001102" H 12400 3308 50  0000 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 12300 3350 50  0001 C CNN
 F 3 "~" H 12300 3350 50  0001 C CNN
@@ -4414,7 +4416,9 @@ $Comp
 L Mechanical:MountingHole_Pad H?
 U 1 1 5E190344
 P 12100 3350
-F 0 "H?" H 12100 3550 50  0000 L CNN
+AR Path="/6032E556/5E190344" Ref="H?"  Part="1" 
+AR Path="/5E190344" Ref="H5"  Part="1" 
+F 0 "H5" H 12100 3550 50  0000 L CNN
 F 1 "R30-1001102" H 12200 3308 50  0001 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 12100 3350 50  0001 C CNN
 F 3 "~" H 12100 3350 50  0001 C CNN
@@ -4425,7 +4429,9 @@ $Comp
 L Mechanical:MountingHole_Pad H?
 U 1 1 5E19034A
 P 11900 3350
-F 0 "H?" H 11900 3550 50  0000 L CNN
+AR Path="/6032E556/5E19034A" Ref="H?"  Part="1" 
+AR Path="/5E19034A" Ref="H4"  Part="1" 
+F 0 "H4" H 11900 3550 50  0000 L CNN
 F 1 "R30-1001102" H 12000 3308 50  0001 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 11900 3350 50  0001 C CNN
 F 3 "~" H 11900 3350 50  0001 C CNN
@@ -4433,12 +4439,12 @@ F 3 "~" H 11900 3350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0145
 U 1 1 5E190350
 P 11900 3550
-AR Path="/5E190350" Ref="#PWR?"  Part="1" 
+AR Path="/5E190350" Ref="#PWR0145"  Part="1" 
 AR Path="/6032E556/5E190350" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 11900 3300 50  0001 C CNN
+F 0 "#PWR0145" H 11900 3300 50  0001 C CNN
 F 1 "GND" H 11905 3377 50  0000 C CNN
 F 2 "" H 11900 3550 50  0001 C CNN
 F 3 "" H 11900 3550 50  0001 C CNN
@@ -4453,4 +4459,19 @@ Connection ~ 11900 3450
 Connection ~ 12100 3450
 Wire Wire Line
 	12100 3450 12300 3450
+$Comp
+L Mechanical:MountingHole_Pad H?
+U 1 1 5E2564FD
+P 11700 3350
+AR Path="/6032E556/5E2564FD" Ref="H?"  Part="1" 
+AR Path="/5E2564FD" Ref="H?"  Part="1" 
+F 0 "H?" H 11700 3550 50  0000 L CNN
+F 1 "R30-1001102" H 11800 3308 50  0001 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 11700 3350 50  0001 C CNN
+F 3 "~" H 11700 3350 50  0001 C CNN
+	1    11700 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11900 3450 11700 3450
 $EndSCHEMATC

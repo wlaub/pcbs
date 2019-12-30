@@ -2042,4 +2042,17 @@ Connection ~ 5350 3150
 Connection ~ 5550 3150
 Wire Wire Line
 	5550 3150 5750 3150
+$Comp
+L Mechanical:MountingHole_Pad H7
+U 1 1 5E233789
+P 5150 3050
+F 0 "H7" H 5150 3250 50  0000 L CNN
+F 1 "R30-1001102" H 5250 3008 50  0001 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 5150 3050 50  0001 C CNN
+F 3 "~" H 5150 3050 50  0001 C CNN
+	1    5150 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 3150 5150 3150
 $EndSCHEMATC
