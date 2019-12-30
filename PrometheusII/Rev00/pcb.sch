@@ -1988,4 +1988,58 @@ Wire Wire Line
 	3750 5550 3750 5700
 Wire Wire Line
 	1900 5100 2400 5100
+$Comp
+L Mechanical:MountingHole_Pad H3
+U 1 1 60737D52
+P 5750 3050
+F 0 "H3" H 5750 3250 50  0000 L CNN
+F 1 "R30-1001102" H 5850 3008 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 5750 3050 50  0001 C CNN
+F 3 "~" H 5750 3050 50  0001 C CNN
+	1    5750 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H2
+U 1 1 607688F7
+P 5550 3050
+F 0 "H2" H 5550 3250 50  0000 L CNN
+F 1 "R30-1001102" H 5650 3008 50  0001 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 5550 3050 50  0001 C CNN
+F 3 "~" H 5550 3050 50  0001 C CNN
+	1    5550 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H1
+U 1 1 6076E17B
+P 5350 3050
+F 0 "H1" H 5350 3250 50  0000 L CNN
+F 1 "R30-1001102" H 5450 3008 50  0001 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 5350 3050 50  0001 C CNN
+F 3 "~" H 5350 3050 50  0001 C CNN
+	1    5350 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60779E15
+P 5350 3250
+AR Path="/60779E15" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/60779E15" Ref="#PWR0144"  Part="1" 
+F 0 "#PWR0144" H 5350 3000 50  0001 C CNN
+F 1 "GND" H 5355 3077 50  0000 C CNN
+F 2 "" H 5350 3250 50  0001 C CNN
+F 3 "" H 5350 3250 50  0001 C CNN
+	1    5350 3250
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 3150 5350 3250
+Wire Wire Line
+	5350 3150 5550 3150
+Connection ~ 5350 3150
+Connection ~ 5550 3150
+Wire Wire Line
+	5550 3150 5750 3150
 $EndSCHEMATC
