@@ -1449,8 +1449,6 @@ F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 10200 9050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6450 6800 6500 6800
-Wire Wire Line
 	6700 6800 6700 7150
 Wire Wire Line
 	5700 7150 5700 6900
@@ -2016,8 +2014,6 @@ Wire Wire Line
 	10100 7650 10350 7650
 Wire Wire Line
 	10350 7650 10350 7250
-Wire Wire Line
-	10350 7250 10300 7250
 Text Label 4550 6700 0    50   ~ 0
 OUTA
 Text Label 6700 6800 0    50   ~ 0
@@ -2028,7 +2024,7 @@ Text Label 10750 7250 0    50   ~ 0
 OUT
 Text Notes 9650 6950 0    50   ~ 0
 Output Gain
-Text Label 6050 9800 0    50   ~ 0
+Text Label 6350 10100 0    50   ~ 0
 CV_FILT
 Text Notes 4450 6550 0    50   ~ 0
 DC = -6 dB\nR   | 3 dB Cutoff\n10k | 31.8kHz\n413 | 771.1kHz\n
@@ -3542,7 +3538,7 @@ VOCT_FINE
 Text Label 14350 3250 0    50   ~ 0
 VOCT_SEMI
 Text Label 14350 3150 0    50   ~ 0
-CV_FILT
+_CV_FILT
 Text Label 14350 3050 0    50   ~ 0
 FREQ_LOCK_T
 $Comp
@@ -3618,7 +3614,7 @@ Wire Wire Line
 Wire Wire Line
 	13550 5200 13450 5200
 Wire Wire Line
-	5600 9800 7150 9800
+	5600 9800 5900 9800
 Connection ~ 8250 6700
 $Comp
 L Amplifier_Operational:MCP6002-xMS U?
@@ -4187,66 +4183,41 @@ $EndComp
 $Comp
 L Device:R_Small_US R82
 U 1 1 604A71A5
-P 10150 4950
+P 11000 4950
 AR Path="/604A71A5" Ref="R82"  Part="1" 
 AR Path="/6032E556/604A71A5" Ref="R?"  Part="1" 
-F 0 "R82" V 10250 4750 50  0000 L CNN
-F 1 "0" V 10250 4950 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 10150 4950 50  0001 C CNN
-F 3 "~" H 10150 4950 50  0001 C CNN
-	1    10150 4950
-	0    1    -1   0   
+F 0 "R82" V 11100 4850 50  0000 L CNN
+F 1 "0" V 11100 5050 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 11000 4950 50  0001 C CNN
+F 3 "~" H 11000 4950 50  0001 C CNN
+	1    11000 4950
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Device:R_Small_US R81
 U 1 1 604A719F
-P 9750 5250
+P 6250 10100
 AR Path="/604A719F" Ref="R81"  Part="1" 
 AR Path="/6032E556/604A719F" Ref="R?"  Part="1" 
-F 0 "R81" V 9850 5100 50  0000 L CNN
-F 1 "0" V 9850 5300 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 9750 5250 50  0001 C CNN
-F 3 "~" H 9750 5250 50  0001 C CNN
-	1    9750 5250
-	0    1    -1   0   
+F 0 "R81" V 6350 9950 50  0000 L CNN
+F 1 "499" V 6350 10150 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 6250 10100 50  0001 C CNN
+F 3 "~" H 6250 10100 50  0001 C CNN
+	1    6250 10100
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Amplifier_Operational:TL072 U8
 U 2 1 604A7199
-P 10150 5150
+P 10500 5050
 AR Path="/604A7199" Ref="U8"  Part="2" 
 AR Path="/6032E556/604A7199" Ref="U?"  Part="2" 
-F 0 "U8" H 10000 5150 50  0000 L CNN
-F 1 "TL072CDR" H 10300 5300 50  0000 C CNN
-F 2 "digikey-footprints:SOIC-8_W3.9mm" H 10150 5150 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 10150 5150 50  0001 C CNN
-	2    10150 5150
-	1    0    0    1   
-$EndComp
-Wire Wire Line
-	10450 5150 10500 5150
-Wire Wire Line
-	10500 4950 10250 4950
-Wire Wire Line
-	10050 4950 9800 4950
-Wire Wire Line
-	9800 4950 9800 5050
-Wire Wire Line
-	9800 5050 9850 5050
-Wire Wire Line
-	10500 5150 10500 4950
-$Comp
-L power:GND #PWR0158
-U 1 1 604A718D
-P 9650 5250
-AR Path="/604A718D" Ref="#PWR0158"  Part="1" 
-AR Path="/6032E556/604A718D" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0158" H 9650 5000 50  0001 C CNN
-F 1 "GND" H 9655 5077 50  0000 C CNN
-F 2 "" H 9650 5250 50  0001 C CNN
-F 3 "" H 9650 5250 50  0001 C CNN
-	1    9650 5250
-	0    1    1    0   
+F 0 "U8" H 10350 5050 50  0000 L CNN
+F 1 "TL072CDR" H 10650 5200 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 10500 5050 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 10500 5050 50  0001 C CNN
+	2    10500 5050
+	-1   0    0    -1  
 $EndComp
 Text Label 12500 4300 0    50   ~ 0
 LEN_ATV_P
@@ -4433,12 +4404,6 @@ Wire Wire Line
 	4100 3450 4800 3450
 Wire Wire Line
 	4800 3450 4800 3150
-Connection ~ 10300 7250
-Wire Wire Line
-	10300 7250 10250 7250
-Connection ~ 6500 6800
-Wire Wire Line
-	6500 6800 6700 6800
 $Comp
 L Amplifier_Operational:TL072 U5
 U 2 1 5F2BA50F
@@ -4467,4 +4432,36 @@ Wire Wire Line
 	7000 8500 7550 8500
 Wire Wire Line
 	13750 1900 14850 1900
+Wire Wire Line
+	6450 6800 6700 6800
+Wire Wire Line
+	10250 7250 10350 7250
+Text Label 11200 4950 0    50   ~ 0
+_CV_FILT
+Text Label 10000 5050 2    50   ~ 0
+CV_FILT
+Wire Wire Line
+	10200 5050 10100 5050
+Wire Wire Line
+	10100 5050 10100 5350
+Wire Wire Line
+	10100 5350 10900 5350
+Wire Wire Line
+	10900 5350 10900 5150
+Wire Wire Line
+	10900 5150 10800 5150
+Wire Wire Line
+	10000 5050 10100 5050
+Connection ~ 10100 5050
+Wire Wire Line
+	10900 4950 10800 4950
+Wire Wire Line
+	11200 4950 11100 4950
+Wire Wire Line
+	6150 10100 5900 10100
+Wire Wire Line
+	5900 10100 5900 9800
+Connection ~ 5900 9800
+Wire Wire Line
+	5900 9800 7150 9800
 $EndSCHEMATC
