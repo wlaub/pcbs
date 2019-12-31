@@ -3985,23 +3985,23 @@ Wire Wire Line
 $Comp
 L Amplifier_Operational:TL072 U5
 U 2 1 5F2BA50F
-P 6150 6800
-F 0 "U5" H 6000 6800 50  0000 L CNN
-F 1 "TL072CDR" H 6300 6650 50  0000 C CNN
-F 2 "digikey-footprints:SOIC-8_W3.9mm" H 6150 6800 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 6150 6800 50  0001 C CNN
-	2    6150 6800
+P 9950 7250
+F 0 "U5" H 9800 7250 50  0000 L CNN
+F 1 "TL072CDR" H 10100 7100 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 9950 7250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 9950 7250 50  0001 C CNN
+	2    9950 7250
 	1    0    0    -1  
 $EndComp
 $Comp
 L Amplifier_Operational:TL072 U5
 U 1 1 5F58D48E
-P 9950 7250
-F 0 "U5" H 9800 7250 50  0000 L CNN
-F 1 "TL072CDR" H 10100 7400 50  0000 C CNN
-F 2 "digikey-footprints:SOIC-8_W3.9mm" H 9950 7250 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 9950 7250 50  0001 C CNN
-	1    9950 7250
+P 6150 6800
+F 0 "U5" H 6000 6800 50  0000 L CNN
+F 1 "TL072CDR" H 6300 6950 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 6150 6800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 6150 6800 50  0001 C CNN
+	1    6150 6800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
