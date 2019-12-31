@@ -2974,7 +2974,7 @@ Text Label 11600 5150 2    50   ~ 0
 OUT_P
 Text Label 11600 5050 2    50   ~ 0
 GLITCH_IN_P
-Text Label 15000 4150 0    50   ~ 0
+Text Label 15000 4250 0    50   ~ 0
 PARAM_0_P
 $Comp
 L power:GND #PWR0138
@@ -3003,7 +3003,7 @@ Text Label 15500 6600 2    50   ~ 0
 LFO_P
 Text Label 15550 6800 2    50   ~ 0
 GLITCH_EN_P
-Text Label 15000 4250 0    50   ~ 0
+Text Label 15000 4150 0    50   ~ 0
 PARAM_0_CV_P
 Text Label 13350 7700 2    50   ~ 0
 PARAM_1_P
@@ -3117,7 +3117,7 @@ Text Label 11650 7050 2    50   ~ 0
 OUT
 Text Label 11650 6950 2    50   ~ 0
 GLITCH_IN_T
-Text Label 14950 3150 0    50   ~ 0
+Text Label 14950 3250 0    50   ~ 0
 PARAM_0
 Wire Wire Line
 	11850 6000 11750 6000
@@ -3185,7 +3185,7 @@ Wire Wire Line
 	13350 9150 13750 9150
 Wire Wire Line
 	13750 9150 13750 9550
-Text Label 14900 3250 0    50   ~ 0
+Text Label 14950 3150 0    50   ~ 0
 _PARAM_0_CV
 Text Label 13350 9150 2    50   ~ 0
 PARAM_1
@@ -3462,15 +3462,15 @@ $EndComp
 $Comp
 L Amplifier_Operational:MCP6002-xMS U?
 U 2 1 60FB80EA
-P 6850 5800
+P 6850 4450
 AR Path="/6032E556/60FB80EA" Ref="U?"  Part="2" 
 AR Path="/60FB80EA" Ref="U7"  Part="2" 
-F 0 "U7" H 6700 5800 50  0000 L CNN
-F 1 "MCP6002-xMS" H 7150 5650 50  0000 C CNN
-F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 6850 5800 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6850 5800 50  0001 C CNN
-	2    6850 5800
-	-1   0    0    -1  
+F 0 "U7" H 6700 4450 50  0000 L CNN
+F 1 "MCP6002-xMS" H 7150 4300 50  0000 C CNN
+F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 6850 4450 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6850 4450 50  0001 C CNN
+	2    6850 4450
+	-1   0    0    1   
 $EndComp
 Text Notes 5550 4350 0    50   ~ 0
 To A9
@@ -3634,14 +3634,14 @@ $EndComp
 $Comp
 L Amplifier_Operational:MCP6002-xMS U?
 U 1 1 60667547
-P 6850 4450
+P 6850 5800
 AR Path="/6032E556/60667547" Ref="U?"  Part="1" 
 AR Path="/60667547" Ref="U7"  Part="1" 
-F 0 "U7" H 6700 4450 50  0000 L CNN
-F 1 "MCP6002-xMS" H 7150 4600 50  0000 C CNN
-F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 6850 4450 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6850 4450 50  0001 C CNN
-	1    6850 4450
+F 0 "U7" H 6700 5800 50  0000 L CNN
+F 1 "MCP6002-xMS" H 7150 5950 50  0000 C CNN
+F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 6850 5800 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 6850 5800 50  0001 C CNN
+	1    6850 5800
 	-1   0    0    1   
 $EndComp
 Connection ~ 8100 4350
@@ -4577,7 +4577,7 @@ Wire Wire Line
 Wire Wire Line
 	14650 3350 14950 3350
 Wire Wire Line
-	14900 3250 14750 3250
+	14950 3250 14750 3250
 Wire Wire Line
 	14750 3250 14750 3050
 Wire Wire Line
