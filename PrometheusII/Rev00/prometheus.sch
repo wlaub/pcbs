@@ -2991,11 +2991,11 @@ Wire Wire Line
 	13450 8600 13450 8700
 Text Label 13350 8000 2    50   ~ 0
 VOCT_OCT_P
-Text Label 14150 7800 0    50   ~ 0
+Text Label 13350 7800 2    50   ~ 0
 TAPS_LED_P
 Text Label 15550 5800 2    50   ~ 0
 LFO_LED_P
-Text Label 14150 8000 0    50   ~ 0
+Text Label 14150 7800 0    50   ~ 0
 POLY_P
 Text Label 13350 7900 2    50   ~ 0
 LEN_KNOB_P
@@ -3005,7 +3005,7 @@ Text Label 15550 6800 2    50   ~ 0
 GLITCH_EN_P
 Text Label 15000 4250 0    50   ~ 0
 PARAM_0_CV_P
-Text Label 14150 7900 0    50   ~ 0
+Text Label 13350 7700 2    50   ~ 0
 PARAM_1_P
 Text Label 14300 4250 2    50   ~ 0
 VOCT_FINE_P
@@ -3145,11 +3145,11 @@ Wire Wire Line
 	13450 10050 13450 10150
 Text Label 13350 9450 2    50   ~ 0
 VOCT_OCT
-Text Label 14150 9250 0    50   ~ 0
+Text Label 13350 9250 2    50   ~ 0
 TAPS_LED_T
 Text Label 17250 5750 2    50   ~ 0
 LFO_LED_T
-Text Label 14150 9450 0    50   ~ 0
+Text Label 14150 9250 0    50   ~ 0
 POLY
 Text Label 13350 9350 2    50   ~ 0
 LEN_KNOB
@@ -3187,7 +3187,7 @@ Wire Wire Line
 	13750 9150 13750 9550
 Text Label 14900 3250 0    50   ~ 0
 _PARAM_0_CV
-Text Label 14150 9350 0    50   ~ 0
+Text Label 13350 9150 2    50   ~ 0
 PARAM_1
 Text Label 14250 3250 2    50   ~ 0
 VOCT_FINE
@@ -3648,15 +3648,15 @@ Connection ~ 8100 4350
 $Comp
 L Amplifier_Operational:TL072 U8
 U 1 1 605986BA
-P 8500 4350
+P 10450 3700
 AR Path="/605986BA" Ref="U8"  Part="1" 
 AR Path="/6032E556/605986BA" Ref="U?"  Part="1" 
-F 0 "U8" H 8350 4350 50  0000 L CNN
-F 1 "TL072CDR" H 8650 4500 50  0000 C CNN
-F 2 "digikey-footprints:SOIC-8_W3.9mm" H 8500 4350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 8500 4350 50  0001 C CNN
-	1    8500 4350
-	-1   0    0    1   
+F 0 "U8" H 10300 3700 50  0000 L CNN
+F 1 "TL072CDR" H 10600 3850 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 10450 3700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 10450 3700 50  0001 C CNN
+	1    10450 3700
+	-1   0    0    -1  
 $EndComp
 Wire Wire Line
 	8100 4350 8200 4350
@@ -3823,19 +3823,19 @@ $EndComp
 $Comp
 L Amplifier_Operational:TL072 U8
 U 2 1 604A7199
-P 10450 3700
+P 8500 4350
 AR Path="/604A7199" Ref="U8"  Part="2" 
 AR Path="/6032E556/604A7199" Ref="U?"  Part="2" 
-F 0 "U8" H 10300 3700 50  0000 L CNN
-F 1 "TL072CDR" H 10600 3850 50  0000 C CNN
-F 2 "digikey-footprints:SOIC-8_W3.9mm" H 10450 3700 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 10450 3700 50  0001 C CNN
-	2    10450 3700
-	-1   0    0    -1  
+F 0 "U8" H 8350 4350 50  0000 L CNN
+F 1 "TL072CDR" H 8650 4500 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 8500 4350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 8500 4350 50  0001 C CNN
+	2    8500 4350
+	-1   0    0    1   
 $EndComp
-Text Label 13350 7800 2    50   ~ 0
+Text Label 14150 8000 0    50   ~ 0
 LEN_ATV_P
-Text Label 13350 9250 2    50   ~ 0
+Text Label 14150 9450 0    50   ~ 0
 LEN_ATV
 Text Label 13450 6100 2    50   ~ 0
 LEN_ATV_P
@@ -4042,9 +4042,9 @@ Wire Wire Line
 Connection ~ 5900 9800
 Wire Wire Line
 	5900 9800 7150 9800
-Text Label 13350 9150 2    50   ~ 0
+Text Label 14150 9350 0    50   ~ 0
 _LEN_CV
-Text Label 13350 7700 2    50   ~ 0
+Text Label 14150 7900 0    50   ~ 0
 LEN_CV_P
 $Comp
 L Connector_Generic:Conn_02x02_Odd_Even J4
