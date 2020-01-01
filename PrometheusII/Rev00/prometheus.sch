@@ -252,9 +252,9 @@ Text Label 2050 1550 2    50   ~ 0
 FREQ_LOCK_T
 Text Label 1950 1650 2    50   ~ 0
 GLITCH_IN_T
-Text Label 2550 2650 0    50   ~ 0
+Text Label 1950 2750 2    50   ~ 0
 LFO_LED_T
-Text Label 2550 2550 0    50   ~ 0
+Text Label 1950 2650 2    50   ~ 0
 TAPS_LED_T
 Text Label 3600 2300 0    50   ~ 0
 VOCT_SEMI_T
@@ -461,9 +461,9 @@ Wire Wire Line
 	3350 5550 3150 5550
 Wire Wire Line
 	3150 5350 3350 5350
-Text Label 1950 2650 2    50   ~ 0
+Text Label 2550 2550 0    50   ~ 0
 LFSR0_IN
-Text Label 1950 2750 2    50   ~ 0
+Text Label 2050 1450 2    50   ~ 0
 LFSR1_IN
 Text Label 3350 5450 0    50   ~ 0
 LFSR1_IN
@@ -2506,7 +2506,7 @@ Wire Wire Line
 	1950 1750 2150 1750
 Wire Wire Line
 	2150 1750 2150 1950
-Text Label 2050 1450 2    50   ~ 0
+Text Label 2550 2650 0    50   ~ 0
 EXT_CLK_EN_T
 Wire Wire Line
 	2250 1650 2250 1950
