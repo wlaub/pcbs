@@ -228,23 +228,23 @@ Text Label 900  2350 2    50   ~ 0
 TAP11
 Text Label 3600 2500 0    50   ~ 0
 CLK1_T
-Text Label 3600 2000 0    50   ~ 0
-VOCT_T
-Text Label 3600 2100 0    50   ~ 0
-VOCT_ATV_T
 Text Label 3600 2200 0    50   ~ 0
-VOCT_FINE_T
+VOCT_T
+Text Label 3600 2300 0    50   ~ 0
+VOCT_ATV_T
 Text Label 3600 2400 0    50   ~ 0
-VOCT_OCT_T
+VOCT_FINE_T
 Text Label 3600 1500 0    50   ~ 0
+VOCT_OCT_T
+Text Label 3600 1900 0    50   ~ 0
 LEN_CV_T
 Text Label 3600 1600 0    50   ~ 0
 LEN_KNOB_T
-Text Label 3600 1700 0    50   ~ 0
+Text Label 3600 2100 0    50   ~ 0
 PARAM_0_CV_T
-Text Label 3600 1800 0    50   ~ 0
+Text Label 3600 1700 0    50   ~ 0
 PARAM_1_T
-Text Label 3600 1900 0    50   ~ 0
+Text Label 3600 1800 0    50   ~ 0
 POLY_T
 Text Label 1950 1750 2    50   ~ 0
 GLITCH_EN_T
@@ -256,7 +256,7 @@ Text Label 1950 2750 2    50   ~ 0
 LFO_LED_T
 Text Label 1950 2650 2    50   ~ 0
 TAPS_LED_T
-Text Label 3600 2300 0    50   ~ 0
+Text Label 1950 2550 2    50   ~ 0
 VOCT_SEMI_T
 $Comp
 L power:GND #PWR07
@@ -2496,7 +2496,7 @@ Wire Wire Line
 Connection ~ 9250 2500
 Text Label 9050 2500 2    50   ~ 0
 LFO_T
-Text Label 1950 1850 2    50   ~ 0
+Text Label 3600 2000 0    50   ~ 0
 LFO_T
 Wire Wire Line
 	2050 1950 2050 1850
@@ -2796,7 +2796,7 @@ Wire Wire Line
 Connection ~ 9250 3150
 Text Label 9900 3150 0    50   ~ 0
 PARAM_0
-Text Label 1950 2550 2    50   ~ 0
+Text Label 1950 1850 2    50   ~ 0
 PARAM_0_T
 Wire Wire Line
 	13450 5700 13550 5700
@@ -2989,15 +2989,15 @@ F 3 "" H 13450 8700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	13450 8600 13450 8700
-Text Label 13350 8000 2    50   ~ 0
+Text Label 13350 7900 2    50   ~ 0
 VOCT_OCT_P
-Text Label 13350 7800 2    50   ~ 0
+Text Label 13350 8000 2    50   ~ 0
 TAPS_LED_P
 Text Label 15550 5800 2    50   ~ 0
 LFO_LED_P
 Text Label 14150 7800 0    50   ~ 0
 POLY_P
-Text Label 13350 7900 2    50   ~ 0
+Text Label 13350 7800 2    50   ~ 0
 LEN_KNOB_P
 Text Label 15500 6600 2    50   ~ 0
 LFO_P
@@ -3143,15 +3143,13 @@ F 3 "" H 13450 10150 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	13450 10050 13450 10150
-Text Label 13350 9450 2    50   ~ 0
+Text Label 13350 9350 2    50   ~ 0
 VOCT_OCT
-Text Label 13350 9250 2    50   ~ 0
-TAPS_LED_T
 Text Label 17250 5750 2    50   ~ 0
 LFO_LED_T
 Text Label 14150 9250 0    50   ~ 0
 POLY
-Text Label 13350 9350 2    50   ~ 0
+Text Label 13350 9250 2    50   ~ 0
 LEN_KNOB
 Text Label 17200 6550 2    50   ~ 0
 LFO
@@ -4584,4 +4582,6 @@ Wire Wire Line
 	14850 3050 14850 3150
 Wire Wire Line
 	14850 3150 14950 3150
+Text Label 13350 9450 2    50   ~ 0
+TAPS_LED_T
 $EndSCHEMATC
