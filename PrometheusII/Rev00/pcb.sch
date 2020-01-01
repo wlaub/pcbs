@@ -1625,7 +1625,7 @@ Text HLabel 7500 3500 2    50   Input ~ 0
 PARAM_0
 Text Notes 7600 3450 0    50   ~ 0
 To A10
-Text Notes 4500 2450 0    50   ~ 0
+Text Notes 4950 4600 0    50   ~ 0
 Unused Channels
 Wire Wire Line
 	3150 6550 3050 6550
