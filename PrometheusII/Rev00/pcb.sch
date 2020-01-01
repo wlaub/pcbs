@@ -722,12 +722,12 @@ Text Notes 500  800  0    50   ~ 0
 $Comp
 L Amplifier_Operational:MCP6002-xMS U9
 U 2 1 6084B93F
-P 4600 2050
-F 0 "U9" H 4450 2050 50  0000 L CNN
-F 1 "MCP6002-xMS" H 4900 2200 50  0000 C CNN
-F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 4600 2050 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 4600 2050 50  0001 C CNN
-	2    4600 2050
+P 3950 1300
+F 0 "U9" H 3800 1300 50  0000 L CNN
+F 1 "MCP6002-xMS" H 4250 1450 50  0000 C CNN
+F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 3950 1300 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 3950 1300 50  0001 C CNN
+	2    3950 1300
 	1    0    0    1   
 $EndComp
 $Comp
@@ -836,7 +836,7 @@ F 3 "" H 2850 1400 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	3250 1400 3650 1400
+	3250 1400 3550 1400
 Connection ~ 3250 1400
 $Comp
 L Device:R_Small_US R?
@@ -881,17 +881,6 @@ Wire Wire Line
 	4400 1050 4400 1300
 Wire Wire Line
 	4400 1300 4250 1300
-$Comp
-L Amplifier_Operational:MCP6002-xMS U9
-U 1 1 60873B9C
-P 3950 1300
-F 0 "U9" H 3800 1300 50  0000 L CNN
-F 1 "MCP6002-xMS" H 4200 1500 50  0000 C CNN
-F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 3950 1300 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 3950 1300 50  0001 C CNN
-	1    3950 1300
-	1    0    0    1   
-$EndComp
 Text Notes 4150 1000 0    50   ~ 0
 -2.95 -> 3.3 V\n+2.95 -> 0 V
 $Comp
@@ -1226,36 +1215,6 @@ F 2 "" H 4300 2350 50  0001 C CNN
 F 3 "" H 4300 2350 50  0001 C CNN
 	1    4300 2350
 	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:R_Small_US R?
-U 1 1 5F3BE4B2
-P 4650 1800
-AR Path="/5F3BE4B2" Ref="R?"  Part="1" 
-AR Path="/6032E556/5F3BE4B2" Ref="R80"  Part="1" 
-F 0 "R80" V 4550 1900 50  0000 L CNN
-F 1 "0" V 4550 1800 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 4650 1800 50  0001 C CNN
-F 3 "~" H 4650 1800 50  0001 C CNN
-	1    4650 1800
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	4200 1800 4550 1800
-Wire Wire Line
-	4750 1800 5000 1800
-$Comp
-L Device:R_Small_US R?
-U 1 1 5F3FDD30
-P 4300 2250
-AR Path="/5F3FDD30" Ref="R?"  Part="1" 
-AR Path="/6032E556/5F3FDD30" Ref="R77"  Part="1" 
-F 0 "R77" V 4200 2300 50  0000 L CNN
-F 1 "0" V 4200 2200 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 4300 2250 50  0001 C CNN
-F 3 "~" H 4300 2250 50  0001 C CNN
-	1    4300 2250
-	1    0    0    1   
 $EndComp
 Text Notes 7950 950  0    50   ~ 0
 To A3
@@ -1954,13 +1913,13 @@ Wire Wire Line
 Wire Wire Line
 	3500 5200 3750 5200
 $Comp
-L Device:D D?
+L Device:D_Schottky D?
 U 1 1 5F6F3CBE
 P 3750 5400
 AR Path="/5F6F3CBE" Ref="D?"  Part="1" 
 AR Path="/6032E556/5F6F3CBE" Ref="D12"  Part="1" 
-F 0 "D12" H 3750 5616 50  0000 C CNN
-F 1 "D" H 3750 5525 50  0000 C CNN
+F 0 "D12" V 3700 5500 50  0000 L CNN
+F 1 "SD0603S040S0R2" V 3800 5500 50  0000 L CNN
 F 2 "Diode_SMD:D_0603_1608Metric" H 3750 5400 50  0001 C CNN
 F 3 "~" H 3750 5400 50  0001 C CNN
 	1    3750 5400
@@ -2055,4 +2014,24 @@ F 3 "~" H 5150 3050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5350 3150 5150 3150
+$Comp
+L Amplifier_Operational:MCP6002-xMS U9
+U 1 1 60873B9C
+P 4600 2050
+F 0 "U9" H 4450 2050 50  0000 L CNN
+F 1 "MCP6002-xMS" H 4850 2250 50  0000 C CNN
+F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 4600 2050 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 4600 2050 50  0001 C CNN
+	1    4600 2050
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	4200 1800 5000 1800
+Wire Wire Line
+	4300 2150 3550 2150
+Wire Wire Line
+	3550 2150 3550 1400
+Connection ~ 3550 1400
+Wire Wire Line
+	3550 1400 3650 1400
 $EndSCHEMATC
