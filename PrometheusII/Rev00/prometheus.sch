@@ -248,13 +248,13 @@ Text Label 3600 1800 0    50   ~ 0
 POLY_T
 Text Label 1950 1750 2    50   ~ 0
 GLITCH_EN_T
-Text Label 2050 1550 2    50   ~ 0
-FREQ_LOCK_T
 Text Label 1950 1650 2    50   ~ 0
+FREQ_LOCK_T
+Text Label 2050 1550 2    50   ~ 0
 GLITCH_IN_T
-Text Label 1950 2750 2    50   ~ 0
-LFO_LED_T
 Text Label 1950 2650 2    50   ~ 0
+LFO_LED_T
+Text Label 1950 2750 2    50   ~ 0
 TAPS_LED_T
 Text Label 1950 2550 2    50   ~ 0
 VOCT_SEMI_T
@@ -1271,10 +1271,6 @@ Wire Wire Line
 Connection ~ 11700 1500
 Wire Wire Line
 	11700 1400 12200 1400
-Wire Wire Line
-	11700 1300 12200 1300
-Wire Wire Line
-	11700 1200 12200 1200
 Wire Wire Line
 	12200 1700 12400 1700
 Connection ~ 12200 1700
@@ -3011,9 +3007,9 @@ Text Label 14300 4250 2    50   ~ 0
 VOCT_FINE_P
 Text Label 14300 4150 2    50   ~ 0
 VOCT_SEMI_P
-Text Label 15500 5600 2    50   ~ 0
+Text Label 15500 6700 2    50   ~ 0
 CV_FILT_P
-Text Label 15550 5400 2    50   ~ 0
+Text Label 15550 6900 2    50   ~ 0
 FREQ_LOCK_P
 $Comp
 L power:GND #PWR0139
@@ -3191,9 +3187,9 @@ Text Label 14250 3250 2    50   ~ 0
 VOCT_FINE
 Text Label 14250 3150 2    50   ~ 0
 VOCT_SEMI
-Text Label 17200 5550 2    50   ~ 0
+Text Label 17200 6650 2    50   ~ 0
 _CV_FILT
-Text Label 17250 5350 2    50   ~ 0
+Text Label 17250 6850 2    50   ~ 0
 FREQ_LOCK_T
 $Comp
 L power:GND #PWR0149
@@ -3873,7 +3869,7 @@ Wire Wire Line
 	4200 2850 4200 2950
 Wire Wire Line
 	4200 3150 4200 3250
-Text Label 4100 3250 2    50   ~ 0
+Text Label 4100 3450 2    50   ~ 0
 GLITCH_IN_T
 Wire Wire Line
 	4200 3250 4100 3250
@@ -3970,7 +3966,7 @@ Wire Wire Line
 	4300 10150 4700 10150
 Text Label 4100 3350 2    50   ~ 0
 GLITCH_EN_T
-Text Label 4100 3450 2    50   ~ 0
+Text Label 4100 3250 2    50   ~ 0
 FREQ_LOCK_T
 Wire Wire Line
 	4100 3350 4500 3350
@@ -4428,37 +4424,26 @@ F 3 "" H 16150 6650 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	16150 6500 16050 6500
-Wire Wire Line
-	16050 6500 16050 6400
-Wire Wire Line
 	16150 6500 16150 6650
 Wire Wire Line
-	15550 5400 16050 5400
+	15550 6900 16050 6900
 Wire Wire Line
-	16050 5400 16050 5900
-Wire Wire Line
-	15850 5900 15850 5600
-Wire Wire Line
-	15850 5600 15500 5600
+	15850 6700 15500 6700
 Wire Wire Line
 	15550 6800 15950 6800
 Wire Wire Line
 	15950 6800 15950 6400
 Wire Wire Line
-	15850 6500 16050 6500
-Connection ~ 16050 6500
-Wire Wire Line
 	16150 6500 16150 5800
 Wire Wire Line
-	16150 5800 15950 5800
+	16150 5800 16050 5800
 Wire Wire Line
 	15950 5800 15950 5900
 Connection ~ 16150 6500
 Wire Wire Line
 	15750 5900 15750 5800
 Wire Wire Line
-	15750 5800 15950 5800
+	15750 5800 15850 5800
 Connection ~ 15950 5800
 Wire Wire Line
 	15750 6400 15750 6600
@@ -4469,12 +4454,7 @@ Wire Wire Line
 Wire Wire Line
 	15650 5800 15550 5800
 Wire Wire Line
-	15850 6400 15850 6500
-Wire Wire Line
 	15650 6400 15650 6500
-Wire Wire Line
-	15650 6500 15850 6500
-Connection ~ 15850 6500
 $Comp
 L power:GND #PWR0162
 U 1 1 5F42FC69
@@ -4487,33 +4467,24 @@ F 3 "" H 17850 6600 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	17850 6450 17750 6450
-Wire Wire Line
 	17850 6450 17850 6600
 Wire Wire Line
-	17250 5350 17750 5350
+	17250 6850 17750 6850
 Wire Wire Line
-	17750 5350 17750 5850
-Wire Wire Line
-	17550 5850 17550 5550
-Wire Wire Line
-	17550 5550 17200 5550
+	17550 6650 17200 6650
 Wire Wire Line
 	17250 6750 17650 6750
 Wire Wire Line
-	17550 6450 17750 6450
-Connection ~ 17750 6450
-Wire Wire Line
 	17850 6450 17850 5750
 Wire Wire Line
-	17850 5750 17650 5750
+	17850 5750 17750 5750
 Wire Wire Line
 	17650 5750 17650 5850
 Connection ~ 17850 6450
 Wire Wire Line
 	17450 5850 17450 5750
 Wire Wire Line
-	17450 5750 17650 5750
+	17450 5750 17550 5750
 Connection ~ 17650 5750
 Wire Wire Line
 	17450 6550 17200 6550
@@ -4522,16 +4493,9 @@ Wire Wire Line
 Wire Wire Line
 	17350 5750 17250 5750
 Wire Wire Line
-	17350 6450 17550 6450
-Connection ~ 17550 6450
-Wire Wire Line
-	17750 6350 17750 6450
-Wire Wire Line
 	17650 6350 17650 6750
 Wire Wire Line
 	17450 6350 17450 6550
-Wire Wire Line
-	17550 6350 17550 6450
 Wire Wire Line
 	17350 6350 17350 6450
 Wire Wire Line
@@ -4584,4 +4548,36 @@ Wire Wire Line
 	14850 3150 14950 3150
 Text Label 13350 9450 2    50   ~ 0
 TAPS_LED_T
+Wire Wire Line
+	15850 6400 15850 6700
+Wire Wire Line
+	17550 5850 17550 5750
+Connection ~ 17550 5750
+Wire Wire Line
+	17550 5750 17650 5750
+Wire Wire Line
+	15850 5900 15850 5800
+Connection ~ 15850 5800
+Wire Wire Line
+	15850 5800 15950 5800
+Wire Wire Line
+	17550 6350 17550 6650
+Wire Wire Line
+	16050 5900 16050 5800
+Connection ~ 16050 5800
+Wire Wire Line
+	16050 5800 15950 5800
+Wire Wire Line
+	17750 5850 17750 5750
+Connection ~ 17750 5750
+Wire Wire Line
+	17750 5750 17650 5750
+Wire Wire Line
+	17350 6450 17850 6450
+Wire Wire Line
+	15650 6500 16150 6500
+Wire Wire Line
+	16050 6900 16050 6400
+Wire Wire Line
+	17750 6350 17750 6850
 $EndSCHEMATC
