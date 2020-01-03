@@ -2995,8 +2995,6 @@ Text Label 14150 7800 0    50   ~ 0
 POLY_P
 Text Label 13350 7800 2    50   ~ 0
 LEN_KNOB_P
-Text Label 15500 6600 2    50   ~ 0
-LFO_P
 Text Label 15550 6800 2    50   ~ 0
 GLITCH_EN_P
 Text Label 15000 4150 0    50   ~ 0
@@ -3007,8 +3005,6 @@ Text Label 14300 4250 2    50   ~ 0
 VOCT_FINE_P
 Text Label 14300 4150 2    50   ~ 0
 VOCT_SEMI_P
-Text Label 15500 6700 2    50   ~ 0
-CV_FILT_P
 Text Label 15550 6900 2    50   ~ 0
 FREQ_LOCK_P
 $Comp
@@ -3147,8 +3143,6 @@ Text Label 14150 9250 0    50   ~ 0
 POLY
 Text Label 13350 9250 2    50   ~ 0
 LEN_KNOB
-Text Label 17200 6550 2    50   ~ 0
-LFO
 Text Label 17250 6750 2    50   ~ 0
 GLITCH_EN_T
 Wire Wire Line
@@ -3187,8 +3181,6 @@ Text Label 14250 3250 2    50   ~ 0
 VOCT_FINE
 Text Label 14250 3150 2    50   ~ 0
 VOCT_SEMI
-Text Label 17200 6650 2    50   ~ 0
-_CV_FILT
 Text Label 17250 6850 2    50   ~ 0
 FREQ_LOCK_T
 $Comp
@@ -4580,4 +4572,12 @@ Wire Wire Line
 	16050 6900 16050 6400
 Wire Wire Line
 	17750 6350 17750 6850
+Text Label 17200 6550 2    50   ~ 0
+LFO
+Text Label 17200 6650 2    50   ~ 0
+_CV_FILT
+Text Label 15500 6700 2    50   ~ 0
+CV_FILT_P
+Text Label 15500 6600 2    50   ~ 0
+LFO_P
 $EndSCHEMATC
