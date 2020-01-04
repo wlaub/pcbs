@@ -48,7 +48,7 @@ AR Path="/60374778" Ref="RV?"  Part="1"
 AR Path="/6032E556/60374778" Ref="COUPLING1"  Part="1" 
 F 0 "COUPLING1" H 1031 7196 50  0000 R CNN
 F 1 "100k" H 1031 7105 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 1100 7150 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 1100 7150 50  0001 C CNN
 F 3 "~" H 1100 7150 50  0001 C CNN
 	1    1100 7150
 	1    0    0    -1  
@@ -61,7 +61,7 @@ AR Path="/60374772" Ref="RV?"  Part="1"
 AR Path="/6032E556/60374772" Ref="POLY_CV1"  Part="1" 
 F 0 "POLY_CV1" H 10281 3546 50  0000 R CNN
 F 1 "100k" H 10281 3455 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 10350 3500 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 10350 3500 50  0001 C CNN
 F 3 "~" H 10350 3500 50  0001 C CNN
 	1    10350 3500
 	1    0    0    -1  
@@ -74,7 +74,7 @@ AR Path="/6037476C" Ref="RV?"  Part="1"
 AR Path="/6032E556/6037476C" Ref="VOCT_OCT1"  Part="1" 
 F 0 "VOCT_OCT1" H 10281 2546 50  0000 R CNN
 F 1 "100k" H 10281 2455 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 10350 2500 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 10350 2500 50  0001 C CNN
 F 3 "~" H 10350 2500 50  0001 C CNN
 	1    10350 2500
 	1    0    0    -1  
@@ -87,7 +87,7 @@ AR Path="/60374766" Ref="RV?"  Part="1"
 AR Path="/6032E556/60374766" Ref="VOCT_FINE1"  Part="1" 
 F 0 "VOCT_FINE1" H 8781 1046 50  0000 R CNN
 F 1 "100k" H 8781 955 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 8850 1000 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 8850 1000 50  0001 C CNN
 F 3 "~" H 8850 1000 50  0001 C CNN
 	1    8850 1000
 	1    0    0    -1  
@@ -100,7 +100,7 @@ AR Path="/60374760" Ref="RV?"  Part="1"
 AR Path="/6032E556/60374760" Ref="PARAM_1"  Part="1" 
 F 0 "PARAM_1" H 8781 3546 50  0000 R CNN
 F 1 "100k" H 8781 3455 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 8850 3500 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 8850 3500 50  0001 C CNN
 F 3 "~" H 8850 3500 50  0001 C CNN
 	1    8850 3500
 	1    0    0    -1  
@@ -113,7 +113,7 @@ AR Path="/6037475A" Ref="RV?"  Part="1"
 AR Path="/6032E556/6037475A" Ref="LENGTH1"  Part="1" 
 F 0 "LENGTH1" H 8781 2546 50  0000 R CNN
 F 1 "100k" H 8781 2455 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 8850 2500 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 8850 2500 50  0001 C CNN
 F 3 "~" H 8850 2500 50  0001 C CNN
 	1    8850 2500
 	1    0    0    -1  
@@ -126,7 +126,7 @@ AR Path="/60374754" Ref="RV?"  Part="1"
 AR Path="/6032E556/60374754" Ref="VOCT_SEMI1"  Part="1" 
 F 0 "VOCT_SEMI1" H 10231 1046 50  0000 R CNN
 F 1 "100k" H 10231 955 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 10300 1000 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 10300 1000 50  0001 C CNN
 F 3 "~" H 10300 1000 50  0001 C CNN
 	1    10300 1000
 	1    0    0    -1  
@@ -689,7 +689,7 @@ AR Path="/6037474E" Ref="RV?"  Part="1"
 AR Path="/6032E556/6037474E" Ref="PARAM_0_ATV1"  Part="1" 
 F 0 "PARAM_0_ATV1" H 7281 3546 50  0000 R CNN
 F 1 "100k" H 7281 3455 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 7350 3500 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 7350 3500 50  0001 C CNN
 F 3 "~" H 7350 3500 50  0001 C CNN
 	1    7350 3500
 	1    0    0    -1  
@@ -1190,7 +1190,7 @@ AR Path="/60374742" Ref="RV?"  Part="1"
 AR Path="/6032E556/60374742" Ref="VOCT_ATV1"  Part="1" 
 F 0 "VOCT_ATV1" H 7631 1046 50  0000 R CNN
 F 1 "100k" H 7631 955 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 7700 1000 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 7700 1000 50  0001 C CNN
 F 3 "~" H 7700 1000 50  0001 C CNN
 	1    7700 1000
 	1    0    0    -1  
@@ -1681,20 +1681,9 @@ AR Path="/6037477E" Ref="RV?"  Part="1"
 AR Path="/6032E556/6037477E" Ref="LFO1"  Part="1" 
 F 0 "LFO1" H 5281 7046 50  0000 R CNN
 F 1 "100k" H 5281 6955 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 5350 7000 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 5350 7000 50  0001 C CNN
 F 3 "~" H 5350 7000 50  0001 C CNN
 	1    5350 7000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x06_Odd_Even J7
-U 1 1 5E8185C5
-P 6200 9500
-F 0 "J7" H 6250 9917 50  0000 C CNN
-F 1 "Conn_02x06_Odd_Even" H 6250 9826 50  0000 C CNN
-F 2 "" H 6200 9500 50  0001 C CNN
-F 3 "~" H 6200 9500 50  0001 C CNN
-	1    6200 9500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1770,7 +1759,7 @@ AR Path="/61BB8D61" Ref="LEN_ATV?"  Part="1"
 AR Path="/6032E556/61BB8D61" Ref="LEN_ATV1"  Part="1" 
 F 0 "LEN_ATV1" H 2531 2396 50  0000 R CNN
 F 1 "100k" H 2531 2305 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 2600 2350 50  0001 C CNN
+F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 2600 2350 50  0001 C CNN
 F 3 "~" H 2600 2350 50  0001 C CNN
 	1    2600 2350
 	1    0    0    -1  
