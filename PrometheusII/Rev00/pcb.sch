@@ -949,7 +949,7 @@ Text HLabel 5000 1300 2    50   Input ~ 0
 VOCT_CV
 Connection ~ 4800 1300
 Text Notes 5100 1250 0    50   ~ 0
-To A4
+To A2
 Text Notes 500  2750 0    50   ~ 0
 TODO TL072 attenuverters
 Wire Wire Line
@@ -1203,33 +1203,20 @@ Wire Wire Line
 	5000 1800 5000 2050
 Wire Wire Line
 	5000 2050 4900 2050
-$Comp
-L power:GND #PWR?
-U 1 1 5F381981
-P 4300 2350
-AR Path="/5F381981" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/5F381981" Ref="#PWR0101"  Part="1" 
-F 0 "#PWR0101" H 4300 2100 50  0001 C CNN
-F 1 "GND" H 4305 2177 50  0000 C CNN
-F 2 "" H 4300 2350 50  0001 C CNN
-F 3 "" H 4300 2350 50  0001 C CNN
-	1    4300 2350
-	-1   0    0    -1  
-$EndComp
 Text Notes 7950 950  0    50   ~ 0
-To A3
-Text Notes 9100 950  0    50   ~ 0
-To A2
-Text Notes 10550 950  0    50   ~ 0
 To A1
-Text Notes 9050 2450 0    50   ~ 0
-To A8
-Text Notes 10600 2450 0    50   ~ 0
+Text Notes 9100 950  0    50   ~ 0
 To A0
+Text Notes 10550 950  0    50   ~ 0
+To A10
+Text Notes 9050 2450 0    50   ~ 0
+To A9
+Text Notes 10600 2450 0    50   ~ 0
+To A8
 Text Notes 9100 3450 0    50   ~ 0
-To A6
+To A7\n
 Text Notes 10550 3450 0    50   ~ 0
-To A5
+To A6
 $Comp
 L Transistor_FET:BSS84 Q6
 U 1 1 5F613402
@@ -1275,7 +1262,7 @@ Wire Wire Line
 Text HLabel 7650 4850 0    50   Input ~ 0
 LFO_LED
 Text Notes 7200 4950 0    50   ~ 0
-From GPIO 30
+From GPIO 26
 $Comp
 L dk_LED-Indication-Discrete:LTST-C190KGKT LED_R1
 U 1 1 5F722D05
@@ -1498,7 +1485,7 @@ TAPS_LED
 Wire Wire Line
 	10150 4550 10050 4550
 Text Notes 9600 4500 0    50   ~ 0
-From GPIO 32
+From GPIO 28
 $Comp
 L power:GND #PWR?
 U 1 1 5FCAE062
@@ -1526,7 +1513,7 @@ FREQ_LOCK
 Text HLabel 4200 7350 2    50   Input ~ 0
 GLITCH_EN
 Text Notes 4250 6750 0    50   ~ 0
-To GPIO 31
+To GPIO 29
 Text Notes 4250 7300 0    50   ~ 0
 To GPIO 27
 $Comp
@@ -1624,9 +1611,7 @@ Wire Wire Line
 Text HLabel 7500 3500 2    50   Input ~ 0
 PARAM_0
 Text Notes 7600 3450 0    50   ~ 0
-To A10
-Text Notes 4950 4600 0    50   ~ 0
-Unused Channels
+To A11
 Wire Wire Line
 	3150 6550 3050 6550
 Wire Wire Line
@@ -1640,7 +1625,7 @@ Wire Wire Line
 Text Notes 3450 7650 0    50   ~ 0
 Pin 3 momentary\nKeyway on pin 3 side
 Text Notes 5550 6950 0    50   ~ 0
-To A11
+To A4
 Text HLabel 5500 7000 2    50   Input ~ 0
 LFO
 Wire Wire Line
@@ -1746,7 +1731,7 @@ Wire Wire Line
 Text HLabel 2850 2100 2    50   Input ~ 0
 LENGTH_CV
 Text Notes 3000 2250 0    50   ~ 0
-To A9
+To A5
 Wire Wire Line
 	2850 2100 2600 2100
 Connection ~ 1900 2100
@@ -1845,7 +1830,7 @@ Wire Wire Line
 Text HLabel 4300 3950 2    50   Input ~ 0
 GLITCH
 Text Notes 4250 3800 0    50   ~ 0
-To GPIO 29
+To GPIO 31
 Wire Wire Line
 	3700 3950 4300 3950
 Text Notes 4250 3900 0    50   ~ 0
@@ -1853,7 +1838,7 @@ Pullup at other end
 Text HLabel 2900 3200 2    50   Input ~ 0
 PARAM_0_CV
 Text Notes 2950 3150 0    50   ~ 0
-To A7
+To A3
 Wire Wire Line
 	1550 3200 2900 3200
 Text HLabel 2400 5100 2    50   Input ~ 0
