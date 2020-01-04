@@ -234,11 +234,11 @@ Text Label 3600 2300 0    50   ~ 0
 VOCT_ATV_T
 Text Label 3600 2400 0    50   ~ 0
 VOCT_FINE_T
-Text Label 3600 1500 0    50   ~ 0
+Text Label 3600 1600 0    50   ~ 0
 VOCT_OCT_T
 Text Label 3600 1900 0    50   ~ 0
 LEN_CV_T
-Text Label 3600 1600 0    50   ~ 0
+Text Label 3600 1500 0    50   ~ 0
 LEN_KNOB_T
 Text Label 3600 2100 0    50   ~ 0
 PARAM_0_CV_T
@@ -2093,12 +2093,12 @@ VOCT_SEMI_T
 $Comp
 L Device:C C12
 U 1 1 5E3231F6
-P 5800 2000
-F 0 "C12" H 5915 2046 50  0000 L CNN
-F 1 "100n" H 5915 1955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 5838 1850 50  0001 C CNN
-F 3 "~" H 5800 2000 50  0001 C CNN
-	1    5800 2000
+P 9250 2000
+F 0 "C12" H 9365 2046 50  0000 L CNN
+F 1 "100n" H 9365 1955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 9288 1850 50  0001 C CNN
+F 3 "~" H 9250 2000 50  0001 C CNN
+	1    9250 2000
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -2115,21 +2115,19 @@ $EndComp
 $Comp
 L Device:R_Small_US R18
 U 1 1 5E323202
-P 6000 1850
-F 0 "R18" V 5900 1700 50  0000 L CNN
-F 1 "100" V 5900 1900 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 6000 1850 50  0001 C CNN
-F 3 "~" H 6000 1850 50  0001 C CNN
-	1    6000 1850
+P 9450 1850
+F 0 "R18" V 9350 1700 50  0000 L CNN
+F 1 "100" V 9350 1900 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 9450 1850 50  0001 C CNN
+F 3 "~" H 9450 1850 50  0001 C CNN
+	1    9450 1850
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	5900 1850 5800 1850
+	9350 1850 9250 1850
 Wire Wire Line
-	6100 1850 6300 1850
-Wire Wire Line
-	5800 1850 5600 1850
-Connection ~ 5800 1850
+	9250 1850 9050 1850
+Connection ~ 9250 1850
 $Comp
 L Device:C C13
 U 1 1 5E36502A
@@ -2286,8 +2284,6 @@ $EndComp
 Wire Wire Line
 	7600 1850 7500 1850
 Wire Wire Line
-	7800 1850 8150 1850
-Wire Wire Line
 	7500 1850 7300 1850
 Connection ~ 7500 1850
 $Comp
@@ -2413,12 +2409,12 @@ Connection ~ 9250 1200
 $Comp
 L Device:C C26
 U 1 1 5E58DA41
-P 9250 2000
-F 0 "C26" H 9365 2046 50  0000 L CNN
-F 1 "100n" H 9365 1955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 9288 1850 50  0001 C CNN
-F 3 "~" H 9250 2000 50  0001 C CNN
-	1    9250 2000
+P 5800 2000
+F 0 "C26" H 5915 2046 50  0000 L CNN
+F 1 "100n" H 5915 1955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 5838 1850 50  0001 C CNN
+F 3 "~" H 5800 2000 50  0001 C CNN
+	1    5800 2000
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -2435,21 +2431,21 @@ $EndComp
 $Comp
 L Device:R_Small_US R37
 U 1 1 5E58DA4D
-P 9450 1850
-F 0 "R37" V 9350 1700 50  0000 L CNN
-F 1 "100" V 9350 1900 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 9450 1850 50  0001 C CNN
-F 3 "~" H 9450 1850 50  0001 C CNN
-	1    9450 1850
+P 6000 1850
+F 0 "R37" V 5900 1700 50  0000 L CNN
+F 1 "100" V 5900 1900 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 6000 1850 50  0001 C CNN
+F 3 "~" H 6000 1850 50  0001 C CNN
+	1    6000 1850
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9350 1850 9250 1850
+	5900 1850 5800 1850
 Wire Wire Line
 	9550 1850 9900 1850
 Wire Wire Line
-	9250 1850 9050 1850
-Connection ~ 9250 1850
+	5800 1850 5600 1850
+Connection ~ 5800 1850
 $Comp
 L Device:C C27
 U 1 1 5E58DA57
@@ -2985,13 +2981,13 @@ F 3 "" H 13450 8700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	13450 8600 13450 8700
-Text Label 13350 7900 2    50   ~ 0
+Text Label 13350 7700 2    50   ~ 0
 VOCT_OCT_P
-Text Label 13350 8000 2    50   ~ 0
+Text Label 14150 7800 0    50   ~ 0
 TAPS_LED_P
 Text Label 15550 5800 2    50   ~ 0
 LFO_LED_P
-Text Label 14150 7800 0    50   ~ 0
+Text Label 14150 8000 0    50   ~ 0
 POLY_P
 Text Label 13350 7800 2    50   ~ 0
 LEN_KNOB_P
@@ -2999,7 +2995,7 @@ Text Label 15550 6800 2    50   ~ 0
 GLITCH_EN_P
 Text Label 15000 4150 0    50   ~ 0
 PARAM_0_CV_P
-Text Label 13350 7700 2    50   ~ 0
+Text Label 14150 7900 0    50   ~ 0
 PARAM_1_P
 Text Label 14300 4250 2    50   ~ 0
 VOCT_FINE_P
@@ -3135,11 +3131,11 @@ F 3 "" H 13450 10150 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	13450 10050 13450 10150
-Text Label 13350 9350 2    50   ~ 0
+Text Label 13350 9150 2    50   ~ 0
 VOCT_OCT
 Text Label 17250 5750 2    50   ~ 0
 LFO_LED_T
-Text Label 14150 9250 0    50   ~ 0
+Text Label 14150 9450 0    50   ~ 0
 POLY
 Text Label 13350 9250 2    50   ~ 0
 LEN_KNOB
@@ -3175,7 +3171,7 @@ Wire Wire Line
 	13750 9150 13750 9550
 Text Label 14950 3150 0    50   ~ 0
 _PARAM_0_CV
-Text Label 13350 9150 2    50   ~ 0
+Text Label 14150 9350 0    50   ~ 0
 PARAM_1
 Text Label 14250 3250 2    50   ~ 0
 VOCT_FINE
@@ -3819,9 +3815,9 @@ F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 8500 4350 50  0001 C CNN
 	2    8500 4350
 	-1   0    0    1   
 $EndComp
-Text Label 14150 8000 0    50   ~ 0
+Text Label 13350 7900 2    50   ~ 0
 LEN_ATV_P
-Text Label 14150 9450 0    50   ~ 0
+Text Label 13350 9350 2    50   ~ 0
 LEN_ATV
 Text Label 13450 6100 2    50   ~ 0
 LEN_ATV_P
@@ -4028,9 +4024,7 @@ Wire Wire Line
 Connection ~ 5900 9800
 Wire Wire Line
 	5900 9800 7150 9800
-Text Label 14150 9350 0    50   ~ 0
-_LEN_CV
-Text Label 14150 7900 0    50   ~ 0
+Text Label 13350 8000 2    50   ~ 0
 LEN_CV_P
 $Comp
 L Connector_Generic:Conn_02x02_Odd_Even J4
@@ -4538,7 +4532,7 @@ Wire Wire Line
 	14850 3050 14850 3150
 Wire Wire Line
 	14850 3150 14950 3150
-Text Label 13350 9450 2    50   ~ 0
+Text Label 14150 9250 0    50   ~ 0
 TAPS_LED_T
 Wire Wire Line
 	15850 6400 15850 6700
@@ -4580,4 +4574,10 @@ Text Label 15500 6700 2    50   ~ 0
 CV_FILT_P
 Text Label 15500 6600 2    50   ~ 0
 LFO_P
+Text Label 13350 9450 2    50   ~ 0
+_LEN_CV
+Wire Wire Line
+	7800 1850 8150 1850
+Wire Wire Line
+	6100 1850 6300 1850
 $EndSCHEMATC
