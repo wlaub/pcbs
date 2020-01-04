@@ -1,0 +1,5 @@
+digikey-kicad-library/
+*.gbr
+*.raw
+*.kicad_pcb-bak
+*.sch-bak
