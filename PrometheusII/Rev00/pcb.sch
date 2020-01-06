@@ -52,6 +52,7 @@ F 0 "COUPLING1" H 1031 7196 50  0000 R CNN
 F 1 "100k" H 1031 7105 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 1100 7150 50  0001 C CNN
 F 3 "~" H 1100 7150 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 1100 7150 50  0001 C CNN "MPN"
 	1    1100 7150
 	1    0    0    -1  
 $EndComp
@@ -65,6 +66,7 @@ F 0 "POLY_CV1" H 10281 3546 50  0000 R CNN
 F 1 "100k" H 10281 3455 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 10350 3500 50  0001 C CNN
 F 3 "~" H 10350 3500 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 10350 3500 50  0001 C CNN "MPN"
 	1    10350 3500
 	1    0    0    -1  
 $EndComp
@@ -78,6 +80,7 @@ F 0 "VOCT_OCT1" H 10281 2546 50  0000 R CNN
 F 1 "100k" H 10281 2455 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 10350 2500 50  0001 C CNN
 F 3 "~" H 10350 2500 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 10350 2500 50  0001 C CNN "MPN"
 	1    10350 2500
 	1    0    0    -1  
 $EndComp
@@ -91,6 +94,7 @@ F 0 "VOCT_FINE1" H 8781 1046 50  0000 R CNN
 F 1 "100k" H 8781 955 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 8850 1000 50  0001 C CNN
 F 3 "~" H 8850 1000 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 8850 1000 50  0001 C CNN "MPN"
 	1    8850 1000
 	1    0    0    -1  
 $EndComp
@@ -104,6 +108,7 @@ F 0 "PARAM_1" H 8781 3546 50  0000 R CNN
 F 1 "100k" H 8781 3455 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 8850 3500 50  0001 C CNN
 F 3 "~" H 8850 3500 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 8850 3500 50  0001 C CNN "MPN"
 	1    8850 3500
 	1    0    0    -1  
 $EndComp
@@ -117,6 +122,7 @@ F 0 "LENGTH1" H 8781 2546 50  0000 R CNN
 F 1 "100k" H 8781 2455 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 8850 2500 50  0001 C CNN
 F 3 "~" H 8850 2500 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 8850 2500 50  0001 C CNN "MPN"
 	1    8850 2500
 	1    0    0    -1  
 $EndComp
@@ -130,6 +136,7 @@ F 0 "VOCT_SEMI1" H 10231 1046 50  0000 R CNN
 F 1 "100k" H 10231 955 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 10300 1000 50  0001 C CNN
 F 3 "~" H 10300 1000 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 10300 1000 50  0001 C CNN "MPN"
 	1    10300 1000
 	1    0    0    -1  
 $EndComp
@@ -705,6 +712,7 @@ F 0 "PARAM_0_ATV1" H 7281 3546 50  0000 R CNN
 F 1 "100k" H 7281 3455 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 7350 3500 50  0001 C CNN
 F 3 "~" H 7350 3500 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 7350 3500 50  0001 C CNN "MPN"
 	1    7350 3500
 	1    0    0    -1  
 $EndComp
@@ -1208,6 +1216,7 @@ F 0 "VOCT_ATV1" H 7631 1046 50  0000 R CNN
 F 1 "100k" H 7631 955 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 7700 1000 50  0001 C CNN
 F 3 "~" H 7700 1000 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 7700 1000 50  0001 C CNN "MPN"
 	1    7700 1000
 	1    0    0    -1  
 $EndComp
@@ -1686,6 +1695,7 @@ F 0 "LFO1" H 5281 7046 50  0000 R CNN
 F 1 "100k" H 5281 6955 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 5350 7000 50  0001 C CNN
 F 3 "~" H 5350 7000 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 5350 7000 50  0001 C CNN "MPN"
 	1    5350 7000
 	1    0    0    -1  
 $EndComp
@@ -1764,6 +1774,7 @@ F 0 "LEN_ATV1" H 2531 2396 50  0000 R CNN
 F 1 "100k" H 2531 2305 50  0000 R CNN
 F 2 "ttt_lib:Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical" H 2600 2350 50  0001 C CNN
 F 3 "~" H 2600 2350 50  0001 C CNN
+F 4 "PTV09A-4020S-B104" H 2600 2350 50  0001 C CNN "MPN"
 	1    2600 2350
 	1    0    0    -1  
 $EndComp
