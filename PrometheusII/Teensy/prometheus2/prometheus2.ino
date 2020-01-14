@@ -124,11 +124,14 @@ void loop() {
   poly = analogRead(poly_pin);
   lfo = analogRead(lfo_pin);
 
-  int glitch_enabled = digitalRead(glitch_en_pin);
+  int glitch_enabled = 1-digitalRead(glitch_en_pin);
   glitch_enabled = 0;
 
   int glitch_in = 1-digitalRead(glitch_pin);
   int ext_glitch = glitch_in - glitch_in_state;
+
+  int freq_lock = 1-digitalRead(freq_lock_pin);
+  freq_lock = 1;
 
   int zero = half/16;
 
@@ -247,8 +250,11 @@ void loop() {
   float fine;
   fine = float(voct_fine)/(12.0*(half-zero));
   
-  voct = 261.63*pow(2, voct_oct+semi+fine+voct_cv_value)*actual_len;
-//  voct = 261.63*actual_len;
+  voct = 261.63*pow(2, voct_oct+semi+fine+voct_cv_value);
+  if(freq_lock != 0)
+  {
+    voct *= actual_len;
+  }
 
 
   poly >>= 9;
@@ -259,7 +265,7 @@ void loop() {
 
 //  set_taps(0x800);
   //Serial.println(voct_cv_value);
-  Serial.println(ext_glitch);
+  Serial.println(voct_cv_value);
 
   analogWriteFrequency(clk_pin_0, voct);
   analogWrite(clk_pin_0, 2);
