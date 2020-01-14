@@ -36,6 +36,8 @@ int lfo_counter = 0;
 
 int glitch_counter = 0;
 
+int glitch_in_state = 0;
+
 void init_taps()
 {
   for(int i = 0; i < 12; ++i)
@@ -122,6 +124,12 @@ void loop() {
   poly = analogRead(poly_pin);
   lfo = analogRead(lfo_pin);
 
+  int glitch_enabled = digitalRead(glitch_en_pin);
+  glitch_enabled = 0;
+
+  int glitch_in = 1-digitalRead(glitch_pin);
+  int ext_glitch = glitch_in - glitch_in_state;
+
   int zero = half/16;
 
   int new_taps;
@@ -129,12 +137,12 @@ void loop() {
   //new_taps = voct_semi&0xaa8;
   
   lfo_counter += 1;
-  if(lfo_counter > lfo+4)
+  if((lfo_counter > lfo+4 && glitch_enabled) || ext_glitch == 1)
   {
     lfo_counter = 0;
     glitch_counter = GLITCH_LEN;
   }
-  if(lfo_counter < 4)
+  if(glitch_counter > 0)
   {
     digitalWrite(lfo_led_pin,0);
   }
@@ -143,27 +151,44 @@ void loop() {
     digitalWrite(lfo_led_pin,1);
   }
 
+  glitch_in_state = glitch_in;
+
+  
   unsigned short len = short(pow(2,1+float(len_knob)*11/4000));  
   unsigned short actual_len;
   if (len > 4095)
   {
     len = 4095;
-    digitalWrite(lfsr1_in_pin, 0);
+    
   }
-  if(glitch_counter > 0)
-  {
-    len = 4095;
-    digitalWrite(lfsr1_in_pin, 1);
-    glitch_counter -= 1;
-  }
+
   //len = short(voct_semi/410+1)*2;
 
  // new_taps = get_taps(len, voct_fine << 4, 65535);
   //new_taps = 0x1 << int(voct_semi/410);
   new_taps = get_taps(len, param_0<<4, param_1<<4);
   
-
   actual_len = get_actual_length(len);
+
+  if(taps != new_taps)
+  {
+    digitalWrite(taps_led_pin,1-digitalRead(taps_led_pin));
+  }
+  taps = new_taps;
+
+  digitalWrite(lfsr1_in_pin, 0);
+  if(glitch_counter > 0)
+  {
+    digitalWrite(lfsr1_in_pin, 1);
+    glitch_counter -= 1;
+    taps = get_taps(4095, 65535,65535);
+  }
+
+  
+  set_taps(taps);
+
+
+  
   //Serial.println(get_actual_length(len));
   //Serial.println(len);
   //Serial.println(new_taps);
@@ -198,7 +223,15 @@ void loop() {
   {
     voct_fine -= zero;
   }
-  float voct_cv_value = 10*float(voct_cv)/half-10;
+
+  if(voct_atv > 2*half-zero)
+  {
+    voct_atv = 2*half;
+    
+  }
+  float voct_atv_value = float(voct_atv)/(2*(half-zero));
+  
+  float voct_cv_value = -2.783*(float(voct_cv)/(half)-1)*voct_atv_value;
 
   voct = float(voct_semi*0 + voct_fine)/(half-zero);
   voct = round(voct*12.0f)/12.0f;
@@ -214,7 +247,7 @@ void loop() {
   float fine;
   fine = float(voct_fine)/(12.0*(half-zero));
   
-  voct = 261.63*pow(2, voct_oct+semi+fine)*actual_len;
+  voct = 261.63*pow(2, voct_oct+semi+fine+voct_cv_value)*actual_len;
 //  voct = 261.63*actual_len;
 
 
@@ -223,14 +256,10 @@ void loop() {
   
   //Serial.println(*(int*)(0x400C8044));
 
-  if(taps != new_taps)
-  {
-    digitalWrite(taps_led_pin,1-digitalRead(taps_led_pin));
-  }
-  taps = new_taps;
-  set_taps(taps);
+
 //  set_taps(0x800);
-  Serial.println(semi);
+  //Serial.println(voct_cv_value);
+  Serial.println(ext_glitch);
 
   analogWriteFrequency(clk_pin_0, voct);
   analogWrite(clk_pin_0, 2);
