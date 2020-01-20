@@ -4188,18 +4188,6 @@ Wire Wire Line
 Connection ~ 11750 6000
 Wire Wire Line
 	11750 6000 11650 6000
-$Comp
-L Connector_Generic:Conn_02x02_Odd_Even J10
-U 1 1 5FBC77AE
-P 12150 5900
-F 0 "J10" H 12200 6117 50  0000 C CNN
-F 1 "Conn_02x02_Odd_Even" H 12200 6026 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical" H 12150 5900 50  0001 C CNN
-F 3 "~" H 12150 5900 50  0001 C CNN
-F 4 "PPTC022LFBN-RC" H 12150 5900 50  0001 C CNN "MPN"
-	1    12150 5900
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
 	12450 6000 12450 6100
 $Comp
@@ -4635,4 +4623,16 @@ Text Label 15300 7350 2    50   ~ 0
 GLITCH_EN_T
 Text Label 15300 6350 2    50   ~ 0
 LFO_LED_T
+$Comp
+L Connector_Generic:Conn_02x02_Odd_Even J10
+U 1 1 5FBC77AE
+P 12050 5900
+F 0 "J10" H 12100 6117 50  0000 C CNN
+F 1 "Conn_02x02_Odd_Even" H 12100 6026 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical" H 12050 5900 50  0001 C CNN
+F 3 "~" H 12050 5900 50  0001 C CNN
+F 4 "PPTC022LFBN-RC" H 12050 5900 50  0001 C CNN "MPN"
+	1    12050 5900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
