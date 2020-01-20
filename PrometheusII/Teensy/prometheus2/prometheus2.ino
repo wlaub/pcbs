@@ -138,6 +138,10 @@ void adc_interrupt()
 
 }
 
+int taps = 0;
+int glitch_taps;
+
+
 void setup() {
 
   __disable_irq();
@@ -229,13 +233,15 @@ Max averaging, max sample time, max res:
   __enable_irq();
 
   ADC1_HC0 = 0x80;
+
+  glitch_taps = get_taps(4095,65535,65535);
   
 }
 
 
 int freq = 10e6;
-int taps = 0;
 int half = 2048;
+
 
 void loop() {
   // put your main code here, to run repeatedly:
@@ -306,7 +312,6 @@ void loop() {
     Serial.print(lfo);
 
   
-  Serial.print("\n");
 
   int zero = half / 16;
 
@@ -354,30 +359,28 @@ void loop() {
   }
   taps = new_taps;
 
-  digitalWrite(lfsr1_in_pin, 0);
+  //digitalWrite(lfsr1_in_pin, 0);
   if (glitch_counter > 0)
   {
-    digitalWrite(lfsr1_in_pin, 1);
+    //digitalWrite(lfsr1_in_pin, 1);
     glitch_counter -= 1;
-    taps = get_taps(4095, 65535, 65535);
+    set_taps(glitch_taps);
   }
-
-
-  set_taps(taps);
-
+  else
+  {
+    set_taps(taps);
+  }
 
 
   //Serial.println(get_actual_length(len));
   //Serial.println(len);
   //Serial.println(new_taps);
 
-  //digitalWrite(taps_led_pin,0);
   voct_semi -= half;
   voct_fine -= half;
   if (voct_semi > -zero and voct_semi < zero)
   {
     voct_semi = 0;
-    //digitalWrite(taps_led_pin, 1);
   }
   else if (voct_semi <= zero)
   {
@@ -458,4 +461,7 @@ void loop() {
   {
     freq = 100e3;
   }
+  Serial.print("\n");
+
+  
 }
