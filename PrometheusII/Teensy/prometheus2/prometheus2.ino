@@ -120,7 +120,7 @@ void adc_interrupt()
   
   if(sample_counter == 0)
   {
-    adc_memory[adc_channel] = adc_accum[adc_channel] >> 3;
+    adc_memory[adc_channel] = adc_accum[adc_channel] >> 1;
     adc_accum[adc_channel] = 0;
   }
   
@@ -128,7 +128,7 @@ void adc_interrupt()
   {
     adc_channel = 0;
     sample_counter += 1;
-    if(sample_counter >= 8)
+    if(sample_counter >= 2)
     {
       sample_counter = 0;
     }
@@ -160,32 +160,65 @@ void setup() {
   pinMode(freq_lock_pin, INPUT);
   pinMode(ext_clk_en_pin, INPUT);
 
-
+  pinMode(voct_cv_pin, INPUT);
 
   init_taps();
   set_taps(0x800);
 
   ADC1_GC |= 0x80; //Calibrate
   while (ADC1_GC & 0x80);
-  ADC2_GC |= 0x80; //Calibrate
-  while (ADC2_GC & 0x80);
 
-  analogReadResolution(12);
-  analogReadAveraging(32);
+  ADC1_CFG &= 0xfffe0000;
+//              KJJIHHGFFEDDCBBAA
+  ADC1_CFG |= 0b01100011100011011;
+/*              K Data overwrite disabled (disable/enable)
+                 JJ 32 averages (4/8/16/32)
+                   I Software triggered (software/hardware)
+                    HH VREF - no options
+                      G High speed convserion (low/high speed)
+                       FF Sample period = 8/24 ADC clocks (short/long sample) (2/12, 4/16, 6/20, 8/24)
+                         E Low power mode (low / not low)
+                          DD ADCK = Input clock / 1 (/1, /2, /4, /8)
+                            C Long sample mode (short/long)
+                             BB 12-bit conversion (8/10/12/Reserved)
+                               AA Input Clock = IPG Clock (IPG, IPG/2, reserved, ADACK)
+*/
+  
 
-  ADC1_CFG |= 0x10000; // data overwrite enable
-  ADC2_CFG |= 0x10000; // data overwrite enable
+  ADC1_GC &= 0xffffff00;
+//             HGFEDCBA
+  ADC1_GC |= 0b00100001;
+/*             H Calibration start
+                G Continuous conversion (no/yes)
+                 F Hardware average enable (no/yes)
+                  E Compare function enable (no/yes)
+                   D Compare function gt enable (no/yes)
+                    C Compare function range enable (no/yes)
+                     B DMA enable (no/yes)
+                      A Asynchronous clock output enable (no/yes)
+*/
+
+/*
+Conversion time:
+
+4 ADCK
+2 bus clock
+1.5 us if ADACKEN = 0
+
++
+
+AVGS * (Base + long)
+
+Base = 17/21/25 (8/10/12-bit)
+long = 3/13, 5/17, 7/21, 9/25 (sample period -> long sample mode)
+
+Max averaging, max sample time, max res:
+4+32*(25+25) = 1604 ADCK cycles + 1 bus cycles
 
 
-  //ADC1_CFG = 0xC79B;  //Set ADC to 32 samples averaged
-  //ADC2_CFG = ADC1_CFG;//set to high speed, longest sample times
-  //Long sample mode
-  //12-bit conversion
+*/
 
-  ADC1_GC |= 0x60; //continuous conversion and hardware averating
-  //ADC2_GC |= 0x40;
   ADC1_HC0 |= 0x80; //Enable interrupt
-  //ADC2_HC0 |= 0x80; //Enable interrupt
 
   attachInterruptVector(IRQ_NUMBER_t::IRQ_ADC1, adc_interrupt);
   NVIC_SET_PRIORITY(IRQ_NUMBER_t::IRQ_ADC1, 10);
@@ -195,7 +228,7 @@ void setup() {
 
   __enable_irq();
 
-  ADC1_HC0 = 0x86;
+  ADC1_HC0 = 0x80;
   
 }
 
@@ -206,7 +239,7 @@ int half = 2048;
 
 void loop() {
   // put your main code here, to run repeatedly:
-  delay(10);
+  delay(10); // 100 Hz
   float voct = 0;
   int voct_semi;
   int voct_fine;
@@ -271,6 +304,7 @@ void loop() {
     */
     Serial.print(",");
     Serial.print(lfo);
+
   
   Serial.print("\n");
 
