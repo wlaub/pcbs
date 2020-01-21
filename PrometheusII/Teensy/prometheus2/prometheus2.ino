@@ -1,4 +1,5 @@
 #include "lookup.h"
+#include "adc_interrupt.h"
 
 #define GLITCH_LEN 1
 
@@ -105,41 +106,15 @@ volatile int sample_counter = 0;
 volatile int adc_memory[16] = {0};
 volatile char adc_channel = 0;
 
-void adc_interrupt()
-{
-  /*analogRead(lfo_pin);
-    adc_memory <<= 2;
-    adc_memory += (lfo_pin<<1);
-    adc_memory >>= 2;
-  */
+volatile int adc_counter = 0;
 
-  //adc_memory[adc_channel] <<= 1;
-  adc_accum[adc_channel] += ADC1_R0;
-  //adc_accum[adc_channel] >>= 1;
-  adc_channel += 1;
-  
-  if(sample_counter == 0)
-  {
-    adc_memory[adc_channel] = adc_accum[adc_channel] >> 1;
-    adc_accum[adc_channel] = 0;
-  }
-  
-  if(adc_channel == 0xf)
-  {
-    adc_channel = 0;
-    sample_counter += 1;
-    if(sample_counter >= 2)
-    {
-      sample_counter = 0;
-    }
-  }
+void adc_interrupt();
 
-  ADC1_HC0 = (0x80|adc_channel);
-
-}
 
 int taps = 0;
 int glitch_taps;
+
+
 
 
 void setup() {
@@ -164,7 +139,18 @@ void setup() {
   pinMode(freq_lock_pin, INPUT);
   pinMode(ext_clk_en_pin, INPUT);
 
-  pinMode(voct_cv_pin, INPUT);
+  pinMode(A0, INPUT);
+  pinMode(A1, INPUT);
+  pinMode(A2, INPUT);
+  pinMode(A3, INPUT);
+  pinMode(A4, INPUT);
+  pinMode(A5, INPUT);
+  pinMode(A6, INPUT);
+  pinMode(A7, INPUT);
+  pinMode(A8, INPUT);
+  pinMode(A9, INPUT);
+  pinMode(A10, INPUT);
+  pinMode(A11, INPUT);
 
   init_taps();
   set_taps(0x800);
@@ -174,18 +160,20 @@ void setup() {
 
   ADC1_CFG &= 0xfffe0000;
 //              KJJIHHGFFEDDCBBAA
-  ADC1_CFG |= 0b01100011100011011;
+  ADC1_CFG |= 0b00000010000001011;
 /*              K Data overwrite disabled (disable/enable)
                  JJ 32 averages (4/8/16/32)
                    I Software triggered (software/hardware)
                     HH VREF - no options
                       G High speed convserion (low/high speed)
-                       FF Sample period = 8/24 ADC clocks (short/long sample) (2/12, 4/16, 6/20, 8/24)
+                       FF Sample period = 2/12 ADC clocks (short/long sample) (2/12, 4/16, 6/20, 8/24)
                          E Low power mode (low / not low)
                           DD ADCK = Input clock / 1 (/1, /2, /4, /8)
-                            C Long sample mode (short/long)
+                            C Short sample mode (short/long)
                              BB 12-bit conversion (8/10/12/Reserved)
                                AA Input Clock = IPG Clock (IPG, IPG/2, reserved, ADACK)
+0b01100010000001011 => ~19.5 kHz
+0b00000010000001011 => ~156 kHz
 */
   
 
@@ -219,6 +207,7 @@ long = 3/13, 5/17, 7/21, 9/25 (sample period -> long sample mode)
 Max averaging, max sample time, max res:
 4+32*(25+25) = 1604 ADCK cycles + 1 bus cycles
 
+ADACK = 20 MHz?
 
 */
 
@@ -241,23 +230,98 @@ Max averaging, max sample time, max res:
 
 int freq = 10e6;
 int half = 2048;
+int zero = half / 16;
+
+
+volatile int voct_oct;
+volatile float semi;
+volatile float fine;
+volatile float voct_atv_value;
+volatile int freq_lock;
+volatile int poly;
+
+volatile float voct = 0;
+volatile unsigned short actual_len;
+
+void adc_interrupt()
+{
+  //Read values
+  ++adc_counter;
+  adc_accum[adc_channel] += ADC1_R0;
+  adc_channel += 1;
+
+  //Update buffers
+  if(sample_counter == 0)
+  {
+    adc_memory[adc_channel] = adc_accum[adc_channel] >> 1;
+    adc_accum[adc_channel] = 0;
+
+  }
+
+  //Pin-specific updates
+  if(adc_channel == pin_to_channel[voct_cv_pin])
+  {  // V/oct pin
+    float voct;
+    int voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
+    if(voct_atv > 2*half - zero)
+    {
+      voct_atv = 2*half-zero;
+    }
+    float voct_atv_value = float(voct_atv) / (2*half - zero);
+    float voct_cv_value = -2.95 * (float(adc_memory[pin_to_channel[voct_cv_pin]])/half - 1) * voct_atv_value;
+
+    voct = 261.63 * pow(2, voct_oct + semi + fine + voct_cv_value);
+
+    if (freq_lock != 0)
+    {
+      voct *= actual_len;
+    }
+   
+  
+    analogWriteFrequency(clk_pin_0, voct);
+    analogWrite(clk_pin_0, 2);
+  
+    if (poly > 0)
+    {
+      analogWriteFrequency(clk_pin_1, voct * poly_maps[poly]);
+      analogWrite(clk_pin_1, 2);
+    }
+    else
+    {
+      analogWrite(clk_pin_1, 0);
+    }
+  }    
+
+
+  if(adc_channel == 0xf)
+  {
+    adc_channel = 0;
+    sample_counter += 1;
+    if(sample_counter >= 2)
+    {
+      sample_counter = 0;
+    }
+  }
+
+  ADC1_HC0 = (0x80|adc_channel);
+
+}
 
 
 void loop() {
   // put your main code here, to run repeatedly:
-  delay(10); // 100 Hz
-  float voct = 0;
+  delay(1); // 1000 Hz
+
   int voct_semi;
   int voct_fine;
   int voct_cv;
-  int voct_oct;
+  //int voct_oct; GLOBAL
   int voct_atv;
-  
   voct_semi = adc_memory[pin_to_channel[voct_semi_pin]];
   voct_fine = adc_memory[pin_to_channel[voct_fine_pin]];
   voct_cv = adc_memory[pin_to_channel[voct_cv_pin]];
   voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
-  voct_oct = adc_memory[pin_to_channel[voct_oct_pin]];
+  voct_oct = (adc_memory[pin_to_channel[voct_oct_pin]] >> 9) - 4;
   
   int param_0;
   int param_0_cv;
@@ -272,10 +336,10 @@ void loop() {
   len_knob = adc_memory[pin_to_channel[len_knob_pin]];
   len_cv = adc_memory[pin_to_channel[len_cv_pin]];
 
-  int poly;
   int lfo;
   poly = adc_memory[pin_to_channel[poly_pin]];
   lfo = adc_memory[pin_to_channel[lfo_pin]];
+  poly >>= 9;
 
   int glitch_enabled = 1 - digitalRead(glitch_en_pin);
   glitch_enabled = 0;
@@ -283,12 +347,13 @@ void loop() {
   int glitch_in = 1 - digitalRead(glitch_pin);
   int ext_glitch = glitch_in - glitch_in_state;
 
-  int freq_lock = 1 - digitalRead(freq_lock_pin);
+  freq_lock = 1 - digitalRead(freq_lock_pin);
   freq_lock = 1;
   
     Serial.print(voct_cv);
     Serial.print(",");
-  /*  Serial.print(voct_atv);
+    /*
+    Serial.print(voct_atv);
     Serial.print(",");
     Serial.print(voct_fine);
     Serial.print(",");
@@ -305,15 +370,20 @@ void loop() {
     Serial.print(len_cv);
     Serial.print(",");
     Serial.print(len_knob);
-    Serial.print(",");
-    Serial.print(voct_oct);
-    */
-    Serial.print(",");
+*/    
+    /*Serial.print(",");
     Serial.print(lfo);
 
+    Serial.print(",");
+    Serial.print(adc_memory[pin_to_channel[voct_oct_pin]]);
+
+
+    Serial.print(",");
+    Serial.print(adc_counter);*/
+    adc_counter = 0;
+    
   
 
-  int zero = half / 16;
 
   int new_taps;
 
@@ -336,9 +406,17 @@ void loop() {
 
   glitch_in_state = glitch_in;
 
+  float knob_len = float(len_knob) * 11 / 4000;
+  float cv_len = 9.17*(float(len_cv)/(half)-1);
 
-  unsigned short len = short(pow(2, 1 + float(len_knob) * 11 / 4000));
-  unsigned short actual_len;
+  float param_0_alpha = -5.06*(float(param_0_cv)/(half)-1)/5;
+
+  unsigned short len = short(pow(2, 1 + knob_len + cv_len));
+  //unsigned short actual_len; GLOBAL
+  if (len < 2)
+  {
+    len = 2;
+  }
   if (len > 4095)
   {
     len = 4095;
@@ -349,7 +427,19 @@ void loop() {
 
   // new_taps = get_taps(len, voct_fine << 4, 65535);
   //new_taps = 0x1 << int(voct_semi/410);
-  new_taps = get_taps(len, param_0 << 4, param_1 << 4);
+
+  int param_0_combined = (param_0 << 4);
+  if(param_0_alpha > 0)
+  {
+    param_0_combined = param_0_alpha*65545+(1-param_0_alpha)*param_0_combined;
+  }
+  else
+  {
+    param_0_combined = (1+param_0_alpha)*param_0_combined;
+  }
+
+  
+  new_taps = get_taps(len, param_0_combined, param_1 << 4);
 
   actual_len = get_actual_length(len);
 
@@ -377,7 +467,7 @@ void loop() {
   //Serial.println(new_taps);
 
   voct_semi -= half;
-  voct_fine -= half;
+  
   if (voct_semi > -zero and voct_semi < zero)
   {
     voct_semi = 0;
@@ -390,7 +480,11 @@ void loop() {
   {
     voct_semi -= zero;
   }
+  //float semi;
+  semi = round((float(voct_semi) / (half - zero)) * (3)) / 12.0;
 
+
+  voct_fine -= half;
   if (voct_fine > -zero and voct_fine < zero)
   {
     voct_fine = 0;
@@ -405,62 +499,11 @@ void loop() {
     voct_fine -= zero;
   }
 
-  if (voct_atv > 2 * half - zero)
-  {
-    voct_atv = 2 * half;
-
-  }
-  float voct_atv_value = float(voct_atv) / (2 * (half - zero));
-
-  float voct_cv_value = -2.783 * (float(voct_cv) / (half) - 1) * voct_atv_value;
-
-  voct = float(voct_semi * 0 + voct_fine) / (half - zero);
-  voct = round(voct * 12.0f) / 12.0f;
-  voct += voct_cv_value;
-  //Serial.println(voct_cv_value);
-
-  voct_oct >>= 9;
-  voct_oct -= 4;
-
-  float semi;
-  semi = round((float(voct_semi) / (half - zero)) * (3)) / 12.0;
-
-  float fine;
+  //float fine;
   fine = float(voct_fine) / (12.0 * (half - zero));
 
-  voct = 261.63 * pow(2, voct_oct + semi + fine + voct_cv_value);
-  if (freq_lock != 0)
-  {
-    voct *= actual_len;
-  }
 
 
-  poly >>= 9;
-
-
-
-
-  //  set_taps(0x800);
-  //Serial.println(voct_cv_value);
-
-  analogWriteFrequency(clk_pin_0, voct);
-  analogWrite(clk_pin_0, 2);
-
-  if (poly > 0)
-  {
-    analogWriteFrequency(clk_pin_1, voct * poly_maps[poly]);
-    analogWrite(clk_pin_1, 2);
-  }
-  else
-  {
-    analogWrite(clk_pin_1, 0);
-  }
-
-  freq -= 1e3;
-  if (freq < 1e3)
-  {
-    freq = 100e3;
-  }
   Serial.print("\n");
 
   
