@@ -248,7 +248,6 @@ void adc_interrupt()
   //Read values
   ++adc_counter;
   adc_accum[adc_channel] += ADC1_R0;
-  adc_channel += 1;
 
   //Update buffers
   if(sample_counter == 0)
@@ -292,8 +291,8 @@ void adc_interrupt()
     }
   }    
 
-
-  if(adc_channel == 0xf)
+  adc_channel += 1;
+  if(adc_channel > 0xf)
   {
     adc_channel = 0;
     sample_counter += 1;
@@ -337,9 +336,8 @@ void loop() {
   len_cv = adc_memory[pin_to_channel[len_cv_pin]];
 
   int lfo;
-  poly = adc_memory[pin_to_channel[poly_pin]];
+  poly = (adc_memory[pin_to_channel[poly_pin]]>>9);
   lfo = adc_memory[pin_to_channel[lfo_pin]];
-  poly >>= 9;
 
   int glitch_enabled = 1 - digitalRead(glitch_en_pin);
   glitch_enabled = 0;
@@ -351,6 +349,8 @@ void loop() {
   freq_lock = 1;
   
     Serial.print(voct_cv);
+    Serial.print(",");
+    Serial.print(adc_memory[pin_to_channel[poly_pin]]);
     Serial.print(",");
     /*
     Serial.print(voct_atv);
