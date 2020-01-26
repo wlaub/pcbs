@@ -276,7 +276,6 @@ void adc_interrupt()
     {
       voct *= actual_len;
     }
-   
   
     analogWriteFrequency(clk_pin_0, voct);
     analogWrite(clk_pin_0, 2);
@@ -288,7 +287,8 @@ void adc_interrupt()
     }
     else
     {
-      analogWrite(clk_pin_1, 0);
+      pinMode(clk_pin_1, OUTPUT);
+      digitalWrite(clk_pin_1, 0);
     }
   }    
 
@@ -322,7 +322,10 @@ void loop() {
   voct_fine = adc_memory[pin_to_channel[voct_fine_pin]];
   voct_cv = adc_memory[pin_to_channel[voct_cv_pin]];
   voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
-  voct_oct = (adc_memory[pin_to_channel[voct_oct_pin]] >> 9) - 4;
+  voct_oct = adc_memory[pin_to_channel[voct_oct_pin]];
+  voct_oct -= half;
+  voct_oct = round(3.5*float(voct_oct)/half); //7 octaves
+
   
   int param_0;
   int param_0_cv;
@@ -340,7 +343,6 @@ void loop() {
 
 
   freq_lock = 1 - digitalRead(freq_lock_pin);
-  freq_lock = 1;
   
     Serial.print(voct_cv);
     Serial.print(",");
@@ -430,14 +432,12 @@ void loop() {
 
   /******Length selection******/
 
-
   float knob_len = float(len_knob) * 11 / 4000;
   float cv_len = 9.17*(float(len_cv)/(half)-1);
 
   float param_0_alpha = -5.06*(float(param_0_cv)/(half)-1)/5;
 
   unsigned short len = short(pow(2, 1 + knob_len + cv_len));
-  //unsigned short actual_len; GLOBAL
   if (len < 2)
   {
     len = 2;
@@ -457,22 +457,24 @@ void loop() {
   {
     param_0_combined = (1+param_0_alpha)*param_0_combined;
   }
-
   
   new_taps = get_taps(len, param_0_combined, param_1 << 4);
 
   actual_len = get_actual_length(len);
 
+
+  /******Update taps and indicators******/
+  
   if (taps != new_taps)
   {
     digitalWrite(taps_led_pin, 1 - digitalRead(taps_led_pin));
   }
   taps = new_taps;
 
-  //digitalWrite(lfsr1_in_pin, 0);
+  //digitalWrite(lfsr1_in_pin, 0); //Uninverts LFSR1 during glitch, kinda buggy?
   if (glitch_counter > 0)
   {
-    //digitalWrite(lfsr1_in_pin, 1);
+    //digitalWrite(lfsr1_in_pin, 1); //Uninverts LFSR1 during glitch, kinda buggy/ tends to stick?
     glitch_counter -= 1;
     set_taps(glitch_taps);
   }
@@ -481,34 +483,22 @@ void loop() {
     set_taps(taps);
   }
 
+  /******Read and process pitch control knobs******/
 
-  //Serial.println(get_actual_length(len));
-  //Serial.println(len);
-  //Serial.println(new_taps);
-
-  voct_semi -= half;
-  
-  if (voct_semi > -zero and voct_semi < zero)
-  {
-    voct_semi = 0;
-  }
-  else if (voct_semi <= zero)
-  {
-    voct_semi += zero;
-  }
-  else if (voct_semi >= zero)
-  {
-    voct_semi -= zero;
-  }
+  /*quantize to +/- 6 semitones*/
+  /*center*/
+  voct_semi -= half; 
   //float semi;
-  semi = round((float(voct_semi) / (half - zero)) * (3)) / 12.0;
+  semi = round(6*float(voct_semi)/half) / 12.0;
 
-
+  /*Scale tuning knob to +/- 1/12*/
+  /*Center*/
   voct_fine -= half;
+  /*Deadzone at zero*/
   if (voct_fine > -zero and voct_fine < zero)
   {
     voct_fine = 0;
-    //digitalWrite(13, 1);
+    //digitalWrite(XXX, 1); //This is where you would indicate deadzone if you had a light
   }
   else if (voct_fine <= -zero)
   {
@@ -519,10 +509,9 @@ void loop() {
     voct_fine -= zero;
   }
 
-  //float fine;
   fine = float(voct_fine) / (12.0 * (half - zero));
 
-
+  /*Terminate debug prints*/
 
   Serial.print("\n");
 
