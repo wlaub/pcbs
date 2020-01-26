@@ -232,6 +232,7 @@ int freq = 10e6;
 int half = 2048;
 int zero = half / 16;
 
+int glitch_enabled_memory = 0;
 
 volatile int voct_oct;
 volatile float semi;
@@ -306,10 +307,11 @@ void adc_interrupt()
 
 }
 
+#define LOOP_PERIOD 1
 
 void loop() {
   // put your main code here, to run repeatedly:
-  delay(1); // 1000 Hz
+  delay(LOOP_PERIOD); // 1000 Hz
 
   int voct_semi;
   int voct_fine;
@@ -335,15 +337,7 @@ void loop() {
   len_knob = adc_memory[pin_to_channel[len_knob_pin]];
   len_cv = adc_memory[pin_to_channel[len_cv_pin]];
 
-  int lfo;
-  poly = (adc_memory[pin_to_channel[poly_pin]]>>9);
-  lfo = adc_memory[pin_to_channel[lfo_pin]];
 
-  int glitch_enabled = 1 - digitalRead(glitch_en_pin);
-  glitch_enabled = 0;
-
-  int glitch_in = 1 - digitalRead(glitch_pin);
-  int ext_glitch = glitch_in - glitch_in_state;
 
   freq_lock = 1 - digitalRead(freq_lock_pin);
   freq_lock = 1;
@@ -352,6 +346,9 @@ void loop() {
     Serial.print(",");
     Serial.print(adc_memory[pin_to_channel[poly_pin]]);
     Serial.print(",");
+    Serial.print(len_cv);
+    Serial.print(",");
+
     /*
     Serial.print(voct_atv);
     Serial.print(",");
@@ -383,14 +380,38 @@ void loop() {
     adc_counter = 0;
     
   
-
+  /******Internal LFO and glitch******/
 
   int new_taps;
 
-  //new_taps = voct_semi&0xaa8;
+  int lfo;
+  poly = (adc_memory[pin_to_channel[poly_pin]]>>9);
+  lfo = adc_memory[pin_to_channel[lfo_pin]];
 
-  lfo_counter += 1;
-  if ((lfo_counter > lfo + 4 && glitch_enabled) || ext_glitch == 1)
+  float lfo_result;
+  lfo_result = pow(2,4.32*float(lfo)/(half)); //20 Hz to 1 Hz at center = 20 to 1/20Hz. log_2(400)= 8.64
+  lfo_result *= 50/LOOP_PERIOD; //20 Hz = 50 ms
+  lfo = int(lfo_result);  
+
+  int glitch_enabled = 1 - digitalRead(glitch_en_pin);
+  
+
+  int glitch_in = 1 - digitalRead(glitch_pin);
+  int ext_glitch = glitch_in - glitch_in_state;
+
+  if(glitch_enabled)
+  {
+    lfo_counter += 1;
+  }
+  else
+  {
+    lfo_counter = 0;
+  }
+  if (
+      (glitch_enabled_memory != glitch_enabled && glitch_enabled)
+      || (lfo_counter > lfo && glitch_enabled)
+      || ext_glitch == 1
+     )
   {
     lfo_counter = 0;
     glitch_counter = GLITCH_LEN;
@@ -403,8 +424,12 @@ void loop() {
   {
     digitalWrite(lfo_led_pin, 1);
   }
+  glitch_enabled_memory = glitch_enabled;
 
   glitch_in_state = glitch_in;
+
+  /******Length selection******/
+
 
   float knob_len = float(len_knob) * 11 / 4000;
   float cv_len = 9.17*(float(len_cv)/(half)-1);
@@ -422,11 +447,6 @@ void loop() {
     len = 4095;
 
   }
-
-  //len = short(voct_semi/410+1)*2;
-
-  // new_taps = get_taps(len, voct_fine << 4, 65535);
-  //new_taps = 0x1 << int(voct_semi/410);
 
   int param_0_combined = (param_0 << 4);
   if(param_0_alpha > 0)
