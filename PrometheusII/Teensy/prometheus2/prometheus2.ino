@@ -110,12 +110,8 @@ volatile int adc_counter = 0;
 
 void adc_interrupt();
 
-
 int taps = 0;
 int glitch_taps;
-
-
-
 
 void setup() {
 
@@ -263,11 +259,17 @@ void adc_interrupt()
   {  // V/oct pin
     float voct;
     int voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
-    if(voct_atv > 2*half - zero)
+    voct_atv -= zero;
+    if(voct_atv > 2*half - 2*zero)
     {
-      voct_atv = 2*half-zero;
+      voct_atv = 2*half-2*zero;
     }
-    float voct_atv_value = float(voct_atv) / (2*half - zero);
+    if(voct_atv < 0)
+    {
+      voct_atv = 0;
+    }
+    float voct_atv_value = float(voct_atv) / (2*half - 2*zero);
+    
     float voct_cv_value = -2.95 * (float(adc_memory[pin_to_channel[voct_cv_pin]])/half - 1) * voct_atv_value;
 
     voct = 261.63 * pow(2, voct_oct + semi + fine + voct_cv_value);
@@ -275,6 +277,10 @@ void adc_interrupt()
     if (freq_lock != 0)
     {
       voct *= actual_len;
+    }
+    else
+    {
+      voct *= 2; //Normalizing shortest length pitch
     }
   
     analogWriteFrequency(clk_pin_0, voct);
@@ -344,13 +350,11 @@ void loop() {
 
   freq_lock = 1 - digitalRead(freq_lock_pin);
   
-    Serial.print(voct_cv);
+  /*  Serial.print(voct_cv);
     Serial.print(",");
     Serial.print(adc_memory[pin_to_channel[poly_pin]]);
     Serial.print(",");
-    Serial.print(len_cv);
-    Serial.print(",");
-
+*/
     /*
     Serial.print(voct_atv);
     Serial.print(",");
@@ -395,7 +399,8 @@ void loop() {
   lfo_result *= 50/LOOP_PERIOD; //20 Hz = 50 ms
   lfo = int(lfo_result);  
 
-  int glitch_enabled = 1 - digitalRead(glitch_en_pin);
+  //int glitch_enabled = 1 - digitalRead(glitch_en_pin);
+  int glitch_enabled = digitalRead(glitch_en_pin); //For rev00 w/ wrong switch
   
 
   int glitch_in = 1 - digitalRead(glitch_pin);
@@ -512,6 +517,10 @@ void loop() {
   fine = float(voct_fine) / (12.0 * (half - zero));
 
   /*Terminate debug prints*/
+
+ //   Serial.print(actual_len);
+ //   Serial.print(",");
+
 
   Serial.print("\n");
 
