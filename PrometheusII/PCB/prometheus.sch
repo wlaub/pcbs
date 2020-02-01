@@ -343,9 +343,9 @@ Text Label 900  1750 2    50   ~ 0
 LFSR0_IN
 Text Label 900  1650 2    50   ~ 0
 LFSR1_IN
-Text Label 2000 4500 1    50   ~ 0
+Text Label 2000 3950 1    50   ~ 0
 LFSR1_IN
-Text Label 1050 5200 2    50   ~ 0
+Text Label 950  5200 2    50   ~ 0
 CLK1_T
 $Comp
 L Device:C C4
@@ -478,7 +478,7 @@ Wire Wire Line
 Connection ~ 1150 9250
 Wire Wire Line
 	1150 9250 1150 9350
-Text Label 2200 4500 1    50   ~ 0
+Text Label 2200 3950 1    50   ~ 0
 LFSR0_IN
 $Comp
 L Connector_Generic:Conn_02x08_Odd_Even J2
@@ -685,84 +685,84 @@ Wire Wire Line
 $Comp
 L Amplifier_Operational:TL072 U4
 U 2 1 5F58EF70
-P 4100 9150
-F 0 "U4" H 3950 9150 50  0000 L CNN
-F 1 "TL072CDR" H 4250 9000 50  0000 C CNN
-F 2 "digikey-footprints:SOIC-8_W3.9mm" H 4100 9150 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 4100 9150 50  0001 C CNN
-F 4 "TL072CDR" H 4100 9150 50  0001 C CNN "MPN"
-	2    4100 9150
+P 4100 9350
+F 0 "U4" H 3950 9350 50  0000 L CNN
+F 1 "TL072CDR" H 4250 9200 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 4100 9350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 4100 9350 50  0001 C CNN
+F 4 "TL072CDR" H 4100 9350 50  0001 C CNN "MPN"
+	2    4100 9350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6050 7350 5950 7350
+	6000 7150 5900 7150
 Wire Wire Line
-	5200 7350 5350 7350
+	5150 7150 5300 7150
 $Comp
 L power:+12V #PWR034
 U 1 1 5F59B0B3
-P 6050 7350
-F 0 "#PWR034" H 6050 7200 50  0001 C CNN
-F 1 "+12V" H 6065 7523 50  0000 C CNN
-F 2 "" H 6050 7350 50  0001 C CNN
-F 3 "" H 6050 7350 50  0001 C CNN
-	1    6050 7350
+P 6000 7150
+F 0 "#PWR034" H 6000 7000 50  0001 C CNN
+F 1 "+12V" H 6015 7323 50  0000 C CNN
+F 2 "" H 6000 7150 50  0001 C CNN
+F 3 "" H 6000 7150 50  0001 C CNN
+	1    6000 7150
 	0    1    1    0   
 $EndComp
-Connection ~ 6050 7350
+Connection ~ 6000 7150
 $Comp
 L power:-12V #PWR035
 U 1 1 5F59B0BA
-P 5200 7350
-F 0 "#PWR035" H 5200 7450 50  0001 C CNN
-F 1 "-12V" H 5215 7523 50  0000 C CNN
-F 2 "" H 5200 7350 50  0001 C CNN
-F 3 "" H 5200 7350 50  0001 C CNN
-	1    5200 7350
+P 5150 7150
+F 0 "#PWR035" H 5150 7250 50  0001 C CNN
+F 1 "-12V" H 5165 7323 50  0000 C CNN
+F 2 "" H 5150 7150 50  0001 C CNN
+F 3 "" H 5150 7150 50  0001 C CNN
+	1    5150 7150
 	0    -1   -1   0   
 $EndComp
-Connection ~ 5200 7350
+Connection ~ 5150 7150
 $Comp
 L Device:C C15
 U 1 1 5F5E94E7
-P 5800 7350
-F 0 "C15" H 5915 7396 50  0000 L CNN
-F 1 "1u" H 5915 7305 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 5838 7200 50  0001 C CNN
-F 3 "~" H 5800 7350 50  0001 C CNN
-	1    5800 7350
+P 5750 7150
+F 0 "C15" H 5865 7196 50  0000 L CNN
+F 1 "1u" H 5865 7105 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 5788 7000 50  0001 C CNN
+F 3 "~" H 5750 7150 50  0001 C CNN
+	1    5750 7150
 	0    -1   -1   0   
 $EndComp
 $Comp
 L Device:C C18
 U 1 1 5F60050A
-P 5500 7350
-F 0 "C18" H 5615 7396 50  0000 L CNN
-F 1 "1u" H 5615 7305 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 5538 7200 50  0001 C CNN
-F 3 "~" H 5500 7350 50  0001 C CNN
-	1    5500 7350
+P 5450 7150
+F 0 "C18" H 5565 7196 50  0000 L CNN
+F 1 "1u" H 5565 7105 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 5488 7000 50  0001 C CNN
+F 3 "~" H 5450 7150 50  0001 C CNN
+	1    5450 7150
 	0    -1   -1   0   
 $EndComp
 $Comp
 L power:GND #PWR041
 U 1 1 5F6203D8
-P 5650 7350
-F 0 "#PWR041" H 5650 7100 50  0001 C CNN
-F 1 "GND" H 5655 7177 50  0000 C CNN
-F 2 "" H 5650 7350 50  0001 C CNN
-F 3 "" H 5650 7350 50  0001 C CNN
-	1    5650 7350
+P 5600 7150
+F 0 "#PWR041" H 5600 6900 50  0001 C CNN
+F 1 "GND" H 5605 6977 50  0000 C CNN
+F 2 "" H 5600 7150 50  0001 C CNN
+F 3 "" H 5600 7150 50  0001 C CNN
+	1    5600 7150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5200 7600 5350 7600
+	5150 7400 5300 7400
 Wire Wire Line
-	5200 7350 5200 7600
+	5150 7150 5150 7400
 Wire Wire Line
-	6050 7600 5950 7600
+	6000 7400 5900 7400
 Wire Wire Line
-	6050 7350 6050 7600
+	6000 7150 6000 7400
 $Comp
 L Device:R_Small_US R33
 U 1 1 5F70F55C
@@ -893,12 +893,12 @@ Connection ~ 4900 10050
 $Comp
 L Device:R_Small_US R22
 U 1 1 5FA3F899
-P 3500 9550
-F 0 "R22" V 3400 9500 50  0000 L CNN
-F 1 "10k" V 3600 9500 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3500 9550 50  0001 C CNN
-F 3 "~" H 3500 9550 50  0001 C CNN
-	1    3500 9550
+P 3500 9750
+F 0 "R22" V 3400 9700 50  0000 L CNN
+F 1 "10k" V 3600 9700 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3500 9750 50  0001 C CNN
+F 3 "~" H 3500 9750 50  0001 C CNN
+	1    3500 9750
 	0    1    1    0   
 $EndComp
 Connection ~ 7000 9700
@@ -978,83 +978,83 @@ Wire Wire Line
 $Comp
 L Amplifier_Operational:TL072 U5
 U 3 1 5F590A5B
-P 5650 7700
-F 0 "U5" V 5600 7900 50  0000 L CNN
-F 1 "TL072CDR" V 5600 7250 50  0000 L CNN
-F 2 "digikey-footprints:SOIC-8_W3.9mm" H 5650 7700 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 5650 7700 50  0001 C CNN
-F 4 "TL072CDR" H 5650 7700 50  0001 C CNN "MPN"
-	3    5650 7700
+P 5600 7500
+F 0 "U5" V 5550 7700 50  0000 L CNN
+F 1 "TL072CDR" V 5550 7050 50  0000 L CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 5600 7500 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 5600 7500 50  0001 C CNN
+F 4 "TL072CDR" H 5600 7500 50  0001 C CNN "MPN"
+	3    5600 7500
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:R_Small_US R21
 U 1 1 5FADB542
-P 3500 9050
-F 0 "R21" V 3400 9000 50  0000 C CNN
-F 1 "0" V 3400 9150 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3500 9050 50  0001 C CNN
-F 3 "~" H 3500 9050 50  0001 C CNN
-	1    3500 9050
+P 3500 9250
+F 0 "R21" V 3400 9200 50  0000 C CNN
+F 1 "0" V 3400 9350 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3500 9250 50  0001 C CNN
+F 3 "~" H 3500 9250 50  0001 C CNN
+	1    3500 9250
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	4950 9150 4950 8700
+	4950 9350 4950 8700
 $Comp
 L Device:R_Small_US R24
 U 1 1 5FBAF915
-P 3700 9750
-F 0 "R24" H 3800 9800 50  0000 L CNN
-F 1 "100k" H 3800 9700 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3700 9750 50  0001 C CNN
-F 3 "~" H 3700 9750 50  0001 C CNN
-	1    3700 9750
+P 3700 9950
+F 0 "R24" H 3800 10000 50  0000 L CNN
+F 1 "100k" H 3800 9900 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3700 9950 50  0001 C CNN
+F 3 "~" H 3700 9950 50  0001 C CNN
+	1    3700 9950
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR033
 U 1 1 5FBF9FAF
-P 3700 9950
-F 0 "#PWR033" H 3700 9700 50  0001 C CNN
-F 1 "GND" H 3705 9777 50  0000 C CNN
-F 2 "" H 3700 9950 50  0001 C CNN
-F 3 "" H 3700 9950 50  0001 C CNN
-	1    3700 9950
+P 3700 10150
+F 0 "#PWR033" H 3700 9900 50  0001 C CNN
+F 1 "GND" H 3705 9977 50  0000 C CNN
+F 2 "" H 3700 10150 50  0001 C CNN
+F 3 "" H 3700 10150 50  0001 C CNN
+	1    3700 10150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3700 9950 3700 9850
+	3700 10150 3700 10050
 Wire Wire Line
-	3600 9550 3700 9550
+	3600 9750 3700 9750
 Wire Wire Line
-	3700 9550 3700 9650
+	3700 9750 3700 9850
 Wire Wire Line
-	3800 9250 3700 9250
+	3800 9450 3700 9450
 Wire Wire Line
-	3700 9250 3700 9550
-Connection ~ 3700 9550
+	3700 9450 3700 9750
+Connection ~ 3700 9750
 $Comp
 L power:+3V3 #PWR032
 U 1 1 5FCC4B29
-P 3300 9450
-F 0 "#PWR032" H 3300 9300 50  0001 C CNN
-F 1 "+3V3" H 3315 9623 50  0000 C CNN
-F 2 "" H 3300 9450 50  0001 C CNN
-F 3 "" H 3300 9450 50  0001 C CNN
-	1    3300 9450
+P 3300 9650
+F 0 "#PWR032" H 3300 9500 50  0001 C CNN
+F 1 "+3V3" H 3315 9823 50  0000 C CNN
+F 2 "" H 3300 9650 50  0001 C CNN
+F 3 "" H 3300 9650 50  0001 C CNN
+	1    3300 9650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3400 9550 3300 9550
+	3400 9750 3300 9750
 Wire Wire Line
-	3300 9550 3300 9450
+	3300 9750 3300 9650
 Wire Wire Line
-	3400 9050 3000 9050
+	3400 9250 3000 9250
 Wire Wire Line
-	3000 9050 3000 10450
+	3000 9250 3000 10450
 Text Notes 4900 11050 0    50   ~ 0
 Cutoff Gain Control
-Text Notes 3750 9500 0    50   ~ 0
+Text Notes 3750 9700 0    50   ~ 0
 DC Bypass Threshold
 Connection ~ 6100 7800
 Wire Wire Line
@@ -2083,7 +2083,7 @@ Wire Wire Line
 	14300 5550 14200 5550
 Wire Wire Line
 	3000 10450 3300 10450
-Connection ~ 5650 7350
+Connection ~ 5600 7150
 $Comp
 L Amplifier_Operational:MCP6002-xMS U?
 U 3 1 6161B439
@@ -2856,9 +2856,9 @@ F 4 "TL072CDR" H 7350 7900 50  0001 C CNN "MPN"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3600 9050 3800 9050
+	3600 9250 3800 9250
 Wire Wire Line
-	4400 9150 4950 9150
+	4400 9350 4950 9350
 Wire Wire Line
 	3850 7800 4100 7800
 Wire Wire Line
@@ -3434,21 +3434,6 @@ F 6 "BSS138-7-F" H 4650 5900 50  0001 C CNN "MPN"
 $EndComp
 Text Notes 5050 6150 0    50   ~ 0
 Unplugged = 1.65V\nPlugged = 0V
-$Comp
-L power:+3V3 #PWR?
-U 1 1 5ED5B938
-P 6800 10600
-AR Path="/5ED5B938" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/5ED5B938" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6800 10450 50  0001 C CNN
-F 1 "+3V3" H 6815 10773 50  0000 C CNN
-F 2 "" H 6800 10600 50  0001 C CNN
-F 3 "" H 6800 10600 50  0001 C CNN
-	1    6800 10600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6800 10600 6800 10700
 Wire Wire Line
 	4550 5200 4550 5300
 $Comp
@@ -3574,19 +3559,19 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 60DCC135
-P 2800 4250
-F 0 "#PWR?" H 2800 4000 50  0001 C CNN
-F 1 "GND" H 2805 4077 50  0000 C CNN
-F 2 "" H 2800 4250 50  0001 C CNN
-F 3 "" H 2800 4250 50  0001 C CNN
-	1    2800 4250
+P 2800 4150
+F 0 "#PWR?" H 2800 3900 50  0001 C CNN
+F 1 "GND" H 2805 3977 50  0000 C CNN
+F 2 "" H 2800 4150 50  0001 C CNN
+F 3 "" H 2800 4150 50  0001 C CNN
+	1    2800 4150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	2500 3950 2500 4100
 Connection ~ 2500 4100
 Wire Wire Line
-	2800 4100 2800 4250
+	2800 4100 2800 4150
 Wire Wire Line
 	2500 4100 2500 4600
 Wire Wire Line
@@ -3601,7 +3586,7 @@ Wire Wire Line
 	1050 6000 1150 6000
 Wire Wire Line
 	1050 6100 1150 6100
-Text Label 1050 5400 2    50   ~ 0
+Text Label 950  5400 2    50   ~ 0
 CLK0_T
 Connection ~ 4100 7800
 $Comp
@@ -3618,7 +3603,7 @@ F 4 "TL072CDR" H 3550 7800 50  0001 C CNN "MPN"
 $EndComp
 Wire Wire Line
 	2700 7700 2850 7700
-Text Notes 1650 8000 0    50   ~ 0
+Text Notes 1700 8200 0    50   ~ 0
 DC = -6 dB\nR   | 3 dB Cutoff\n10k | 31.8kHz\n413 | 771.1kHz\n
 Text Label 2950 7700 0    50   ~ 0
 OUTA
@@ -3724,7 +3709,7 @@ $EndComp
 Wire Wire Line
 	3050 5800 3250 5800
 Wire Wire Line
-	3250 4950 3250 5800
+	3250 4950 3250 5200
 Wire Wire Line
 	3050 5900 3600 5900
 Wire Wire Line
@@ -3760,16 +3745,14 @@ Wire Wire Line
 Wire Wire Line
 	2850 6850 2850 7150
 Wire Wire Line
-	7300 5750 7500 5750
-Wire Wire Line
 	3050 5600 4550 5600
 Text Label 5250 5900 0    50   ~ 0
 EXT_CLK_SW
 Wire Wire Line
 	5150 5900 5250 5900
-Text Label 2600 4500 1    50   ~ 0
+Text Label 2600 4400 1    50   ~ 0
 OE0
-Text Label 2400 4500 1    50   ~ 0
+Text Label 2400 3950 1    50   ~ 0
 OE1
 Wire Wire Line
 	900  1450 1150 1450
@@ -3786,7 +3769,239 @@ Wire Wire Line
 Wire Wire Line
 	900  2050 1150 2050
 Wire Wire Line
-	1050 5200 1150 5200
+	950  5200 1050 5200
 Wire Wire Line
 	1150 5400 1050 5400
+Text Label 2600 6850 0    50   ~ 0
+OUT0
+Text Label 2350 7050 0    50   ~ 0
+OUT1
+Wire Wire Line
+	2600 4400 2600 4500
+Wire Wire Line
+	2400 3950 2400 4100
+Wire Wire Line
+	2200 3950 2200 4200
+Wire Wire Line
+	2000 3950 2000 4300
+$Comp
+L Connector:TestPoint TP?
+U 1 1 65120E74
+P 1050 5550
+F 0 "TP?" H 1050 5750 50  0000 C CNN
+F 1 "TestPoint" H 1108 5577 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1250 5550 50  0001 C CNN
+F 3 "~" H 1250 5550 50  0001 C CNN
+	1    1050 5550
+	1    0    0    1   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 651BF0B0
+P 1050 5050
+F 0 "TP?" H 1050 5250 50  0000 C CNN
+F 1 "TestPoint" H 1108 5077 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1250 5050 50  0001 C CNN
+F 3 "~" H 1250 5050 50  0001 C CNN
+	1    1050 5050
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1050 5550 1050 5400
+Connection ~ 1050 5400
+Wire Wire Line
+	1050 5400 950  5400
+Wire Wire Line
+	1050 5050 1050 5200
+Connection ~ 1050 5200
+Wire Wire Line
+	1050 5200 1150 5200
+Text Label 1700 3950 1    50   ~ 0
+SCK
+Text Label 1800 3950 1    50   ~ 0
+SDATA
+Wire Wire Line
+	1800 3950 1800 4400
+Wire Wire Line
+	1700 3950 1700 4500
+$Comp
+L Connector:TestPoint TP?
+U 1 1 65708059
+P 1400 4200
+F 0 "TP?" V 1400 4550 50  0000 R CNN
+F 1 "TestPoint" H 1458 4227 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1600 4200 50  0001 C CNN
+F 3 "~" H 1600 4200 50  0001 C CNN
+	1    1400 4200
+	0    -1   1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 657A60C3
+P 1400 4300
+F 0 "TP?" V 1400 4650 50  0000 R CNN
+F 1 "TestPoint" H 1458 4327 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1600 4300 50  0001 C CNN
+F 3 "~" H 1600 4300 50  0001 C CNN
+	1    1400 4300
+	0    -1   1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 657F29F5
+P 1400 4400
+F 0 "TP?" V 1400 4750 50  0000 R CNN
+F 1 "TestPoint" H 1458 4427 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1600 4400 50  0001 C CNN
+F 3 "~" H 1600 4400 50  0001 C CNN
+	1    1400 4400
+	0    -1   1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 6583F3BD
+P 1400 4500
+F 0 "TP?" V 1400 4850 50  0000 R CNN
+F 1 "TestPoint" H 1458 4527 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1600 4500 50  0001 C CNN
+F 3 "~" H 1600 4500 50  0001 C CNN
+	1    1400 4500
+	0    -1   1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 65C5C0D1
+P 1400 4100
+F 0 "TP?" V 1400 4450 50  0000 R CNN
+F 1 "TestPoint" H 1458 4127 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 1600 4100 50  0001 C CNN
+F 3 "~" H 1600 4100 50  0001 C CNN
+	1    1400 4100
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	1400 4500 1700 4500
+Connection ~ 1700 4500
+Wire Wire Line
+	1700 4500 1700 4600
+Connection ~ 1800 4400
+Wire Wire Line
+	1800 4400 1800 4600
+Wire Wire Line
+	1400 4400 1800 4400
+Wire Wire Line
+	1400 4300 2000 4300
+Connection ~ 2000 4300
+Wire Wire Line
+	2000 4300 2000 4600
+Connection ~ 2200 4200
+Wire Wire Line
+	2200 4200 2200 4600
+Wire Wire Line
+	1400 4200 2200 4200
+Wire Wire Line
+	1400 4100 2400 4100
+Connection ~ 2400 4100
+Wire Wire Line
+	2400 4100 2400 4600
+$Comp
+L Connector:TestPoint TP?
+U 1 1 65ED5420
+P 2700 4500
+F 0 "TP?" V 2700 4850 50  0000 R CNN
+F 1 "TestPoint" H 2758 4527 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2900 4500 50  0001 C CNN
+F 3 "~" H 2900 4500 50  0001 C CNN
+	1    2700 4500
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	2700 4500 2600 4500
+Connection ~ 2600 4500
+Wire Wire Line
+	2600 4500 2600 4600
+$Comp
+L Connector:TestPoint TP?
+U 1 1 65FD43AE
+P 2950 6850
+F 0 "TP?" V 2950 7200 50  0000 R CNN
+F 1 "TestPoint" H 3008 6877 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3150 6850 50  0001 C CNN
+F 3 "~" H 3150 6850 50  0001 C CNN
+	1    2950 6850
+	0    1    -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 66025D30
+P 2950 7050
+F 0 "TP?" V 2950 7400 50  0000 R CNN
+F 1 "TestPoint" H 3008 7077 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3150 7050 50  0001 C CNN
+F 3 "~" H 3150 7050 50  0001 C CNN
+	1    2950 7050
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	2950 6850 2850 6850
+Connection ~ 2850 6850
+Wire Wire Line
+	2950 7050 2550 7050
+Connection ~ 2550 7050
+$Comp
+L Connector:TestPoint TP?
+U 1 1 6611C1C0
+P 2450 7700
+F 0 "TP?" V 2450 8050 50  0000 R CNN
+F 1 "TestPoint" H 2508 7727 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2650 7700 50  0001 C CNN
+F 3 "~" H 2650 7700 50  0001 C CNN
+	1    2450 7700
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	2450 7700 2550 7700
+Connection ~ 2550 7700
+$Comp
+L Connector:TestPoint TP?
+U 1 1 662225C4
+P 3550 5200
+F 0 "TP?" V 3550 5550 50  0000 R CNN
+F 1 "TestPoint" H 3608 5227 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3750 5200 50  0001 C CNN
+F 3 "~" H 3750 5200 50  0001 C CNN
+	1    3550 5200
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	3550 5200 3250 5200
+Connection ~ 3250 5200
+Wire Wire Line
+	3250 5200 3250 5800
+$Comp
+L Connector:TestPoint TP?
+U 1 1 662C8A9B
+P 4650 5600
+F 0 "TP?" V 4650 5950 50  0000 R CNN
+F 1 "TestPoint" H 4708 5627 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 4850 5600 50  0001 C CNN
+F 3 "~" H 4850 5600 50  0001 C CNN
+	1    4650 5600
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	4650 5600 4550 5600
+$Comp
+L Connector:TestPoint TP?
+U 1 1 66373A08
+P 6900 5750
+F 0 "TP?" V 6900 6100 50  0000 R CNN
+F 1 "TestPoint" H 6958 5777 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 7100 5750 50  0001 C CNN
+F 3 "~" H 7100 5750 50  0001 C CNN
+	1    6900 5750
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	6900 5750 7500 5750
 $EndSCHEMATC
