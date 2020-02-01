@@ -1,7 +1,7 @@
 #include "lookup.h"
 #include "adc_interrupt.h"
 
-#define GLITCH_LEN 10
+#define GLITCH_LEN 1
 
 const uint8_t pin_to_channel[] = { // pg 482
         7,      // 0/A0  AD_B1_02
@@ -482,7 +482,6 @@ void loop() {
     //digitalWrite(lfsr1_in_pin, 1); //Uninverts LFSR1 during glitch, kinda buggy/ tends to stick?
     glitch_counter -= 1;
     set_taps(glitch_taps);
-    actual_len=2048; //To freq lock during glitch
   }
   else
   {
