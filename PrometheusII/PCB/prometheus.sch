@@ -1423,11 +1423,11 @@ Wire Wire Line
 	2250 2400 2350 2400
 Wire Wire Line
 	2350 2400 2350 2300
-Text Label 4350 5100 0    50   ~ 0
+Text Label 4400 5100 0    50   ~ 0
 EXT_CLK
-Text Notes 5350 5600 0    50   ~ 0
+Text Notes 6600 5500 0    50   ~ 0
 From controls board
-Text Label 5050 5500 0    50   ~ 0
+Text Label 4400 5500 0    50   ~ 0
 EXT_CLK_EN_T
 Connection ~ 8450 7800
 Wire Wire Line
@@ -1674,7 +1674,7 @@ P 12050 1550
 AR Path="/6032E556/60FB80EA" Ref="U?"  Part="2" 
 AR Path="/60FB80EA" Ref="U7"  Part="2" 
 F 0 "U7" H 11900 1550 50  0000 L CNN
-F 1 "MCP6002-xMS" H 12350 1400 50  0000 C CNN
+F 1 "MCP6002-xMS" H 12350 1700 50  0000 C CNN
 F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 12050 1550 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 12050 1550 50  0001 C CNN
 F 4 "MCP6002T-I/MS" H 12050 1550 50  0001 C CNN "MPN"
@@ -2298,7 +2298,7 @@ F 6 "BSS138-7-F" H 6000 5800 50  0001 C CNN "MPN"
 	1    6000 5800
 	-1   0    0    -1  
 $EndComp
-Text Notes 6400 6050 0    50   ~ 0
+Text Notes 6600 5650 0    50   ~ 0
 Unplugged = 1.65V\nPlugged = 0V
 Wire Wire Line
 	5900 5100 5900 5200
@@ -2626,8 +2626,6 @@ Wire Wire Line
 	1200 1800 1450 1800
 Wire Wire Line
 	1200 1900 1450 1900
-Wire Wire Line
-	2250 5300 2150 5300
 Text Label 3700 6750 0    50   ~ 0
 OUT0
 Text Label 3700 6950 0    50   ~ 0
@@ -2643,33 +2641,29 @@ Wire Wire Line
 $Comp
 L Connector:TestPoint TP?
 U 1 1 65120E74
-P 2150 5450
-F 0 "TP?" H 2150 5650 50  0000 C CNN
-F 1 "TestPoint" H 2208 5477 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2350 5450 50  0001 C CNN
-F 3 "~" H 2350 5450 50  0001 C CNN
-	1    2150 5450
+P 2050 5450
+F 0 "TP?" H 2050 5650 50  0000 C CNN
+F 1 "TestPoint" H 2108 5477 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2250 5450 50  0001 C CNN
+F 3 "~" H 2250 5450 50  0001 C CNN
+	1    2050 5450
 	1    0    0    1   
 $EndComp
 $Comp
 L Connector:TestPoint TP?
 U 1 1 651BF0B0
-P 2150 4950
-F 0 "TP?" H 2150 5150 50  0000 C CNN
-F 1 "TestPoint" H 2208 4977 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2350 4950 50  0001 C CNN
-F 3 "~" H 2350 4950 50  0001 C CNN
-	1    2150 4950
+P 2050 4950
+F 0 "TP?" H 2050 5150 50  0000 C CNN
+F 1 "TestPoint" H 2108 4977 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2250 4950 50  0001 C CNN
+F 3 "~" H 2250 4950 50  0001 C CNN
+	1    2050 4950
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	2150 5450 2150 5300
-Connection ~ 2150 5300
+	2050 5450 2050 5300
 Wire Wire Line
-	2150 4950 2150 5100
-Connection ~ 2150 5100
-Wire Wire Line
-	2150 5100 2250 5100
+	2050 4950 2050 5100
 Text Label 2800 3850 1    50   ~ 0
 SCK
 Text Label 2900 3850 1    50   ~ 0
@@ -2917,14 +2911,14 @@ Cutoff = 63.6 MHz\nPlace at Teensy pins
 Wire Wire Line
 	1750 5100 1750 4750
 Wire Wire Line
-	1750 5100 2150 5100
+	1750 5100 2050 5100
 Wire Wire Line
 	1400 4750 1750 4750
 Wire Wire Line
-	1750 5300 2150 5300
-Text Label 1850 5300 0    50   ~ 0
+	1750 5300 2050 5300
+Text Label 1800 5300 0    50   ~ 0
 CLK0
-Text Label 1850 5100 0    50   ~ 0
+Text Label 1800 5100 0    50   ~ 0
 CLK1
 Wire Wire Line
 	8450 7800 8850 7800
@@ -4087,4 +4081,10 @@ F 3 "~" H 1450 5800 50  0001 C CNN
 $EndComp
 Text Label 900  5650 2    50   ~ 0
 CLK0_T
+Connection ~ 2050 5300
+Wire Wire Line
+	2050 5300 2250 5300
+Connection ~ 2050 5100
+Wire Wire Line
+	2050 5100 2250 5100
 $EndSCHEMATC
