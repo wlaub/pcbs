@@ -247,10 +247,6 @@ int adc_time_count = 0;
 
 void adc_interrupt()
 {
-  int current_time = micros();
-  adc_cumulative_time += current_time - adc_last_time;
-  adc_last_time = current_time;
-  adc_time_count +=1;
   
   //Read values
   ++adc_counter;
@@ -317,6 +313,12 @@ void adc_interrupt()
     {
       sample_counter = 0;
     }
+    
+    int current_time = micros();
+    adc_cumulative_time += current_time - adc_last_time;
+    adc_last_time = current_time;
+    adc_time_count +=1;
+
   }
 
   ADC1_HC0 = (0x80|adc_channel);
@@ -476,7 +478,7 @@ void loop() {
 
   float param_0_alpha = -5.06*(float(param_0_cv)/(half)-1)/5;
 
-  unsigned short len = short(pow(2, 1 + knob_len + cv_len));
+  unsigned int len = int(pow(2, 1 + knob_len + cv_len));
   if (len < 2)
   {
     len = 2;
@@ -559,9 +561,11 @@ void loop() {
   Serial.print("\n");
 
   int current_time = micros();
+  Serial.print(actual_len);
+  Serial.print(",");
   Serial.print(current_time-start_time);
   Serial.print(",");
-  Serial.print(1e6*adc_time_count/(16*float(adc_cumulative_time))); // Hz
+  Serial.print(1e6*adc_time_count/(float(adc_cumulative_time))); // Hz
   adc_cumulative_time = 0;
   adc_time_count = 0;
   
