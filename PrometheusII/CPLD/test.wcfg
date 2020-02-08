@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Gravyman3321/Documents/xilinx/lfsr/test_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="test" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/test/clk0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk0</obj_property>
+      <obj_property name="ObjectShortName">clk0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/input0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">input0</obj_property>
+      <obj_property name="ObjectShortName">input0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/ext_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ext_clk</obj_property>
+      <obj_property name="ObjectShortName">ext_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/clk_sel" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_sel</obj_property>
+      <obj_property name="ObjectShortName">clk_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/clk1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk1</obj_property>
+      <obj_property name="ObjectShortName">clk1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/input1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">input1</obj_property>
+      <obj_property name="ObjectShortName">input1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/io" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">io[6:0]</obj_property>
+      <obj_property name="ObjectShortName">io[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we</obj_property>
+      <obj_property name="ObjectShortName">we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/sck" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sck</obj_property>
+      <obj_property name="ObjectShortName">sck</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/sdi" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sdi</obj_property>
+      <obj_property name="ObjectShortName">sdi</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/output0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">output0</obj_property>
+      <obj_property name="ObjectShortName">output0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/output1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">output1</obj_property>
+      <obj_property name="ObjectShortName">output1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/sdo" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sdo</obj_property>
+      <obj_property name="ObjectShortName">sdo</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/clk0_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk0_period</obj_property>
+      <obj_property name="ObjectShortName">clk0_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/ext_clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">ext_clk_period</obj_property>
+      <obj_property name="ObjectShortName">ext_clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/clk1_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk1_period</obj_property>
+      <obj_property name="ObjectShortName">clk1_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/brate" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">brate</obj_property>
+      <obj_property name="ObjectShortName">brate</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/uut/tap_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">tap_reg[13:0]</obj_property>
+      <obj_property name="ObjectShortName">tap_reg[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/uut/oe" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">oe[1:0]</obj_property>
+      <obj_property name="ObjectShortName">oe[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/uut/out_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out_reg[11:0]</obj_property>
+      <obj_property name="ObjectShortName">out_reg[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/uut/status_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">status_reg[11:0]</obj_property>
+      <obj_property name="ObjectShortName">status_reg[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/uut/reg0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg0[11:0]</obj_property>
+      <obj_property name="ObjectShortName">reg0[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/uut/reg1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg1[11:0]</obj_property>
+      <obj_property name="ObjectShortName">reg1[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/uut/fb0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fb0</obj_property>
+      <obj_property name="ObjectShortName">fb0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/uut/fb1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fb1</obj_property>
+      <obj_property name="ObjectShortName">fb1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/uut/int_clk0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">int_clk0</obj_property>
+      <obj_property name="ObjectShortName">int_clk0</obj_property>
+   </wvobject>
+</wave_config>
