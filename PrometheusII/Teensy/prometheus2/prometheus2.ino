@@ -1,7 +1,8 @@
 #include "lookup.h"
 #include "adc_interrupt.h"
 
-#define GLITCH_LEN 10
+//In loops
+#define GLITCH_LEN 50
 
 const uint8_t pin_to_channel[] = { // pg 482
         7,      // 0/A0  AD_B1_02
@@ -240,8 +241,17 @@ volatile int poly;
 volatile float voct = 0;
 volatile unsigned short actual_len;
 
+int adc_last_time = 0;
+int adc_cumulative_time = 0;
+int adc_time_count = 0;
+
 void adc_interrupt()
 {
+  int current_time = micros();
+  adc_cumulative_time += current_time - adc_last_time;
+  adc_last_time = current_time;
+  adc_time_count +=1;
+  
   //Read values
   ++adc_counter;
   adc_accum[adc_channel] += ADC1_R0;
@@ -313,11 +323,31 @@ void adc_interrupt()
 
 }
 
-#define LOOP_PERIOD 1
+#define LOOP_PERIOD 200
 
 void loop() {
   // put your main code here, to run repeatedly:
-  delay(LOOP_PERIOD); // 1000 Hz
+
+  int start_time = micros();
+
+  /**/
+  //Serial Test
+  int out_data = 0xaa;
+  for(int i = 0; i < 14; ++i) // mock write
+  {
+     /* digitalWrite(clk_pin_1, 0);
+      digitalWrite(clk_pin_1, out_data&0x1);
+      digitalWrite(clk_pin_1, 1);*/
+      out_data >>= 1;
+  }
+  for(int i = 0; i < 8; ++i) //mock read
+  {
+  /*    digitalWrite(clk_pin_1, 0);
+      digitalWrite(clk_pin_1, out_data&0x1);
+      digitalWrite(clk_pin_1, 1);*/
+      out_data >>= 1;
+  }
+  /**/
 
   int voct_semi;
   int voct_fine;
@@ -438,7 +468,11 @@ void loop() {
   /******Length selection******/
 
   float knob_len = float(len_knob) * 11 / 4000;
-  float cv_len = 9.17*(float(len_cv)/(half)-1);
+  float cv_len = -9.17*((float(len_cv)-2055)/(half));
+
+  //Serial.print(cv_len);
+  //Serial.print(",");
+  //Serial.print(len_cv);
 
   float param_0_alpha = -5.06*(float(param_0_cv)/(half)-1)/5;
 
@@ -521,9 +555,17 @@ void loop() {
 
  //   Serial.print(actual_len);
  //   Serial.print(",");
-
-
+ 
   Serial.print("\n");
+
+  int current_time = micros();
+  Serial.print(current_time-start_time);
+  Serial.print(",");
+  Serial.print(1e6*adc_time_count/(16*float(adc_cumulative_time))); // Hz
+  adc_cumulative_time = 0;
+  adc_time_count = 0;
+  
+  delayMicroseconds(LOOP_PERIOD - (current_time-start_time)); // 1000 Hz
 
   
 }
