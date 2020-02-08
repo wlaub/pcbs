@@ -428,7 +428,7 @@ void loop() {
 
   float lfo_result;
   lfo_result = pow(2,4.32*float(lfo)/(half)); //20 Hz to 1 Hz at center = 20 to 1/20Hz. log_2(400)= 8.64
-  lfo_result *= 50/LOOP_PERIOD; //20 Hz = 50 ms
+  lfo_result *= 50000/LOOP_PERIOD; //20 Hz = 50e3 us
   lfo = int(lfo_result);  
 
   //int glitch_enabled = 1 - digitalRead(glitch_en_pin);
