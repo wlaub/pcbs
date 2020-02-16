@@ -186,11 +186,11 @@ Wire Wire Line
 	3200 6500 3250 6500
 Wire Wire Line
 	3250 6500 3250 6550
-Text Label 2150 6000 2    50   ~ 0
+Text Label 2050 6000 2    50   ~ 0
 JTAG_TMS
-Text Label 2150 6100 2    50   ~ 0
+Text Label 2050 6100 2    50   ~ 0
 JTAG_TCK
-Text Label 2150 5900 2    50   ~ 0
+Text Label 2050 5900 2    50   ~ 0
 JTAG_TDI
 Text Label 4350 6200 0    50   ~ 0
 JTAG_TDO
@@ -2266,11 +2266,11 @@ Wire Wire Line
 Wire Wire Line
 	4350 6000 4150 6000
 Wire Wire Line
-	2150 6100 2250 6100
+	2050 6100 2250 6100
 Wire Wire Line
-	2150 5900 2250 5900
+	2050 5900 2250 5900
 Wire Wire Line
-	2150 6000 2250 6000
+	2050 6000 2250 6000
 Connection ~ 4800 7700
 $Comp
 L Amplifier_Operational:TL072 U5
@@ -2291,37 +2291,9 @@ DC = -6 dB\nR   | 3 dB Cutoff\n10k | 31.8kHz\n413 | 771.1kHz\n
 Text Label 3700 7600 0    50   ~ 0
 OUTA
 Wire Wire Line
-	3800 8450 3800 8550
-$Comp
-L power:GND #PWR027
-U 1 1 5F3F2D6A
-P 3800 8550
-F 0 "#PWR027" H 3800 8300 50  0001 C CNN
-F 1 "GND" H 3805 8377 50  0000 C CNN
-F 2 "" H 3800 8550 50  0001 C CNN
-F 3 "" H 3800 8550 50  0001 C CNN
-	1    3800 8550
-	1    0    0    -1  
-$EndComp
-Connection ~ 3800 8050
-Wire Wire Line
-	3800 8050 3800 8250
-Wire Wire Line
 	4200 8050 3800 8050
 Wire Wire Line
 	4400 8050 4800 8050
-$Comp
-L Device:R_Small_US R16
-U 1 1 5F3A0145
-P 3800 8350
-F 0 "R16" H 3600 8250 50  0000 L CNN
-F 1 "0" H 3700 8350 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3800 8350 50  0001 C CNN
-F 3 "~" H 3800 8350 50  0001 C CNN
-F 4 "DNP" H 3600 8450 50  0000 L CNN "Assembly"
-	1    3800 8350
-	-1   0    0    1   
-$EndComp
 $Comp
 L Device:R_Small_US R23
 U 1 1 5F3851C1
@@ -4570,10 +4542,10 @@ LED_1_P
 Text Label 9750 5450 2    50   ~ 0
 EXT_CLK_SW
 $Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP23
 U 1 1 5E8745A7
 P 6400 10450
-F 0 "TP?" V 6400 10800 50  0000 R CNN
+F 0 "TP23" V 6400 10800 50  0000 R CNN
 F 1 "TestPoint" H 6458 10477 50  0001 L CNN
 F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 6600 10450 50  0001 C CNN
 F 3 "~" H 6600 10450 50  0001 C CNN
@@ -4581,10 +4553,10 @@ F 3 "~" H 6600 10450 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP22
 U 1 1 5E8CF42B
 P 5650 9250
-F 0 "TP?" V 5650 9600 50  0000 R CNN
+F 0 "TP22" V 5650 9600 50  0000 R CNN
 F 1 "TestPoint" H 5708 9277 50  0001 L CNN
 F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 5850 9250 50  0001 C CNN
 F 3 "~" H 5850 9250 50  0001 C CNN
@@ -4592,14 +4564,76 @@ F 3 "~" H 5850 9250 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP21
 U 1 1 5E92CCF1
 P 3700 9150
-F 0 "TP?" V 3700 9500 50  0000 R CNN
+F 0 "TP21" V 3700 9500 50  0000 R CNN
 F 1 "TestPoint" H 3758 9177 50  0001 L CNN
 F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3900 9150 50  0001 C CNN
 F 3 "~" H 3900 9150 50  0001 C CNN
 	1    3700 9150
 	0    -1   1    0   
 $EndComp
+$Comp
+L power:GND #PWR0180
+U 1 1 5E9C66E3
+P 2150 6250
+F 0 "#PWR0180" H 2150 6000 50  0001 C CNN
+F 1 "GND" H 2155 6077 50  0000 C CNN
+F 2 "" H 2150 6250 50  0001 C CNN
+F 3 "" H 2150 6250 50  0001 C CNN
+	1    2150 6250
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 6250 2150 5400
+Wire Wire Line
+	2150 5400 2250 5400
+Wire Wire Line
+	2250 5200 2150 5200
+Wire Wire Line
+	2150 5200 2150 5400
+Connection ~ 2150 5400
+Wire Wire Line
+	3500 6400 3500 6550
+Connection ~ 3800 8050
+Wire Wire Line
+	3800 8050 3800 8250
+$Comp
+L Device:R_Small_US R16
+U 1 1 5F3A0145
+P 3800 8350
+F 0 "R16" H 3600 8250 50  0000 L CNN
+F 1 "0" H 3700 8350 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3800 8350 50  0001 C CNN
+F 3 "~" H 3800 8350 50  0001 C CNN
+F 4 "DNP" H 3600 8450 50  0000 L CNN "Assembly"
+	1    3800 8350
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR027
+U 1 1 5F3F2D6A
+P 3800 8550
+F 0 "#PWR027" H 3800 8300 50  0001 C CNN
+F 1 "GND" H 3805 8377 50  0000 C CNN
+F 2 "" H 3800 8550 50  0001 C CNN
+F 3 "" H 3800 8550 50  0001 C CNN
+	1    3800 8550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 8450 3800 8550
+Wire Wire Line
+	3300 6400 3300 6550
+Wire Wire Line
+	3300 6550 3500 6550
+Wire Wire Line
+	3250 6550 3300 6550
+Connection ~ 3300 6550
+Wire Wire Line
+	3700 6550 3700 6400
+Wire Wire Line
+	3500 6550 3700 6550
+Connection ~ 3500 6550
 $EndSCHEMATC
