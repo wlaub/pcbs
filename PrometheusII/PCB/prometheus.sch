@@ -2943,18 +2943,7 @@ $EndComp
 Wire Wire Line
 	9950 7550 9750 7550
 Wire Wire Line
-	9350 5450 9950 5450
-$Comp
-L Connector:TestPoint TP21
-U 1 1 66373A08
-P 9350 5450
-F 0 "TP21" V 9350 5800 50  0000 R CNN
-F 1 "TestPoint" H 9408 5477 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 9550 5450 50  0001 C CNN
-F 3 "~" H 9550 5450 50  0001 C CNN
-	1    9350 5450
-	0    -1   1    0   
-$EndComp
+	9750 5450 9950 5450
 $Comp
 L Connector_Generic:Conn_02x02_Odd_Even J10
 U 1 1 5FBC77AE
@@ -3382,8 +3371,6 @@ F 4 "PREC002DAAN-RC" H 10250 6000 50  0001 C CNN "MPN"
 $EndComp
 Wire Wire Line
 	10550 5450 10550 5550
-Text Label 9750 5450 2    50   ~ 0
-EXT_CLK_SW
 Connection ~ 10550 5450
 Wire Wire Line
 	10550 5350 10550 5450
@@ -3959,8 +3946,6 @@ F 3 "~" H 4650 1950 50  0001 C CNN
 	1    4650 1950
 	1    0    0    1   
 $EndComp
-Wire Wire Line
-	5250 3450 5150 3450
 Text Label 7350 5600 0    50   ~ 0
 GLITCH_IN_T
 Wire Wire Line
@@ -4582,4 +4567,39 @@ Text Label 13750 8850 0    50   ~ 0
 LED_0_P
 Text Label 13750 8750 0    50   ~ 0
 LED_1_P
+Text Label 9750 5450 2    50   ~ 0
+EXT_CLK_SW
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5E8745A7
+P 6400 10450
+F 0 "TP?" V 6400 10800 50  0000 R CNN
+F 1 "TestPoint" H 6458 10477 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 6600 10450 50  0001 C CNN
+F 3 "~" H 6600 10450 50  0001 C CNN
+	1    6400 10450
+	0    1    -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5E8CF42B
+P 5650 9250
+F 0 "TP?" V 5650 9600 50  0000 R CNN
+F 1 "TestPoint" H 5708 9277 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 5850 9250 50  0001 C CNN
+F 3 "~" H 5850 9250 50  0001 C CNN
+	1    5650 9250
+	0    1    -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5E92CCF1
+P 3700 9150
+F 0 "TP?" V 3700 9500 50  0000 R CNN
+F 1 "TestPoint" H 3758 9177 50  0001 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3900 9150 50  0001 C CNN
+F 3 "~" H 3900 9150 50  0001 C CNN
+	1    3700 9150
+	0    -1   1    0   
+$EndComp
 $EndSCHEMATC
