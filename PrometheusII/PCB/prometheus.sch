@@ -4514,4 +4514,82 @@ Wire Wire Line
 Wire Wire Line
 	3000 4450 3000 4500
 Connection ~ 3300 4450
+$Comp
+L Mechanical:Fiducial FID?
+U 1 1 61366E69
+P 8900 4850
+AR Path="/6032E556/61366E69" Ref="FID?"  Part="1" 
+AR Path="/61366E69" Ref="FID6"  Part="1" 
+F 0 "FID6" H 8985 4896 50  0000 L CNN
+F 1 "Fiducial" H 8985 4805 50  0000 L CNN
+F 2 "Fiducial:Fiducial_0.5mm_Mask1mm" H 8900 4850 50  0001 C CNN
+F 3 "~" H 8900 4850 50  0001 C CNN
+	1    8900 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Fiducial FID?
+U 1 1 61366E6F
+P 8900 4650
+AR Path="/6032E556/61366E6F" Ref="FID?"  Part="1" 
+AR Path="/61366E6F" Ref="FID5"  Part="1" 
+F 0 "FID5" H 8985 4696 50  0000 L CNN
+F 1 "Fiducial" H 8985 4605 50  0000 L CNN
+F 2 "Fiducial:Fiducial_0.5mm_Mask1mm" H 8900 4650 50  0001 C CNN
+F 3 "~" H 8900 4650 50  0001 C CNN
+	1    8900 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Fiducial FID?
+U 1 1 61366E75
+P 8900 4450
+AR Path="/6032E556/61366E75" Ref="FID?"  Part="1" 
+AR Path="/61366E75" Ref="FID4"  Part="1" 
+F 0 "FID4" H 8985 4496 50  0000 L CNN
+F 1 "Fiducial" H 8985 4405 50  0000 L CNN
+F 2 "Fiducial:Fiducial_0.5mm_Mask1mm" H 8900 4450 50  0001 C CNN
+F 3 "~" H 8900 4450 50  0001 C CNN
+	1    8900 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Fiducial FID?
+U 1 1 61366E7B
+P 8900 4250
+AR Path="/6032E556/61366E7B" Ref="FID?"  Part="1" 
+AR Path="/61366E7B" Ref="FID3"  Part="1" 
+F 0 "FID3" H 8985 4296 50  0000 L CNN
+F 1 "Fiducial" H 8985 4205 50  0000 L CNN
+F 2 "Fiducial:Fiducial_0.5mm_Mask1mm" H 8900 4250 50  0001 C CNN
+F 3 "~" H 8900 4250 50  0001 C CNN
+	1    8900 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Fiducial FID?
+U 1 1 61366E81
+P 8900 4050
+AR Path="/6032E556/61366E81" Ref="FID?"  Part="1" 
+AR Path="/61366E81" Ref="FID2"  Part="1" 
+F 0 "FID2" H 8985 4096 50  0000 L CNN
+F 1 "Fiducial" H 8985 4005 50  0000 L CNN
+F 2 "Fiducial:Fiducial_0.5mm_Mask1mm" H 8900 4050 50  0001 C CNN
+F 3 "~" H 8900 4050 50  0001 C CNN
+	1    8900 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:Fiducial FID?
+U 1 1 61366E87
+P 8900 3850
+AR Path="/6032E556/61366E87" Ref="FID?"  Part="1" 
+AR Path="/61366E87" Ref="FID1"  Part="1" 
+F 0 "FID1" H 8985 3896 50  0000 L CNN
+F 1 "Fiducial" H 8985 3805 50  0000 L CNN
+F 2 "Fiducial:Fiducial_0.5mm_Mask1mm" H 8900 3850 50  0001 C CNN
+F 3 "~" H 8900 3850 50  0001 C CNN
+	1    8900 3850
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
