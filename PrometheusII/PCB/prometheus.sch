@@ -2190,14 +2190,14 @@ OUT0
 Text Label 3700 6950 0    50   ~ 0
 OUT1
 Wire Wire Line
-	3100 3850 3100 4100
+	3200 3850 3200 4100
 $Comp
 L Connector:TestPoint TP2
 U 1 1 65120E74
 P 2050 5450
 F 0 "TP2" H 2050 5650 50  0000 C CNN
 F 1 "TestPoint" H 2108 5477 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2250 5450 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 2250 5450 50  0001 C CNN
 F 3 "~" H 2250 5450 50  0001 C CNN
 	1    2050 5450
 	1    0    0    1   
@@ -2208,7 +2208,7 @@ U 1 1 651BF0B0
 P 2050 4950
 F 0 "TP1" H 2050 5150 50  0000 C CNN
 F 1 "TestPoint" H 2108 4977 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2250 4950 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 2250 4950 50  0001 C CNN
 F 3 "~" H 2250 4950 50  0001 C CNN
 	1    2050 4950
 	-1   0    0    -1  
@@ -2231,7 +2231,7 @@ U 1 1 65708059
 P 2500 4100
 F 0 "TP4" V 2500 4450 50  0000 R CNN
 F 1 "TestPoint" H 2558 4127 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2700 4100 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 2700 4100 50  0001 C CNN
 F 3 "~" H 2700 4100 50  0001 C CNN
 	1    2500 4100
 	0    -1   1    0   
@@ -2242,7 +2242,7 @@ U 1 1 657A60C3
 P 2500 4200
 F 0 "TP5" V 2500 4550 50  0000 R CNN
 F 1 "TestPoint" H 2558 4227 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2700 4200 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 2700 4200 50  0001 C CNN
 F 3 "~" H 2700 4200 50  0001 C CNN
 	1    2500 4200
 	0    -1   1    0   
@@ -2253,7 +2253,7 @@ U 1 1 657F29F5
 P 2500 4300
 F 0 "TP6" V 2500 4650 50  0000 R CNN
 F 1 "TestPoint" H 2558 4327 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2700 4300 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 2700 4300 50  0001 C CNN
 F 3 "~" H 2700 4300 50  0001 C CNN
 	1    2500 4300
 	0    -1   1    0   
@@ -2264,7 +2264,7 @@ U 1 1 6583F3BD
 P 2500 4400
 F 0 "TP7" V 2500 4750 50  0000 R CNN
 F 1 "TestPoint" H 2558 4427 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2700 4400 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 2700 4400 50  0001 C CNN
 F 3 "~" H 2700 4400 50  0001 C CNN
 	1    2500 4400
 	0    -1   1    0   
@@ -2275,7 +2275,7 @@ U 1 1 65C5C0D1
 P 2500 4000
 F 0 "TP3" V 2500 4350 50  0000 R CNN
 F 1 "TestPoint" H 2558 4027 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 2700 4000 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 2700 4000 50  0001 C CNN
 F 3 "~" H 2700 4000 50  0001 C CNN
 	1    2500 4000
 	0    -1   1    0   
@@ -2291,9 +2291,9 @@ Wire Wire Line
 Wire Wire Line
 	2500 4300 2900 4300
 Wire Wire Line
-	3100 4100 3100 4500
+	3200 4100 3200 4500
 Wire Wire Line
-	2500 4100 3100 4100
+	2500 4100 3200 4100
 Wire Wire Line
 	2500 4000 3400 4000
 $Comp
@@ -2302,7 +2302,7 @@ U 1 1 65ED5420
 P 3950 4300
 F 0 "TP9" V 3950 4650 50  0000 R CNN
 F 1 "TestPoint" H 4008 4327 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 4150 4300 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 4150 4300 50  0001 C CNN
 F 3 "~" H 4150 4300 50  0001 C CNN
 	1    3950 4300
 	0    1    -1   0   
@@ -2313,7 +2313,7 @@ U 1 1 65FD43AE
 P 4050 6750
 F 0 "TP10" V 4050 7100 50  0000 R CNN
 F 1 "TestPoint" H 4108 6777 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 4250 6750 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 4250 6750 50  0001 C CNN
 F 3 "~" H 4250 6750 50  0001 C CNN
 	1    4050 6750
 	0    1    -1   0   
@@ -2324,7 +2324,7 @@ U 1 1 66025D30
 P 4050 6950
 F 0 "TP11" V 4050 7300 50  0000 R CNN
 F 1 "TestPoint" H 4108 6977 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 4250 6950 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 4250 6950 50  0001 C CNN
 F 3 "~" H 4250 6950 50  0001 C CNN
 	1    4050 6950
 	0    1    -1   0   
@@ -2341,7 +2341,7 @@ U 1 1 6611C1C0
 P 3150 7600
 F 0 "TP8" V 3150 7950 50  0000 R CNN
 F 1 "TestPoint" H 3208 7627 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3350 7600 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 3350 7600 50  0001 C CNN
 F 3 "~" H 3350 7600 50  0001 C CNN
 	1    3150 7600
 	0    -1   1    0   
@@ -2354,7 +2354,7 @@ U 1 1 662225C4
 P 7850 5700
 F 0 "TP20" V 7850 6050 50  0000 R CNN
 F 1 "TestPoint" H 7908 5727 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 8050 5700 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5700 50  0001 C CNN
 F 3 "~" H 8050 5700 50  0001 C CNN
 	1    7850 5700
 	0    1    -1   0   
@@ -2368,7 +2368,7 @@ U 1 1 662C8A9B
 P 5300 6650
 F 0 "TP13" V 5300 7000 50  0000 R CNN
 F 1 "TestPoint" H 5358 6677 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 5500 6650 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 5500 6650 50  0001 C CNN
 F 3 "~" H 5500 6650 50  0001 C CNN
 	1    5300 6650
 	0    1    -1   0   
@@ -3588,17 +3588,17 @@ Wire Wire Line
 	1200 1500 1450 1500
 Wire Wire Line
 	1450 1600 1200 1600
-Text Label 3000 3850 1    50   ~ 0
+Text Label 3100 3850 1    50   ~ 0
 SDO
 Wire Wire Line
-	3000 4200 3000 4500
-Connection ~ 3000 4200
+	3100 4200 3100 4500
+Connection ~ 3100 4200
 Wire Wire Line
-	3000 3850 3000 4200
+	3100 3850 3100 4200
 Wire Wire Line
-	2500 4200 3000 4200
-Connection ~ 3100 4100
-Text Label 3100 3850 1    50   ~ 0
+	2500 4200 3100 4200
+Connection ~ 3200 4100
+Text Label 3200 3850 1    50   ~ 0
 WE
 Wire Wire Line
 	3400 3850 3400 4000
@@ -3723,7 +3723,7 @@ U 1 1 69634036
 P 7850 5600
 F 0 "TP19" V 7850 5950 50  0000 R CNN
 F 1 "TestPoint" H 7908 5627 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 8050 5600 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5600 50  0001 C CNN
 F 3 "~" H 8050 5600 50  0001 C CNN
 	1    7850 5600
 	0    1    -1   0   
@@ -4039,7 +4039,7 @@ U 1 1 69EB8E62
 P 7850 5500
 F 0 "TP18" V 7850 5850 50  0000 R CNN
 F 1 "TestPoint" H 7908 5527 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 8050 5500 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5500 50  0001 C CNN
 F 3 "~" H 8050 5500 50  0001 C CNN
 	1    7850 5500
 	0    1    -1   0   
@@ -4050,7 +4050,7 @@ U 1 1 69EB8E68
 P 7850 5400
 F 0 "TP17" V 7850 5750 50  0000 R CNN
 F 1 "TestPoint" H 7908 5427 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 8050 5400 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5400 50  0001 C CNN
 F 3 "~" H 8050 5400 50  0001 C CNN
 	1    7850 5400
 	0    1    -1   0   
@@ -4061,7 +4061,7 @@ U 1 1 69F081F5
 P 7850 5300
 F 0 "TP16" V 7850 5650 50  0000 R CNN
 F 1 "TestPoint" H 7908 5327 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 8050 5300 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5300 50  0001 C CNN
 F 3 "~" H 8050 5300 50  0001 C CNN
 	1    7850 5300
 	0    1    -1   0   
@@ -4072,7 +4072,7 @@ U 1 1 69F081FB
 P 7850 5200
 F 0 "TP15" V 7850 5550 50  0000 R CNN
 F 1 "TestPoint" H 7908 5227 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 8050 5200 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5200 50  0001 C CNN
 F 3 "~" H 8050 5200 50  0001 C CNN
 	1    7850 5200
 	0    1    -1   0   
@@ -4093,7 +4093,7 @@ U 1 1 6A1ED1D4
 P 7850 5100
 F 0 "TP14" V 7850 5450 50  0000 R CNN
 F 1 "TestPoint" H 7908 5127 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 8050 5100 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5100 50  0001 C CNN
 F 3 "~" H 8050 5100 50  0001 C CNN
 	1    7850 5100
 	0    1    -1   0   
@@ -4142,7 +4142,7 @@ U 1 1 6A80CCB5
 P 4650 4400
 F 0 "TP12" V 4650 4750 50  0000 R CNN
 F 1 "TestPoint" H 4708 4427 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 4850 4400 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 4850 4400 50  0001 C CNN
 F 3 "~" H 4850 4400 50  0001 C CNN
 	1    4650 4400
 	0    1    -1   0   
@@ -4314,7 +4314,7 @@ U 1 1 5E8745A7
 P 6400 10450
 F 0 "TP23" V 6400 10800 50  0000 R CNN
 F 1 "TestPoint" H 6458 10477 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 6600 10450 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 6600 10450 50  0001 C CNN
 F 3 "~" H 6600 10450 50  0001 C CNN
 	1    6400 10450
 	0    1    -1   0   
@@ -4325,7 +4325,7 @@ U 1 1 5E8CF42B
 P 5650 9250
 F 0 "TP22" V 5650 9600 50  0000 R CNN
 F 1 "TestPoint" H 5708 9277 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 5850 9250 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 5850 9250 50  0001 C CNN
 F 3 "~" H 5850 9250 50  0001 C CNN
 	1    5650 9250
 	0    1    -1   0   
@@ -4336,7 +4336,7 @@ U 1 1 5E92CCF1
 P 3700 9150
 F 0 "TP21" V 3700 9500 50  0000 R CNN
 F 1 "TestPoint" H 3758 9177 50  0001 L CNN
-F 2 "TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm" H 3900 9150 50  0001 C CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 3900 9150 50  0001 C CNN
 F 3 "~" H 3900 9150 50  0001 C CNN
 	1    3700 9150
 	0    -1   1    0   
@@ -4492,4 +4492,26 @@ Wire Notes Line
 	6100 7900 6100 8350
 Wire Wire Line
 	6800 7700 6800 8950
+$Comp
+L power:GND #PWR?
+U 1 1 610F0ED9
+P 4150 4650
+F 0 "#PWR?" H 4150 4400 50  0001 C CNN
+F 1 "GND" H 4155 4477 50  0000 C CNN
+F 2 "" H 4150 4650 50  0001 C CNN
+F 3 "" H 4150 4650 50  0001 C CNN
+	1    4150 4650
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 4650 4150 4450
+Wire Wire Line
+	4150 4450 3300 4450
+Wire Wire Line
+	3300 4450 3300 4500
+Wire Wire Line
+	3300 4450 3000 4450
+Wire Wire Line
+	3000 4450 3000 4500
+Connection ~ 3300 4450
 $EndSCHEMATC
