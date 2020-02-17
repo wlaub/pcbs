@@ -38,19 +38,19 @@ F 3 "" H 2150 3250 50  0001 C CNN
 $EndComp
 Text Label 1200 1200 2    50   ~ 0
 CLK1_T
-Text Label 3900 2150 0    50   ~ 0
+Text Label 3900 1950 0    50   ~ 0
 VOCT_T
-Text Label 3900 2250 0    50   ~ 0
-VOCT_ATV_T
-Text Label 3900 2350 0    50   ~ 0
-VOCT_FINE_T
-Text Label 3900 1850 0    50   ~ 0
-LEN_CV_T
-Text Label 3900 1550 0    50   ~ 0
-LEN_KNOB_T
 Text Label 3900 2050 0    50   ~ 0
-PARAM_0_CV_T
+VOCT_ATV_T
+Text Label 3900 2150 0    50   ~ 0
+VOCT_FINE_T
 Text Label 3900 1650 0    50   ~ 0
+LEN_CV_T
+Text Label 3900 1350 0    50   ~ 0
+LEN_KNOB_T
+Text Label 3900 1850 0    50   ~ 0
+PARAM_0_CV_T
+Text Label 3900 1450 0    50   ~ 0
 PARAM_1_T
 Text Label 1300 2200 2    50   ~ 0
 LFO_LED_T
@@ -72,10 +72,6 @@ Wire Wire Line
 Wire Wire Line
 	1200 1200 1450 1200
 Wire Wire Line
-	3900 2350 3650 2350
-Wire Wire Line
-	3900 2250 3650 2250
-Wire Wire Line
 	3900 2150 3650 2150
 Wire Wire Line
 	3900 2050 3650 2050
@@ -89,6 +85,10 @@ Wire Wire Line
 	3900 1650 3650 1650
 Wire Wire Line
 	3900 1550 3650 1550
+Wire Wire Line
+	3900 1450 3650 1450
+Wire Wire Line
+	3900 1350 3650 1350
 Wire Wire Line
 	1350 1000 1450 1000
 Wire Wire Line
@@ -1127,7 +1127,7 @@ Wire Wire Line
 Connection ~ 6150 2450
 Text Label 9400 2450 2    50   ~ 0
 LFO_T
-Text Label 3900 1950 0    50   ~ 0
+Text Label 3900 1750 0    50   ~ 0
 LFO_T
 Text Label 6650 1150 0    50   ~ 0
 LEN_CV
@@ -1164,7 +1164,7 @@ Wire Wire Line
 	6450 3100 6650 3100
 Text Label 10250 3100 0    50   ~ 0
 PARAM_0
-Text Label 3900 1750 0    50   ~ 0
+Text Label 3900 1550 0    50   ~ 0
 PARAM_0_T
 Text Label 7350 5700 0    50   ~ 0
 EXT_CLK
@@ -3624,13 +3624,13 @@ Wire Wire Line
 Wire Wire Line
 	5000 5800 5000 5900
 Wire Wire Line
-	4650 1350 4650 1150
-Text Label 3900 1450 0    50   ~ 0
+	4650 2250 4650 2050
+Text Label 3900 2350 0    50   ~ 0
 FREQ_LOCK_T
-Text Label 3900 1350 0    50   ~ 0
+Text Label 3900 2250 0    50   ~ 0
 GLITCH_EN_T
 Wire Wire Line
-	4650 850  4650 950 
+	4650 1750 4650 1850
 Wire Wire Line
 	7000 4550 7000 4650
 $Comp
@@ -3662,59 +3662,59 @@ $EndComp
 $Comp
 L power:+3V3 #PWR0129
 U 1 1 5E65FFD5
-P 4650 850
+P 4650 1750
 AR Path="/5E65FFD5" Ref="#PWR0129"  Part="1" 
 AR Path="/6032E556/5E65FFD5" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0129" H 4650 700 50  0001 C CNN
-F 1 "+3V3" H 4665 1023 50  0000 C CNN
-F 2 "" H 4650 850 50  0001 C CNN
-F 3 "" H 4650 850 50  0001 C CNN
-	1    4650 850 
+F 0 "#PWR0129" H 4650 1600 50  0001 C CNN
+F 1 "+3V3" H 4665 1923 50  0000 C CNN
+F 2 "" H 4650 1750 50  0001 C CNN
+F 3 "" H 4650 1750 50  0001 C CNN
+	1    4650 1750
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_Small_US R59
 U 1 1 5E65FFCF
-P 4650 1050
+P 4650 1950
 AR Path="/5E65FFCF" Ref="R59"  Part="1" 
 AR Path="/6032E556/5E65FFCF" Ref="R?"  Part="1" 
-F 0 "R59" H 4700 1000 50  0000 L CNN
-F 1 "100k" H 4700 1100 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 4650 1050 50  0001 C CNN
-F 3 "~" H 4650 1050 50  0001 C CNN
-	1    4650 1050
+F 0 "R59" H 4700 1900 50  0000 L CNN
+F 1 "100k" H 4700 2000 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 4650 1950 50  0001 C CNN
+F 3 "~" H 4650 1950 50  0001 C CNN
+	1    4650 1950
 	1    0    0    1   
 $EndComp
 Text Label 7350 5600 0    50   ~ 0
 GLITCH_IN_T
 Wire Wire Line
-	5000 1150 5000 1450
+	5000 2050 5000 2350
 Wire Wire Line
-	5000 850  5000 950 
+	5000 1750 5000 1850
 $Comp
 L power:+3V3 #PWR0161
 U 1 1 5E3D3277
-P 5000 850
+P 5000 1750
 AR Path="/5E3D3277" Ref="#PWR0161"  Part="1" 
 AR Path="/6032E556/5E3D3277" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0161" H 5000 700 50  0001 C CNN
-F 1 "+3V3" H 5015 1023 50  0000 C CNN
-F 2 "" H 5000 850 50  0001 C CNN
-F 3 "" H 5000 850 50  0001 C CNN
-	1    5000 850 
+F 0 "#PWR0161" H 5000 1600 50  0001 C CNN
+F 1 "+3V3" H 5015 1923 50  0000 C CNN
+F 2 "" H 5000 1750 50  0001 C CNN
+F 3 "" H 5000 1750 50  0001 C CNN
+	1    5000 1750
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R_Small_US R52
 U 1 1 5E3D3271
-P 5000 1050
+P 5000 1950
 AR Path="/5E3D3271" Ref="R52"  Part="1" 
 AR Path="/6032E556/5E3D3271" Ref="R?"  Part="1" 
-F 0 "R52" H 5150 1000 50  0000 C CNN
-F 1 "100k" H 5150 1100 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 5000 1050 50  0001 C CNN
-F 3 "~" H 5000 1050 50  0001 C CNN
-	1    5000 1050
+F 0 "R52" H 5150 1900 50  0000 C CNN
+F 1 "100k" H 5150 2000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5000 1950 50  0001 C CNN
+F 3 "~" H 5000 1950 50  0001 C CNN
+	1    5000 1950
 	1    0    0    1   
 $EndComp
 $Comp
@@ -4225,9 +4225,9 @@ POLY_SW
 Text Label 7350 5500 0    50   ~ 0
 VOCT_OCT_B
 Wire Wire Line
-	3650 1350 4650 1350
+	3650 2250 4650 2250
 Wire Wire Line
-	5000 1450 3650 1450
+	5000 2350 3650 2350
 $Comp
 L Device:C C7
 U 1 1 5E0CE06D
@@ -4591,5 +4591,27 @@ F 2 "Fiducial:Fiducial_0.5mm_Mask1mm" H 8900 3850 50  0001 C CNN
 F 3 "~" H 8900 3850 50  0001 C CNN
 	1    8900 3850
 	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x10_Odd_Even J8
+U 1 1 613E27E7
+P 17650 8750
+F 0 "J8" V 17654 9230 50  0000 L CNN
+F 1 "Conn_02x10_Odd_Even" V 17745 9230 50  0000 L CNN
+F 2 "" H 17650 8750 50  0001 C CNN
+F 3 "~" H 17650 8750 50  0001 C CNN
+	1    17650 8750
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x10_Odd_Even J7
+U 1 1 613FD925
+P 17550 7400
+F 0 "J7" V 17554 7880 50  0000 L CNN
+F 1 "Conn_02x10_Odd_Even" V 17645 7880 50  0000 L CNN
+F 2 "" H 17550 7400 50  0001 C CNN
+F 3 "~" H 17550 7400 50  0001 C CNN
+	1    17550 7400
+	0    -1   1    0   
 $EndComp
 $EndSCHEMATC
