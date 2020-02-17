@@ -26,12 +26,12 @@ F 3 "" H 4300 800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L teensy:Teensy4.0_NoSD U1
+L teensy:Teensy4.0_NoUnderpins U1
 U 1 1 5E05A46C
 P 2550 2350
 F 0 "U1" H 2550 3965 50  0000 C CNN
 F 1 "Teensy4.0_NoSD" H 2550 3874 50  0000 C CNN
-F 2 "ttt_lib:Teensy40_underpins" H 2150 3250 50  0001 C CNN
+F 2 "ttt_lib:Teensy40_outerpins" H 2150 3250 50  0001 C CNN
 F 3 "" H 2150 3250 50  0001 C CNN
 	1    2550 2350
 	1    0    0    -1  
@@ -4493,10 +4493,10 @@ Wire Notes Line
 Wire Wire Line
 	6800 7700 6800 8950
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0181
 U 1 1 610F0ED9
 P 4150 4650
-F 0 "#PWR?" H 4150 4400 50  0001 C CNN
+F 0 "#PWR0181" H 4150 4400 50  0001 C CNN
 F 1 "GND" H 4155 4477 50  0000 C CNN
 F 2 "" H 4150 4650 50  0001 C CNN
 F 3 "" H 4150 4650 50  0001 C CNN
