@@ -312,8 +312,6 @@ F 4 "TL072CDR" H 8300 9600 50  0001 C CNN "MPN"
 	3    8300 9600
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4800 7700 4800 8050
 $Comp
 L Device:C C23
 U 1 1 5F34E710
@@ -343,8 +341,6 @@ $EndComp
 Wire Wire Line
 	5450 8300 5300 8300
 Wire Wire Line
-	5300 8300 5300 7700
-Wire Wire Line
 	5850 8300 6050 8300
 Wire Wire Line
 	6050 8300 6050 7700
@@ -354,8 +350,6 @@ Connection ~ 5300 7700
 Wire Wire Line
 	6050 7700 6800 7700
 Connection ~ 6050 7700
-Wire Wire Line
-	6800 8950 6800 8650
 $Comp
 L Amplifier_Operational:TL072 U4
 U 2 1 5F58EF70
@@ -498,11 +492,6 @@ Wire Wire Line
 Connection ~ 6400 9150
 Wire Wire Line
 	6400 9150 6400 9250
-Wire Wire Line
-	6400 8850 6400 8650
-Wire Wire Line
-	6400 8650 6800 8650
-Connection ~ 6800 8650
 Wire Wire Line
 	6100 9950 6400 9950
 Wire Wire Line
@@ -759,63 +748,20 @@ F 3 "" H 3700 10850 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3700 10750 3700 10850
-$Comp
-L Device:R_Small_US R40
-U 1 1 5FECA6EC
-P 8100 8200
-F 0 "R40" V 8000 8100 50  0000 C CNN
-F 1 "100k" V 8000 8300 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 8100 8200 50  0001 C CNN
-F 3 "~" H 8100 8200 50  0001 C CNN
-	1    8100 8200
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R_Small_US R39
-U 1 1 5FEEE91A
-P 7650 8400
-F 0 "R39" H 7800 8350 50  0000 C CNN
-F 1 "33k" H 7800 8450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 7650 8400 50  0001 C CNN
-F 3 "~" H 7650 8400 50  0001 C CNN
-F 4 "RMCF0603FT33K0" H 7650 8400 50  0001 C CNN "MPN"
-	1    7650 8400
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:GND #PWR046
-U 1 1 5FF15B66
-P 7650 8600
-F 0 "#PWR046" H 7650 8350 50  0001 C CNN
-F 1 "GND" H 7655 8427 50  0000 C CNN
-F 2 "" H 7650 8600 50  0001 C CNN
-F 3 "" H 7650 8600 50  0001 C CNN
-	1    7650 8600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7650 8600 7650 8500
 Wire Wire Line
 	7750 7900 7650 7900
 Wire Wire Line
-	7650 7900 7650 8200
+	7650 7900 7650 8100
 Wire Wire Line
-	8000 8200 7650 8200
-Connection ~ 7650 8200
-Wire Wire Line
-	7650 8200 7650 8300
-Wire Wire Line
-	8200 8200 8450 8200
-Wire Wire Line
-	8450 8200 8450 7800
+	8450 8100 8450 7800
 Text Label 4550 7700 0    50   ~ 0
 OUTB
 Text Label 6400 7700 0    50   ~ 0
 OUTC
 Text Label 8850 7800 0    50   ~ 0
 OUT
-Text Notes 7750 7500 0    50   ~ 0
-Output Gain
+Text Notes 4050 8600 0    50   ~ 0
+Output Gain\n3x : 1.65 V -> 5 V
 Text Label 4450 10650 0    50   ~ 0
 CV_FILT
 Text Notes 3850 7350 0    50   ~ 0
@@ -2011,24 +1957,10 @@ F 3 "" H 7300 4550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7300 4550 7300 4650
-$Comp
-L Amplifier_Operational:TL072 U5
-U 2 1 5F2BA50F
-P 8050 7800
-F 0 "U5" H 7900 7800 50  0000 L CNN
-F 1 "TL072CDR" H 8200 7650 50  0000 C CNN
-F 2 "digikey-footprints:SOIC-8_W3.9mm" H 8050 7800 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 8050 7800 50  0001 C CNN
-F 4 "TL072CDR" H 8050 7800 50  0001 C CNN "MPN"
-	2    8050 7800
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4300 9150 4500 9150
 Wire Wire Line
 	5100 9250 5650 9250
-Wire Wire Line
-	4550 7700 4800 7700
 Wire Wire Line
 	8350 7800 8450 7800
 Text Label 15150 3200 0    50   ~ 0
@@ -2271,7 +2203,6 @@ Wire Wire Line
 	2050 5900 2250 5900
 Wire Wire Line
 	2050 6000 2250 6000
-Connection ~ 4800 7700
 $Comp
 L Amplifier_Operational:TL072 U5
 U 1 1 5F58D48E
@@ -2291,24 +2222,9 @@ DC = -6 dB\nR   | 3 dB Cutoff\n10k | 31.8kHz\n413 | 771.1kHz\n
 Text Label 3700 7600 0    50   ~ 0
 OUTA
 Wire Wire Line
-	4200 8050 3800 8050
-Wire Wire Line
-	4400 8050 4800 8050
-$Comp
-L Device:R_Small_US R23
-U 1 1 5F3851C1
-P 4300 8050
-F 0 "R23" V 4200 8000 50  0000 C CNN
-F 1 "0" V 4200 8150 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 4300 8050 50  0001 C CNN
-F 3 "~" H 4300 8050 50  0001 C CNN
-	1    4300 8050
-	0    -1   -1   0   
-$EndComp
+	4200 8300 3800 8300
 Wire Wire Line
 	3800 7800 3950 7800
-Wire Wire Line
-	3800 8050 3800 7800
 Connection ~ 3400 7600
 Wire Wire Line
 	3400 8000 3400 8100
@@ -2592,30 +2508,13 @@ $EndComp
 Wire Wire Line
 	5300 6650 5200 6650
 Wire Wire Line
-	6800 8650 6800 8450
-Wire Wire Line
-	6800 8250 6800 7700
-$Comp
-L Device:R_Small_US R35
-U 1 1 5F547DF6
-P 6800 8350
-F 0 "R35" V 6700 8300 50  0000 C CNN
-F 1 "0" V 6700 8400 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 6800 8350 50  0001 C CNN
-F 3 "~" H 6800 8350 50  0001 C CNN
-	1    6800 8350
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	4800 7700 4950 7700
-Wire Wire Line
 	5300 7700 5150 7700
 $Comp
 L Device:R_Small_US R26
 U 1 1 5F4CBF19
 P 5050 7700
 F 0 "R26" V 4950 7650 50  0000 C CNN
-F 1 "0" V 4950 7800 50  0000 C CNN
+F 1 "25" V 4950 7800 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 5050 7700 50  0001 C CNN
 F 3 "~" H 5050 7700 50  0001 C CNN
 	1    5050 7700
@@ -4596,34 +4495,31 @@ Wire Wire Line
 Connection ~ 2150 5400
 Wire Wire Line
 	3500 6400 3500 6550
-Connection ~ 3800 8050
-Wire Wire Line
-	3800 8050 3800 8250
 $Comp
 L Device:R_Small_US R16
 U 1 1 5F3A0145
-P 3800 8350
-F 0 "R16" H 3600 8250 50  0000 L CNN
-F 1 "0" H 3700 8350 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 3800 8350 50  0001 C CNN
-F 3 "~" H 3800 8350 50  0001 C CNN
-F 4 "DNP" H 3600 8450 50  0000 L CNN "Assembly"
-	1    3800 8350
+P 3800 8600
+F 0 "R16" H 3600 8500 50  0000 L CNN
+F 1 "10k" H 3600 8600 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 3800 8600 50  0001 C CNN
+F 3 "~" H 3800 8600 50  0001 C CNN
+F 4 "" H 3800 8600 50  0001 C CNN "MPN"
+	1    3800 8600
 	-1   0    0    1   
 $EndComp
 $Comp
 L power:GND #PWR027
 U 1 1 5F3F2D6A
-P 3800 8550
-F 0 "#PWR027" H 3800 8300 50  0001 C CNN
-F 1 "GND" H 3805 8377 50  0000 C CNN
-F 2 "" H 3800 8550 50  0001 C CNN
-F 3 "" H 3800 8550 50  0001 C CNN
-	1    3800 8550
+P 3800 8800
+F 0 "#PWR027" H 3800 8550 50  0001 C CNN
+F 1 "GND" H 3805 8627 50  0000 C CNN
+F 2 "" H 3800 8800 50  0001 C CNN
+F 3 "" H 3800 8800 50  0001 C CNN
+	1    3800 8800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3800 8450 3800 8550
+	3800 8700 3800 8800
 Wire Wire Line
 	3300 6400 3300 6550
 Wire Wire Line
@@ -4636,4 +4532,96 @@ Wire Wire Line
 Wire Wire Line
 	3500 6550 3700 6550
 Connection ~ 3500 6550
+Wire Wire Line
+	7650 7900 6400 7900
+Wire Wire Line
+	6400 7900 6400 8850
+Connection ~ 7650 7900
+$Comp
+L Device:R_Small_US R23
+U 1 1 5F3851C1
+P 4300 8300
+F 0 "R23" V 4400 8300 50  0000 C CNN
+F 1 "20k" V 4200 8300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 4300 8300 50  0001 C CNN
+F 3 "~" H 4300 8300 50  0001 C CNN
+	1    4300 8300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7650 8100 8450 8100
+Wire Wire Line
+	4550 7700 4650 7700
+Wire Wire Line
+	4400 8300 5300 8300
+$Comp
+L Device:C C49
+U 1 1 5F18FCBB
+P 4300 8050
+AR Path="/5F18FCBB" Ref="C49"  Part="1" 
+AR Path="/6032E556/5F18FCBB" Ref="C?"  Part="1" 
+F 0 "C49" V 4450 8100 50  0000 L CNN
+F 1 "1n" V 4450 7950 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4338 7900 50  0001 C CNN
+F 3 "~" H 4300 8050 50  0001 C CNN
+F 4 "GRM1885C1H102FA01J" H 4300 8050 50  0001 C CNN "MPN"
+	1    4300 8050
+	0    1    -1   0   
+$EndComp
+Connection ~ 3800 8300
+Wire Wire Line
+	3800 8300 3800 8500
+Connection ~ 5300 8300
+Wire Wire Line
+	5300 7700 5300 8300
+Wire Wire Line
+	3800 7800 3800 8050
+Wire Wire Line
+	4150 8050 3800 8050
+Connection ~ 3800 8050
+Wire Wire Line
+	3800 8050 3800 8300
+Wire Wire Line
+	4450 8050 4650 8050
+Wire Wire Line
+	4650 8050 4650 7700
+Connection ~ 4650 7700
+Wire Wire Line
+	4650 7700 4950 7700
+Wire Notes Line
+	7950 7900 7950 7600
+Wire Notes Line
+	7950 7600 5650 7600
+Wire Notes Line
+	5650 7600 5650 8350
+Wire Notes Line
+	5650 8350 6100 8350
+$Comp
+L Amplifier_Operational:TL072 U5
+U 2 1 5F2BA50F
+P 8050 7800
+F 0 "U5" H 7900 7800 50  0000 L CNN
+F 1 "TL072CDR" H 8200 7650 50  0000 C CNN
+F 2 "digikey-footprints:SOIC-8_W3.9mm" H 8050 7800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 8050 7800 50  0001 C CNN
+F 4 "TL072CDR" H 8050 7800 50  0001 C CNN "MPN"
+	2    8050 7800
+	1    0    0    -1  
+$EndComp
+Text Notes 6500 7600 0    50   ~ 0
+Guard Ring
+Wire Notes Line
+	6100 7900 6750 7900
+Wire Notes Line
+	6750 7900 6750 9100
+Wire Notes Line
+	6750 9100 6850 9100
+Wire Notes Line
+	6850 9100 6850 7900
+Wire Notes Line
+	6850 7900 7950 7900
+Wire Notes Line
+	6100 7900 6100 8350
+Wire Wire Line
+	6800 7700 6800 8950
 $EndSCHEMATC
