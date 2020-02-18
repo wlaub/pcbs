@@ -703,7 +703,7 @@ Wire Wire Line
 	3700 9150 3700 10350
 Text Notes 5800 10950 0    50   ~ 0
 Cutoff Gain Control
-Text Notes 4450 9600 0    50   ~ 0
+Text Notes 4650 9850 0    50   ~ 0
 DC Bypass Threshold\n12 * 1/(1+3) = 3V
 Connection ~ 6800 7700
 Wire Wire Line
@@ -742,7 +742,7 @@ Wire Wire Line
 	7650 7900 7650 8100
 Wire Wire Line
 	8450 8100 8450 7800
-Text Label 4550 7700 0    50   ~ 0
+Text Label 5300 7700 0    50   ~ 0
 OUTB
 Text Label 6400 7700 0    50   ~ 0
 OUTC
@@ -4129,12 +4129,12 @@ EXT_CLK_SW
 $Comp
 L Connector:TestPoint TP23
 U 1 1 5E8745A7
-P 6400 10450
-F 0 "TP23" V 6400 10800 50  0000 R CNN
-F 1 "TestPoint" H 6458 10477 50  0001 L CNN
-F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 6600 10450 50  0001 C CNN
-F 3 "~" H 6600 10450 50  0001 C CNN
-	1    6400 10450
+P 6700 10450
+F 0 "TP23" V 6700 10800 50  0000 R CNN
+F 1 "TestPoint" H 6758 10477 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 6900 10450 50  0001 C CNN
+F 3 "~" H 6900 10450 50  0001 C CNN
+	1    6700 10450
 	0    1    -1   0   
 $EndComp
 $Comp
@@ -4844,4 +4844,17 @@ F 4 "PPTC022LFBN-RC" H 10150 6800 50  0001 C CNN "MPN"
 	1    10150 6800
 	1    0    0    1   
 $EndComp
+Text Label 4650 9650 0    50   ~ 0
+BYP_THRESH
+Wire Wire Line
+	4650 9650 4400 9650
+Text Label 3850 8050 0    50   ~ 0
+FB_OGAIN
+Text Label 6450 10450 0    50   ~ 0
+CUTOFF
+Wire Wire Line
+	6400 10450 6700 10450
+Connection ~ 6400 10450
+Text Label 5300 9250 0    50   ~ 0
+BYPASS
 $EndSCHEMATC
