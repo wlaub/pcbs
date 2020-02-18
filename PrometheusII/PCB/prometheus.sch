@@ -2975,7 +2975,7 @@ Wire Wire Line
 Wire Wire Line
 	15100 8100 15000 8100
 $Sheet
-S 15100 5300 950  3000
+S 15100 5300 900  3300
 U 6032E556
 F0 "Panel Controls Board" 50
 F1 "pcb.sch" 50
@@ -3005,6 +3005,8 @@ F24 "VOCT_OCT_B" I L 15100 7700 50
 F25 "POLY_B" I L 15100 7200 50 
 F26 "POLY_SW" I L 15100 7000 50 
 F27 "VOCT_SEMI_B" I L 15100 6300 50 
+F28 "LED_0" I L 15100 8400 50 
+F29 "LED_1" I L 15100 8500 50 
 $EndSheet
 Wire Wire Line
 	1750 5300 1750 5650
@@ -4129,10 +4131,11 @@ $Comp
 L Connector_Generic:Conn_02x08_Odd_Even J13
 U 1 1 608CDF62
 P 13800 4900
-F 0 "J13" V 13896 5280 50  0000 L CNN
-F 1 "Conn_02x08_Odd_Even" V 13805 5280 50  0000 L CNN
+F 0 "J13" V 13850 5280 50  0000 L CNN
+F 1 "Conn_02x08_Odd_Even" V 13805 5280 50  0001 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical" H 13800 4900 50  0001 C CNN
 F 3 "~" H 13800 4900 50  0001 C CNN
+F 4 "Part Number" H 13800 4900 50  0001 C CNN "MPN"
 	1    13800 4900
 	0    1    -1   0   
 $EndComp
@@ -4141,9 +4144,10 @@ L Connector_Generic:Conn_02x08_Odd_Even J7
 U 1 1 609A6698
 P 11600 4800
 F 0 "J7" V 11604 5180 50  0000 L CNN
-F 1 "Conn_02x08_Odd_Even" V 11695 5180 50  0000 L CNN
+F 1 "Conn_02x08_Odd_Even" V 11695 5180 50  0001 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical" H 11600 4800 50  0001 C CNN
 F 3 "~" H 11600 4800 50  0001 C CNN
+F 4 "Part Number" V 11695 5180 50  0000 L CNN "MPN"
 	1    11600 4800
 	0    1    1    0   
 $EndComp
@@ -4152,9 +4156,10 @@ L Connector_Generic:Conn_02x08_Odd_Even J8
 U 1 1 60A0C153
 P 11600 8350
 F 0 "J8" V 11604 8730 50  0000 L CNN
-F 1 "Conn_02x08_Odd_Even" V 11695 8730 50  0000 L CNN
+F 1 "Conn_02x08_Odd_Even" V 11695 8730 50  0001 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical" H 11600 8350 50  0001 C CNN
 F 3 "~" H 11600 8350 50  0001 C CNN
+F 4 "Part Number" V 11695 8730 50  0000 L CNN "MPN"
 	1    11600 8350
 	0    1    1    0   
 $EndComp
@@ -4162,10 +4167,11 @@ $Comp
 L Connector_Generic:Conn_02x08_Odd_Even J9
 U 1 1 60AD1466
 P 11400 6600
-F 0 "J9" H 11450 7117 50  0000 C CNN
-F 1 "Conn_02x08_Odd_Even" H 11450 7026 50  0000 C CNN
+F 0 "J9" H 11450 7000 50  0000 C CNN
+F 1 "Conn_02x08_Odd_Even" H 11450 7026 50  0001 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical" H 11400 6600 50  0001 C CNN
 F 3 "~" H 11400 6600 50  0001 C CNN
+F 4 "Part Number" H 11450 6100 50  0000 C CNN "MPN"
 	1    11400 6600
 	1    0    0    -1  
 $EndComp
@@ -4549,10 +4555,11 @@ $Comp
 L Connector_Generic:Conn_02x08_Odd_Even J14
 U 1 1 60A0C14D
 P 13600 8450
-F 0 "J14" V 13696 8830 50  0000 L CNN
-F 1 "Conn_02x08_Odd_Even" V 13605 8830 50  0000 L CNN
+F 0 "J14" V 13650 8830 50  0000 L CNN
+F 1 "Conn_02x08_Odd_Even" V 13605 8830 50  0001 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical" H 13600 8450 50  0001 C CNN
 F 3 "~" H 13600 8450 50  0001 C CNN
+F 4 "Part Number" H 13600 8450 50  0001 C CNN "MPN"
 	1    13600 8450
 	0    1    -1   0   
 $EndComp
@@ -4785,9 +4792,9 @@ Wire Wire Line
 	15000 7000 15100 7000
 Text Label 15000 6300 2    50   ~ 0
 VOCT_SEMI_B_P
-Text Label 15200 4650 2    50   ~ 0
+Text Label 15000 8400 2    50   ~ 0
 LED_0_P
-Text Label 15200 4550 2    50   ~ 0
+Text Label 15000 8500 2    50   ~ 0
 LED_1_P
 Text Label 13650 7000 0    50   ~ 0
 POLY_B_P
@@ -4821,10 +4828,11 @@ $Comp
 L Connector_Generic:Conn_02x08_Odd_Even J12
 U 1 1 60AD1460
 P 13350 6600
-F 0 "J12" H 13400 7117 50  0000 C CNN
-F 1 "Conn_02x08_Odd_Even" H 13400 7026 50  0000 C CNN
+F 0 "J12" H 13400 7025 50  0000 C CNN
+F 1 "Conn_02x08_Odd_Even" H 13400 7026 50  0001 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical" H 13350 6600 50  0001 C CNN
 F 3 "~" H 13350 6600 50  0001 C CNN
+F 4 "Part Number" H 13350 6600 50  0001 C CNN "MPN"
 	1    13350 6600
 	-1   0    0    -1  
 $EndComp
@@ -4838,4 +4846,8 @@ Wire Wire Line
 Connection ~ 11200 4400
 Wire Wire Line
 	11200 4400 11300 4400
+Wire Wire Line
+	15100 8500 15000 8500
+Wire Wire Line
+	15100 8400 15000 8400
 $EndSCHEMATC
