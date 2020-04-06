@@ -1274,63 +1274,42 @@ Wire Wire Line
 Wire Wire Line
 	10000 4500 10850 4500
 $Comp
-L dk_LED-Indication-Discrete:LTST-C190KGKT LED_C1
+L dk_LED-Indication-Discrete:LTST-C190KGKT LED_4
 U 1 1 5FA1CC1F
-P 7950 5800
-F 0 "LED_C1" V 7847 6028 50  0000 L CNN
-F 1 "LTST-C190KGKT" V 7946 6028 60  0000 L CNN
-F 2 "digikey-footprints:LED_0603" H 8150 6000 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 8150 6100 60  0001 L CNN
-F 4 "160-1435-1-ND" H 8150 6200 60  0001 L CNN "Digi-Key_PN"
-F 5 "LTST-C190KGKT" H 8150 6300 60  0001 L CNN "MPN"
-F 6 "Optoelectronics" H 8150 6400 60  0001 L CNN "Category"
-F 7 "LED Indication - Discrete" H 8150 6500 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 8150 6600 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 8150 6700 60  0001 L CNN "DK_Detail_Page"
-F 10 "LED GREEN CLEAR CHIP SMD" H 8150 6800 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 8150 6900 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 8150 7000 60  0001 L CNN "Status"
-	1    7950 5800
+P 7850 5500
+F 0 "LED_4" H 7700 5350 50  0000 L CNN
+F 1 "LTST-C190KGKT" V 7846 5728 60  0001 L CNN
+F 2 "digikey-footprints:LED_0603" H 8050 5700 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 8050 5800 60  0001 L CNN
+F 4 "160-1435-1-ND" H 8050 5900 60  0001 L CNN "Digi-Key_PN"
+F 5 "LTST-C190KGKT" H 8050 6000 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 8050 6100 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 8050 6200 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 8050 6300 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 8050 6400 60  0001 L CNN "DK_Detail_Page"
+F 10 "LED GREEN CLEAR CHIP SMD" H 8050 6500 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 8050 6600 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 8050 6700 60  0001 L CNN "Status"
+	1    7850 5500
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR?
-U 1 1 5FA1CC25
-P 7950 6000
-AR Path="/5FA1CC25" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/5FA1CC25" Ref="#PWR0119"  Part="1" 
-F 0 "#PWR0119" H 7950 5750 50  0001 C CNN
-F 1 "GND" H 7955 5827 50  0000 C CNN
-F 2 "" H 7950 6000 50  0001 C CNN
-F 3 "" H 7950 6000 50  0001 C CNN
-	1    7950 6000
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	7950 5900 7950 6000
-$Comp
 L Device:R_Small_US R?
 U 1 1 5FA1CC2C
-P 7950 5300
+P 5850 6050
 AR Path="/5FA1CC2C" Ref="R?"  Part="1" 
 AR Path="/6032E556/5FA1CC2C" Ref="R86"  Part="1" 
-F 0 "R86" H 8050 5250 50  0000 L CNN
-F 1 "330" H 8050 5350 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 7950 5300 50  0001 C CNN
-F 3 "~" H 7950 5300 50  0001 C CNN
-F 4 "RMCF0603FT330R" H 7950 5300 50  0001 C CNN "MPN"
-	1    7950 5300
-	1    0    0    1   
+F 0 "R86" H 5950 6000 50  0000 L CNN
+F 1 "330" H 5950 6100 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5850 6050 50  0001 C CNN
+F 3 "~" H 5850 6050 50  0001 C CNN
+F 4 "RMCF0603FT330R" H 5850 6050 50  0001 C CNN "MPN"
+	1    5850 6050
+	0    1    -1   0   
 $EndComp
-Wire Wire Line
-	7950 5400 7950 5600
-Wire Wire Line
-	7950 5200 7950 5100
-Text HLabel 7850 5100 0    50   Input ~ 0
-TAPS_LED
-Wire Wire Line
-	7950 5100 7850 5100
-Text Notes 7400 5050 0    50   ~ 0
+Text HLabel 5550 6050 0    50   Input ~ 0
+LED_2
+Text Notes 5100 6000 0    50   ~ 0
 From GPIO 28
 $Comp
 L power:GND #PWR?
@@ -2147,119 +2126,197 @@ $EndComp
 $Comp
 L dk_LED-Indication-Discrete:LTST-C190KGKT LED_0
 U 1 1 67302256
-P 6650 5800
-F 0 "LED_0" V 6547 6028 50  0000 L CNN
-F 1 "LTST-C190KGKT" V 6646 6028 60  0001 L CNN
-F 2 "digikey-footprints:LED_0603" H 6850 6000 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 6850 6100 60  0001 L CNN
-F 4 "160-1435-1-ND" H 6850 6200 60  0001 L CNN "Digi-Key_PN"
-F 5 "LTST-C190KGKT" H 6850 6300 60  0001 L CNN "MPN"
-F 6 "Optoelectronics" H 6850 6400 60  0001 L CNN "Category"
-F 7 "LED Indication - Discrete" H 6850 6500 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 6850 6600 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 6850 6700 60  0001 L CNN "DK_Detail_Page"
-F 10 "LED GREEN CLEAR CHIP SMD" H 6850 6800 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 6850 6900 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 6850 7000 60  0001 L CNN "Status"
-	1    6650 5800
+P 6850 5250
+F 0 "LED_0" H 6650 5150 50  0000 L CNN
+F 1 "LTST-C190KGKT" V 6846 5478 60  0001 L CNN
+F 2 "digikey-footprints:LED_0603" H 7050 5450 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 7050 5550 60  0001 L CNN
+F 4 "160-1435-1-ND" H 7050 5650 60  0001 L CNN "Digi-Key_PN"
+F 5 "LTST-C190KGKT" H 7050 5750 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 7050 5850 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 7050 5950 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 7050 6050 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 7050 6150 60  0001 L CNN "DK_Detail_Page"
+F 10 "LED GREEN CLEAR CHIP SMD" H 7050 6250 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 7050 6350 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 7050 6450 60  0001 L CNN "Status"
+	1    6850 5250
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR?
-U 1 1 6730225C
-P 6650 6000
-AR Path="/6730225C" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/6730225C" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6650 5750 50  0001 C CNN
-F 1 "GND" H 6655 5827 50  0000 C CNN
-F 2 "" H 6650 6000 50  0001 C CNN
-F 3 "" H 6650 6000 50  0001 C CNN
-	1    6650 6000
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	6650 5900 6650 6000
-$Comp
 L Device:R_Small_US R?
 U 1 1 67302264
-P 6650 5300
+P 5850 4950
 AR Path="/67302264" Ref="R?"  Part="1" 
-AR Path="/6032E556/67302264" Ref="R?"  Part="1" 
-F 0 "R?" H 6750 5250 50  0000 L CNN
-F 1 "330" H 6750 5350 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 6650 5300 50  0001 C CNN
-F 3 "~" H 6650 5300 50  0001 C CNN
-F 4 "RMCF0603FT330R" H 6650 5300 50  0001 C CNN "MPN"
-	1    6650 5300
-	1    0    0    1   
+AR Path="/6032E556/67302264" Ref="R10"  Part="1" 
+F 0 "R10" H 5950 4900 50  0000 L CNN
+F 1 "330" H 5950 5000 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5850 4950 50  0001 C CNN
+F 3 "~" H 5850 4950 50  0001 C CNN
+F 4 "RMCF0603FT330R" H 5850 4950 50  0001 C CNN "MPN"
+	1    5850 4950
+	0    1    -1   0   
 $EndComp
-Wire Wire Line
-	6650 5400 6650 5600
-Wire Wire Line
-	6650 5200 6650 5100
-Text HLabel 6550 5100 0    50   Input ~ 0
+Text HLabel 5550 4950 0    50   Input ~ 0
 LED_0
-Wire Wire Line
-	6650 5100 6550 5100
-Text Notes 6100 5050 0    50   ~ 0
+Text Notes 5100 4900 0    50   ~ 0
 From GPIO
 $Comp
 L dk_LED-Indication-Discrete:LTST-C190KGKT LED_1
 U 1 1 6730A81F
-P 7250 5800
-F 0 "LED_1" V 7147 6028 50  0000 L CNN
-F 1 "LTST-C190KGKT" V 7246 6028 60  0001 L CNN
-F 2 "digikey-footprints:LED_0603" H 7450 6000 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 7450 6100 60  0001 L CNN
-F 4 "160-1435-1-ND" H 7450 6200 60  0001 L CNN "Digi-Key_PN"
-F 5 "LTST-C190KGKT" H 7450 6300 60  0001 L CNN "MPN"
-F 6 "Optoelectronics" H 7450 6400 60  0001 L CNN "Category"
-F 7 "LED Indication - Discrete" H 7450 6500 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 7450 6600 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 7450 6700 60  0001 L CNN "DK_Detail_Page"
-F 10 "LED GREEN CLEAR CHIP SMD" H 7450 6800 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 7450 6900 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 7450 7000 60  0001 L CNN "Status"
-	1    7250 5800
-	0    1    1    0   
+P 6350 5150
+F 0 "LED_1" H 6200 5000 50  0000 L CNN
+F 1 "LTST-C190KGKT" V 6346 5378 60  0001 L CNN
+F 2 "digikey-footprints:LED_0603" H 6550 5350 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 6550 5450 60  0001 L CNN
+F 4 "160-1435-1-ND" H 6550 5550 60  0001 L CNN "Digi-Key_PN"
+F 5 "LTST-C190KGKT" H 6550 5650 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 6550 5750 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 6550 5850 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 6550 5950 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 6550 6050 60  0001 L CNN "DK_Detail_Page"
+F 10 "LED GREEN CLEAR CHIP SMD" H 6550 6150 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 6550 6250 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 6550 6350 60  0001 L CNN "Status"
+	1    6350 5150
+	0    -1   -1   0   
 $EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 6730A825
-P 7250 6000
-AR Path="/6730A825" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/6730A825" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7250 5750 50  0001 C CNN
-F 1 "GND" H 7255 5827 50  0000 C CNN
-F 2 "" H 7250 6000 50  0001 C CNN
-F 3 "" H 7250 6000 50  0001 C CNN
-	1    7250 6000
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	7250 5900 7250 6000
 $Comp
 L Device:R_Small_US R?
 U 1 1 6730A82D
-P 7250 5300
+P 5850 5450
 AR Path="/6730A82D" Ref="R?"  Part="1" 
-AR Path="/6032E556/6730A82D" Ref="R?"  Part="1" 
-F 0 "R?" H 7350 5250 50  0000 L CNN
-F 1 "330" H 7350 5350 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 7250 5300 50  0001 C CNN
-F 3 "~" H 7250 5300 50  0001 C CNN
-F 4 "RMCF0603FT330R" H 7250 5300 50  0001 C CNN "MPN"
-	1    7250 5300
-	1    0    0    1   
+AR Path="/6032E556/6730A82D" Ref="R11"  Part="1" 
+F 0 "R11" H 5950 5400 50  0000 L CNN
+F 1 "330" H 5950 5500 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 5850 5450 50  0001 C CNN
+F 3 "~" H 5850 5450 50  0001 C CNN
+F 4 "RMCF0603FT330R" H 5850 5450 50  0001 C CNN "MPN"
+	1    5850 5450
+	0    1    -1   0   
+$EndComp
+Text HLabel 5550 5450 0    50   Input ~ 0
+LED_1
+Text Notes 5100 5400 0    50   ~ 0
+From GPIO
+Wire Wire Line
+	5550 6050 5750 6050
+Wire Wire Line
+	5550 5450 5750 5450
+Wire Wire Line
+	5550 4950 5750 4950
+$Comp
+L dk_LED-Indication-Discrete:LTST-C190KGKT LED_2
+U 1 1 6772958C
+P 6850 5750
+F 0 "LED_2" H 6650 5650 50  0000 L CNN
+F 1 "LTST-C190KGKT" V 6846 5978 60  0001 L CNN
+F 2 "digikey-footprints:LED_0603" H 7050 5950 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 7050 6050 60  0001 L CNN
+F 4 "160-1435-1-ND" H 7050 6150 60  0001 L CNN "Digi-Key_PN"
+F 5 "LTST-C190KGKT" H 7050 6250 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 7050 6350 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 7050 6450 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 7050 6550 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 7050 6650 60  0001 L CNN "DK_Detail_Page"
+F 10 "LED GREEN CLEAR CHIP SMD" H 7050 6750 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 7050 6850 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 7050 6950 60  0001 L CNN "Status"
+	1    6850 5750
+	0    1    1    0   
+$EndComp
+$Comp
+L dk_LED-Indication-Discrete:LTST-C190KGKT LED_3
+U 1 1 6772959B
+P 6350 5650
+F 0 "LED_3" H 6200 5500 50  0000 L CNN
+F 1 "LTST-C190KGKT" V 6346 5878 60  0001 L CNN
+F 2 "digikey-footprints:LED_0603" H 6550 5850 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 6550 5950 60  0001 L CNN
+F 4 "160-1435-1-ND" H 6550 6050 60  0001 L CNN "Digi-Key_PN"
+F 5 "LTST-C190KGKT" H 6550 6150 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 6550 6250 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 6550 6350 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 6550 6450 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 6550 6550 60  0001 L CNN "DK_Detail_Page"
+F 10 "LED GREEN CLEAR CHIP SMD" H 6550 6650 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 6550 6750 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 6550 6850 60  0001 L CNN "Status"
+	1    6350 5650
+	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	7250 5400 7250 5600
+	5950 5450 6350 5450
 Wire Wire Line
-	7250 5200 7250 5100
-Text HLabel 7150 5100 0    50   Input ~ 0
-LED_1
+	6850 5450 6850 5350
 Wire Wire Line
-	7250 5100 7150 5100
-Text Notes 6700 5050 0    50   ~ 0
-From GPIO
+	6850 5550 6850 5450
+Connection ~ 6850 5450
+Wire Wire Line
+	6350 5350 6350 5450
+Connection ~ 6350 5450
+Wire Wire Line
+	6350 5450 6850 5450
+Wire Wire Line
+	6350 5450 6350 5550
+Wire Wire Line
+	6350 6050 6350 5850
+Wire Wire Line
+	6850 5850 6850 6050
+Wire Wire Line
+	5950 6050 6350 6050
+Connection ~ 6350 6050
+Wire Wire Line
+	6350 6050 6850 6050
+Wire Wire Line
+	6850 4950 6850 5050
+Wire Wire Line
+	6350 5050 6350 4950
+Wire Wire Line
+	5950 4950 6350 4950
+Connection ~ 6350 4950
+Wire Wire Line
+	6350 4950 6850 4950
+Wire Wire Line
+	6850 4950 7350 4950
+Wire Wire Line
+	7350 4950 7350 5300
+Connection ~ 6850 4950
+Wire Wire Line
+	7350 5600 7350 6050
+Wire Wire Line
+	7350 6050 6850 6050
+Connection ~ 6850 6050
+$Comp
+L dk_LED-Indication-Discrete:LTST-C190KGKT LED_5
+U 1 1 677C3F83
+P 7350 5400
+F 0 "LED_5" H 7200 5250 50  0000 L CNN
+F 1 "LTST-C190KGKT" V 7900 5550 60  0000 L CNN
+F 2 "digikey-footprints:LED_0603" H 7550 5600 60  0001 L CNN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 7550 5700 60  0001 L CNN
+F 4 "160-1435-1-ND" H 7550 5800 60  0001 L CNN "Digi-Key_PN"
+F 5 "LTST-C190KGKT" H 7550 5900 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 7550 6000 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 7550 6100 60  0001 L CNN "Family"
+F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 7550 6200 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 7550 6300 60  0001 L CNN "DK_Detail_Page"
+F 10 "LED GREEN CLEAR CHIP SMD" H 7550 6400 60  0001 L CNN "Description"
+F 11 "Lite-On Inc." H 7550 6500 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 7550 6600 60  0001 L CNN "Status"
+	1    7350 5400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7350 6050 7850 6050
+Wire Wire Line
+	7850 6050 7850 5600
+Connection ~ 7350 6050
+Wire Wire Line
+	7850 5300 7850 4950
+Wire Wire Line
+	7850 4950 7350 4950
+Connection ~ 7350 4950
+Text Notes 6450 6750 0    50   ~ 0
+012 LED\nLHZ 0\nHLZ 1\nZLH 2\nZHL 3\nLZH 4\nHZL 5\n
 $EndSCHEMATC
