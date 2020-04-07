@@ -31,46 +31,35 @@ U 1 1 5E05A46C
 P 2550 2350
 F 0 "U1" H 2550 3965 50  0000 C CNN
 F 1 "Teensy4.0_NoSD" H 2550 3874 50  0000 C CNN
-F 2 "ttt_lib:Teensy40_outerpins" H 2150 3250 50  0001 C CNN
+F 2 "ttt_lib:Teensy40_outerpins_extrasupply" H 2150 3250 50  0001 C CNN
 F 3 "" H 2150 3250 50  0001 C CNN
 	1    2550 2350
 	1    0    0    -1  
 $EndComp
-Text Label 1200 1200 2    50   ~ 0
+Text Label 1200 2200 2    50   ~ 0
 CLK1_T
-Text Label 3900 2050 0    50   ~ 0
+Text Label 3900 1650 0    50   ~ 0
 VOCT_T
-Text Label 3900 2150 0    50   ~ 0
-VOCT_ATV_T
-Text Label 3900 2250 0    50   ~ 0
-VOCT_FINE_T
-Text Label 3900 1750 0    50   ~ 0
-LEN_CV_T
-Text Label 3900 1450 0    50   ~ 0
-LEN_KNOB_T
-Text Label 3900 1950 0    50   ~ 0
-PARAM_0_CV_T
 Text Label 3900 1550 0    50   ~ 0
+VOCT_ATV_T
+Text Label 3900 1450 0    50   ~ 0
+VOCT_FINE_T
+Text Label 3900 1950 0    50   ~ 0
+LEN_CV_T
+Text Label 3900 2250 0    50   ~ 0
+LEN_KNOB_T
+Text Label 3900 1750 0    50   ~ 0
+PARAM_0_CV_T
+Text Label 3900 2150 0    50   ~ 0
 PARAM_1_T
-Text Label 1300 2000 2    50   ~ 0
+Text Label 1300 1400 2    50   ~ 0
 LFO_LED_T
-Text Label 1300 2100 2    50   ~ 0
+Text Label 1300 1300 2    50   ~ 0
 LED_2_T
-$Comp
-L power:GND #PWR07
-U 1 1 5E09580E
-P 1350 3300
-F 0 "#PWR07" H 1350 3050 50  0001 C CNN
-F 1 "GND" H 1355 3127 50  0000 C CNN
-F 2 "" H 1350 3300 50  0001 C CNN
-F 3 "" H 1350 3300 50  0001 C CNN
-	1    1350 3300
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
-	1450 1100 1200 1100
+	1450 2300 1200 2300
 Wire Wire Line
-	1200 1200 1450 1200
+	1200 2200 1450 2200
 Wire Wire Line
 	3900 2250 3650 2250
 Wire Wire Line
@@ -91,8 +80,6 @@ Wire Wire Line
 	3900 1450 3650 1450
 Wire Wire Line
 	1350 1000 1450 1000
-Wire Wire Line
-	1350 1000 1350 3300
 $Comp
 L power:GND #PWR018
 U 1 1 5E0B0C46
@@ -130,7 +117,7 @@ F 3 "" H 4450 950 50  0001 C CNN
 	1    4450 950 
 	1    0    0    -1  
 $EndComp
-Text Label 1200 1800 2    50   ~ 0
+Text Label 1200 1600 2    50   ~ 0
 LFSR0_IN
 Text Label 1200 1700 2    50   ~ 0
 LFSR1_IN
@@ -1133,7 +1120,7 @@ Text Label 8500 3100 0    50   ~ 0
 VOCT_FINE
 Text Label 10250 2450 0    50   ~ 0
 LFO
-Text Label 1200 1100 2    50   ~ 0
+Text Label 1200 2300 2    50   ~ 0
 CLK0_T
 Text Label 9400 3100 2    50   ~ 0
 PARAM_0_T
@@ -1152,7 +1139,7 @@ Wire Wire Line
 	6450 3100 6650 3100
 Text Label 10250 3100 0    50   ~ 0
 PARAM_0
-Text Label 3900 1650 0    50   ~ 0
+Text Label 3900 2050 0    50   ~ 0
 PARAM_0_T
 Text Label 7350 5700 0    50   ~ 0
 EXT_CLK
@@ -1946,9 +1933,9 @@ $EndComp
 Wire Wire Line
 	5200 6650 5200 4850
 Connection ~ 5200 6650
-Text Label 1200 1300 2    50   ~ 0
+Text Label 1200 2100 2    50   ~ 0
 SCK
-Text Label 1200 1400 2    50   ~ 0
+Text Label 1200 2000 2    50   ~ 0
 SDI
 $Comp
 L power:+3V3 #PWR0120
@@ -2166,13 +2153,13 @@ EXT_CLK_SW
 Wire Wire Line
 	5800 6950 5900 6950
 Wire Wire Line
-	1200 1300 1450 1300
+	1200 2100 1450 2100
 Wire Wire Line
-	1450 1400 1200 1400
+	1450 2000 1200 2000
 Wire Wire Line
 	1200 1700 1450 1700
 Wire Wire Line
-	1200 1800 1450 1800
+	1200 1600 1450 1600
 Text Label 3700 6750 0    50   ~ 0
 OUT0
 Text Label 3700 6950 0    50   ~ 0
@@ -3058,14 +3045,14 @@ Wire Wire Line
 Connection ~ 2050 5100
 Wire Wire Line
 	2050 5100 2250 5100
-Text Label 1200 1500 2    50   ~ 0
+Text Label 1200 1900 2    50   ~ 0
 SDO
-Text Label 1200 1600 2    50   ~ 0
+Text Label 1200 1800 2    50   ~ 0
 WE
 Wire Wire Line
-	1200 1500 1450 1500
+	1200 1900 1450 1900
 Wire Wire Line
-	1450 1600 1200 1600
+	1450 1800 1200 1800
 Text Label 3100 3850 1    50   ~ 0
 SDO
 Wire Wire Line
@@ -3103,9 +3090,9 @@ Wire Wire Line
 	5000 5800 5000 5900
 Wire Wire Line
 	4650 1350 4650 1150
-Text Label 3900 2350 0    50   ~ 0
-FREQ_LOCK_T
 Text Label 3900 1350 0    50   ~ 0
+FREQ_LOCK_T
+Text Label 3900 2350 0    50   ~ 0
 GLITCH_EN_T
 Wire Wire Line
 	4650 850  4650 950 
@@ -3165,8 +3152,6 @@ F 3 "~" H 4650 1050 50  0001 C CNN
 $EndComp
 Text Label 7350 5600 0    50   ~ 0
 GLITCH_IN_T
-Wire Wire Line
-	5000 1150 5000 2350
 Wire Wire Line
 	5000 850  5000 950 
 $Comp
@@ -3698,14 +3683,10 @@ Text Label 7350 5400 0    50   ~ 0
 VOCT_SEMI_A
 Text Label 7350 5300 0    50   ~ 0
 POLY_B
-Text Label 1300 1900 2    50   ~ 0
+Text Label 1300 1500 2    50   ~ 0
 POLY_SW
 Text Label 3700 4400 0    50   ~ 0
 VOCT_OCT_B
-Wire Wire Line
-	3650 1350 4650 1350
-Wire Wire Line
-	5000 2350 3650 2350
 $Comp
 L Device:C C7
 U 1 1 5E0CE06D
@@ -3739,20 +3720,20 @@ Wire Wire Line
 	4300 800  4300 950 
 Connection ~ 4300 950 
 Wire Wire Line
-	1300 1900 1450 1900
+	1300 1500 1450 1500
 Wire Wire Line
-	1300 2300 1450 2300
+	1300 1100 1450 1100
 Wire Wire Line
-	1300 2200 1450 2200
+	1300 1200 1450 1200
 Text Label 12950 6300 2    50   ~ 0
 VOCT_SEMI_B_P
 Text Label 12950 6900 2    50   ~ 0
 POLY_A_P
 Text Label 12950 6800 2    50   ~ 0
 POLY_SW_P
-Text Label 1300 2300 2    50   ~ 0
+Text Label 1300 1100 2    50   ~ 0
 LED_0_T
-Text Label 1300 2200 2    50   ~ 0
+Text Label 1300 1200 2    50   ~ 0
 LED_1_T
 Text Label 12950 6500 2    50   ~ 0
 LED_0_P
@@ -4045,9 +4026,9 @@ F 3 "~" H 8900 3850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1300 2000 1450 2000
+	1300 1400 1450 1400
 Wire Wire Line
-	1450 2100 1300 2100
+	1450 1300 1300 1300
 Text Label 11100 7950 2    50   ~ 0
 _LEN_CV
 Text Label 11100 7850 2    50   ~ 0
@@ -4829,10 +4810,10 @@ Wire Wire Line
 Wire Wire Line
 	15100 8400 15000 8400
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0119
 U 1 1 679843CD
 P 11800 7000
-F 0 "#PWR?" H 11800 6750 50  0001 C CNN
+F 0 "#PWR0119" H 11800 6750 50  0001 C CNN
 F 1 "GND" V 11800 6800 50  0000 C CNN
 F 2 "" H 11800 7000 50  0001 C CNN
 F 3 "" H 11800 7000 50  0001 C CNN
@@ -4840,14 +4821,84 @@ F 3 "" H 11800 7000 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0139
 U 1 1 679EA21B
 P 13650 7000
-F 0 "#PWR?" H 13650 6750 50  0001 C CNN
+F 0 "#PWR0139" H 13650 6750 50  0001 C CNN
 F 1 "GND" V 13650 6800 50  0000 C CNN
 F 2 "" H 13650 7000 50  0001 C CNN
 F 3 "" H 13650 7000 50  0001 C CNN
 	1    13650 7000
 	0    -1   1    0   
 $EndComp
+Wire Wire Line
+	4650 1350 3650 1350
+Wire Wire Line
+	5000 1150 5000 2350
+Wire Wire Line
+	3650 2350 5000 2350
+$Comp
+L power:GND #PWR0140
+U 1 1 67C59A08
+P 2550 3500
+F 0 "#PWR0140" H 2550 3250 50  0001 C CNN
+F 1 "GND" H 2555 3327 50  0000 C CNN
+F 2 "" H 2550 3500 50  0001 C CNN
+F 3 "" H 2550 3500 50  0001 C CNN
+	1    2550 3500
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2550 3200 2550 3400
+$Comp
+L power:+3V3 #PWR0148
+U 1 1 67D314DB
+P 2000 3200
+F 0 "#PWR0148" H 2000 3050 50  0001 C CNN
+F 1 "+3V3" H 2015 3373 50  0000 C CNN
+F 2 "" H 2000 3200 50  0001 C CNN
+F 3 "" H 2000 3200 50  0001 C CNN
+	1    2000 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C22
+U 1 1 67D9C042
+P 2300 3400
+F 0 "C22" V 2350 3450 50  0000 L CNN
+F 1 "1u" V 2350 3250 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2338 3250 50  0001 C CNN
+F 3 "~" H 2300 3400 50  0001 C CNN
+	1    2300 3400
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	2450 3200 2450 3300
+Wire Wire Line
+	2450 3300 2000 3300
+Wire Wire Line
+	2000 3300 2000 3200
+Wire Wire Line
+	1350 1000 1350 3300
+$Comp
+L power:GND #PWR07
+U 1 1 5E09580E
+P 1350 3300
+F 0 "#PWR07" H 1350 3050 50  0001 C CNN
+F 1 "GND" H 1355 3127 50  0000 C CNN
+F 2 "" H 1350 3300 50  0001 C CNN
+F 3 "" H 1350 3300 50  0001 C CNN
+	1    1350 3300
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 3400 2000 3400
+Wire Wire Line
+	2000 3400 2000 3300
+Connection ~ 2000 3300
+Wire Wire Line
+	2450 3400 2550 3400
+Connection ~ 2550 3400
+Wire Wire Line
+	2550 3400 2550 3500
 $EndSCHEMATC
