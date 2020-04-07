@@ -54,7 +54,7 @@ Text Label 3900 2050 0    50   ~ 0
 PARAM_1_T
 Text Label 1300 1400 2    50   ~ 0
 LFO_LED_T
-Text Label 1300 1300 2    50   ~ 0
+Text Label 1300 1100 2    50   ~ 0
 LED_2_T
 Wire Wire Line
 	1450 2300 1200 2300
@@ -3729,9 +3729,9 @@ Text Label 12950 6900 2    50   ~ 0
 POLY_A_P
 Text Label 12950 6800 2    50   ~ 0
 POLY_SW_P
-Text Label 1300 1100 2    50   ~ 0
-LED_0_T
 Text Label 1300 1200 2    50   ~ 0
+LED_0_T
+Text Label 1300 1300 2    50   ~ 0
 LED_1_T
 Text Label 12950 6500 2    50   ~ 0
 LED_0_P
