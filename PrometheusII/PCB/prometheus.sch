@@ -38,19 +38,19 @@ F 3 "" H 2150 3250 50  0001 C CNN
 $EndComp
 Text Label 1200 2200 2    50   ~ 0
 CLK1_T
-Text Label 3900 1650 0    50   ~ 0
-VOCT_T
 Text Label 3900 1550 0    50   ~ 0
-VOCT_ATV_T
+VOCT_T
 Text Label 3900 1450 0    50   ~ 0
+VOCT_ATV_T
+Text Label 3900 1350 0    50   ~ 0
 VOCT_FINE_T
-Text Label 3900 1950 0    50   ~ 0
+Text Label 3900 1850 0    50   ~ 0
 LEN_CV_T
-Text Label 3900 2250 0    50   ~ 0
-LEN_KNOB_T
-Text Label 3900 1750 0    50   ~ 0
-PARAM_0_CV_T
 Text Label 3900 2150 0    50   ~ 0
+LEN_KNOB_T
+Text Label 3900 1650 0    50   ~ 0
+PARAM_0_CV_T
+Text Label 3900 2050 0    50   ~ 0
 PARAM_1_T
 Text Label 1300 1400 2    50   ~ 0
 LFO_LED_T
@@ -60,8 +60,6 @@ Wire Wire Line
 	1450 2300 1200 2300
 Wire Wire Line
 	1200 2200 1450 2200
-Wire Wire Line
-	3900 2250 3650 2250
 Wire Wire Line
 	3900 2150 3650 2150
 Wire Wire Line
@@ -78,6 +76,8 @@ Wire Wire Line
 	3900 1550 3650 1550
 Wire Wire Line
 	3900 1450 3650 1450
+Wire Wire Line
+	3900 1350 3650 1350
 Wire Wire Line
 	1350 1000 1450 1000
 $Comp
@@ -1102,7 +1102,7 @@ Wire Wire Line
 Connection ~ 6150 2450
 Text Label 9400 2450 2    50   ~ 0
 LFO_T
-Text Label 3900 1850 0    50   ~ 0
+Text Label 3900 1950 0    50   ~ 0
 LFO_T
 Text Label 6650 1150 0    50   ~ 0
 LEN_CV
@@ -1139,7 +1139,7 @@ Wire Wire Line
 	6450 3100 6650 3100
 Text Label 10250 3100 0    50   ~ 0
 PARAM_0
-Text Label 3900 2050 0    50   ~ 0
+Text Label 3900 1750 0    50   ~ 0
 PARAM_0_T
 Text Label 7350 5700 0    50   ~ 0
 EXT_CLK
@@ -3088,9 +3088,7 @@ Wire Wire Line
 	4750 5800 5000 5800
 Wire Wire Line
 	5000 5800 5000 5900
-Wire Wire Line
-	4650 1350 4650 1150
-Text Label 3900 1350 0    50   ~ 0
+Text Label 3900 2250 0    50   ~ 0
 FREQ_LOCK_T
 Text Label 3900 2350 0    50   ~ 0
 GLITCH_EN_T
@@ -4832,8 +4830,6 @@ F 3 "" H 13650 7000 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 Wire Wire Line
-	4650 1350 3650 1350
-Wire Wire Line
 	5000 1150 5000 2350
 Wire Wire Line
 	3650 2350 5000 2350
@@ -4901,4 +4897,8 @@ Wire Wire Line
 Connection ~ 2550 3400
 Wire Wire Line
 	2550 3400 2550 3500
+Wire Wire Line
+	3650 2250 4650 2250
+Wire Wire Line
+	4650 1150 4650 2250
 $EndSCHEMATC
