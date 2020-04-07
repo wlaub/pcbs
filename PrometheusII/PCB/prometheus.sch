@@ -2837,7 +2837,7 @@ Text Label 13300 5900 2    50   ~ 0
 FREQ_LOCK_P
 Text Label 13300 5300 2    50   ~ 0
 VOCT_FINE_P
-Text Label 13100 7650 2    50   ~ 0
+Text Label 13100 7450 2    50   ~ 0
 PARAM_1_P
 Text Label 13300 5700 2    50   ~ 0
 PARAM_0_CV_P
@@ -4035,13 +4035,13 @@ Text Label 11100 7750 2    50   ~ 0
 LEN_KNOB
 Text Label 11100 6300 2    50   ~ 0
 VOCT_SEMI_B
-Text Label 11100 7450 2    50   ~ 0
+Text Label 11100 7550 2    50   ~ 0
 VOCT_OCT_A
 Text Label 11100 6900 2    50   ~ 0
 POLY_A
 Text Label 11150 7000 2    50   ~ 0
 POLY_B
-Text Label 11100 7550 2    50   ~ 0
+Text Label 11100 7650 2    50   ~ 0
 VOCT_OCT_B
 Text Label 11800 6300 0    50   ~ 0
 VOCT_SEMI_A
@@ -4051,7 +4051,7 @@ Text Label 11100 6600 2    50   ~ 0
 LED_1_T
 Text Label 11800 6500 0    50   ~ 0
 LED_2_T
-Text Label 11100 7650 2    50   ~ 0
+Text Label 11100 7450 2    50   ~ 0
 PARAM_1
 Text Label 11800 6700 0    50   ~ 0
 LFO_LED_T
@@ -4442,9 +4442,9 @@ Wire Wire Line
 	11100 7350 11900 7350
 Wire Wire Line
 	11900 7350 11900 8150
-Text Label 13100 7450 2    50   ~ 0
-VOCT_OCT_A_P
 Text Label 13100 7550 2    50   ~ 0
+VOCT_OCT_A_P
+Text Label 13100 7650 2    50   ~ 0
 VOCT_OCT_B_P
 $Comp
 L power:+3V3 #PWR0184
