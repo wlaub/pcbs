@@ -1,4 +1,7 @@
 import math
+import os
+
+import pcbnew
 
 def get_tangents(xp, yp, r1, x1, y1, r2, x2, y2):
     """
@@ -157,6 +160,13 @@ def get_trace(r1, x1, y1, r2, x2, y2, over1, over2):
     if over1 == 0: idx = 1-idx
     return lines[idx], [angles[0][idx], angles[1][idx]]
 
+def get_pads(board):
+    sel = []
+    for drw in board.GetDrawings():
+        if drw.IsSelected():
+            sel.append(drw)
+    return sel
+
 def get_circles(board):
     sel = []
     for drw in board.GetDrawings():
@@ -181,7 +191,6 @@ def add_trace_tangents(board):
     add_traces(lines, board)
 
 def add_traces(lines, board):
-    import pcbnew
 
     for line in lines:
         track = pcbnew.TRACK(board)
@@ -199,3 +208,41 @@ def add_traces(lines, board):
 #print(get_outer_tangents(*test))
 #print(get_inner_tangents(*test))
 
+class RouteInnerTangents(pcbnew.ActionPlugin):
+    def defaults(self):
+        self.name = "Route Inner Tangents"
+        self.category = "Routing"
+        self.description = "Route the 2 inner tangents between the two selected circles"
+        self.show_toolbar_button = True# Optional, defaults to False
+        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'inner_tangents.png')
+
+    def Run(self):
+        board = pcbnew.GetBoard()
+        circles = get_circles(board)
+        if len(circles) != 2:
+            print('Need circles')
+            return
+
+        lines, angles = get_inner_tangents(*circles[0], *circles[1])
+        add_traces(lines, board)
+
+class RouteOuterTangents(pcbnew.ActionPlugin):
+    def defaults(self):
+        self.name = "Route Outer Tangents"
+        self.category = "Routing"
+        self.description = "Route the 2 outer tangents between the two selected circles"
+        self.show_toolbar_button = True# Optional, defaults to False
+        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'outer_tangents.png')
+
+    def Run(self):
+        board = pcbnew.GetBoard()
+        circles = get_circles(board)
+        if len(circles) != 2:
+            print('Need circles')
+            return
+
+        lines, angles = get_outer_tangents(*circles[0], *circles[1])
+        add_traces(lines, board)
+
+RouteInnerTangents().register()
+RouteOuterTangents().register()
