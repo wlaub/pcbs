@@ -49,6 +49,14 @@ def get_tangents(xp, yp, r1, x1, y1, r2, x2, y2):
     res[0][1][1] = y2+(a+b)/c
     res[1][1][1] = y2+(a-b)/c
 
+    a = get_angles(res, x1, y1, x2, y2)
+
+    return res, a
+
+def get_angles(res, x1, y1, x2, y2):
+    """
+    Return angles for the given lines
+    """
     #circle, line
     a = [[0,0,],[0,0]]
 
@@ -76,7 +84,7 @@ def get_tangents(xp, yp, r1, x1, y1, r2, x2, y2):
     #circle, line
     a[1][1] = math.atan2(dy, dx)
 
-    return res, a
+    return a
 
 
 def get_outer_tangents(r1, x1, y1, r2, x2, y2):
@@ -86,9 +94,25 @@ def get_outer_tangents(r1, x1, y1, r2, x2, y2):
     Ref http://www.ambrsoft.com/TrigoCalc/Circles2/Circles2Tangent_.htm
     [[[x, y], [x,y]] , [[x,y], [x,y]]], [[a1, a1], [a2,a2]]
     """
+    
+    #todo: case when radii equal.
+    if r1 == r2:
+        a = math.atan2(y2-y1,x2-x1)
+        rs = r1*math.sin(a)
+        rc = r1*math.cos(a)
+        res = [
+            [[x1+rs, y1-rc], [x2+rs, y2-rc]],
+            [[x1-rs, y1+rc], [x2-rs, y2+rc]],
+        ]
+        return res, get_angles(res, x1, y1, x2, y2)
+
+    if r2 > r1:
+        r1, r2 = r2, r1
+        x1, x2 = x2, x1
+        y1, y1 = y2, y1
 
     xp = (x2*r1-x1*r2)/(r1-r2)
-    yp = (y2*r1-y1*r2)/(r1-r2)
+    yp = (y2*r1-y1*r2)/(r1-r2)  
 
     return get_tangents(xp, yp, r1, x1, y1, r2, x2, y2)
 
@@ -101,13 +125,18 @@ def get_inner_tangents(r1, x1, y1, r2, x2, y2):
     First line is under first circle, second is over?
     """
 
-    xp = (x2*r1-x1*r2)/(r1+r2)
-    yp = (y2*r1-y1*r2)/(r1+r2)
+    if r2 > r1:
+        r1, r2 = r2, r1
+        x1, x2 = x2, x1
+        y1, y1 = y2, y1
+
+    xp = x1+(x2*r1-x1*r2)/(r1+r2)
+    yp = y1+(y2*r1-y1*r2)/(r1+r2)
 
     return get_tangents(xp, yp, r1, x1, y1, r2, x2, y2)
 
 
-def get_trace(dx, dy, r1, r2, over1, over2):
+def get_trace(r1, x1, y1, r2, x2, y2, over1, over2):
     """
     Given a circle of radius r1 at 0,0
     A circle of radius r2 at dx, dy
@@ -117,16 +146,58 @@ def get_trace(dx, dy, r1, r2, over1, over2):
     over2 = 1 if the tangent is over r2
     """
     if over1 != over2:
-        lines, angles = get_inner_tangents(r1, 0, 0, r2, dx, dy)
-        return lines[1-over1], [angles[0, 1-over1], angles[1,1-over1]]
+        lines, angles = get_inner_tangents(r1, x1, y1, r2, x1, y1)
     else:
-        lines, angles = get_outer_tangents(r1, 0, 0, r2, dx, dy)
-        return lines[over1], [angles[0, over1], angles[1,over1]]
+        lines, angles = get_outer_tangents(r1, x1, y1, r2, x1, y1)
+    
+    #index of the highest endpoint
+    idx = 0
+    if lines[0][1] < lines[1][1]:
+        idx = 1
+    if over1 == 0: idx = 1-idx
+    return lines[idx], [angles[0][idx], angles[1][idx]]
+
+def get_circles(board):
+    sel = []
+    for drw in board.GetDrawings():
+        if drw.IsSelected() and drw.GetShapeStr() == 'Circle':
+            sel.append(drw)
+
+    result = []
+    for circle in sel:
+        result.append([circle.GetRadius(), *circle.GetCenter()])
+
+    return result
+
+def add_trace_tangents(board):
+    circles = get_circles(board)
+    if len(circles) != 2:
+        print('Need circles')
+        return
+
+    lines, angles = get_inner_tangents(*circles[0], *circles[1])
+    print(lines)
+    for line in lines:
+        add_trace(line, board)
+    lines, angles = get_outer_tangents(*circles[0], *circles[1])
+    for line in lines:
+        add_trace(line, board)
+
+def add_trace(line, board):
+    import pcbnew
+
+    track = pcbnew.TRACK(board)
+    track.SetStart(pcbnew.wxPoint(*line[0]))
+    track.SetEnd(pcbnew.wxPoint(*line[1]))
+    track.SetWidth(int(.16e6))
+    track.SetLayer(board.GetLayer())
+
+    board.Add(track) 
+    pcbnew.Refresh()
 
 
-
-test = [1,0,0,2,4,0]
-print(test)
-print(get_outer_tangents(*test))
-print(get_inner_tangents(*test))
+#test = [1,0,0,2,4,0]
+#print(test)
+#print(get_outer_tangents(*test))
+#print(get_inner_tangents(*test))
 
