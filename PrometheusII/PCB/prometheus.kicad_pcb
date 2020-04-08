@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 111)
+    (drawings 114)
     (tracks 641)
     (zones 0)
     (modules 223)
@@ -8621,8 +8621,11 @@
     )
   )
 
+  (gr_circle (center -9.0425 9.144) (end -7.0425 9.144) (layer B.Cu) (width 0.16) (tstamp 5E8D35F0))
+  (gr_circle (center 0 0) (end 1 0) (layer B.Cu) (width 0.16) (tstamp 5E8D35EF))
+  (gr_circle (center 65.8875 139.954) (end 67.8875 139.954) (layer B.Cu) (width 0.16) (tstamp 5E8D35DB))
   (gr_circle (center 72.628 142.748) (end 73.628 142.748) (layer B.Cu) (width 0.16) (tstamp 5E8CFEE8))
-  (gr_circle (center 78.3335 140.462) (end 79.3335 140.462) (layer B.Cu) (width 0.16) (tstamp 5E8D2E48))
+  (gr_circle (center 78.3335 140.462) (end 80.3335 140.462) (layer B.Cu) (width 0.16) (tstamp 5E8D2E48))
   (gr_line (start 150.4695 135.128) (end 149.7075 135.89) (layer B.SilkS) (width 0.12))
   (gr_circle (center 79.7455 125.69) (end 81.6355 125.69) (layer B.SilkS) (width 0.16) (tstamp 5E8CE872))
   (gr_circle (center 106.2735 138.938) (end 108.1635 138.938) (layer B.Cu) (width 0.16) (tstamp 5E8CE872))
@@ -9108,9 +9111,9 @@
   (segment (start 168.5435 108.356) (end 174.460183 108.672683) (width 0.6) (layer In1.Cu) (net 6))
   (segment (start 174.460183 108.672683) (end 181.8385 109.0676) (width 0.6) (layer In1.Cu) (net 6))
   (segment (start 120.3865 109.154) (end 121.4269 111.0848) (width 0.6) (layer F.Cu) (net 6))
-  (segment (start 95.25 124.47) (end 79.8194 127.6096) (width 0.16) (layer F.Cu) (net 6))
   (segment (start 79.8194 127.6096) (end 70.9294 124.333) (width 0.16) (layer F.Cu) (net 6))
   (segment (start 70.9294 124.333) (end 63.746 125.728) (width 0.16) (layer F.Cu) (net 6))
+  (segment (start 95.25 124.47) (end 79.8194 127.6096) (width 0.16) (layer F.Cu) (net 6))
   (segment (start 168.948 97.17) (end 168.9735 95.504) (width 0.508) (layer F.Cu) (net 7))
   (segment (start 168.9735 92.964) (end 168.9735 95.504) (width 0.508) (layer F.Cu) (net 7))
   (segment (start 167.7035 100.457) (end 168.9607 95.5294) (width 0.508) (layer B.Cu) (net 7))

@@ -109,7 +109,7 @@ def get_outer_tangents(r1, x1, y1, r2, x2, y2):
     if r2 > r1:
         r1, r2 = r2, r1
         x1, x2 = x2, x1
-        y1, y1 = y2, y1
+        y1, y2 = y2, y1
 
     xp = (x2*r1-x1*r2)/(r1-r2)
     yp = (y2*r1-y1*r2)/(r1-r2)  
@@ -128,10 +128,10 @@ def get_inner_tangents(r1, x1, y1, r2, x2, y2):
     if r2 > r1:
         r1, r2 = r2, r1
         x1, x2 = x2, x1
-        y1, y1 = y2, y1
+        y1, y2 = y2, y1
 
-    xp = x1+(x2*r1-x1*r2)/(r1+r2)
-    yp = y1+(y2*r1-y1*r2)/(r1+r2)
+    xp = (x2*r1+x1*r2)/(r1+r2)
+    yp = (y2*r1+y1*r2)/(r1+r2)
 
     return get_tangents(xp, yp, r1, x1, y1, r2, x2, y2)
 
