@@ -202,46 +202,153 @@ def add_traces(lines, board):
         board.Add(track) 
     pcbnew.Refresh()
 
+class BusNode():
+    """
+    Class for handling bus nodes comprising multiple concentric circles
+    """
+    def __init__(self):
+        self.rads = []
+        self.pos = []
+
+    def add_rad(self, rad):
+        self.rads.append(rad)
+
+    def get_tangents(self, other, inner):
+        """
+        Return a list of pairs of circles that should be routed together for
+        inner or outer tangents of the two bus nodes.
+        """
+        self.rads = sorted(self.rads)
+        other.rads = sorted(other.rads)
+        if len(self.rads) <= len(other.rads):
+            short_rads = self.rads
+            short_pos = self.pos
+            long_rads = other.rads[:len(short_rads)]
+            long_pos = other.pos
+        else:
+            short_rads = other.rads
+            short_pos = other.pos
+            long_rads = self.rads[:len(short_rads)]
+            long_pos = self.pos
+
+        if inner:
+            long_rads = long_rads[::-1]
+
+        result = []
+        for left, right in zip(short_rads, long_rads):
+            result.append([
+                [left, *short_pos],
+                [right, *long_pos]
+                ])
+
+        return result
+
+    def get_inner_tangents(self, other):
+        return self.get_tangents(other, inner=True)
+
+    def get_outer_tangents(self, other):
+        return self.get_tangents(other, inner=False)
+
+    def print(self):
+        print(f"node at {self.pos} with radii {self.rads}" )
+
+def get_bus_nodes(board):
+    """
+    Find all the bus nodes in the selection
+    """
+    circles = get_circles(board)
+    centers = set(list(map(lambda x: (x[1], x[2]), circles)))
+    result = []
+    for center in centers:
+        node = BusNode()
+        result.append(node)
+        node.pos = center
+        for circle in circles:
+            if (circle[1], circle[2]) == center:
+                node.add_rad(circle[0])
+        node.print()
+
+    return result
 
 #test = [1,0,0,2,4,0]
 #print(test)
 #print(get_outer_tangents(*test))
 #print(get_inner_tangents(*test))
 
+class RoutePointTangents(pcbnew.ActionPlugin):
+    def defaults(self):
+        self.name = "Route Point Tangents"
+        self.category = "Routing"
+        self.description = "Route the two tangent lines between the selected point and the selected circle"
+        #TODO: How to select point? pad?
+        self.show_toolbar_button = True# Optional, defaults to False
+        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'point_tangents.png')
+
+    def Run(self):
+        board = pcbnew.GetBoard()
+        nodes = get_bus_nodes(board)
+        if len(nodes) != 2:
+            print('Need exactly two nodes')
+            return
+        circle_pairs = nodes[0].get_inner_tangents(nodes[1])
+        print(circle_pairs)
+        lines = []
+        angles = []
+        for left, right in circle_pairs:
+            tlines, tangles = get_inner_tangents(*left, *right)
+            lines.extend(tlines)
+            angles.extend(tangles)
+
+        add_traces(lines, board)
+
 class RouteInnerTangents(pcbnew.ActionPlugin):
     def defaults(self):
         self.name = "Route Inner Tangents"
         self.category = "Routing"
-        self.description = "Route the 2 inner tangents between the two selected circles"
+        self.description = "Route the 2 inner tangents between the two selected bus nodes"
         self.show_toolbar_button = True# Optional, defaults to False
         self.icon_file_name = os.path.join(os.path.dirname(__file__), 'inner_tangents.png')
 
     def Run(self):
         board = pcbnew.GetBoard()
-        circles = get_circles(board)
-        if len(circles) != 2:
-            print('Need circles')
+        nodes = get_bus_nodes(board)
+        if len(nodes) != 2:
+            print('Need exactly two nodes')
             return
+        circle_pairs = nodes[0].get_inner_tangents(nodes[1])
+        print(circle_pairs)
+        lines = []
+        angles = []
+        for left, right in circle_pairs:
+            tlines, tangles = get_inner_tangents(*left, *right)
+            lines.extend(tlines)
+            angles.extend(tangles)
 
-        lines, angles = get_inner_tangents(*circles[0], *circles[1])
         add_traces(lines, board)
 
 class RouteOuterTangents(pcbnew.ActionPlugin):
     def defaults(self):
         self.name = "Route Outer Tangents"
         self.category = "Routing"
-        self.description = "Route the 2 outer tangents between the two selected circles"
+        self.description = "Route the 2 outer tangents between the two selected bus nodes"
         self.show_toolbar_button = True# Optional, defaults to False
         self.icon_file_name = os.path.join(os.path.dirname(__file__), 'outer_tangents.png')
 
     def Run(self):
         board = pcbnew.GetBoard()
-        circles = get_circles(board)
-        if len(circles) != 2:
-            print('Need circles')
+        nodes = get_bus_nodes(board)
+        if len(nodes) != 2:
+            print('Need exactly two nodes')
             return
+        circle_pairs = nodes[0].get_outer_tangents(nodes[1])
+        print(circle_pairs)
+        lines = []
+        angles = []
+        for left, right in circle_pairs:
+            tlines, tangles = get_outer_tangents(*left, *right)
+            lines.extend(tlines)
+            angles.extend(tangles)
 
-        lines, angles = get_outer_tangents(*circles[0], *circles[1])
         add_traces(lines, board)
 
 RouteInnerTangents().register()
