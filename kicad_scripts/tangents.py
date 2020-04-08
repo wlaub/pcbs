@@ -176,23 +176,21 @@ def add_trace_tangents(board):
         return
 
     lines, angles = get_inner_tangents(*circles[0], *circles[1])
-    print(lines)
-    for line in lines:
-        add_trace(line, board)
-    lines, angles = get_outer_tangents(*circles[0], *circles[1])
-    for line in lines:
-        add_trace(line, board)
+    lines2, angles2 = get_outer_tangents(*circles[0], *circles[1])
+    lines.extend(lines2)
+    add_traces(lines, board)
 
-def add_trace(line, board):
+def add_traces(lines, board):
     import pcbnew
 
-    track = pcbnew.TRACK(board)
-    track.SetStart(pcbnew.wxPoint(*line[0]))
-    track.SetEnd(pcbnew.wxPoint(*line[1]))
-    track.SetWidth(int(.16e6))
-    track.SetLayer(board.GetLayer())
+    for line in lines:
+        track = pcbnew.TRACK(board)
+        track.SetStart(pcbnew.wxPoint(*line[0]))
+        track.SetEnd(pcbnew.wxPoint(*line[1]))
+        track.SetWidth(int(.16e6))
+        track.SetLayer(board.GetLayerID("B.Cu"))
 
-    board.Add(track) 
+        board.Add(track) 
     pcbnew.Refresh()
 
 
