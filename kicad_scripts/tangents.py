@@ -175,6 +175,20 @@ def get_inner_tangents(r1, x1, y1, r2, x2, y2):
 
     return get_tangents(xp, yp, r1, x1, y1, r2, x2, y2)
 
+def get_nearest_tangent(lines, xp, yp):
+    """
+    Return the index of the line having an endpoint nearest the given point
+    xp, yp
+    """
+    best = -1
+    best_dist = -1
+    for idx, points in enumerate(lines):
+        for x, y in points:
+            dist = (x-xp)**2 + (y-yp)**2
+            if best_dist == -1 or dist < best_dist:
+                best = idx
+                best_dist = dist
+    return best
 
 def get_trace(r1, x1, y1, r2, x2, y2, over1, over2):
     """
@@ -316,7 +330,7 @@ class RoutePointTangents(pcbnew.ActionPlugin):
     def defaults(self):
         self.name = "Route Point Tangents"
         self.category = "Routing"
-        self.description = "Route the two tangent lines between the auxilliary origin and the selected circle"
+        self.description = "Route the two tangent lines between the grid origin and the selected circle"
         self.show_toolbar_button = True# Optional, defaults to False
         self.icon_file_name = os.path.join(os.path.dirname(__file__), 'point_tangents.png')
 
@@ -328,7 +342,7 @@ class RoutePointTangents(pcbnew.ActionPlugin):
             return
         circle = circles[0]
 
-        xp, yp = board.GetAuxOrigin()
+        xp, yp = board.GetGridOrigin()
 
         lines = []
         angles = []
@@ -353,15 +367,24 @@ class RouteInnerTangents(pcbnew.ActionPlugin):
             print('Need exactly two nodes')
             return
         circle_pairs = nodes[0].get_inner_tangents(nodes[1])
-        print(circle_pairs)
+
+        xp, yp = board.GetGridOrigin()
+
+        #start with a list of lines results, then find the index that gives the 
+        #best distance on one, in order to select that one from each set.
         lines = []
         angles = []
         for left, right in circle_pairs:
             tlines, tangles = get_inner_tangents(*left, *right)
-            lines.extend(tlines)
-            angles.extend(tangles)
+            lines.append(tlines)
+            angles.append(tangles)
 
-        add_traces(lines, board)
+        line_idx = get_nearest_tangent(lines[0], xp, yp)
+        flat_lines = []
+        for tlines in lines:
+            flat_lines.append(tlines[line_idx])
+
+        add_traces(flat_lines, board)
 
 class RouteOuterTangents(pcbnew.ActionPlugin):
     def defaults(self):
@@ -378,15 +401,22 @@ class RouteOuterTangents(pcbnew.ActionPlugin):
             print('Need exactly two nodes')
             return
         circle_pairs = nodes[0].get_outer_tangents(nodes[1])
-        print(circle_pairs)
+
+        xp, yp = board.GetGridOrigin()
+
         lines = []
         angles = []
         for left, right in circle_pairs:
             tlines, tangles = get_outer_tangents(*left, *right)
-            lines.extend(tlines)
-            angles.extend(tangles)
+            lines.append(tlines)
+            angles.append(tangles)
 
-        add_traces(lines, board)
+        line_idx = get_nearest_tangent(lines[0], xp, yp)
+        flat_lines = []
+        for tlines in lines:
+            flat_lines.append(tlines[line_idx])
+
+        add_traces(flat_lines, board)
 
 RoutePointTangents().register()
 RouteInnerTangents().register()
