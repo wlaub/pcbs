@@ -56,6 +56,43 @@ def get_tangents(xp, yp, r1, x1, y1, r2, x2, y2):
 
     return res, a
 
+def get_point_tangents(r1, x1, y1, xp, yp):
+    """
+    Find the lines from xp, yp that are tangent to the circle of radius r1 at
+    x1, y1
+    Return same format as get_tangents
+    """
+    #line, end, axis
+    res = [[[0,0],[0,0]], [[0,0],[0,0]]]
+
+    a = r1*r1*(xp-x1)
+    b = r1*(yp-y1)*math.sqrt( (xp-x1)**2 + (yp-y1)**2 - r1**2 )
+    c = (xp-x1)**2 + (yp-y1)**2
+
+    #line, end, axis
+    res[0][0][0] = x1+(a+b)/c
+    res[1][0][0] = x1+(a-b)/c
+
+    a = r1*r1*(yp-y1)
+    b = -r1*(xp-x1)*math.sqrt( (xp-x1)**2 + (yp-y1)**2 - r1**2 )
+    c = (xp-x1)**2 + (yp-y1)**2
+
+    #line, end, axis
+    res[0][0][1] = y1+(a+b)/c
+    res[1][0][1] = y1+(a-b)/c
+
+    res[0][1][0] = xp
+    res[1][1][0] = xp
+
+    #line, end, axis
+    res[0][1][1] = yp
+    res[1][1][1] = yp
+
+    a = get_angles(res, x1, y1, x1, y1)
+
+    return res, a
+
+
 def get_angles(res, x1, y1, x2, y2):
     """
     Return angles for the given lines
@@ -279,25 +316,25 @@ class RoutePointTangents(pcbnew.ActionPlugin):
     def defaults(self):
         self.name = "Route Point Tangents"
         self.category = "Routing"
-        self.description = "Route the two tangent lines between the selected point and the selected circle"
-        #TODO: How to select point? pad?
+        self.description = "Route the two tangent lines between the auxilliary origin and the selected circle"
         self.show_toolbar_button = True# Optional, defaults to False
         self.icon_file_name = os.path.join(os.path.dirname(__file__), 'point_tangents.png')
 
     def Run(self):
         board = pcbnew.GetBoard()
-        nodes = get_bus_nodes(board)
-        if len(nodes) != 2:
-            print('Need exactly two nodes')
+        circles = get_circles(board)
+        if len(circles) != 1:
+            print('Need exactly one circle')
             return
-        circle_pairs = nodes[0].get_inner_tangents(nodes[1])
-        print(circle_pairs)
+        circle = circles[0]
+
+        xp, yp = board.GetAuxOrigin()
+
         lines = []
         angles = []
-        for left, right in circle_pairs:
-            tlines, tangles = get_inner_tangents(*left, *right)
-            lines.extend(tlines)
-            angles.extend(tangles)
+        tlines, tangles = get_point_tangents(*circle, xp, yp)
+        lines.extend(tlines)
+        angles.extend(tangles)
 
         add_traces(lines, board)
 
@@ -351,5 +388,6 @@ class RouteOuterTangents(pcbnew.ActionPlugin):
 
         add_traces(lines, board)
 
+RoutePointTangents().register()
 RouteInnerTangents().register()
 RouteOuterTangents().register()
