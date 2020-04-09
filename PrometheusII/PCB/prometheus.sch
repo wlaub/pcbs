@@ -1141,8 +1141,6 @@ Text Label 10250 3100 0    50   ~ 0
 PARAM_0
 Text Label 3900 1750 0    50   ~ 0
 PARAM_0_T
-Text Label 7350 5700 0    50   ~ 0
-EXT_CLK
 Text Notes 5900 6650 0    50   ~ 0
 From controls board
 Text Label 4600 6650 0    50   ~ 0
@@ -1772,34 +1770,6 @@ Text Label 15150 1550 0    50   ~ 0
 LEN_ATV
 Wire Wire Line
 	15050 1350 15150 1350
-$Comp
-L Device:R_Small_US R56
-U 1 1 5E74F8E9
-P 7300 4750
-AR Path="/5E74F8E9" Ref="R56"  Part="1" 
-AR Path="/6032E556/5E74F8E9" Ref="R?"  Part="1" 
-F 0 "R56" H 7350 4700 50  0000 L CNN
-F 1 "100k" H 7350 4800 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 7300 4750 50  0001 C CNN
-F 3 "~" H 7300 4750 50  0001 C CNN
-	1    7300 4750
-	1    0    0    1   
-$EndComp
-$Comp
-L power:+3V3 #PWR0163
-U 1 1 5EE07B7E
-P 7300 4550
-AR Path="/5EE07B7E" Ref="#PWR0163"  Part="1" 
-AR Path="/6032E556/5EE07B7E" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0163" H 7300 4400 50  0001 C CNN
-F 1 "+3V3" H 7315 4723 50  0000 C CNN
-F 2 "" H 7300 4550 50  0001 C CNN
-F 3 "" H 7300 4550 50  0001 C CNN
-	1    7300 4550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7300 4550 7300 4650
 Wire Wire Line
 	4300 9150 4500 9150
 Wire Wire Line
@@ -2119,8 +2089,6 @@ F 3 "~" H 3400 7250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7300 4850 7300 5700
-Wire Wire Line
 	4150 5800 4750 5800
 $Comp
 L power:+3V3 #PWR0124
@@ -2323,20 +2291,6 @@ F 3 "~" H 3350 7600 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3150 7600 3400 7600
-$Comp
-L Connector:TestPoint TP20
-U 1 1 662225C4
-P 7850 5700
-F 0 "TP20" V 7850 6050 50  0000 R CNN
-F 1 "TestPoint" H 7908 5727 50  0001 L CNN
-F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5700 50  0001 C CNN
-F 3 "~" H 8050 5700 50  0001 C CNN
-	1    7850 5700
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	7850 5700 7300 5700
-Connection ~ 7300 5700
 $Comp
 L Connector:TestPoint TP13
 U 1 1 662C8A9B
@@ -3083,8 +3037,6 @@ Wire Wire Line
 Wire Wire Line
 	4250 6650 5200 6650
 Wire Wire Line
-	4150 5700 7300 5700
-Wire Wire Line
 	4750 5800 5000 5800
 Wire Wire Line
 	5000 5800 5000 5900
@@ -3148,8 +3100,6 @@ F 3 "~" H 4650 1050 50  0001 C CNN
 	1    4650 1050
 	1    0    0    1   
 $EndComp
-Text Label 7350 5600 0    50   ~ 0
-GLITCH_IN_T
 Wire Wire Line
 	5000 850  5000 950 
 $Comp
@@ -3178,19 +3128,6 @@ F 3 "~" H 5000 1050 50  0001 C CNN
 	1    5000 1050
 	1    0    0    1   
 $EndComp
-$Comp
-L Connector:TestPoint TP19
-U 1 1 69634036
-P 7850 5600
-F 0 "TP19" V 7850 5950 50  0000 R CNN
-F 1 "TestPoint" H 7908 5627 50  0001 L CNN
-F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5600 50  0001 C CNN
-F 3 "~" H 8050 5600 50  0001 C CNN
-	1    7850 5600
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	7850 5600 7000 5600
 Connection ~ 7000 5600
 Wire Wire Line
 	7000 4850 7000 5600
@@ -3334,266 +3271,23 @@ F 3 "" H 5500 4550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5500 4550 5500 4650
-$Comp
-L Device:C C48
-U 1 1 69B61B32
-P 7300 5950
-F 0 "C48" H 7400 6050 50  0000 L CNN
-F 1 "100n" H 7350 5850 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 7338 5800 50  0001 C CNN
-F 3 "~" H 7300 5950 50  0001 C CNN
-	1    7300 5950
-	-1   0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0167
-U 1 1 69B61B38
-P 7300 6100
-F 0 "#PWR0167" H 7300 5850 50  0001 C CNN
-F 1 "GND" H 7305 5927 50  0000 C CNN
-F 2 "" H 7300 6100 50  0001 C CNN
-F 3 "" H 7300 6100 50  0001 C CNN
-	1    7300 6100
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C C47
-U 1 1 69C000CC
-P 7000 5950
-F 0 "C47" H 7100 6050 50  0000 L CNN
-F 1 "100n" H 7050 5850 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 7038 5800 50  0001 C CNN
-F 3 "~" H 7000 5950 50  0001 C CNN
-	1    7000 5950
-	-1   0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0168
-U 1 1 69C000D2
-P 7000 6100
-F 0 "#PWR0168" H 7000 5850 50  0001 C CNN
-F 1 "GND" H 7005 5927 50  0000 C CNN
-F 2 "" H 7000 6100 50  0001 C CNN
-F 3 "" H 7000 6100 50  0001 C CNN
-	1    7000 6100
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C C46
-U 1 1 69C5CDE7
-P 6700 5950
-F 0 "C46" H 6800 6050 50  0000 L CNN
-F 1 "100n" H 6750 5850 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 6738 5800 50  0001 C CNN
-F 3 "~" H 6700 5950 50  0001 C CNN
-	1    6700 5950
-	-1   0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0169
-U 1 1 69C5CDED
-P 6700 6100
-F 0 "#PWR0169" H 6700 5850 50  0001 C CNN
-F 1 "GND" H 6705 5927 50  0000 C CNN
-F 2 "" H 6700 6100 50  0001 C CNN
-F 3 "" H 6700 6100 50  0001 C CNN
-	1    6700 6100
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C C45
-U 1 1 69C5CDF3
-P 6400 5950
-F 0 "C45" H 6500 6050 50  0000 L CNN
-F 1 "100n" H 6450 5850 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 6438 5800 50  0001 C CNN
-F 3 "~" H 6400 5950 50  0001 C CNN
-	1    6400 5950
-	-1   0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0170
-U 1 1 69C5CDF9
-P 6400 6100
-F 0 "#PWR0170" H 6400 5850 50  0001 C CNN
-F 1 "GND" H 6405 5927 50  0000 C CNN
-F 2 "" H 6400 6100 50  0001 C CNN
-F 3 "" H 6400 6100 50  0001 C CNN
-	1    6400 6100
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C C40
-U 1 1 69CABB24
-P 6100 5950
-F 0 "C40" H 6200 6050 50  0000 L CNN
-F 1 "100n" H 6150 5850 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 6138 5800 50  0001 C CNN
-F 3 "~" H 6100 5950 50  0001 C CNN
-	1    6100 5950
-	-1   0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0171
-U 1 1 69CABB2A
-P 6100 6100
-F 0 "#PWR0171" H 6100 5850 50  0001 C CNN
-F 1 "GND" H 6105 5927 50  0000 C CNN
-F 2 "" H 6100 6100 50  0001 C CNN
-F 3 "" H 6100 6100 50  0001 C CNN
-	1    6100 6100
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C C32
-U 1 1 69CABB30
-P 5800 5950
-F 0 "C32" H 5900 6050 50  0000 L CNN
-F 1 "100n" H 5850 5850 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 5838 5800 50  0001 C CNN
-F 3 "~" H 5800 5950 50  0001 C CNN
-	1    5800 5950
-	-1   0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0172
-U 1 1 69CABB36
-P 5800 6100
-F 0 "#PWR0172" H 5800 5850 50  0001 C CNN
-F 1 "GND" H 5805 5927 50  0000 C CNN
-F 2 "" H 5800 6100 50  0001 C CNN
-F 3 "" H 5800 6100 50  0001 C CNN
-	1    5800 6100
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C C31
-U 1 1 69CFA913
-P 5500 5950
-F 0 "C31" H 5600 6050 50  0000 L CNN
-F 1 "100n" H 5550 5850 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 5538 5800 50  0001 C CNN
-F 3 "~" H 5500 5950 50  0001 C CNN
-	1    5500 5950
-	-1   0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0173
-U 1 1 69CFA919
-P 5500 6100
-F 0 "#PWR0173" H 5500 5850 50  0001 C CNN
-F 1 "GND" H 5505 5927 50  0000 C CNN
-F 2 "" H 5500 6100 50  0001 C CNN
-F 3 "" H 5500 6100 50  0001 C CNN
-	1    5500 6100
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	7300 5700 7300 5800
-Wire Wire Line
-	7000 5600 7000 5800
 Wire Wire Line
 	4150 5600 7000 5600
-$Comp
-L Connector:TestPoint TP18
-U 1 1 69EB8E62
-P 7850 5500
-F 0 "TP18" V 7850 5850 50  0000 R CNN
-F 1 "TestPoint" H 7908 5527 50  0001 L CNN
-F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5500 50  0001 C CNN
-F 3 "~" H 8050 5500 50  0001 C CNN
-	1    7850 5500
-	0    1    -1   0   
-$EndComp
-$Comp
-L Connector:TestPoint TP17
-U 1 1 69EB8E68
-P 7850 5400
-F 0 "TP17" V 7850 5750 50  0000 R CNN
-F 1 "TestPoint" H 7908 5427 50  0001 L CNN
-F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5400 50  0001 C CNN
-F 3 "~" H 8050 5400 50  0001 C CNN
-	1    7850 5400
-	0    1    -1   0   
-$EndComp
-$Comp
-L Connector:TestPoint TP16
-U 1 1 69F081F5
-P 7850 5300
-F 0 "TP16" V 7850 5650 50  0000 R CNN
-F 1 "TestPoint" H 7908 5327 50  0001 L CNN
-F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5300 50  0001 C CNN
-F 3 "~" H 8050 5300 50  0001 C CNN
-	1    7850 5300
-	0    1    -1   0   
-$EndComp
-$Comp
-L Connector:TestPoint TP15
-U 1 1 69F081FB
-P 7850 5200
-F 0 "TP15" V 7850 5550 50  0000 R CNN
-F 1 "TestPoint" H 7908 5227 50  0001 L CNN
-F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5200 50  0001 C CNN
-F 3 "~" H 8050 5200 50  0001 C CNN
-	1    7850 5200
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	7850 5500 6700 5500
-Wire Wire Line
-	4150 5400 6400 5400
-Wire Wire Line
-	4150 5300 6100 5300
-Wire Wire Line
-	4150 5200 5800 5200
-Wire Wire Line
-	4150 5100 5500 5100
-$Comp
-L Connector:TestPoint TP14
-U 1 1 6A1ED1D4
-P 7850 5100
-F 0 "TP14" V 7850 5450 50  0000 R CNN
-F 1 "TestPoint" H 7908 5127 50  0001 L CNN
-F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5100 50  0001 C CNN
-F 3 "~" H 8050 5100 50  0001 C CNN
-	1    7850 5100
-	0    1    -1   0   
-$EndComp
 Wire Wire Line
 	6700 4850 6700 5500
 Connection ~ 6700 5500
 Wire Wire Line
-	6700 5500 4150 5500
-Wire Wire Line
 	6400 4850 6400 5400
 Connection ~ 6400 5400
 Wire Wire Line
-	6400 5400 7850 5400
-Wire Wire Line
 	6100 4850 6100 5300
 Connection ~ 6100 5300
-Wire Wire Line
-	6100 5300 7850 5300
 Connection ~ 5800 5200
-Wire Wire Line
-	5800 5200 7850 5200
 Wire Wire Line
 	5800 4850 5800 5200
 Wire Wire Line
 	5500 4850 5500 5100
 Connection ~ 5500 5100
-Wire Wire Line
-	5500 5100 7850 5100
-Wire Wire Line
-	5500 5100 5500 5800
-Wire Wire Line
-	5800 5200 5800 5800
-Wire Wire Line
-	6100 5300 6100 5800
-Wire Wire Line
-	6400 5400 6400 5800
-Wire Wire Line
-	6700 5500 6700 5800
 Connection ~ 3500 4300
 Wire Wire Line
 	3500 4300 3500 4500
@@ -3642,45 +3336,11 @@ Wire Wire Line
 	4550 3850 4550 3950
 Wire Wire Line
 	4550 4150 4550 4400
-$Comp
-L Device:C C5
-U 1 1 6AA68AAE
-P 4550 4650
-F 0 "C5" H 4650 4750 50  0000 L CNN
-F 1 "100n" H 4600 4550 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 4588 4500 50  0001 C CNN
-F 3 "~" H 4550 4650 50  0001 C CNN
-	1    4550 4650
-	-1   0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0175
-U 1 1 6AA68AB4
-P 4550 4800
-F 0 "#PWR0175" H 4550 4550 50  0001 C CNN
-F 1 "GND" H 4555 4627 50  0000 C CNN
-F 2 "" H 4550 4800 50  0001 C CNN
-F 3 "" H 4550 4800 50  0001 C CNN
-	1    4550 4800
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	4550 4400 4550 4500
 Connection ~ 4550 4400
 Wire Wire Line
 	4550 4400 4650 4400
 Wire Wire Line
 	4350 6200 4650 6200
-Text Label 7350 5500 0    50   ~ 0
-VOCT_SEMI_B
-Text Label 7350 5100 0    50   ~ 0
-VOCT_OCT_A
-Text Label 7350 5200 0    50   ~ 0
-POLY_A
-Text Label 7350 5400 0    50   ~ 0
-VOCT_SEMI_A
-Text Label 7350 5300 0    50   ~ 0
-POLY_B
 Text Label 1300 1500 2    50   ~ 0
 POLY_SW
 Text Label 3700 4400 0    50   ~ 0
@@ -4901,4 +4561,119 @@ Wire Wire Line
 	3650 2250 4650 2250
 Wire Wire Line
 	4650 1150 4650 2250
+Wire Wire Line
+	6700 5500 4150 5500
+Wire Wire Line
+	4150 5400 6400 5400
+Wire Wire Line
+	4150 5300 6100 5300
+Wire Wire Line
+	4150 5200 5800 5200
+Wire Wire Line
+	4150 5100 5500 5100
+Wire Wire Line
+	4150 5700 7850 5700
+Text Label 7350 5300 0    50   ~ 0
+POLY_B
+Text Label 7350 5400 0    50   ~ 0
+VOCT_SEMI_A
+Text Label 7350 5200 0    50   ~ 0
+POLY_A
+Text Label 7350 5100 0    50   ~ 0
+VOCT_OCT_A
+Text Label 7350 5500 0    50   ~ 0
+VOCT_SEMI_B
+Wire Wire Line
+	5500 5100 7850 5100
+Wire Wire Line
+	5800 5200 7850 5200
+Wire Wire Line
+	6100 5300 7850 5300
+Wire Wire Line
+	6400 5400 7850 5400
+$Comp
+L Connector:TestPoint TP14
+U 1 1 6A1ED1D4
+P 7850 5100
+F 0 "TP14" V 7850 5450 50  0000 R CNN
+F 1 "TestPoint" H 7908 5127 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5100 50  0001 C CNN
+F 3 "~" H 8050 5100 50  0001 C CNN
+	1    7850 5100
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	7850 5500 6700 5500
+$Comp
+L Connector:TestPoint TP15
+U 1 1 69F081FB
+P 7850 5200
+F 0 "TP15" V 7850 5550 50  0000 R CNN
+F 1 "TestPoint" H 7908 5227 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5200 50  0001 C CNN
+F 3 "~" H 8050 5200 50  0001 C CNN
+	1    7850 5200
+	0    1    -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP16
+U 1 1 69F081F5
+P 7850 5300
+F 0 "TP16" V 7850 5650 50  0000 R CNN
+F 1 "TestPoint" H 7908 5327 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5300 50  0001 C CNN
+F 3 "~" H 8050 5300 50  0001 C CNN
+	1    7850 5300
+	0    1    -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP17
+U 1 1 69EB8E68
+P 7850 5400
+F 0 "TP17" V 7850 5750 50  0000 R CNN
+F 1 "TestPoint" H 7908 5427 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5400 50  0001 C CNN
+F 3 "~" H 8050 5400 50  0001 C CNN
+	1    7850 5400
+	0    1    -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP18
+U 1 1 69EB8E62
+P 7850 5500
+F 0 "TP18" V 7850 5850 50  0000 R CNN
+F 1 "TestPoint" H 7908 5527 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5500 50  0001 C CNN
+F 3 "~" H 8050 5500 50  0001 C CNN
+	1    7850 5500
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	7850 5600 7000 5600
+$Comp
+L Connector:TestPoint TP19
+U 1 1 69634036
+P 7850 5600
+F 0 "TP19" V 7850 5950 50  0000 R CNN
+F 1 "TestPoint" H 7908 5627 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5600 50  0001 C CNN
+F 3 "~" H 8050 5600 50  0001 C CNN
+	1    7850 5600
+	0    1    -1   0   
+$EndComp
+Text Label 7350 5600 0    50   ~ 0
+GLITCH_IN_T
+$Comp
+L Connector:TestPoint TP20
+U 1 1 662225C4
+P 7850 5700
+F 0 "TP20" V 7850 6050 50  0000 R CNN
+F 1 "TestPoint" H 7908 5727 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.5mm" H 8050 5700 50  0001 C CNN
+F 3 "~" H 8050 5700 50  0001 C CNN
+	1    7850 5700
+	0    1    -1   0   
+$EndComp
+Text Label 7350 5700 0    50   ~ 0
+EXT_CLK
 $EndSCHEMATC
