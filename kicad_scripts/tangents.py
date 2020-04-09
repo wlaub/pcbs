@@ -1,7 +1,9 @@
 import math
 import os
 
+import wx
 import pcbnew
+
 
 def get_tangents(xp, yp, r1, x1, y1, r2, x2, y2):
     """
@@ -359,15 +361,110 @@ class PlaceBusNode(pcbnew.ActionPlugin):
 
     def Run(self):
         board = pcbnew.GetBoard()
-        config = pcbnew.GetDesignSettings()
+        config = board.GetDesignSettings()
 
         xp, yp = board.GetGridOrigin()
         pad = board.GetPad(pcbnew.wxPoint(xp, yp))
-
-        space = config.GetSmallestClearanceValue()
-        trace = config.GetCurrentTrackWidth()
         
         radius = pad.GetBoundingRadius()
+
+        dialog = BusNodeDialog(None, board, self)
+        dialog.Show(True)
+        print('Done')
+
+busnodeplugin = PlaceBusNode()
+busnodeplugin.register()        
+
+class BusNodeDialog(wx.Dialog):
+    def __init__(self, parent, board, plugin):
+        wx.Dialog.__init__(self, parent, title= "Bus Node Configuration")
+        self.board = board
+        config = board.GetDesignSettings()
+        self.plugin = plugin
+
+        box = wx.BoxSizer(wx.VERTICAL)
+
+        self.panel = wx.Panel(self)
+
+        self.text_boxes = {}
+
+        label = wx.StaticText(self.panel, label = "Bus positions")
+        box.Add(label,   proportion=0)
+        _,_,w,h = label.GetRect()
+
+        self.pattern = wx.TextCtrl(self.panel, value = "1", size=(250, h*1.5))
+        box.Add(self.pattern,   proportion=0)
+
+
+        label = wx.StaticText(self.panel, label = "Trace Width (mm)")
+        box.Add(label,   proportion=0)
+        _,_,w,h = label.GetRect()
+
+        self.trace_width = wx.TextCtrl(self.panel, value = str(pcbnew.ToMM(config.GetSmallestClearanceValue())), size=(120, h*1.5))
+        box.Add(self.trace_width,   proportion=0)
+
+
+        label = wx.StaticText(self.panel, label = "Clearance Width  (mm)")
+        box.Add(label,   proportion=0)
+        _,_,w,h = label.GetRect()
+
+        self.clearance_width = wx.TextCtrl(self.panel, value = str(pcbnew.ToMM(config.GetCurrentTrackWidth())), size=(120, h*1.5))
+        box.Add(self.clearance_width,   proportion=0)
+
+        xp, yp = board.GetGridOrigin()
+        pad = board.GetPad(pcbnew.wxPoint(xp, yp))
+        radius = pad.GetBoundingRadius()
+
+        label = wx.StaticText(self.panel, label = "Pad Radius  (mm)")
+        box.Add(label,   proportion=0)
+        _,_,w,h = label.GetRect()
+
+        self.radius = wx.TextCtrl(self.panel, value = str(pcbnew.ToMM(radius)), size=(120, h*1.5))
+        box.Add(self.radius,   proportion=0)
+
+
+        label = wx.StaticText(self.panel, label = "Extra Padding  (mm)")
+        box.Add(label,   proportion=0)
+        _,_,w,h = label.GetRect()
+
+        self.padding_width = wx.TextCtrl(self.panel, value = "0", size=(120, h*1.5))
+        box.Add(self.padding_width,   proportion=0)
+
+
+        go_button = wx.Button(self.panel, label="Create", id=1)
+        box.Add(go_button,  proportion=0)
+        cancel_button = wx.Button(self.panel, label="Cancel", id=2)
+        box.Add(cancel_button,  proportion=0)
+
+        self.panel.SetSizer(box)
+        self.Bind(wx.EVT_BUTTON, self.OnPress, id=1)
+        self.Bind(wx.EVT_BUTTON, self.OnCancel, id=2)
+
+    def OnPress(self, event):
+        board = self.board
+        pattern = self.pattern.GetValue()
+        trace_width = pcbnew.FromMM(float(self.trace_width.GetValue()))
+        clearance = pcbnew.FromMM(float(self.clearance_width.GetValue()))
+
+        pattern = [float(x) for x in pattern.split(' ')]
+
+        xp, yp = board.GetGridOrigin()
+        pad = board.GetPad(pcbnew.wxPoint(xp, yp))
+        xp, yp = pad.GetCenter()
+
+        radius = pad.GetBoundingRadius()
+        base_radius = radius + clearance + trace_width/2
+        delta_radius = clearance+trace_width
+
+        radii = [base_radius + x*delta_radius for x in pattern]
+        circles = [[r, xp, yp] for r in radii]
+        add_circles(circles, trace_width, board)
+
+        self.Close()
+
+    def OnCancel(self, event):
+        self.Close()
+
 
 
 class RoutePointTangents(pcbnew.ActionPlugin):
