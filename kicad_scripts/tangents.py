@@ -358,6 +358,7 @@ class PlaceBusNode(pcbnew.ActionPlugin):
         self.description = "Place silkscreen markings for a bus node at the grid origin"
         self.show_toolbar_button = True# Optional, defaults to False
         self.icon_file_name = os.path.join(os.path.dirname(__file__), 'bus_node.png')
+        self.pattern = "1"
 
     def Run(self):
         board = pcbnew.GetBoard()
@@ -376,6 +377,7 @@ busnodeplugin = PlaceBusNode()
 busnodeplugin.register()        
 
 class BusNodeDialog(wx.Dialog):
+    
     def __init__(self, parent, board, plugin):
         wx.Dialog.__init__(self, parent, title= "Bus Node Configuration")
         self.board = board
@@ -392,7 +394,7 @@ class BusNodeDialog(wx.Dialog):
         box.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
-        self.pattern = wx.TextCtrl(self.panel, value = "1", size=(250, h*1.5))
+        self.pattern = wx.TextCtrl(self.panel, value = plugin.pattern, size=(250, h*1.5))
         box.Add(self.pattern,   proportion=0)
 
 
@@ -445,15 +447,17 @@ class BusNodeDialog(wx.Dialog):
         pattern = self.pattern.GetValue()
         trace_width = pcbnew.FromMM(float(self.trace_width.GetValue()))
         clearance = pcbnew.FromMM(float(self.clearance_width.GetValue()))
+        radius = pcbnew.FromMM(float(self.radius.GetValue()))
+        padding = pcbnew.FromMM(float(self.padding_width.GetValue()))
 
+        self.plugin.pattern = pattern
         pattern = [float(x) for x in pattern.split(' ')]
 
         xp, yp = board.GetGridOrigin()
         pad = board.GetPad(pcbnew.wxPoint(xp, yp))
         xp, yp = pad.GetCenter()
 
-        radius = pad.GetBoundingRadius()
-        base_radius = radius + clearance + trace_width/2
+        base_radius = radius + clearance + trace_width/2 + padding
         delta_radius = clearance+trace_width
 
         radii = [base_radius + x*delta_radius for x in pattern]
