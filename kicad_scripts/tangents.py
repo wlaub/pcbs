@@ -387,11 +387,6 @@ class PlaceBusNode(pcbnew.ActionPlugin):
         board = pcbnew.GetBoard()
         config = board.GetDesignSettings()
 
-        xp, yp = board.GetGridOrigin()
-        pad = board.GetPad(pcbnew.wxPoint(xp, yp))
-        
-        radius = pad.GetBoundingRadius()
-
         dialog = BusNodeDialog(None, board, self)
         dialog.Show(True)
 
@@ -440,7 +435,10 @@ class BusNodeDialog(wx.Dialog):
 
         xp, yp = board.GetGridOrigin()
         pad = board.GetPad(pcbnew.wxPoint(xp, yp))
-        radius = pad.GetBoundingRadius()
+        try:
+            radius = pad.GetBoundingRadius()
+        except:
+            radius = 0
 
         label = wx.StaticText(self.panel, label = f"Pad Radius  ({unit_name})")
         box.Add(label,   proportion=0)
@@ -480,7 +478,8 @@ class BusNodeDialog(wx.Dialog):
 
         xp, yp = board.GetGridOrigin()
         pad = board.GetPad(pcbnew.wxPoint(xp, yp))
-        xp, yp = pad.GetCenter()
+        if pad != None:
+            xp, yp = pad.GetCenter()
 
         base_radius = radius + clearance + trace_width/2 + padding
         delta_radius = clearance+trace_width
