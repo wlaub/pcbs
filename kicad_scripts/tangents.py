@@ -346,6 +346,29 @@ def get_bus_nodes(board):
 
     return result
 
+def get_units():
+    if pcbnew.GetUserUnits() == 0:
+        to_func = pcbnew.ToMils
+        from_func = pcbnew.FromMils
+        name = pcbnew.uMils
+    elif pcbnew.GetUserUnits() == 1:
+        to_func = pcbnew.ToMM
+        from_func = pcbnew.FromMM
+        name = pcbnew.uMM
+
+    return name, to_func, from_func
+
+def dir_func(object):
+    d = dir(object)
+    d = list(filter(lambda x: callable(object.__dict__[x]), d))
+    print(d)
+
+#MARKERS
+#COLORS_DESIGN_SETTINGS
+#
+#
+#
+
 #test = [1,0,0,2,4,0]
 #print(test)
 #print(get_outer_tangents(*test))
@@ -384,6 +407,8 @@ class BusNodeDialog(wx.Dialog):
         config = board.GetDesignSettings()
         self.plugin = plugin
 
+        unit_name, ToUnit, self.FromUnit = get_units()
+
         box = wx.BoxSizer(wx.VERTICAL)
 
         self.panel = wx.Panel(self)
@@ -398,34 +423,34 @@ class BusNodeDialog(wx.Dialog):
         box.Add(self.pattern,   proportion=0)
 
 
-        label = wx.StaticText(self.panel, label = "Trace Width (mm)")
+        label = wx.StaticText(self.panel, label = f"Trace Width ({unit_name})")
         box.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
-        self.trace_width = wx.TextCtrl(self.panel, value = str(pcbnew.ToMM(config.GetSmallestClearanceValue())), size=(120, h*1.5))
+        self.trace_width = wx.TextCtrl(self.panel, value = str(ToUnit(config.GetSmallestClearanceValue())), size=(120, h*1.5))
         box.Add(self.trace_width,   proportion=0)
 
 
-        label = wx.StaticText(self.panel, label = "Clearance Width  (mm)")
+        label = wx.StaticText(self.panel, label = f"Clearance Width  ({unit_name})")
         box.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
-        self.clearance_width = wx.TextCtrl(self.panel, value = str(pcbnew.ToMM(config.GetCurrentTrackWidth())), size=(120, h*1.5))
+        self.clearance_width = wx.TextCtrl(self.panel, value = str(ToUnit(config.GetCurrentTrackWidth())), size=(120, h*1.5))
         box.Add(self.clearance_width,   proportion=0)
 
         xp, yp = board.GetGridOrigin()
         pad = board.GetPad(pcbnew.wxPoint(xp, yp))
         radius = pad.GetBoundingRadius()
 
-        label = wx.StaticText(self.panel, label = "Pad Radius  (mm)")
+        label = wx.StaticText(self.panel, label = f"Pad Radius  ({unit_name})")
         box.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
-        self.radius = wx.TextCtrl(self.panel, value = str(pcbnew.ToMM(radius)), size=(120, h*1.5))
+        self.radius = wx.TextCtrl(self.panel, value = str(ToUnit(radius)), size=(120, h*1.5))
         box.Add(self.radius,   proportion=0)
 
 
-        label = wx.StaticText(self.panel, label = "Extra Padding  (mm)")
+        label = wx.StaticText(self.panel, label = f"Extra Padding  ({unit_name})")
         box.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
@@ -445,10 +470,10 @@ class BusNodeDialog(wx.Dialog):
     def OnPress(self, event):
         board = self.board
         pattern = self.pattern.GetValue()
-        trace_width = pcbnew.FromMM(float(self.trace_width.GetValue()))
-        clearance = pcbnew.FromMM(float(self.clearance_width.GetValue()))
-        radius = pcbnew.FromMM(float(self.radius.GetValue()))
-        padding = pcbnew.FromMM(float(self.padding_width.GetValue()))
+        trace_width = self.FromUnit(float(self.trace_width.GetValue()))
+        clearance = self.FromUnit(float(self.clearance_width.GetValue()))
+        radius = self.FromUnit(float(self.radius.GetValue()))
+        padding = self.FromUnit(float(self.padding_width.GetValue()))
 
         self.plugin.pattern = pattern
         pattern = [float(x) for x in pattern.split(' ')]
