@@ -213,7 +213,7 @@ def get_trace(r1, x1, y1, r2, x2, y2, over1, over2):
 
 def get_pads(board):
     sel = []
-    for drw in board.GetDrawings():
+    for drw in board.GetPads():
         if drw.IsSelected():
             sel.append(drw)
     return sel
@@ -245,13 +245,36 @@ def add_traces(lines, board):
 
     for line in lines:
         track = pcbnew.TRACK(board)
+        config = board.GetDesignSettings()
+
         track.SetStart(pcbnew.wxPoint(*line[0]))
         track.SetEnd(pcbnew.wxPoint(*line[1]))
-        track.SetWidth(int(.16e6))
-        track.SetLayer(board.GetLayerID("B.Cu"))
+        track.SetWidth(config.GetCurrentTrackWidth())
+        track.SetLayer(board.GetLayerID("B.Cu")) #TODO: FIX
 
         board.Add(track) 
     pcbnew.Refresh()
+
+def add_circles(circles, width, board):
+    """
+    Circles of the form r, x, y
+    """
+    config = board.GetDesignSettings()
+
+    for r,x,y in circles:
+        circle = pcbnew.DRAWSEGMENT(board)
+
+
+        circle.SetShape(3)
+        circle.SetCenter(pcbnew.wxPoint(x,y))
+        circle.SetEnd(pcbnew.wxPoint(x+r,y))
+
+        circle.SetWidth(int(width))
+        circle.SetLayer(board.GetLayerID("B.SilkS")) #TODO: FIZ
+
+        board.Add(circle)
+    pcbnew.Refresh()
+
 
 class BusNode():
     """
@@ -325,6 +348,27 @@ def get_bus_nodes(board):
 #print(test)
 #print(get_outer_tangents(*test))
 #print(get_inner_tangents(*test))
+
+class PlaceBusNode(pcbnew.ActionPlugin):
+    def defaults(self):
+        self.name = "Place Bus Node"
+        self.category = "Routing"
+        self.description = "Place silkscreen markings for a bus node at the grid origin"
+        self.show_toolbar_button = True# Optional, defaults to False
+        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'bus_node.png')
+
+    def Run(self):
+        board = pcbnew.GetBoard()
+        config = pcbnew.GetDesignSettings()
+
+        xp, yp = board.GetGridOrigin()
+        pad = board.GetPad(pcbnew.wxPoint(xp, yp))
+
+        space = config.GetSmallestClearanceValue()
+        trace = config.GetCurrentTrackWidth()
+        
+        radius = pad.GetBoundingRadius()
+
 
 class RoutePointTangents(pcbnew.ActionPlugin):
     def defaults(self):
