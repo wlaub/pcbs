@@ -363,6 +363,28 @@ def dir_func(object):
     d = list(filter(lambda x: callable(object.__dict__[x]), d))
     print(d)
 
+def spread_nets(tracks):
+    """
+    Given a selection of tracks or objects having a net, if only one net is
+    assigned, spread it to unassigned nets
+    """
+    nets = list(set(x.GetNetCode() for x in tracks))
+    if not 0 in nets:
+        print('No unfilled nets found')
+        return
+
+    if len(nets) > 2:
+        print('Too many nets - net assignment ambiguous')
+        return
+
+    fill_net = max(nets) #Get the one that isn't 0
+    
+    for track in tracks:
+        if track.GetNetCode() == 0:
+            track.SetNetCode(fill_net)
+
+    pcbnew.Refresh()
+
 #MARKERS
 #COLORS_DESIGN_SETTINGS
 #
@@ -373,6 +395,23 @@ def dir_func(object):
 #print(test)
 #print(get_outer_tangents(*test))
 #print(get_inner_tangents(*test))
+
+class SpreadNets(pcbnew.ActionPlugin):
+    def defaults(self):
+        self.name = "Spread Nets"
+        self.category = "Routing"
+        self.description = "For the given selection, fill unassigned nets with the net on other selected objects"
+        self.show_toolbar_button = True# Optional, defaults to False
+        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'connect_nets.png')
+
+    def Run(self):
+        board = pcbnew.GetBoard()
+        config = board.GetDesignSettings()
+        tracks = list(filter(lambda x: x.IsSelected(), board.GetTracks()))
+        spread_nets(tracks)
+
+
+SpreadNets().register()
 
 class PlaceBusNode(pcbnew.ActionPlugin):
     def defaults(self):
