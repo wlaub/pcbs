@@ -371,7 +371,7 @@ class PlaceBusNode(pcbnew.ActionPlugin):
 
         dialog = BusNodeDialog(None, board, self)
         dialog.Show(True)
-        print('Done')
+
 
 busnodeplugin = PlaceBusNode()
 busnodeplugin.register()        
@@ -460,7 +460,7 @@ class BusNodeDialog(wx.Dialog):
         base_radius = radius + clearance + trace_width/2 + padding
         delta_radius = clearance+trace_width
 
-        radii = [base_radius + x*delta_radius for x in pattern]
+        radii = [base_radius + (x-1)*delta_radius for x in pattern]
         circles = [[r, xp, yp] for r in radii]
         add_circles(circles, trace_width, board)
 
