@@ -252,7 +252,7 @@ def add_traces(lines, board):
         track.SetStart(pcbnew.wxPoint(*line[0]))
         track.SetEnd(pcbnew.wxPoint(*line[1]))
         track.SetWidth(config.GetCurrentTrackWidth())
-        track.SetLayer(board.GetLayerID("B.Cu")) #TODO: FIX
+        track.SetLayer(board.GetLayerID("F.Cu")) #TODO: FIX
 
         board.Add(track) 
     pcbnew.Refresh()
