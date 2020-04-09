@@ -220,20 +220,29 @@ def get_pads(board):
             sel.append(drw)
     return sel
 
-def get_circles(board):
-    sel = []
+def get_all_circles(board):
+    result = []
     for drw in board.GetDrawings():
-        if drw.IsSelected() and drw.GetShapeStr() == 'Circle':
-            sel.append(drw)
+        if drw.Type() == 5 and drw.GetShapeStr() == 'Circle':
+            result.append(drw)
+
+    return result
+
+def extract_selection(stuff):
+    return list(filter(lambda x: x.IsSelected(), stuff))
+
+def get_circles(board):
+
+    sel = extract_selection(get_all_circles(board))
 
     result = []
     for circle in sel:
         result.append([circle.GetRadius(), *circle.GetCenter()])
 
-    return result
+    return result, sel
 
 def add_trace_tangents(board):
-    circles = get_circles(board)
+    circles, _ = get_circles(board)
     if len(circles) != 2:
         print('Need circles')
         return
@@ -262,8 +271,16 @@ def add_circles(circles, width, board):
     Circles of the form r, x, y
     """
     config = board.GetDesignSettings()
+    drws = get_all_circles(board)
 
     for r,x,y in circles:
+        exists = False
+        for drw in drws:
+            if drw.HitTest(pcbnew.wxPoint(x+r, y)):
+                exists = True
+
+        if exists: continue
+
         circle = pcbnew.DRAWSEGMENT(board)
 
 
@@ -278,6 +295,7 @@ def add_circles(circles, width, board):
     pcbnew.Refresh()
 
 
+
 class BusNode():
     """
     Class for handling bus nodes comprising multiple concentric circles
@@ -285,17 +303,27 @@ class BusNode():
     def __init__(self):
         self.rads = []
         self.pos = []
+        self.sides = []
 
-    def add_rad(self, rad):
+    def add_rad(self, rad, drw):
         self.rads.append(rad)
+        
+        if drw.GetLayer() in pcbnew.LSET_BackMask().Seq():
+            self.sides.append('BOT')
+        else:
+            self.sides.append('TOP')
+
+    def sort(self):
+        self.rads, self.sides = zip(*sorted(zip(self.rads, self.sides)))
 
     def get_tangents(self, other, inner):
         """
         Return a list of pairs of circles that should be routed together for
         inner or outer tangents of the two bus nodes.
         """
-        self.rads = sorted(self.rads)
-        other.rads = sorted(other.rads)
+        self.sort()
+        other.sort()
+
         if len(self.rads) <= len(other.rads):
             short_rads = self.rads
             short_pos = self.pos
@@ -332,16 +360,16 @@ def get_bus_nodes(board):
     """
     Find all the bus nodes in the selection
     """
-    circles = get_circles(board)
+    circles, drws = get_circles(board)
     centers = set(list(map(lambda x: (x[1], x[2]), circles)))
     result = []
     for center in centers:
         node = BusNode()
         result.append(node)
         node.pos = center
-        for circle in circles:
+        for circle, drw in zip(circles, drws):
             if (circle[1], circle[2]) == center:
-                node.add_rad(circle[0])
+                node.add_rad(circle[0], drw)
         node.print()
 
     return result
@@ -532,7 +560,30 @@ class BusNodeDialog(wx.Dialog):
     def OnCancel(self, event):
         self.Close()
 
+class CompleteArcs(pcbnew.ActionPlugin):
+    def defaults(self):
+        self.name = "Complete Arcs"
+        self.category = "Routing"
+        self.description = "For the selected bus nodes and tracks, find all tracks that have matching endpoints on a bus node and create arc tracks to complete them."
+        self.show_toolbar_button = True# Optional, defaults to False
+        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'complete_arcs.png')
 
+    def Run(self):
+        board = pcbnew.GetBoard()
+        config = board.GetDesignSettings()
+
+        tracks = list(filter(lambda x: x.GetClass() == 'TRACK' and x.IsSelected, board.GetTracks()))
+        layers = list(set(map(lambda x: x.GetLayer(), tracks)))
+        track_map = {k: list(filter(lambda x: x.GetLayer() == k, tracks)) for k in layers}
+
+        nodes = get_bus_nodes(board)
+
+        for layer in layers:
+            tracks = track_map[layer]
+            
+
+
+CompleteArcs().register()
 
 class RoutePointTangents(pcbnew.ActionPlugin):
     def defaults(self):
@@ -544,7 +595,7 @@ class RoutePointTangents(pcbnew.ActionPlugin):
 
     def Run(self):
         board = pcbnew.GetBoard()
-        circles = get_circles(board)
+        circles, _ = get_circles(board)
         if len(circles) != 1:
             print('Need exactly one circle')
             return
