@@ -252,7 +252,7 @@ def add_trace_tangents(board):
     lines.extend(lines2)
     add_traces(lines, board)
 
-def add_traces(lines, board):
+def add_traces(lines, layer, board):
 
     for line in lines:
         track = pcbnew.TRACK(board)
@@ -261,7 +261,7 @@ def add_traces(lines, board):
         track.SetStart(pcbnew.wxPoint(*line[0]))
         track.SetEnd(pcbnew.wxPoint(*line[1]))
         track.SetWidth(config.GetCurrentTrackWidth())
-        track.SetLayer(board.GetLayerID("F.Cu")) #TODO: FIX
+        track.SetLayer(layer) #TODO: FIX
 
         board.Add(track) 
     pcbnew.Refresh()
@@ -354,12 +354,14 @@ class BusNode():
     """
     Class for handling bus nodes comprising multiple concentric circles
     """
+    side_map = {'TOP': 0, 'BOT': 31}
+
     def __init__(self):
         self.rads = []
         self.pos = []
         self.sides = []
         self.drws = []
-
+        
     def add_rad(self, rad, drw):
         self.rads.append(rad)
         self.drws.append(drw)
@@ -371,7 +373,17 @@ class BusNode():
     def sort(self):
         self.rads, self.sides, self.drws = zip(*sorted(zip(self.rads, self.sides, self.drws)))
 
-    def get_tangents(self, other, inner):
+    def get_side(self, sel_side):
+        result = BusNode()
+        for rad, side, drw in zip(self.rads, self.sides, self.drws):
+            if side == sel_side:
+                result.rads.append(rad)
+                result.sides.append(side)
+                result.drws.append(drw)
+            result.pos = list(self.pos)
+        return result
+
+    def get_tangents(self, other, inner, side='BOTH'):
         """
         Return a list of pairs of circles that should be routed together for
         inner or outer tangents of the two bus nodes.
@@ -379,12 +391,21 @@ class BusNode():
         self.sort()
         other.sort()
 
-        if len(self.rads) <= len(other.rads):
+        original = self
+        if side != 'BOTH':
+            other = other.get_side(side)
+            original = self.get_side(side)
+
+        print(side)
+        other.print()
+        original.print()
+
+        if len(original.rads) <= len(other.rads):
             long_bus = other
-            short_bus = self
+            short_bus = original
 
         else:
-            long_bus = self
+            long_bus = original
             short_bus = other
 
         result = []
@@ -393,17 +414,16 @@ class BusNode():
             if inner: other_idx = len(short_bus.rads)-1-idx
             result.append([
             [short_bus.rads[idx], *short_bus.pos],
-            [long_bus.rads[other_idx], *long_bus.pos],
+            [long_bus.rads[other_idx],  *long_bus.pos],
             ])
-
 
         return result
 
-    def get_inner_tangents(self, other):
-        return self.get_tangents(other, inner=True)
+    def get_inner_tangents(self, other, side='BOTH'):
+        return self.get_tangents(other, inner=True, side=side)
 
-    def get_outer_tangents(self, other):
-        return self.get_tangents(other, inner=False)
+    def get_outer_tangents(self, other, side='BOTH'):
+        return self.get_tangents(other, inner=False, side=side)
 
     def get_angle(self, point):
         return math.atan2(point[1] - self.pos[1], point[0] - self.pos[0])
@@ -415,7 +435,7 @@ class BusNode():
         """
         result = []
         #0, 31 for copper
-        side_map = {'TOP': 0, 'BOT': 31}
+        side_map = self.side_map
         for rad, side, drw in zip(self.rads, self.sides, self.drws):
             hits = []
             print(rad, side, drw)
@@ -741,7 +761,7 @@ class RoutePointTangents(pcbnew.ActionPlugin):
 
     def Run(self):
         board = pcbnew.GetBoard()
-        circles, _ = get_circles(board)
+        circles, drw = get_circles(board)
         if len(circles) != 1:
             print('Need exactly one circle')
             return
@@ -755,7 +775,7 @@ class RoutePointTangents(pcbnew.ActionPlugin):
         lines.extend(tlines)
         angles.extend(tangles)
 
-        add_traces(lines, board)
+        add_traces(lines, 0, board)
 
 class RouteInnerTangents(pcbnew.ActionPlugin):
     def defaults(self):
@@ -771,25 +791,30 @@ class RouteInnerTangents(pcbnew.ActionPlugin):
         if len(nodes) != 2:
             print('Need exactly two nodes')
             return
-        circle_pairs = nodes[0].get_inner_tangents(nodes[1])
-
         xp, yp = board.GetGridOrigin()
 
         #start with a list of lines results, then find the index that gives the 
         #best distance on one, in order to select that one from each set.
-        lines = []
-        angles = []
-        for left, right in circle_pairs:
-            tlines, tangles = get_inner_tangents(*left, *right)
-            lines.append(tlines)
-            angles.append(tangles)
+        for side in ['TOP', 'BOT']:
+            circle_pairs = nodes[0].get_inner_tangents(nodes[1], side)
 
-        line_idx = get_nearest_tangent(lines[0], xp, yp)
-        flat_lines = []
-        for tlines in lines:
-            flat_lines.append(tlines[line_idx])
+            lines = []
+            angles = []
+            for left, right in circle_pairs:
+                tlines, tangles = get_inner_tangents(*left, *right)
+                lines.append(tlines)
+                angles.append(tangles)
 
-        add_traces(flat_lines, board)
+            if len(lines) == 0: continue
+
+            line_idx = get_nearest_tangent(lines[0], xp, yp)
+            flat_lines = []
+            for tlines in lines:
+                flat_lines.append(tlines[line_idx])
+
+            print(flat_lines)
+
+            add_traces(flat_lines, nodes[0].side_map[side], board)
 
 class RouteOuterTangents(pcbnew.ActionPlugin):
     def defaults(self):
@@ -805,23 +830,26 @@ class RouteOuterTangents(pcbnew.ActionPlugin):
         if len(nodes) != 2:
             print('Need exactly two nodes')
             return
-        circle_pairs = nodes[0].get_outer_tangents(nodes[1])
 
         xp, yp = board.GetGridOrigin()
+        for side in ['TOP', 'BOT']:
+            circle_pairs = nodes[0].get_outer_tangents(nodes[1], side)
 
-        lines = []
-        angles = []
-        for left, right in circle_pairs:
-            tlines, tangles = get_outer_tangents(*left, *right)
-            lines.append(tlines)
-            angles.append(tangles)
+            lines = []
+            angles = []
+            for left, right in circle_pairs:
+                tlines, tangles = get_outer_tangents(*left, *right)
+                lines.append(tlines)
+                angles.append(tangles)
 
-        line_idx = get_nearest_tangent(lines[0], xp, yp)
-        flat_lines = []
-        for tlines in lines:
-            flat_lines.append(tlines[line_idx])
+            if len(lines) == 0: continue
 
-        add_traces(flat_lines, board)
+            line_idx = get_nearest_tangent(lines[0], xp, yp)
+            flat_lines = []
+            for tlines in lines:
+                flat_lines.append(tlines[line_idx])
+
+            add_traces(flat_lines, nodes[0].side_map[side], board)
 
 RoutePointTangents().register()
 RouteInnerTangents().register()

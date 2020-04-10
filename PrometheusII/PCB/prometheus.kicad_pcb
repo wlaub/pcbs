@@ -2,8 +2,8 @@
 
   (general
     (thickness 1.6)
-    (drawings 245)
-    (tracks 700)
+    (drawings 251)
+    (tracks 704)
     (zones 0)
     (modules 240)
     (nets 151)
@@ -70,7 +70,7 @@
     (pad_to_mask_clearance 0.051)
     (solder_mask_min_width 0.25)
     (aux_axis_origin 156.456 180.632)
-    (grid_origin 72.892 145.883)
+    (grid_origin 85.084 162.647)
     (visible_elements 7FFFFFFF)
     (pcbplotparams
       (layerselection 0x010fc_ffffffff)
@@ -9218,6 +9218,12 @@
     )
   )
 
+  (gr_circle (center 76.956 161.377) (end 77.496 161.377) (layer F.SilkS) (width 0.16) (tstamp 5EAE659C))
+  (gr_circle (center 76.956 161.377) (end 77.806 161.377) (layer F.SilkS) (width 0.16) (tstamp 5EAE659B))
+  (gr_circle (center 76.956 161.377) (end 77.186 161.377) (layer F.SilkS) (width 0.16) (tstamp 5EAE659A))
+  (gr_circle (center 85.211 157.186) (end 86.061 157.186) (layer F.SilkS) (width 0.16))
+  (gr_circle (center 85.211 157.186) (end 85.751 157.186) (layer F.SilkS) (width 0.16))
+  (gr_circle (center 85.211 157.186) (end 85.441 157.186) (layer F.SilkS) (width 0.16))
   (gr_circle (center 89.5857 140.2334) (end 92.1557 140.2334) (layer B.SilkS) (width 0.16) (tstamp 5EAC1CB5))
   (gr_circle (center 89.5857 140.2334) (end 91.8357 140.2334) (layer B.SilkS) (width 0.16) (tstamp 5EAC1CB4))
   (gr_circle (center 79.8067 149.6314) (end 82.6967 149.6314) (layer B.SilkS) (width 0.16) (tstamp 5EAC1CB6))
@@ -9623,6 +9629,10 @@
   (segment (start 75.669231 139.589898) (end 75.519299 139.840345) (width 0.16) (layer B.Cu) (net 0))
   (segment (start 75.519299 139.840345) (end 75.403051 140.108094) (width 0.16) (layer B.Cu) (net 0))
   (segment (start 75.403051 140.108094) (end 75.322443 140.38864) (width 0.16) (layer B.Cu) (net 0))
+  (segment (start 78.668446 143.167873) (end 88.580863 138.220242) (width 0.15) (layer B.Cu) (net 0))
+  (segment (start 88.437953 137.933926) (end 78.525536 142.881557) (width 0.15) (layer B.Cu) (net 0))
+  (segment (start 89.703957 142.48029) (end 77.638957 143.11529) (width 0.15) (layer B.Cu) (net 0))
+  (segment (start 89.720776 142.799847) (end 77.655776 143.434847) (width 0.15) (layer B.Cu) (net 0))
   (segment (start 71.108775 101.323762) (end 100.557255 95.046046) (width 0.16) (layer F.Cu) (net 72))
   (segment (start 71.175492 101.636729) (end 100.623973 95.359014) (width 0.16) (layer F.Cu) (net 1))
   (segment (start 100.507637 95.378765) (end 103.007322 95.061315) (width 0.16) (layer F.Cu) (net 1))
