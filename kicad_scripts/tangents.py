@@ -458,19 +458,33 @@ class BusNode():
                     hits.append([end_point, start_point, track])
 
             if len(hits) != 2: continue
-            
+
+            #At this point, hits[track] contains a list of 
+            #the point on the circle, 
+            #the point off the circle,
+            #the track object
+
             tresult = [rad, side_map[side]]
 
+            #we arbitrarily choose index 0 as the start point of the curve
             start_point = hits[0][0]
 
+            #we extract the starting angle and the stopping angle
             start_angle = self.get_angle(start_point)            
             stop_angle = self.get_angle(hits[1][0])
 
-            bad_angle = self.get_angle(hits[0][1])
+            #we unwrap the stop angle so it's larger than the start angle
             if stop_angle < start_angle: stop_angle += math.pi*2
 
+            #we compute the angle of this side of the arc
             angle = stop_angle-start_angle
 
+            #we get the angle of the end point of the line and unwrap it as well
+            bad_angle = self.get_angle(hits[0][1])
+            if bad_angle < start_angle: bad_angle += math.pi*2
+
+            #if the lines are tangent, then the points off the circle should
+            #have angles that don't lie on the arc.
             if bad_angle > start_angle and bad_angle < stop_angle:
                 angle -= 2*math.pi
 
