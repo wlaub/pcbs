@@ -306,8 +306,10 @@ def add_arcs(center, arcs, board):
         mid_point = [center[0]+radius*math.cos(mid_angle), center[1]+radius*math.sin(mid_angle)]
 
         hit = False
+        print(f'Check hits at point {mid_point} of circle at {start_point} with radius {radius}')
         for track in board.GetTracks():
             if track.GetLayer() == layer and track.HitTest(pcbnew.wxPoint(*mid_point)):
+                print(f'Got hit at track with net {track.GetNetname()}')
                 hit = True
                 break
 
@@ -443,19 +445,22 @@ class BusNode():
         side_map = self.side_map
         for rad, side, drw in zip(self.rads, self.sides, self.drws):
             hits = []
-            print(rad, side, drw)
+            #print(rad, side, drw)
 
             #Find matching end points
             for track in tracks:
                 if side_map.get(side, None) != track.GetLayer(): continue
                 start_point = track.GetStart()
                 end_point = track.GetEnd()
+                #print(f'Checking hit at {start_point} and {end_point}')
                 start_hit = drw.HitTest(start_point)
                 end_hit = drw.HitTest(end_point)
                 if start_hit and not end_hit:
                     hits.append([start_point, end_point, track])
                 elif end_hit and not start_hit:
                     hits.append([end_point, start_point, track])
+
+            #print(f'Hits: {hits}')
 
             if len(hits) != 2: continue
 
@@ -489,7 +494,7 @@ class BusNode():
                 angle -= 2*math.pi
 
             nets = [x[2].GetNetCode() for x in hits]
-            print(nets)
+            #print(nets)
             nets = list(set(filter(lambda x: x!= 0, nets)))
             netcode= 0
             if len(nets) == 1: netcode = nets[0]
@@ -760,7 +765,8 @@ class CompleteArcs(pcbnew.ActionPlugin):
         board = pcbnew.GetBoard()
         config = board.GetDesignSettings()
 
-        tracks = list(filter(lambda x: x.GetClass() == 'TRACK' and x.IsSelected, board.GetTracks()))
+        tracks = list(filter(lambda x: x.GetClass() == 'TRACK' and x.IsSelected(), board.GetTracks()))
+        #print(f'Selected Tracks: {tracks}')
         layers = list(set(map(lambda x: x.GetLayer(), tracks)))
         track_map = {k: list(filter(lambda x: x.GetLayer() == k, tracks)) for k in layers}
 
