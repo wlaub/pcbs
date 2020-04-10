@@ -266,7 +266,7 @@ def add_traces(lines, board):
         board.Add(track) 
     pcbnew.Refresh()
 
-def add_circles(circles, width, board):
+def add_circles(circles, width, layer, board):
     """
     Circles of the form r, x, y
     """
@@ -276,7 +276,7 @@ def add_circles(circles, width, board):
     for r,x,y in circles:
         exists = False
         for drw in drws:
-            if drw.HitTest(pcbnew.wxPoint(x+r, y)):
+            if drw.GetLayer() == layer and drw.HitTest(pcbnew.wxPoint(x+r, y)):
                 exists = True
 
         if exists: continue
@@ -289,7 +289,7 @@ def add_circles(circles, width, board):
         circle.SetEnd(pcbnew.wxPoint(x+r,y))
 
         circle.SetWidth(int(width))
-        circle.SetLayer(board.GetLayerID("B.SilkS")) #TODO: FIZ
+        circle.SetLayer(layer) #TODO: FIZ
 
         board.Add(circle)
     pcbnew.Refresh()
@@ -298,7 +298,41 @@ def add_arcs(center, arcs, board):
     """
     arcs of the form: radius, start_point, angle, layer, width
     """
+    lines = []
     for radius, start_point, angle, layer, width in arcs:
+
+        start_angle = math.atan2(*[start_point[i]-center[i] for i in [1,0]])
+        mid_angle = start_angle + angle/2
+        mid_point = [center[0]+radius*math.cos(mid_angle), center[1]+radius*math.sin(mid_angle)]
+
+        hit = False
+        for track in board.GetTracks():
+            if track.GetLayer() == layer and track.HitTest(pcbnew.wxPoint(*mid_point)):
+                hit = True
+                break
+
+        if hit: continue
+
+        #max deviation of line from center in nm
+        max_dev = .005*1e6
+        max_angle = 2*math.acos((radius-max_dev)/radius)
+        N = math.ceil(abs(angle)/max_angle)
+        print(f'{N} segments needed for radius {radius} and max_dev {max_dev} with max angle {max_angle} and angle {angle} = {angle/max_angle}')
+        for i in range(N):
+            sa = start_angle + i*angle/N
+            start_point = [center[0]+radius*math.cos(sa), center[1]+radius*math.sin(sa)]
+            ea = start_angle + (i+1)*angle/N
+            end_point = [center[0]+radius*math.cos(ea), center[1]+radius*math.sin(ea)]
+
+            track = pcbnew.TRACK(board)
+
+            track.SetStart(pcbnew.wxPoint(*start_point))
+            track.SetEnd(pcbnew.wxPoint(*end_point))
+            track.SetWidth(width)
+            track.SetLayer(layer)
+            board.Add(track)
+            
+        """
         arc = pcbnew.DRAWSEGMENT(board)
 
         arc.SetShape(2)
@@ -309,7 +343,9 @@ def add_arcs(center, arcs, board):
         arc.SetWidth(width)
         arc.SetLayer(layer)
 
+
         board.Add(arc)
+        """
 
     pcbnew.Refresh()
     
@@ -416,8 +452,8 @@ class BusNode():
             if bad_angle > start_angle and bad_angle < stop_angle:
                 angle -= 2*math.pi
 
-            #result.append([rad, start_point, angle, side_map[side], drw.GetWidth()])
-            result.append([rad, start_point, 1800*angle/math.pi, 37, drw.GetWidth()])
+            result.append([rad, start_point, angle, side_map[side], drw.GetWidth()])
+            #result.append([rad, start_point, 1800*angle/math.pi, 37, drw.GetWidth()])
         return result
 
 
@@ -517,6 +553,7 @@ class PlaceBusNode(pcbnew.ActionPlugin):
         self.show_toolbar_button = True# Optional, defaults to False
         self.icon_file_name = os.path.join(os.path.dirname(__file__), 'bus_node.png')
         self.pattern = "1"
+        self.default_side = 'Top'
 
     def Run(self):
         board = pcbnew.GetBoard()
@@ -545,29 +582,47 @@ class BusNodeDialog(wx.Dialog):
 
         self.text_boxes = {}
 
+        subbox = wx.BoxSizer(wx.HORIZONTAL)
+
+        #left column
+        ssbox = wx.BoxSizer(wx.VERTICAL)
+
+        #pattern
         label = wx.StaticText(self.panel, label = "Bus positions")
-        box.Add(label,   proportion=0)
+        ssbox.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
         self.pattern = wx.TextCtrl(self.panel, value = plugin.pattern, size=(250, h*1.5))
-        box.Add(self.pattern,   proportion=0)
+        ssbox.Add(self.pattern,   proportion=0)
 
+        subbox.Add(ssbox, 0, wx.RIGHT|wx.LEFT, 10)
 
+        #right column
+        ssbox = wx.BoxSizer(wx.VERTICAL)
+        #layer
+        label = wx.StaticText(self.panel, label = f"Board Side")
+        ssbox.Add(label,   proportion=0)
+        _,_,w,h = label.GetRect()
+
+        self.layer_box = wx.ComboBox(self.panel, value = plugin.default_side, choices = ['Top', 'Bottom'], size=(120, h*1.5))
+        ssbox.Add(self.layer_box,   proportion=0)
+
+        subbox.Add(ssbox, 0)
+        box.Add(subbox, 0, wx.TOP, 10)
+
+        subbox = wx.BoxSizer(wx.HORIZONTAL)
+
+        #left column
+        ssbox = wx.BoxSizer(wx.VERTICAL)
+        #width
         label = wx.StaticText(self.panel, label = f"Trace Width ({unit_name})")
-        box.Add(label,   proportion=0)
+        ssbox.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
         self.trace_width = wx.TextCtrl(self.panel, value = str(ToUnit(config.GetSmallestClearanceValue())), size=(120, h*1.5))
-        box.Add(self.trace_width,   proportion=0)
-
-
-        label = wx.StaticText(self.panel, label = f"Clearance Width  ({unit_name})")
-        box.Add(label,   proportion=0)
-        _,_,w,h = label.GetRect()
-
-        self.clearance_width = wx.TextCtrl(self.panel, value = str(ToUnit(config.GetCurrentTrackWidth())), size=(120, h*1.5))
-        box.Add(self.clearance_width,   proportion=0)
-
+        ssbox.Add(self.trace_width,   proportion=0)
+        
+        #pad size
         xp, yp = board.GetGridOrigin()
         pad = board.GetPad(pcbnew.wxPoint(xp, yp))
         try:
@@ -576,25 +631,41 @@ class BusNodeDialog(wx.Dialog):
             radius = 0
 
         label = wx.StaticText(self.panel, label = f"Pad Radius  ({unit_name})")
-        box.Add(label,   proportion=0)
+        ssbox.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
         self.radius = wx.TextCtrl(self.panel, value = str(ToUnit(radius)), size=(120, h*1.5))
-        box.Add(self.radius,   proportion=0)
+        ssbox.Add(self.radius,   proportion=0)
 
+        go_button = wx.Button(self.panel, label="Create", id=1)
+        ssbox.Add(go_button,  proportion=0)
 
+        subbox.Add(ssbox, 0, wx.RIGHT|wx.LEFT, 10)
+        
+        #right column
+
+        ssbox = wx.BoxSizer(wx.VERTICAL)
+        #clearance
+        label = wx.StaticText(self.panel, label = f"Clearance ({unit_name})")
+        ssbox.Add(label,   proportion=0)
+        _,_,w,h = label.GetRect()
+
+        self.clearance_width = wx.TextCtrl(self.panel, value = str(ToUnit(config.GetCurrentTrackWidth())), size=(120, h*1.5))
+        ssbox.Add(self.clearance_width,   proportion=0)
+
+        #padding
         label = wx.StaticText(self.panel, label = f"Extra Padding  ({unit_name})")
-        box.Add(label,   proportion=0)
+        ssbox.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
         self.padding_width = wx.TextCtrl(self.panel, value = "0", size=(120, h*1.5))
-        box.Add(self.padding_width,   proportion=0)
+        ssbox.Add(self.padding_width,   proportion=0)
 
-
-        go_button = wx.Button(self.panel, label="Create", id=1)
-        box.Add(go_button,  proportion=0)
         cancel_button = wx.Button(self.panel, label="Cancel", id=2)
-        box.Add(cancel_button,  proportion=0)
+        ssbox.Add(cancel_button,  proportion=0)
+
+        subbox.Add(ssbox)
+        box.Add(subbox)
 
         self.panel.SetSizer(box)
         self.Bind(wx.EVT_BUTTON, self.OnPress, id=1)
@@ -607,6 +678,12 @@ class BusNodeDialog(wx.Dialog):
         clearance = self.FromUnit(float(self.clearance_width.GetValue()))
         radius = self.FromUnit(float(self.radius.GetValue()))
         padding = self.FromUnit(float(self.padding_width.GetValue()))
+
+        if self.layer_box.GetValue() == 'Top':
+            layer = board.GetLayerID('F.SilkS')
+        else:
+            layer = board.GetLayerID('B.SilkS')
+        self.plugin.layer = self.layer_box.GetValue()
 
         self.plugin.pattern = pattern
         pattern = [float(x) for x in pattern.split(' ')]
@@ -621,7 +698,8 @@ class BusNodeDialog(wx.Dialog):
 
         radii = [base_radius + (x-1)*delta_radius for x in pattern]
         circles = [[r, xp, yp] for r in radii]
-        add_circles(circles, trace_width, board)
+
+        add_circles(circles, trace_width, layer, board)
 
         self.Close()
 
