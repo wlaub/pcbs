@@ -479,14 +479,14 @@ class BusNode():
             stop_angle = self.get_angle(hits[1][0])
 
             #we unwrap the stop angle so it's larger than the start angle
-            if stop_angle < start_angle: stop_angle += math.pi*2
+            if stop_angle <= start_angle: stop_angle += math.pi*2
 
             #we compute the angle of this side of the arc
             angle = stop_angle-start_angle
 
             #we get the angle of the end point of the line and unwrap it as well
             bad_angle = self.get_angle(hits[0][1])
-            if bad_angle < start_angle: bad_angle += math.pi*2
+            if bad_angle <= start_angle: bad_angle += math.pi*2
 
             #if the lines are tangent, then the points off the circle should
             #have angles that don't lie on the arc.
