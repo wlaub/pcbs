@@ -380,25 +380,22 @@ class BusNode():
         other.sort()
 
         if len(self.rads) <= len(other.rads):
-            short_rads = self.rads
-            short_pos = self.pos
-            long_rads = other.rads[:len(short_rads)]
-            long_pos = other.pos
-        else:
-            short_rads = other.rads
-            short_pos = other.pos
-            long_rads = self.rads[:len(short_rads)]
-            long_pos = self.pos
+            long_bus = other
+            short_bus = self
 
-        if inner:
-            long_rads = long_rads[::-1]
+        else:
+            long_bus = self
+            short_bus = other
 
         result = []
-        for left, right in zip(short_rads, long_rads):
+        for idx in range(len(short_bus.rads)):
+            other_idx = idx
+            if inner: other_idx = len(short_bus.rads)-1-idx
             result.append([
-                [left, *short_pos],
-                [right, *long_pos]
-                ])
+            [short_bus.rads[idx], *short_bus.pos],
+            [long_bus.rads[other_idx], *long_bus.pos],
+            ])
+
 
         return result
 
