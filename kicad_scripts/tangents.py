@@ -350,6 +350,12 @@ def add_arcs(center, arcs, board):
     pcbnew.Refresh()
     
 
+def get_drawing_side(drw):
+    if drw.GetLayer() in pcbnew.LSET_BackMask().Seq():
+        return 'BOT'
+    else:
+        return 'TOP'
+
 class BusNode():
     """
     Class for handling bus nodes comprising multiple concentric circles
@@ -365,10 +371,7 @@ class BusNode():
     def add_rad(self, rad, drw):
         self.rads.append(rad)
         self.drws.append(drw)
-        if drw.GetLayer() in pcbnew.LSET_BackMask().Seq():
-            self.sides.append('BOT')
-        else:
-            self.sides.append('TOP')
+        self.sides.append(get_drawing_side(drw))
 
     def sort(self):
         self.rads, self.sides, self.drws = zip(*sorted(zip(self.rads, self.sides, self.drws)))
@@ -767,6 +770,8 @@ class RoutePointTangents(pcbnew.ActionPlugin):
             return
         circle = circles[0]
 
+        side = get_drawing_side(drw[0])
+
         xp, yp = board.GetGridOrigin()
 
         lines = []
@@ -775,7 +780,7 @@ class RoutePointTangents(pcbnew.ActionPlugin):
         lines.extend(tlines)
         angles.extend(tangles)
 
-        add_traces(lines, 0, board)
+        add_traces(lines, BusNode.side_map[side], board)
 
 class RouteInnerTangents(pcbnew.ActionPlugin):
     def defaults(self):
