@@ -296,10 +296,10 @@ def add_circles(circles, width, layer, board):
 
 def add_arcs(center, arcs, board):
     """
-    arcs of the form: radius, start_point, angle, layer, width
+    arcs of the form: radius, start_point, angle, layer, width, netcode
     """
     lines = []
-    for radius, start_point, angle, layer, width in arcs:
+    for radius, start_point, angle, layer, width, netcode in arcs:
 
         start_angle = math.atan2(*[start_point[i]-center[i] for i in [1,0]])
         mid_angle = start_angle + angle/2
@@ -330,6 +330,8 @@ def add_arcs(center, arcs, board):
             track.SetEnd(pcbnew.wxPoint(*end_point))
             track.SetWidth(width)
             track.SetLayer(layer)
+            track.SetNetCode(netcode)
+            
             board.Add(track)
             
         """
@@ -434,7 +436,7 @@ class BusNode():
     def get_closing_arcs(self, tracks):
         """
         Given a list of tracks, generate closing arcs for all the pairs of
-        tracks on this node. Format: [[r, start_point, angle, layer, width], ...]
+        tracks on this node. Format: [[r, start_point, angle, layer, width, net], ...]
         """
         result = []
         #0, 31 for copper
@@ -472,7 +474,13 @@ class BusNode():
             if bad_angle > start_angle and bad_angle < stop_angle:
                 angle -= 2*math.pi
 
-            result.append([rad, start_point, angle, side_map[side], drw.GetWidth()])
+            nets = [x[2].GetNetCode() for x in hits]
+            print(nets)
+            nets = list(set(filter(lambda x: x!= 0, nets)))
+            netcode= 0
+            if len(nets) == 1: netcode = nets[0]
+
+            result.append([rad, start_point, angle, side_map[side], drw.GetWidth(), netcode])
             #result.append([rad, start_point, 1800*angle/math.pi, 37, drw.GetWidth()])
         return result
 
