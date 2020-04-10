@@ -260,8 +260,8 @@ def add_traces(lines, layer, board):
 
         track.SetStart(pcbnew.wxPoint(*line[0]))
         track.SetEnd(pcbnew.wxPoint(*line[1]))
-        track.SetWidth(config.GetCurrentTrackWidth())
-        track.SetLayer(layer) #TODO: FIX
+        track.SetWidth(config.GetCurrentTrackWidth()) #TODO: FIX
+        track.SetLayer(layer) 
 
         board.Add(track) 
     pcbnew.Refresh()
