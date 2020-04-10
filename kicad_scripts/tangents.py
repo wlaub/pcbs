@@ -294,7 +294,25 @@ def add_circles(circles, width, board):
         board.Add(circle)
     pcbnew.Refresh()
 
+def add_arcs(center, arcs, board):
+    """
+    arcs of the form: radius, start_point, angle, layer, width
+    """
+    for radius, start_point, angle, layer, width in arcs:
+        arc = pcbnew.DRAWSEGMENT(board)
 
+        arc.SetShape(2)
+        arc.SetCenter(center)
+        arc.SetArcStart(start_point)
+        arc.SetAngle(angle)
+        
+        arc.SetWidth(width)
+        arc.SetLayer(layer)
+
+        board.Add(arc)
+
+    pcbnew.Refresh()
+    
 
 class BusNode():
     """
@@ -304,17 +322,18 @@ class BusNode():
         self.rads = []
         self.pos = []
         self.sides = []
+        self.drws = []
 
     def add_rad(self, rad, drw):
         self.rads.append(rad)
-        
+        self.drws.append(drw)
         if drw.GetLayer() in pcbnew.LSET_BackMask().Seq():
             self.sides.append('BOT')
         else:
             self.sides.append('TOP')
 
     def sort(self):
-        self.rads, self.sides = zip(*sorted(zip(self.rads, self.sides)))
+        self.rads, self.sides, self.drws = zip(*sorted(zip(self.rads, self.sides, self.drws)))
 
     def get_tangents(self, other, inner):
         """
@@ -352,6 +371,55 @@ class BusNode():
 
     def get_outer_tangents(self, other):
         return self.get_tangents(other, inner=False)
+
+    def get_angle(self, point):
+        return math.atan2(point[1] - self.pos[1], point[0] - self.pos[0])
+
+    def get_closing_arcs(self, tracks):
+        """
+        Given a list of tracks, generate closing arcs for all the pairs of
+        tracks on this node. Format: [[r, start_point, angle, layer, width], ...]
+        """
+        result = []
+        #0, 31 for copper
+        side_map = {'TOP': 0, 'BOT': 31}
+        for rad, side, drw in zip(self.rads, self.sides, self.drws):
+            hits = []
+            print(rad, side, drw)
+
+            #Find matching end points
+            for track in tracks:
+                if side_map.get(side, None) != track.GetLayer(): continue
+                start_point = track.GetStart()
+                end_point = track.GetEnd()
+                start_hit = drw.HitTest(start_point)
+                end_hit = drw.HitTest(end_point)
+                if start_hit and not end_hit:
+                    hits.append([start_point, end_point, track])
+                elif end_hit and not start_hit:
+                    hits.append([end_point, start_point, track])
+
+            if len(hits) != 2: continue
+            
+            tresult = [rad, side_map[side]]
+
+            start_point = hits[0][0]
+
+            start_angle = self.get_angle(start_point)            
+            stop_angle = self.get_angle(hits[1][0])
+
+            bad_angle = self.get_angle(hits[0][1])
+            if stop_angle < start_angle: stop_angle += math.pi*2
+
+            angle = stop_angle-start_angle
+
+            if bad_angle > start_angle and bad_angle < stop_angle:
+                angle -= 2*math.pi
+
+            #result.append([rad, start_point, angle, side_map[side], drw.GetWidth()])
+            result.append([rad, start_point, 1800*angle/math.pi, 37, drw.GetWidth()])
+        return result
+
 
     def print(self):
         print(f"node at {self.pos} with radii {self.rads}" )
@@ -578,8 +646,11 @@ class CompleteArcs(pcbnew.ActionPlugin):
 
         nodes = get_bus_nodes(board)
 
-        for layer in layers:
-            tracks = track_map[layer]
+        for node in nodes:
+            arcs = node.get_closing_arcs(tracks)
+            import pprint
+            pprint.pprint(arcs)
+            add_arcs(pcbnew.wxPoint(*node.pos), arcs, board)
             
 
 
