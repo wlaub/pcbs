@@ -2112,8 +2112,6 @@ Wire Wire Line
 Wire Wire Line
 	9200 6250 8900 6250
 Wire Wire Line
-	9200 4750 8900 4750
-Wire Wire Line
 	14200 4750 13900 4750
 Wire Wire Line
 	13650 6250 13900 6250
@@ -2180,8 +2178,6 @@ Connection ~ 8500 4550
 Wire Wire Line
 	8500 4550 8500 4600
 Connection ~ 8500 4950
-Wire Wire Line
-	8500 4950 8500 5100
 Connection ~ 8500 6050
 Wire Wire Line
 	8500 6050 8500 6100
@@ -2316,30 +2312,6 @@ Wire Wire Line
 Connection ~ 13900 4750
 Wire Wire Line
 	13900 4750 13650 4750
-$Comp
-L Device:C C?
-U 1 1 5FF6A299
-P 8900 4900
-AR Path="/5FF6A299" Ref="C?"  Part="1" 
-AR Path="/6032E556/5FF6A299" Ref="C57"  Part="1" 
-F 0 "C57" H 9015 4946 50  0000 L CNN
-F 1 "1n" H 9015 4855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 8938 4750 50  0001 C CNN
-F 3 "~" H 8900 4900 50  0001 C CNN
-F 4 "GRM1885C1H102FA01J" H 8900 4900 50  0001 C CNN "MPN"
-	1    8900 4900
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	8900 5050 8900 5100
-Wire Wire Line
-	8900 5100 8500 5100
-Connection ~ 8500 5100
-Wire Wire Line
-	8500 5100 8500 5150
-Connection ~ 8900 4750
-Wire Wire Line
-	8900 4750 8650 4750
 $Comp
 L Device:C C?
 U 1 1 6004D0BA
@@ -3013,4 +2985,8 @@ Wire Wire Line
 Connection ~ 14200 3300
 Wire Wire Line
 	14200 3300 13350 3300
+Wire Wire Line
+	8650 4750 9200 4750
+Wire Wire Line
+	8500 4950 8500 5150
 $EndSCHEMATC
