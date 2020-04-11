@@ -601,6 +601,8 @@ class PlaceBusNode(pcbnew.ActionPlugin):
         self.icon_file_name = os.path.join(os.path.dirname(__file__), 'bus_node.png')
         self.pattern = "1"
         self.default_side = 'Top'
+        config = pcbnew.GetBoard().GetDesignSettings()
+        self.default_clearance = config.GetSmallestClearanceValue()
 
     def Run(self):
         board = pcbnew.GetBoard()
@@ -666,7 +668,7 @@ class BusNodeDialog(wx.Dialog):
         ssbox.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
-        self.trace_width = wx.TextCtrl(self.panel, value = str(ToUnit(config.GetSmallestClearanceValue())), size=(120, h*1.5))
+        self.trace_width = wx.TextCtrl(self.panel, value = str(ToUnit(config.GetCurrentTrackWidth())), size=(120, h*1.5))
         ssbox.Add(self.trace_width,   proportion=0)
         
         #pad size
@@ -697,7 +699,7 @@ class BusNodeDialog(wx.Dialog):
         ssbox.Add(label,   proportion=0)
         _,_,w,h = label.GetRect()
 
-        self.clearance_width = wx.TextCtrl(self.panel, value = str(ToUnit(config.GetCurrentTrackWidth())), size=(120, h*1.5))
+        self.clearance_width = wx.TextCtrl(self.panel, value = str(ToUnit(plugin.default_clearance)), size=(120, h*1.5))
         ssbox.Add(self.clearance_width,   proportion=0)
 
         #padding
@@ -725,6 +727,8 @@ class BusNodeDialog(wx.Dialog):
         clearance = self.FromUnit(float(self.clearance_width.GetValue()))
         radius = self.FromUnit(float(self.radius.GetValue()))
         padding = self.FromUnit(float(self.padding_width.GetValue()))
+
+        self.plugin.default_clearance = clearance
 
         if self.layer_box.GetValue() == 'Top':
             layer = board.GetLayerID('F.SilkS')
