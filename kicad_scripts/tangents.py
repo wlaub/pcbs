@@ -294,7 +294,7 @@ def add_circles(circles, width, layer, board):
         board.Add(circle)
     pcbnew.Refresh()
 
-def add_arcs(center, arcs, board):
+def add_arcs(center, arcs, board, force = False):
     """
     arcs of the form: radius, start_point, angle, layer, width, netcode
     """
@@ -313,7 +313,7 @@ def add_arcs(center, arcs, board):
                 hit = True
                 break
 
-        if hit: continue
+        if hit and not force: continue
 
         #max deviation of line from center in nm
         max_dev = .005*1e6
@@ -734,7 +734,7 @@ class BusNodeDialog(wx.Dialog):
             layer = board.GetLayerID('F.SilkS')
         else:
             layer = board.GetLayerID('B.SilkS')
-        self.plugin.layer = self.layer_box.GetValue()
+        self.plugin.default_side = self.layer_box.GetValue()
 
         self.plugin.pattern = pattern
         pattern = [float(x) for x in pattern.split(' ')]
@@ -764,6 +764,7 @@ class CompleteArcs(pcbnew.ActionPlugin):
         self.description = "For the selected bus nodes and tracks, find all tracks that have matching endpoints on a bus node and create arc tracks to complete them."
         self.show_toolbar_button = True# Optional, defaults to False
         self.icon_file_name = os.path.join(os.path.dirname(__file__), 'complete_arcs.png')
+        self.force = False
 
     def Run(self):
         board = pcbnew.GetBoard()
@@ -780,11 +781,19 @@ class CompleteArcs(pcbnew.ActionPlugin):
             arcs = node.get_closing_arcs(tracks)
             import pprint
             pprint.pprint(arcs)
-            add_arcs(pcbnew.wxPoint(*node.pos), arcs, board)
+            add_arcs(pcbnew.wxPoint(*node.pos), arcs, board, self.force)
             
-
+class ForceArcs(CompleteArcs):
+    def defaults(self):
+        self.name = "Force Arcs"
+        self.category = "Routing"
+        self.description = "As Complete Arcs, but will always route even if there is already copper present."
+        self.show_toolbar_button = True# Optional, defaults to False
+        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'force_arcs.png')
+        self.force = True
 
 CompleteArcs().register()
+ForceArcs().register()
 
 class RoutePointTangents(pcbnew.ActionPlugin):
     def defaults(self):
