@@ -813,19 +813,6 @@ F 6 "BSS84-7-F" H 2400 1850 50  0001 C CNN "MPN"
 	1    2400 1850
 	1    0    0    1   
 $EndComp
-$Comp
-L power:+3V3 #PWR?
-U 1 1 5F632863
-P 2500 1450
-AR Path="/5F632863" Ref="#PWR?"  Part="1" 
-AR Path="/6032E556/5F632863" Ref="#PWR0104"  Part="1" 
-F 0 "#PWR0104" H 2500 1300 50  0001 C CNN
-F 1 "+3V3" H 2515 1623 50  0000 C CNN
-F 2 "" H 2500 1450 50  0001 C CNN
-F 3 "" H 2500 1450 50  0001 C CNN
-	1    2500 1450
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2500 1450 2500 1550
 $Comp
@@ -1762,26 +1749,6 @@ F 3 "~" H 1100 10750 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L dk_LED-Indication-Discrete:LTST-C190KGKT LED_0
-U 1 1 67302256
-P 2700 4500
-F 0 "LED_0" H 2500 4400 50  0000 L CNN
-F 1 "LTST-C190KGKT" V 2696 4728 60  0001 L CNN
-F 2 "digikey-footprints:LED_0603" H 2900 4700 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 2900 4800 60  0001 L CNN
-F 4 "160-1435-1-ND" H 2900 4900 60  0001 L CNN "Digi-Key_PN"
-F 5 "LTST-C190KGKT" H 2900 5000 60  0001 L CNN "MPN"
-F 6 "Optoelectronics" H 2900 5100 60  0001 L CNN "Category"
-F 7 "LED Indication - Discrete" H 2900 5200 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 2900 5300 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 2900 5400 60  0001 L CNN "DK_Detail_Page"
-F 10 "LED GREEN CLEAR CHIP SMD" H 2900 5500 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 2900 5600 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 2900 5700 60  0001 L CNN "Status"
-	1    2700 4500
-	0    1    1    0   
-$EndComp
-$Comp
 L Device:R_Small_US R?
 U 1 1 67302264
 P 1700 4200
@@ -1799,26 +1766,6 @@ Text HLabel 1400 4200 0    50   Input ~ 0
 LED_0
 Text Notes 950  4150 0    50   ~ 0
 From GPIO
-$Comp
-L dk_LED-Indication-Discrete:LTST-C190KGKT LED_1
-U 1 1 6730A81F
-P 2200 4400
-F 0 "LED_1" H 2050 4250 50  0000 L CNN
-F 1 "LTST-C190KGKT" V 2196 4628 60  0001 L CNN
-F 2 "digikey-footprints:LED_0603" H 2400 4600 60  0001 L CNN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 2400 4700 60  0001 L CNN
-F 4 "160-1435-1-ND" H 2400 4800 60  0001 L CNN "Digi-Key_PN"
-F 5 "LTST-C190KGKT" H 2400 4900 60  0001 L CNN "MPN"
-F 6 "Optoelectronics" H 2400 5000 60  0001 L CNN "Category"
-F 7 "LED Indication - Discrete" H 2400 5100 60  0001 L CNN "Family"
-F 8 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 2400 5200 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814" H 2400 5300 60  0001 L CNN "DK_Detail_Page"
-F 10 "LED GREEN CLEAR CHIP SMD" H 2400 5400 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 2400 5500 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 2400 5600 60  0001 L CNN "Status"
-	1    2200 4400
-	0    -1   -1   0   
-$EndComp
 $Comp
 L Device:R_Small_US R?
 U 1 1 6730A82D
@@ -1847,7 +1794,7 @@ $Comp
 L dk_LED-Indication-Discrete:LTST-C190KGKT LED_2
 U 1 1 6772958C
 P 2700 5000
-F 0 "LED_2" H 2500 4900 50  0000 L CNN
+F 0 "LED_2" H 2650 4900 50  0000 C CNN
 F 1 "LTST-C190KGKT" V 2696 5228 60  0001 L CNN
 F 2 "digikey-footprints:LED_0603" H 2900 5200 60  0001 L CNN
 F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 2900 5300 60  0001 L CNN
@@ -1867,7 +1814,7 @@ $Comp
 L dk_LED-Indication-Discrete:LTST-C190KGKT LED_3
 U 1 1 6772959B
 P 2200 4900
-F 0 "LED_3" H 2050 4750 50  0000 L CNN
+F 0 "LED_3" H 2150 4750 50  0000 C CNN
 F 1 "LTST-C190KGKT" V 2196 5128 60  0001 L CNN
 F 2 "digikey-footprints:LED_0603" H 2400 5100 60  0001 L CNN
 F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 2400 5200 60  0001 L CNN
@@ -1930,7 +1877,7 @@ L dk_LED-Indication-Discrete:LTST-C190KGKT LED_5
 U 1 1 677C3F83
 P 3200 4650
 F 0 "LED_5" H 3050 4500 50  0000 L CNN
-F 1 "LTST-C190KGKT" V 3750 4800 60  0000 L CNN
+F 1 "LTST-C190KGKT" V 2450 4600 60  0000 L CNN
 F 2 "digikey-footprints:LED_0603" H 3400 4850 60  0001 L CNN
 F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 3400 4950 60  0001 L CNN
 F 4 "160-1435-1-ND" H 3400 5050 60  0001 L CNN "Digi-Key_PN"
@@ -1955,7 +1902,7 @@ Wire Wire Line
 Wire Wire Line
 	3700 4200 3200 4200
 Connection ~ 3200 4200
-Text Notes 2300 6000 0    50   ~ 0
+Text Notes 4000 4950 0    50   ~ 0
 012 LED\nLHZ 0\nHLZ 1\nZLH 2\nZHL 3\nLZH 4\nHZL 5\n
 Wire Wire Line
 	12750 6000 13500 6000
@@ -2989,4 +2936,129 @@ Wire Wire Line
 	8650 4750 9200 4750
 Wire Wire Line
 	8500 4950 8500 5150
+$Comp
+L dk_LED-Indication-Discrete:LTST-C190KGKT LED_6
+U 1 1 6198F399
+P 1650 6450
+F 0 "LED_6" V 1500 6550 50  0000 L CNN
+F 1 "150060AS75000" V 1600 5550 60  0000 L CNN
+F 2 "digikey-footprints:LED_0603" H 1850 6650 60  0001 L CNN
+F 3 "" H 1850 6750 60  0001 L CNN
+F 4 "732-150060AS75000CT-ND" H 1850 6850 60  0001 L CNN "Digi-Key_PN"
+F 5 "150060AS75000" H 1850 6950 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 1850 7050 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 1850 7150 60  0001 L CNN "Family"
+F 8 "product-detail/en/würth-elektronik/150060AS75000/732-150060AS75000CT-ND/10468330" H 1850 7350 60  0001 L CNN "DK_Detail_Page"
+F 9 "product-detail/en/würth-elektronik/150060AS75000/732-150060AS75000CT-ND/10468330" H 1850 7450 60  0001 L CNN "Description"
+F 10 "Wurth Elektronik" H 1850 7550 60  0001 L CNN "Manufacturer"
+F 11 "Active" H 1850 7650 60  0001 L CNN "Status"
+	1    1650 6450
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6198F39F
+P 1650 6650
+AR Path="/6198F39F" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/6198F39F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1650 6400 50  0001 C CNN
+F 1 "GND" H 1655 6477 50  0000 C CNN
+F 2 "" H 1650 6650 50  0001 C CNN
+F 3 "" H 1650 6650 50  0001 C CNN
+	1    1650 6650
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1650 6550 1650 6650
+Text Notes 800  6350 0    50   ~ 0
+2V nom @ 20mA\n13 mA @ 100
+$Comp
+L Device:R_Small_US R?
+U 1 1 6198F3A7
+P 1650 6050
+AR Path="/6198F3A7" Ref="R?"  Part="1" 
+AR Path="/6032E556/6198F3A7" Ref="R?"  Part="1" 
+F 0 "R?" H 1750 6000 50  0000 L CNN
+F 1 "100" H 1750 6100 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 1650 6050 50  0001 C CNN
+F 3 "~" H 1650 6050 50  0001 C CNN
+	1    1650 6050
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	1650 6150 1650 6250
+Wire Wire Line
+	1650 5950 1650 5850
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5F632863
+P 2500 1450
+AR Path="/5F632863" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/5F632863" Ref="#PWR0104"  Part="1" 
+F 0 "#PWR0104" H 2500 1300 50  0001 C CNN
+F 1 "+3V3" H 2515 1623 50  0000 C CNN
+F 2 "" H 2500 1450 50  0001 C CNN
+F 3 "" H 2500 1450 50  0001 C CNN
+	1    2500 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61A66EB7
+P 1650 5850
+AR Path="/61A66EB7" Ref="#PWR?"  Part="1" 
+AR Path="/6032E556/61A66EB7" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1650 5700 50  0001 C CNN
+F 1 "+3V3" H 1665 6023 50  0000 C CNN
+F 2 "" H 1650 5850 50  0001 C CNN
+F 3 "" H 1650 5850 50  0001 C CNN
+	1    1650 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L dk_LED-Indication-Discrete:LTST-C190KGKT LED_0
+U 1 1 5EA7EFCF
+P 2700 4500
+F 0 "LED_0" H 2650 4400 50  0000 C CNN
+F 1 "150060AS75000" V 2300 4250 60  0000 C CNN
+F 2 "digikey-footprints:LED_0603" H 2900 4700 60  0001 L CNN
+F 3 "" H 2900 4800 60  0001 L CNN
+F 4 "732-150060AS75000CT-ND" H 2900 4900 60  0001 L CNN "Digi-Key_PN"
+F 5 "150060AS75000" H 2900 5000 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 2900 5100 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 2900 5200 60  0001 L CNN "Family"
+F 8 "product-detail/en/würth-elektronik/150060AS75000/732-150060AS75000CT-ND/10468330" H 2900 5400 60  0001 L CNN "DK_Detail_Page"
+F 9 "product-detail/en/würth-elektronik/150060AS75000/732-150060AS75000CT-ND/10468330" H 2900 5500 60  0001 L CNN "Description"
+F 10 "Wurth Elektronik" H 2900 5600 60  0001 L CNN "Manufacturer"
+F 11 "Active" H 2900 5700 60  0001 L CNN "Status"
+	1    2700 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L dk_LED-Indication-Discrete:LTST-C190KGKT LED_1
+U 1 1 5EAAC819
+P 2200 4400
+F 0 "LED_1" H 2150 4250 50  0000 C CNN
+F 1 "150060AS75000" V 2700 3700 60  0001 L CNN
+F 2 "digikey-footprints:LED_0603" H 2400 4600 60  0001 L CNN
+F 3 "" H 2400 4700 60  0001 L CNN
+F 4 "732-150060AS75000CT-ND" H 2400 4800 60  0001 L CNN "Digi-Key_PN"
+F 5 "150060AS75000" H 2400 4900 60  0001 L CNN "MPN"
+F 6 "Optoelectronics" H 2400 5000 60  0001 L CNN "Category"
+F 7 "LED Indication - Discrete" H 2400 5100 60  0001 L CNN "Family"
+F 8 "product-detail/en/würth-elektronik/150060AS75000/732-150060AS75000CT-ND/10468330" H 2400 5300 60  0001 L CNN "DK_Detail_Page"
+F 9 "product-detail/en/würth-elektronik/150060AS75000/732-150060AS75000CT-ND/10468330" H 2400 5400 60  0001 L CNN "Description"
+F 10 "Wurth Elektronik" H 2400 5500 60  0001 L CNN "Manufacturer"
+F 11 "Active" H 2400 5600 60  0001 L CNN "Status"
+	1    2200 4400
+	0    -1   -1   0   
+$EndComp
+Wire Notes Line
+	2050 4000 2050 4650
+Wire Notes Line
+	2050 4650 2850 4650
+Wire Notes Line
+	2850 4650 2850 4000
+Wire Notes Line
+	2850 4000 2050 4000
 $EndSCHEMATC
