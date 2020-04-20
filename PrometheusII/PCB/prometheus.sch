@@ -2795,7 +2795,7 @@ Text Label 13100 7450 2    50   ~ 0
 PARAM_1_P
 Text Label 13300 5700 2    50   ~ 0
 PARAM_0_CV_P
-Text Label 12950 6700 2    50   ~ 0
+Text Label 12950 6800 2    50   ~ 0
 GLITCH_EN_P
 Text Label 13100 7750 2    50   ~ 0
 LEN_KNOB_P
@@ -3387,7 +3387,7 @@ Text Label 12950 6300 2    50   ~ 0
 VOCT_SEMI_B_P
 Text Label 12950 6900 2    50   ~ 0
 POLY_A_P
-Text Label 12950 6800 2    50   ~ 0
+Text Label 12950 6700 2    50   ~ 0
 POLY_SW_P
 Text Label 1300 1200 2    50   ~ 0
 LED_0_T
@@ -3715,7 +3715,7 @@ Text Label 11100 7450 2    50   ~ 0
 PARAM_1
 Text Label 11800 6700 0    50   ~ 0
 LFO_LED_T
-Text Label 11100 6700 2    50   ~ 0
+Text Label 11100 6800 2    50   ~ 0
 GLITCH_EN_T
 Text Label 11100 5900 2    50   ~ 0
 FREQ_LOCK_T
@@ -3814,7 +3814,7 @@ F 4 "Part Number" H 11450 6100 50  0000 C CNN "MPN"
 	1    11400 6600
 	1    0    0    -1  
 $EndComp
-Text Label 11100 6800 2    50   ~ 0
+Text Label 11100 6700 2    50   ~ 0
 POLY_SW
 $Comp
 L power:+12V #PWR0205
