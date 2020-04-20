@@ -2795,7 +2795,7 @@ Text Label 13100 7450 2    50   ~ 0
 PARAM_1_P
 Text Label 13300 5700 2    50   ~ 0
 PARAM_0_CV_P
-Text Label 12950 6800 2    50   ~ 0
+Text Label 12950 7000 2    50   ~ 0
 GLITCH_EN_P
 Text Label 13100 7750 2    50   ~ 0
 LEN_KNOB_P
@@ -3385,7 +3385,7 @@ Wire Wire Line
 	1300 1200 1450 1200
 Text Label 12950 6300 2    50   ~ 0
 VOCT_SEMI_B_P
-Text Label 12950 6900 2    50   ~ 0
+Text Label 12950 6800 2    50   ~ 0
 POLY_A_P
 Text Label 12950 6700 2    50   ~ 0
 POLY_SW_P
@@ -3697,9 +3697,9 @@ Text Label 11100 6300 2    50   ~ 0
 VOCT_SEMI_B
 Text Label 11100 7550 2    50   ~ 0
 VOCT_OCT_A
-Text Label 11100 6900 2    50   ~ 0
+Text Label 11100 6800 2    50   ~ 0
 POLY_A
-Text Label 11150 7000 2    50   ~ 0
+Text Label 11100 6900 2    50   ~ 0
 POLY_B
 Text Label 11100 7650 2    50   ~ 0
 VOCT_OCT_B
@@ -3715,7 +3715,7 @@ Text Label 11100 7450 2    50   ~ 0
 PARAM_1
 Text Label 11800 6700 0    50   ~ 0
 LFO_LED_T
-Text Label 11100 6800 2    50   ~ 0
+Text Label 11100 7000 2    50   ~ 0
 GLITCH_EN_T
 Text Label 11100 5900 2    50   ~ 0
 FREQ_LOCK_T
@@ -4401,7 +4401,7 @@ Text Label 15000 8400 2    50   ~ 0
 LED_0_P
 Text Label 15000 8500 2    50   ~ 0
 LED_1_P
-Text Label 12950 7000 2    50   ~ 0
+Text Label 12950 6900 2    50   ~ 0
 POLY_B_P
 Text Label 15000 7200 2    50   ~ 0
 POLY_B_P
