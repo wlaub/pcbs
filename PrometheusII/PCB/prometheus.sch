@@ -35,30 +35,30 @@ F 3 "" H 2150 3250 50  0001 C CNN
 	1    2550 2350
 	1    0    0    -1  
 $EndComp
-Text Label 1200 2200 2    50   ~ 0
+Text Label 1200 1200 2    50   ~ 0
 CLK1_T
-Text Label 3900 1550 0    50   ~ 0
+Text Label 3900 2150 0    50   ~ 0
 VOCT_T
-Text Label 3900 1450 0    50   ~ 0
+Text Label 3900 2250 0    50   ~ 0
 VOCT_ATV_T
-Text Label 3900 1350 0    50   ~ 0
+Text Label 3900 2350 0    50   ~ 0
 VOCT_FINE_T
 Text Label 3900 1850 0    50   ~ 0
 LEN_CV_T
-Text Label 3900 2150 0    50   ~ 0
+Text Label 3900 1550 0    50   ~ 0
 LEN_KNOB_T
-Text Label 3900 1750 0    50   ~ 0
+Text Label 3900 1950 0    50   ~ 0
 PARAM_0_CV_T
-Text Label 3900 2050 0    50   ~ 0
+Text Label 3900 1650 0    50   ~ 0
 PARAM_1_T
-Text Label 1300 1400 2    50   ~ 0
+Text Label 1300 2000 2    50   ~ 0
 LFO_LED_T
-Text Label 1300 1100 2    50   ~ 0
+Text Label 1300 2300 2    50   ~ 0
 LED_2_T
 Wire Wire Line
-	1450 2300 1200 2300
+	1450 1100 1200 1100
 Wire Wire Line
-	1200 2200 1450 2200
+	1200 1200 1450 1200
 Wire Wire Line
 	3900 2150 3650 2150
 Wire Wire Line
@@ -74,9 +74,9 @@ Wire Wire Line
 Wire Wire Line
 	3900 1550 3650 1550
 Wire Wire Line
-	3900 1450 3650 1450
+	3900 2350 3650 2350
 Wire Wire Line
-	3900 1350 3650 1350
+	3900 2250 3650 2250
 Wire Wire Line
 	1350 1000 1450 1000
 $Comp
@@ -116,7 +116,7 @@ F 3 "" H 4450 950 50  0001 C CNN
 	1    4450 950 
 	1    0    0    -1  
 $EndComp
-Text Label 1200 1600 2    50   ~ 0
+Text Label 1200 1800 2    50   ~ 0
 LFSR0_IN
 Text Label 1200 1700 2    50   ~ 0
 LFSR1_IN
@@ -180,81 +180,16 @@ Text Label 2050 5900 2    50   ~ 0
 JTAG_TDI
 Text Label 4350 6200 0    50   ~ 0
 JTAG_TDO
-Text Label 1600 7300 0    50   ~ 0
+Text Label 1200 7900 0    50   ~ 0
 JTAG_TDO
-Text Label 1600 7100 0    50   ~ 0
+Text Label 1200 7700 0    50   ~ 0
 JTAG_TMS
-Text Label 1600 7200 0    50   ~ 0
+Text Label 1200 7800 0    50   ~ 0
 JTAG_TCK
-Text Label 1600 7400 0    50   ~ 0
+Text Label 1200 8000 0    50   ~ 0
 JTAG_TDI
-Text Label 1600 7000 0    50   ~ 0
+Text Label 1200 7600 0    50   ~ 0
 VJTAG
-$Comp
-L dk_Rectangular-Connectors-Headers-Male-Pins:0878311420 J1
-U 1 1 5E9823C7
-P 1400 7300
-F 0 "J1" H 1400 7825 50  0000 C CNN
-F 1 "0878311420" H 1400 7734 50  0000 C CNN
-F 2 "digikey-footprints:PinHeader_2x7_P2mm_Drill1mm" H 1600 7500 60  0001 L CNN
-F 3 "https://www.molex.com/pdm_docs/sd/878311420_sd.pdf" H 1600 7600 60  0001 L CNN
-F 4 "WM17469-ND" H 1600 7700 60  0001 L CNN "Digi-Key_PN"
-F 5 "0878311420" H 1600 7800 60  0001 L CNN "MPN"
-F 6 "Connectors, Interconnects" H 1600 7900 60  0001 L CNN "Category"
-F 7 "Rectangular Connectors - Headers, Male Pins" H 1600 8000 60  0001 L CNN "Family"
-F 8 "https://www.molex.com/pdm_docs/sd/878311420_sd.pdf" H 1600 8100 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/molex/0878311420/WM17469-ND/662449" H 1600 8200 60  0001 L CNN "DK_Detail_Page"
-F 10 "CONN HEADER VERT 14POS 2MM" H 1600 8300 60  0001 L CNN "Description"
-F 11 "Molex" H 1600 8400 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 1600 8500 60  0001 L CNN "Status"
-	1    1400 7300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR021
-U 1 1 5E984CDB
-P 1100 7700
-F 0 "#PWR021" H 1100 7450 50  0001 C CNN
-F 1 "GND" H 1105 7527 50  0000 C CNN
-F 2 "" H 1100 7700 50  0001 C CNN
-F 3 "" H 1100 7700 50  0001 C CNN
-	1    1100 7700
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	1200 7000 1100 7000
-Wire Wire Line
-	1100 7000 1100 7100
-Wire Wire Line
-	1200 7600 1100 7600
-Connection ~ 1100 7600
-Wire Wire Line
-	1100 7600 1100 7700
-Wire Wire Line
-	1200 7500 1100 7500
-Connection ~ 1100 7500
-Wire Wire Line
-	1100 7500 1100 7600
-Wire Wire Line
-	1200 7400 1100 7400
-Connection ~ 1100 7400
-Wire Wire Line
-	1100 7400 1100 7500
-Wire Wire Line
-	1200 7300 1100 7300
-Connection ~ 1100 7300
-Wire Wire Line
-	1100 7300 1100 7400
-Wire Wire Line
-	1200 7200 1100 7200
-Connection ~ 1100 7200
-Wire Wire Line
-	1100 7200 1100 7300
-Wire Wire Line
-	1200 7100 1100 7100
-Connection ~ 1100 7100
-Wire Wire Line
-	1100 7100 1100 7200
 Text Label 3500 3850 1    50   ~ 0
 LFSR0_IN
 Wire Wire Line
@@ -1043,7 +978,7 @@ Wire Wire Line
 	9900 2450 10250 2450
 Text Label 9400 2450 2    50   ~ 0
 LFO_T
-Text Label 3900 1950 0    50   ~ 0
+Text Label 3900 1750 0    50   ~ 0
 LFO_T
 Text Label 6650 1150 0    50   ~ 0
 LEN_CV
@@ -1061,7 +996,7 @@ Text Label 8500 3100 0    50   ~ 0
 VOCT_FINE
 Text Label 10250 2450 0    50   ~ 0
 LFO
-Text Label 1200 2300 2    50   ~ 0
+Text Label 1200 1100 2    50   ~ 0
 CLK0_T
 Text Label 9400 3100 2    50   ~ 0
 PARAM_0_T
@@ -1069,7 +1004,7 @@ Wire Wire Line
 	6450 3100 6650 3100
 Text Label 10250 3100 0    50   ~ 0
 PARAM_0
-Text Label 3900 1650 0    50   ~ 0
+Text Label 3900 2050 0    50   ~ 0
 PARAM_0_T
 Text Notes 5900 6650 0    50   ~ 0
 From controls board
@@ -1833,25 +1768,25 @@ $EndComp
 Wire Wire Line
 	5200 6650 5200 4850
 Connection ~ 5200 6650
-Text Label 1200 2100 2    50   ~ 0
+Text Label 1200 1300 2    50   ~ 0
 SCK
-Text Label 1200 2000 2    50   ~ 0
+Text Label 1200 1400 2    50   ~ 0
 SDI
 $Comp
 L power:+3V3 #PWR0120
 U 1 1 5FD49C01
-P 1850 6850
-F 0 "#PWR0120" H 1850 6700 50  0001 C CNN
-F 1 "+3V3" H 1865 7023 50  0000 C CNN
-F 2 "" H 1850 6850 50  0001 C CNN
-F 3 "" H 1850 6850 50  0001 C CNN
-	1    1850 6850
+P 1450 7450
+F 0 "#PWR0120" H 1450 7300 50  0001 C CNN
+F 1 "+3V3" H 1465 7623 50  0000 C CNN
+F 2 "" H 1450 7450 50  0001 C CNN
+F 3 "" H 1450 7450 50  0001 C CNN
+	1    1450 7450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1600 7000 1850 7000
+	1200 7600 1450 7600
 Wire Wire Line
-	1850 7000 1850 6850
+	1450 7600 1450 7450
 $Comp
 L TTT_lib:XC9572XL-10VQG44C_SLFSR U2
 U 1 1 6069F5DE
@@ -2051,13 +1986,13 @@ EXT_CLK_SW
 Wire Wire Line
 	5800 6950 5900 6950
 Wire Wire Line
-	1200 2100 1450 2100
+	1200 1300 1450 1300
 Wire Wire Line
-	1450 2000 1200 2000
+	1450 1400 1200 1400
 Wire Wire Line
 	1200 1700 1450 1700
 Wire Wire Line
-	1200 1600 1450 1600
+	1200 1800 1450 1800
 Text Label 3700 6750 0    50   ~ 0
 OUT0
 Text Label 3700 6950 0    50   ~ 0
@@ -2929,14 +2864,14 @@ Wire Wire Line
 Connection ~ 2050 5100
 Wire Wire Line
 	2050 5100 2250 5100
-Text Label 1200 1900 2    50   ~ 0
+Text Label 1200 1500 2    50   ~ 0
 SDO
-Text Label 1200 1800 2    50   ~ 0
+Text Label 1200 1600 2    50   ~ 0
 WE
 Wire Wire Line
-	1200 1900 1450 1900
+	1200 1500 1450 1500
 Wire Wire Line
-	1450 1800 1200 1800
+	1450 1600 1200 1600
 Text Label 3100 3850 1    50   ~ 0
 SDO
 Wire Wire Line
@@ -2970,9 +2905,9 @@ Wire Wire Line
 	4750 5800 5000 5800
 Wire Wire Line
 	5000 5800 5000 5900
-Text Label 3900 2250 0    50   ~ 0
+Text Label 3900 1450 0    50   ~ 0
 FREQ_LOCK_T
-Text Label 3900 2350 0    50   ~ 0
+Text Label 3900 1350 0    50   ~ 0
 GLITCH_EN_T
 Wire Wire Line
 	4650 850  4650 950 
@@ -3271,7 +3206,7 @@ Wire Wire Line
 	4550 4400 4650 4400
 Wire Wire Line
 	4350 6200 4650 6200
-Text Label 1300 1500 2    50   ~ 0
+Text Label 1300 1900 2    50   ~ 0
 POLY_SW
 Text Label 3700 4400 0    50   ~ 0
 VOCT_OCT_B
@@ -3308,20 +3243,20 @@ Wire Wire Line
 	4300 800  4300 950 
 Connection ~ 4300 950 
 Wire Wire Line
-	1300 1500 1450 1500
+	1300 1900 1450 1900
 Wire Wire Line
-	1300 1100 1450 1100
+	1300 2300 1450 2300
 Wire Wire Line
-	1300 1200 1450 1200
+	1300 2200 1450 2200
 Text Label 12950 6300 2    50   ~ 0
 VOCT_SEMI_B_P
 Text Label 12950 6800 2    50   ~ 0
 POLY_A_P
 Text Label 12950 6700 2    50   ~ 0
 POLY_SW_P
-Text Label 1300 1200 2    50   ~ 0
+Text Label 1300 2200 2    50   ~ 0
 LED_0_T
-Text Label 1300 1300 2    50   ~ 0
+Text Label 1300 2100 2    50   ~ 0
 LED_1_T
 Text Label 12950 6500 2    50   ~ 0
 LED_0_P
@@ -3614,9 +3549,9 @@ F 3 "~" H 8900 3850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1300 1400 1450 1400
+	1300 2000 1450 2000
 Wire Wire Line
-	1450 1300 1300 1300
+	1450 2100 1300 2100
 Text Label 11100 7950 2    50   ~ 0
 _LEN_CV
 Text Label 11100 7850 2    50   ~ 0
@@ -4408,9 +4343,7 @@ F 3 "" H 13650 7000 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 Wire Wire Line
-	5000 1150 5000 2350
-Wire Wire Line
-	3650 2350 5000 2350
+	3650 1350 5000 1350
 $Comp
 L power:GND #PWR0140
 U 1 1 67C59A08
@@ -4476,9 +4409,9 @@ Connection ~ 2550 3400
 Wire Wire Line
 	2550 3400 2550 3500
 Wire Wire Line
-	3650 2250 4650 2250
+	3650 1450 4650 1450
 Wire Wire Line
-	4650 1150 4650 2250
+	4650 1150 4650 1450
 Wire Wire Line
 	6700 5500 4150 5500
 Wire Wire Line
@@ -4799,4 +4732,89 @@ F 3 "~" H 6150 2600 50  0001 C CNN
 	1    6150 2600
 	-1   0    0    -1  
 $EndComp
+Wire Wire Line
+	5000 1150 5000 1350
+Text Notes 750  7100 0    50   ~ 0
+JTAG Pogo Pin Part Number:\n0985-0-15-20-71-14-11-0\nUse 0.3 mm diameter hole for contact.\nAt least 1.5 mm between holes.
+$Comp
+L Connector:TestPoint TPJ1
+U 1 1 5FD7CF71
+P 1200 7600
+F 0 "TPJ1" V 1200 7950 50  0000 R CNN
+F 1 "TestPoint" H 1258 7627 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.3mm" H 1400 7600 50  0001 C CNN
+F 3 "~" H 1400 7600 50  0001 C CNN
+	1    1200 7600
+	0    -1   1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TPJ2
+U 1 1 5FFEDA0F
+P 1200 7700
+F 0 "TPJ2" V 1200 8050 50  0000 R CNN
+F 1 "TestPoint" H 1258 7727 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.3mm" H 1400 7700 50  0001 C CNN
+F 3 "~" H 1400 7700 50  0001 C CNN
+	1    1200 7700
+	0    -1   1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TPJ3
+U 1 1 6005CC1E
+P 1200 7800
+F 0 "TPJ3" V 1200 8150 50  0000 R CNN
+F 1 "TestPoint" H 1258 7827 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.3mm" H 1400 7800 50  0001 C CNN
+F 3 "~" H 1400 7800 50  0001 C CNN
+	1    1200 7800
+	0    -1   1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TPJ4
+U 1 1 600CBE96
+P 1200 7900
+F 0 "TPJ4" V 1200 8250 50  0000 R CNN
+F 1 "TestPoint" H 1258 7927 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.3mm" H 1400 7900 50  0001 C CNN
+F 3 "~" H 1400 7900 50  0001 C CNN
+	1    1200 7900
+	0    -1   1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TPJ5
+U 1 1 6013B16D
+P 1200 8000
+F 0 "TPJ5" V 1200 8350 50  0000 R CNN
+F 1 "TestPoint" H 1258 8027 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.3mm" H 1400 8000 50  0001 C CNN
+F 3 "~" H 1400 8000 50  0001 C CNN
+	1    1200 8000
+	0    -1   1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TPJ6
+U 1 1 601AA432
+P 1200 8100
+F 0 "TPJ6" V 1200 8450 50  0000 R CNN
+F 1 "TestPoint" H 1258 8127 50  0001 L CNN
+F 2 "ttt_lib:TestPoint_THTPad_D0.8mm_Drill0.3mm" H 1400 8100 50  0001 C CNN
+F 3 "~" H 1400 8100 50  0001 C CNN
+	1    1200 8100
+	0    -1   1    0   
+$EndComp
+$Comp
+L power:GND #PWR0187
+U 1 1 603128FD
+P 1450 8200
+F 0 "#PWR0187" H 1450 7950 50  0001 C CNN
+F 1 "GND" H 1455 8027 50  0000 C CNN
+F 2 "" H 1450 8200 50  0001 C CNN
+F 3 "" H 1450 8200 50  0001 C CNN
+	1    1450 8200
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1450 8200 1450 8100
+Wire Wire Line
+	1450 8100 1200 8100
 $EndSCHEMATC
