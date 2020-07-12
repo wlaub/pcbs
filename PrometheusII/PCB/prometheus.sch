@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:prometheus-cache
 EELAYER 30 0
 EELAYER END
 $Descr A3 16535 11693
@@ -48,7 +47,7 @@ Text Label 3900 1850 0    50   ~ 0
 LEN_CV_T
 Text Label 3900 2150 0    50   ~ 0
 LEN_KNOB_T
-Text Label 3900 1650 0    50   ~ 0
+Text Label 3900 1750 0    50   ~ 0
 PARAM_0_CV_T
 Text Label 3900 2050 0    50   ~ 0
 PARAM_1_T
@@ -871,21 +870,8 @@ $EndComp
 Wire Wire Line
 	7950 1800 7850 1800
 Wire Wire Line
-	6450 2450 6650 2450
-Wire Wire Line
 	7850 1800 7650 1800
 Connection ~ 7850 1800
-$Comp
-L Device:C C14
-U 1 1 5E3AB640
-P 9600 3250
-F 0 "C14" H 9715 3296 50  0000 L CNN
-F 1 "100n" H 9715 3205 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 9638 3100 50  0001 C CNN
-F 3 "~" H 9600 3250 50  0001 C CNN
-	1    9600 3250
-	-1   0    0    -1  
-$EndComp
 $Comp
 L power:GND #PWR031
 U 1 1 5E3AB646
@@ -897,24 +883,6 @@ F 3 "" H 6150 3400 50  0001 C CNN
 	1    6150 3400
 	-1   0    0    -1  
 $EndComp
-$Comp
-L Device:R_Small_US R20
-U 1 1 5E3AB64C
-P 9800 3100
-F 0 "R20" V 9700 2950 50  0000 L CNN
-F 1 "100" V 9700 3150 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 9800 3100 50  0001 C CNN
-F 3 "~" H 9800 3100 50  0001 C CNN
-	1    9800 3100
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	9700 3100 9600 3100
-Wire Wire Line
-	9900 3100 10250 3100
-Wire Wire Line
-	9600 3100 9400 3100
-Connection ~ 9600 3100
 $Comp
 L Device:C C19
 U 1 1 5E5198D2
@@ -1061,17 +1029,6 @@ Wire Wire Line
 	6150 1800 5950 1800
 Connection ~ 6150 1800
 $Comp
-L Device:C C27
-U 1 1 5E58DA57
-P 6150 2600
-F 0 "C27" H 6265 2646 50  0000 L CNN
-F 1 "100n" H 6265 2555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 6188 2450 50  0001 C CNN
-F 3 "~" H 6150 2600 50  0001 C CNN
-	1    6150 2600
-	-1   0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR045
 U 1 1 5E58DA5D
 P 9600 2750
@@ -1082,24 +1039,8 @@ F 3 "" H 9600 2750 50  0001 C CNN
 	1    9600 2750
 	-1   0    0    -1  
 $EndComp
-$Comp
-L Device:R_Small_US R38
-U 1 1 5E58DA63
-P 6350 2450
-F 0 "R38" V 6250 2300 50  0000 L CNN
-F 1 "100" V 6250 2500 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 6350 2450 50  0001 C CNN
-F 3 "~" H 6350 2450 50  0001 C CNN
-	1    6350 2450
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	6250 2450 6150 2450
 Wire Wire Line
 	9900 2450 10250 2450
-Wire Wire Line
-	6150 2450 5950 2450
-Connection ~ 6150 2450
 Text Label 9400 2450 2    50   ~ 0
 LFO_T
 Text Label 3900 1950 0    50   ~ 0
@@ -1124,22 +1065,11 @@ Text Label 1200 2300 2    50   ~ 0
 CLK0_T
 Text Label 9400 3100 2    50   ~ 0
 PARAM_0_T
-$Comp
-L power:GND #PWR0126
-U 1 1 5EE15755
-P 9600 3400
-F 0 "#PWR0126" H 9600 3150 50  0001 C CNN
-F 1 "GND" H 9605 3227 50  0000 C CNN
-F 2 "" H 9600 3400 50  0001 C CNN
-F 3 "" H 9600 3400 50  0001 C CNN
-	1    9600 3400
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
 	6450 3100 6650 3100
 Text Label 10250 3100 0    50   ~ 0
 PARAM_0
-Text Label 3900 1750 0    50   ~ 0
+Text Label 3900 1650 0    50   ~ 0
 PARAM_0_T
 Text Notes 5900 6650 0    50   ~ 0
 From controls board
@@ -4800,4 +4730,73 @@ Wire Wire Line
 Connection ~ 13400 4550
 Wire Wire Line
 	13400 4550 13400 4600
+Connection ~ 9600 3100
+Wire Wire Line
+	9600 3100 9400 3100
+Wire Wire Line
+	9700 3100 9600 3100
+$Comp
+L Device:R_Small_US R38
+U 1 1 5E58DA63
+P 9800 3100
+F 0 "R38" V 9700 2950 50  0000 L CNN
+F 1 "100" V 9700 3150 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 9800 3100 50  0001 C CNN
+F 3 "~" H 9800 3100 50  0001 C CNN
+	1    9800 3100
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C27
+U 1 1 5E58DA57
+P 9600 3250
+F 0 "C27" H 9715 3296 50  0000 L CNN
+F 1 "100n" H 9715 3205 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9638 3100 50  0001 C CNN
+F 3 "~" H 9600 3250 50  0001 C CNN
+	1    9600 3250
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 2450 6650 2450
+$Comp
+L power:GND #PWR0126
+U 1 1 5EE15755
+P 9600 3400
+F 0 "#PWR0126" H 9600 3150 50  0001 C CNN
+F 1 "GND" H 9605 3227 50  0000 C CNN
+F 2 "" H 9600 3400 50  0001 C CNN
+F 3 "" H 9600 3400 50  0001 C CNN
+	1    9600 3400
+	-1   0    0    -1  
+$EndComp
+Connection ~ 6150 2450
+Wire Wire Line
+	6150 2450 5950 2450
+Wire Wire Line
+	9900 3100 10250 3100
+Wire Wire Line
+	6250 2450 6150 2450
+$Comp
+L Device:R_Small_US R20
+U 1 1 5E3AB64C
+P 6350 2450
+F 0 "R20" V 6250 2300 50  0000 L CNN
+F 1 "100" V 6250 2500 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 6350 2450 50  0001 C CNN
+F 3 "~" H 6350 2450 50  0001 C CNN
+	1    6350 2450
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C14
+U 1 1 5E3AB640
+P 6150 2600
+F 0 "C14" H 6265 2646 50  0000 L CNN
+F 1 "100n" H 6265 2555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6188 2450 50  0001 C CNN
+F 3 "~" H 6150 2600 50  0001 C CNN
+	1    6150 2600
+	-1   0    0    -1  
+$EndComp
 $EndSCHEMATC

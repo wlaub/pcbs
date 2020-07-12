@@ -460,7 +460,7 @@ class BusNode():
                 elif end_hit and not start_hit:
                     hits.append([end_point, start_point, track])
 
-            #print(f'Hits: {hits}')
+            print(f'Hits: {hits}')
 
             if len(hits) != 2: continue
 
@@ -771,7 +771,7 @@ class CompleteArcs(pcbnew.ActionPlugin):
         config = board.GetDesignSettings()
 
         tracks = list(filter(lambda x: x.GetClass() == 'TRACK' and x.IsSelected(), board.GetTracks()))
-        #print(f'Selected Tracks: {tracks}')
+        print(f'Selected Tracks: {tracks}')
         layers = list(set(map(lambda x: x.GetLayer(), tracks)))
         track_map = {k: list(filter(lambda x: x.GetLayer() == k, tracks)) for k in layers}
 
