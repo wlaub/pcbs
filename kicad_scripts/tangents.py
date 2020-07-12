@@ -316,7 +316,7 @@ def add_arcs(center, arcs, board, force = False):
         if hit and not force: continue
 
         #max deviation of line from center in nm
-        max_dev = .005*1e6
+        max_dev = .001*1e6
         max_angle = 2*math.acos((radius-max_dev)/radius)
         N = math.ceil(abs(angle)/max_angle)
         print(f'{N} segments needed for radius {radius} and max_dev {max_dev} with max angle {max_angle} and angle {angle} = {angle/max_angle}')
@@ -355,7 +355,7 @@ def add_arcs(center, arcs, board, force = False):
     
 
 def get_drawing_side(drw):
-    if drw.GetLayer() in pcbnew.LSET_BackMask().Seq():
+    if drw.GetLayer() in pcbnew.LSET_BackMask().Seq() or drw.GetLayerName()=='Eco2.User':
         return 'BOT'
     else:
         return 'TOP'
@@ -592,6 +592,24 @@ class SpreadNets(pcbnew.ActionPlugin):
 
 SpreadNets().register()
 
+class MoveToECO2(pcbnew.ActionPlugin):
+    def defaults(self):
+        self.name = "Move"
+        self.category = "Routing"
+        self.description = "Move it to the right layer"
+        self.show_toolbar_button = True# Optional, defaults to False
+        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'connect_nets.png')
+
+    def Run(self):
+        board = pcbnew.GetBoard()
+        config = board.GetDesignSettings()
+        drws = list(filter(lambda x: x.IsSelected(), board.GetDrawings()))
+        for drw in drws:
+            drw.SetLayer(board.GetLayerID('Eco1.User'))
+
+
+#MoveToECO2().register()
+
 class PlaceBusNode(pcbnew.ActionPlugin):
     def defaults(self):
         self.name = "Place Bus Node"
@@ -731,9 +749,11 @@ class BusNodeDialog(wx.Dialog):
         self.plugin.default_clearance = clearance
 
         if self.layer_box.GetValue() == 'Top':
-            layer = board.GetLayerID('F.SilkS')
+            #layer = board.GetLayerID('F.SilkS')
+            layer = board.GetLayerID('Eco1.User')
         else:
-            layer = board.GetLayerID('B.SilkS')
+            #layer = board.GetLayerID('B.SilkS')
+            layer = board.GetLayerID('Eco2.User')
         self.plugin.default_side = self.layer_box.GetValue()
 
         self.plugin.pattern = pattern
