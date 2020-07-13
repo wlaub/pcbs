@@ -2652,7 +2652,7 @@ Wire Wire Line
 	10100 6150 10200 6150
 Wire Wire Line
 	9600 6150 9400 6150
-Text Label 13300 5900 2    50   ~ 0
+Text Label 12950 6900 2    50   ~ 0
 FREQ_LOCK_P
 Text Label 13300 5300 2    50   ~ 0
 VOCT_FINE_P
@@ -2664,7 +2664,7 @@ Text Label 12950 7000 2    50   ~ 0
 GLITCH_EN_P
 Text Label 13100 7750 2    50   ~ 0
 LEN_KNOB_P
-Text Label 13650 6700 0    50   ~ 0
+Text Label 13650 6500 0    50   ~ 0
 LFO_LED_P
 Text Label 17550 4000 2    50   ~ 0
 LED_2_P
@@ -3250,9 +3250,9 @@ Wire Wire Line
 	1300 2200 1450 2200
 Text Label 17950 4100 0    50   ~ 0
 VOCT_SEMI_B_P
-Text Label 12950 6800 2    50   ~ 0
-POLY_A_P
 Text Label 12950 6700 2    50   ~ 0
+POLY_A_P
+Text Label 12950 6600 2    50   ~ 0
 POLY_SW_P
 Text Label 1300 2200 2    50   ~ 0
 LED_0_T
@@ -3562,9 +3562,9 @@ Text Label 19700 4050 0    50   ~ 0
 VOCT_SEMI_B
 Text Label 11100 7550 2    50   ~ 0
 VOCT_OCT_A
-Text Label 11100 6800 2    50   ~ 0
+Text Label 11100 6700 2    50   ~ 0
 POLY_A
-Text Label 11100 6900 2    50   ~ 0
+Text Label 11100 6800 2    50   ~ 0
 POLY_B
 Text Label 11100 7650 2    50   ~ 0
 VOCT_OCT_B
@@ -3578,15 +3578,15 @@ Text Label 19000 3950 2    50   ~ 0
 LED_2_T
 Text Label 11100 7450 2    50   ~ 0
 PARAM_1
-Text Label 11800 6700 0    50   ~ 0
+Text Label 11800 6500 0    50   ~ 0
 LFO_LED_T
 Text Label 11100 7000 2    50   ~ 0
 GLITCH_EN_T
-Text Label 11100 5900 2    50   ~ 0
+Text Label 11100 6900 2    50   ~ 0
 FREQ_LOCK_T
 Text Label 11100 7350 2    50   ~ 0
 LFO
-Text Label 11100 5800 2    50   ~ 0
+Text Label 11100 6300 2    50   ~ 0
 _CV_FILT
 Text Label 11100 5300 2    50   ~ 0
 VOCT_FINE
@@ -3679,7 +3679,7 @@ F 4 "Part Number" H 11450 6100 50  0000 C CNN "MPN"
 	1    11400 6600
 	1    0    0    -1  
 $EndComp
-Text Label 11100 6700 2    50   ~ 0
+Text Label 11100 6600 2    50   ~ 0
 POLY_SW
 $Comp
 L power:+12V #PWR0205
@@ -3826,7 +3826,7 @@ Wire Wire Line
 	11900 5100 11900 5900
 Wire Wire Line
 	11900 5900 11100 5900
-Text Label 13300 5800 2    50   ~ 0
+Text Label 12950 6300 2    50   ~ 0
 CV_FILT_P
 $Comp
 L power:GND #PWR0195
@@ -4266,7 +4266,7 @@ Text Label 15000 8400 2    50   ~ 0
 LED_0_P
 Text Label 15000 8500 2    50   ~ 0
 LED_1_P
-Text Label 12950 6900 2    50   ~ 0
+Text Label 12950 6800 2    50   ~ 0
 POLY_B_P
 Text Label 15000 7200 2    50   ~ 0
 POLY_B_P
@@ -4955,4 +4955,92 @@ Wire Wire Line
 	19100 3950 19000 3950
 Wire Wire Line
 	19100 4050 19000 4050
+$Comp
+L power:GND #PWR0190
+U 1 1 61A198B9
+P 12950 6500
+F 0 "#PWR0190" H 12950 6250 50  0001 C CNN
+F 1 "GND" V 12950 6300 50  0000 C CNN
+F 2 "" H 12950 6500 50  0001 C CNN
+F 3 "" H 12950 6500 50  0001 C CNN
+	1    12950 6500
+	0    1    -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0191
+U 1 1 61A900E1
+P 11100 6500
+F 0 "#PWR0191" H 11100 6250 50  0001 C CNN
+F 1 "GND" V 11100 6300 50  0000 C CNN
+F 2 "" H 11100 6500 50  0001 C CNN
+F 3 "" H 11100 6500 50  0001 C CNN
+	1    11100 6500
+	0    1    -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0192
+U 1 1 61B02B58
+P 11800 6700
+F 0 "#PWR0192" H 11800 6450 50  0001 C CNN
+F 1 "GND" V 11800 6500 50  0000 C CNN
+F 2 "" H 11800 6700 50  0001 C CNN
+F 3 "" H 11800 6700 50  0001 C CNN
+	1    11800 6700
+	0    -1   1    0   
+$EndComp
+$Comp
+L power:GND #PWR0193
+U 1 1 61B756C8
+P 13650 6700
+F 0 "#PWR0193" H 13650 6450 50  0001 C CNN
+F 1 "GND" V 13650 6500 50  0000 C CNN
+F 2 "" H 13650 6700 50  0001 C CNN
+F 3 "" H 13650 6700 50  0001 C CNN
+	1    13650 6700
+	0    -1   1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61C01631
+P 13300 5800
+F 0 "#PWR?" H 13300 5550 50  0001 C CNN
+F 1 "GND" V 13300 5600 50  0000 C CNN
+F 2 "" H 13300 5800 50  0001 C CNN
+F 3 "" H 13300 5800 50  0001 C CNN
+	1    13300 5800
+	0    1    -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61C73FAE
+P 13300 5900
+F 0 "#PWR?" H 13300 5650 50  0001 C CNN
+F 1 "GND" V 13300 5700 50  0000 C CNN
+F 2 "" H 13300 5900 50  0001 C CNN
+F 3 "" H 13300 5900 50  0001 C CNN
+	1    13300 5900
+	0    1    -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61CE6944
+P 11100 5900
+F 0 "#PWR?" H 11100 5650 50  0001 C CNN
+F 1 "GND" V 11100 5700 50  0000 C CNN
+F 2 "" H 11100 5900 50  0001 C CNN
+F 3 "" H 11100 5900 50  0001 C CNN
+	1    11100 5900
+	0    1    -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61D592BB
+P 11100 5800
+F 0 "#PWR?" H 11100 5550 50  0001 C CNN
+F 1 "GND" V 11100 5600 50  0000 C CNN
+F 2 "" H 11100 5800 50  0001 C CNN
+F 3 "" H 11100 5800 50  0001 C CNN
+	1    11100 5800
+	0    1    -1   0   
+$EndComp
 $EndSCHEMATC
