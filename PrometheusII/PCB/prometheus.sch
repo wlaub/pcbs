@@ -2666,7 +2666,7 @@ Text Label 13100 7750 2    50   ~ 0
 LEN_KNOB_P
 Text Label 13650 6700 0    50   ~ 0
 LFO_LED_P
-Text Label 13650 6500 0    50   ~ 0
+Text Label 17550 4000 2    50   ~ 0
 LED_2_P
 Text Label 13300 5600 2    50   ~ 0
 PARAM_0_P
@@ -3248,7 +3248,7 @@ Wire Wire Line
 	1300 2300 1450 2300
 Wire Wire Line
 	1300 2200 1450 2200
-Text Label 12950 6300 2    50   ~ 0
+Text Label 17950 4100 0    50   ~ 0
 VOCT_SEMI_B_P
 Text Label 12950 6800 2    50   ~ 0
 POLY_A_P
@@ -3258,9 +3258,9 @@ Text Label 1300 2200 2    50   ~ 0
 LED_0_T
 Text Label 1300 2100 2    50   ~ 0
 LED_1_T
-Text Label 12950 6500 2    50   ~ 0
+Text Label 17550 4800 2    50   ~ 0
 LED_0_P
-Text Label 12950 6600 2    50   ~ 0
+Text Label 17550 4100 2    50   ~ 0
 LED_1_P
 Text Label 9400 5500 2    50   ~ 0
 EXT_CLK_SW
@@ -3558,7 +3558,7 @@ Text Label 11100 7850 2    50   ~ 0
 LEN_ATV
 Text Label 11100 7750 2    50   ~ 0
 LEN_KNOB
-Text Label 11100 6300 2    50   ~ 0
+Text Label 19700 4050 0    50   ~ 0
 VOCT_SEMI_B
 Text Label 11100 7550 2    50   ~ 0
 VOCT_OCT_A
@@ -3568,13 +3568,13 @@ Text Label 11100 6900 2    50   ~ 0
 POLY_B
 Text Label 11100 7650 2    50   ~ 0
 VOCT_OCT_B
-Text Label 11800 6300 0    50   ~ 0
+Text Label 19700 4750 0    50   ~ 0
 VOCT_SEMI_A
-Text Label 11100 6500 2    50   ~ 0
+Text Label 19000 4750 2    50   ~ 0
 LED_0_T
-Text Label 11100 6600 2    50   ~ 0
+Text Label 19000 4050 2    50   ~ 0
 LED_1_T
-Text Label 11800 6500 0    50   ~ 0
+Text Label 19000 3950 2    50   ~ 0
 LED_2_T
 Text Label 11100 7450 2    50   ~ 0
 PARAM_1
@@ -4270,7 +4270,7 @@ Text Label 12950 6900 2    50   ~ 0
 POLY_B_P
 Text Label 15000 7200 2    50   ~ 0
 POLY_B_P
-Text Label 13650 6300 0    50   ~ 0
+Text Label 17950 4800 0    50   ~ 0
 VOCT_SEMI_A_P
 Text Label 15000 6200 2    50   ~ 0
 VOCT_SEMI_A_P
@@ -4817,4 +4817,142 @@ Wire Wire Line
 	1450 8200 1450 8100
 Wire Wire Line
 	1450 8100 1200 8100
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J1
+U 1 1 60899259
+P 17750 4500
+F 0 "J1" V 17846 4680 50  0000 L CNN
+F 1 "Conn_02x03_Odd_Even" V 17755 4680 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 17750 4500 50  0001 C CNN
+F 3 "~" H 17750 4500 50  0001 C CNN
+	1    17750 4500
+	0    1    -1   0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J5
+U 1 1 608A444B
+P 19500 4350
+F 0 "J5" V 19504 4530 50  0000 L CNN
+F 1 "Conn_02x03_Odd_Even" V 19595 4530 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 19500 4350 50  0001 C CNN
+F 3 "~" H 19500 4350 50  0001 C CNN
+	1    19500 4350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	17750 4700 17750 4800
+$Comp
+L power:GND #PWR0188
+U 1 1 60944500
+P 17750 4800
+F 0 "#PWR0188" H 17750 4550 50  0001 C CNN
+F 1 "GND" H 17755 4627 50  0000 C CNN
+F 2 "" H 17750 4800 50  0001 C CNN
+F 3 "" H 17750 4800 50  0001 C CNN
+	1    17750 4800
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	19500 4650 19500 4750
+$Comp
+L power:GND #PWR0189
+U 1 1 609B0EF5
+P 19500 4750
+F 0 "#PWR0189" H 19500 4500 50  0001 C CNN
+F 1 "GND" H 19505 4577 50  0000 C CNN
+F 2 "" H 19500 4750 50  0001 C CNN
+F 3 "" H 19500 4750 50  0001 C CNN
+	1    19500 4750
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	17850 4200 17850 4100
+Wire Wire Line
+	17850 4100 17950 4100
+Wire Wire Line
+	17750 4200 17750 4000
+Wire Wire Line
+	17750 4000 17550 4000
+Wire Wire Line
+	17550 4100 17650 4100
+Wire Wire Line
+	17650 4100 17650 4200
+Wire Wire Line
+	17650 4800 17650 4700
+Wire Wire Line
+	17550 4800 17650 4800
+Wire Wire Line
+	17850 4800 17950 4800
+Wire Wire Line
+	17850 4700 17850 4800
+Wire Wire Line
+	19400 4650 19400 4750
+Wire Wire Line
+	19400 4750 19300 4750
+Wire Wire Line
+	19400 4150 19400 4050
+Wire Wire Line
+	19400 4050 19300 4050
+Wire Wire Line
+	19500 4150 19500 3950
+Wire Wire Line
+	19500 3950 19300 3950
+Wire Wire Line
+	19600 4150 19600 4050
+Wire Wire Line
+	19600 4050 19700 4050
+Wire Wire Line
+	19600 4650 19600 4750
+Wire Wire Line
+	19600 4750 19700 4750
+Text Notes 18050 5150 0    50   ~ 0
+pin 5 center: 57.45, 25.75 mm
+$Comp
+L Device:R_Small_US R86
+U 1 1 61546678
+P 19200 3950
+AR Path="/61546678" Ref="R86"  Part="1" 
+AR Path="/6032E556/61546678" Ref="R?"  Part="1" 
+F 0 "R86" V 19300 3850 50  0000 C CNN
+F 1 "330" V 19300 4050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 19200 3950 50  0001 C CNN
+F 3 "~" H 19200 3950 50  0001 C CNN
+F 4 "RMCF0603FT330R" H 19200 3950 50  0001 C CNN "MPN"
+	1    19200 3950
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small_US R10
+U 1 1 6154667F
+P 19200 4750
+AR Path="/6154667F" Ref="R10"  Part="1" 
+AR Path="/6032E556/6154667F" Ref="R?"  Part="1" 
+F 0 "R10" V 19300 4650 50  0000 C CNN
+F 1 "330" V 19300 4850 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 19200 4750 50  0001 C CNN
+F 3 "~" H 19200 4750 50  0001 C CNN
+F 4 "RMCF0603FT330R" H 19200 4750 50  0001 C CNN "MPN"
+	1    19200 4750
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R_Small_US R11
+U 1 1 61546686
+P 19200 4050
+AR Path="/61546686" Ref="R11"  Part="1" 
+AR Path="/6032E556/61546686" Ref="R?"  Part="1" 
+F 0 "R11" V 19100 3950 50  0000 C CNN
+F 1 "330" V 19100 4150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 19200 4050 50  0001 C CNN
+F 3 "~" H 19200 4050 50  0001 C CNN
+F 4 "RMCF0603FT330R" H 19200 4050 50  0001 C CNN "MPN"
+	1    19200 4050
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	19000 4750 19100 4750
+Wire Wire Line
+	19100 3950 19000 3950
+Wire Wire Line
+	19100 4050 19000 4050
 $EndSCHEMATC

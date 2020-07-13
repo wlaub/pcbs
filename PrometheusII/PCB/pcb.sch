@@ -1018,20 +1018,6 @@ F 12 "Active" H 3900 5950 60  0001 L CNN "Status"
 	1    3700 4750
 	0    1    1    0   
 $EndComp
-$Comp
-L Device:R_Small_US R?
-U 1 1 5FA1CC2C
-P 1700 5300
-AR Path="/5FA1CC2C" Ref="R?"  Part="1" 
-AR Path="/6032E556/5FA1CC2C" Ref="R86"  Part="1" 
-F 0 "R86" H 1800 5250 50  0000 L CNN
-F 1 "330" H 1800 5350 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 1700 5300 50  0001 C CNN
-F 3 "~" H 1700 5300 50  0001 C CNN
-F 4 "RMCF0603FT330R" H 1700 5300 50  0001 C CNN "MPN"
-	1    1700 5300
-	0    1    -1   0   
-$EndComp
 Text HLabel 1400 5300 0    50   Input ~ 0
 LED_2
 Text Notes 950  5250 0    50   ~ 0
@@ -1747,48 +1733,14 @@ F 3 "~" H 1100 10750 50  0001 C CNN
 	1    1100 10750
 	0    -1   -1   0   
 $EndComp
-$Comp
-L Device:R_Small_US R?
-U 1 1 67302264
-P 1700 4200
-AR Path="/67302264" Ref="R?"  Part="1" 
-AR Path="/6032E556/67302264" Ref="R10"  Part="1" 
-F 0 "R10" H 1800 4150 50  0000 L CNN
-F 1 "330" H 1800 4250 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 1700 4200 50  0001 C CNN
-F 3 "~" H 1700 4200 50  0001 C CNN
-F 4 "RMCF0603FT330R" H 1700 4200 50  0001 C CNN "MPN"
-	1    1700 4200
-	0    1    -1   0   
-$EndComp
 Text HLabel 1400 4200 0    50   Input ~ 0
 LED_0
 Text Notes 950  4150 0    50   ~ 0
 From GPIO
-$Comp
-L Device:R_Small_US R?
-U 1 1 6730A82D
-P 1700 4700
-AR Path="/6730A82D" Ref="R?"  Part="1" 
-AR Path="/6032E556/6730A82D" Ref="R11"  Part="1" 
-F 0 "R11" H 1800 4650 50  0000 L CNN
-F 1 "330" H 1800 4750 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 1700 4700 50  0001 C CNN
-F 3 "~" H 1700 4700 50  0001 C CNN
-F 4 "RMCF0603FT330R" H 1700 4700 50  0001 C CNN "MPN"
-	1    1700 4700
-	0    1    -1   0   
-$EndComp
 Text HLabel 1400 4700 0    50   Input ~ 0
 LED_1
 Text Notes 950  4650 0    50   ~ 0
 From GPIO
-Wire Wire Line
-	1400 5300 1600 5300
-Wire Wire Line
-	1400 4700 1600 4700
-Wire Wire Line
-	1400 4200 1600 4200
 $Comp
 L dk_LED-Indication-Discrete:LTST-C190KGKT LED_2
 U 1 1 6772958C
@@ -1830,8 +1782,6 @@ F 12 "Active" H 2400 6100 60  0001 L CNN "Status"
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	1800 4700 2200 4700
-Wire Wire Line
 	2700 4700 2700 4600
 Wire Wire Line
 	2700 4800 2700 4700
@@ -1847,8 +1797,6 @@ Wire Wire Line
 	2200 5300 2200 5100
 Wire Wire Line
 	2700 5100 2700 5300
-Wire Wire Line
-	1800 5300 2200 5300
 Connection ~ 2200 5300
 Wire Wire Line
 	2200 5300 2700 5300
@@ -1856,8 +1804,6 @@ Wire Wire Line
 	2700 4200 2700 4300
 Wire Wire Line
 	2200 4300 2200 4200
-Wire Wire Line
-	1800 4200 2200 4200
 Connection ~ 2200 4200
 Wire Wire Line
 	2200 4200 2700 4200
@@ -3060,4 +3006,10 @@ Wire Notes Line
 	2850 4650 2850 4000
 Wire Notes Line
 	2850 4000 2050 4000
+Wire Wire Line
+	1400 5300 2200 5300
+Wire Wire Line
+	1400 4700 2200 4700
+Wire Wire Line
+	1400 4200 2200 4200
 $EndSCHEMATC
