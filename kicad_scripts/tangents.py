@@ -279,7 +279,9 @@ def add_circles(circles, width, layer, board):
             if drw.GetLayer() == layer and drw.HitTest(pcbnew.wxPoint(x+r, y)):
                 exists = True
 
-        if exists: continue
+        if exists: 
+            print(f'Skipping existing circle {r} at {x},{y}...')
+            continue
 
         circle = pcbnew.DRAWSEGMENT(board)
 
@@ -769,6 +771,8 @@ class BusNodeDialog(wx.Dialog):
 
         radii = [base_radius + (x-1)*delta_radius for x in pattern]
         circles = [[r, xp, yp] for r in radii]
+        
+        print(circles)
 
         add_circles(circles, trace_width, layer, board)
 
