@@ -594,23 +594,26 @@ class SpreadNets(pcbnew.ActionPlugin):
 
 SpreadNets().register()
 
-class MoveToECO2(pcbnew.ActionPlugin):
+class FlipECOMarkers(pcbnew.ActionPlugin):
     def defaults(self):
-        self.name = "Move"
+        self.name = "Flip ECO"
         self.category = "Routing"
-        self.description = "Move it to the right layer"
+        self.description = "Swap Layers of Selection on ECO 1/2"
         self.show_toolbar_button = True# Optional, defaults to False
-        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'connect_nets.png')
+        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'flip_eco.png')
 
     def Run(self):
         board = pcbnew.GetBoard()
         config = board.GetDesignSettings()
         drws = list(filter(lambda x: x.IsSelected(), board.GetDrawings()))
         for drw in drws:
-            drw.SetLayer(board.GetLayerID('Eco1.User'))
+            if drw.GetLayer() == board.GetLayerID('Eco1.User'):
+                drw.SetLayer(board.GetLayerID('Eco2.User'))
+            elif drw.GetLayer() == board.GetLayerID('Eco2.User'):
+                drw.SetLayer(board.GetLayerID('Eco1.User'))
 
 
-#MoveToECO2().register()
+FlipECOMarkers().register()
 
 class PlaceBusNode(pcbnew.ActionPlugin):
     def defaults(self):
