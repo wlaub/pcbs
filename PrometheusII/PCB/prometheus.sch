@@ -2600,13 +2600,13 @@ F 4 "PREC002DAAN-RC" H 9800 7600 50  0001 C CNN "MPN"
 	1    9800 7600
 	-1   0    0    1   
 $EndComp
-Text Label 13100 7950 2    50   ~ 0
+Text Label 13100 7850 2    50   ~ 0
 LEN_CV_P
 Wire Wire Line
 	15000 6900 15100 6900
 Text Label 15000 6900 2    50   ~ 0
 LEN_ATV_P
-Text Label 13100 7850 2    50   ~ 0
+Text Label 13100 7950 2    50   ~ 0
 LEN_ATV_P
 Wire Wire Line
 	15100 5900 15000 5900
@@ -3542,9 +3542,9 @@ Wire Wire Line
 	1300 2000 1450 2000
 Wire Wire Line
 	1450 2100 1300 2100
-Text Label 11100 7950 2    50   ~ 0
-_LEN_CV
 Text Label 11100 7850 2    50   ~ 0
+_LEN_CV
+Text Label 11100 7950 2    50   ~ 0
 LEN_ATV
 Text Label 11100 7750 2    50   ~ 0
 LEN_KNOB
