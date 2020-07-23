@@ -3250,9 +3250,9 @@ Text Label 1300 2200 2    50   ~ 0
 LED_0_T
 Text Label 1300 2100 2    50   ~ 0
 LED_1_T
-Text Label 17550 4800 2    50   ~ 0
-LED_0_P
 Text Label 17550 4100 2    50   ~ 0
+LED_0_P
+Text Label 17550 4800 2    50   ~ 0
 LED_1_P
 $Comp
 L Connector:TestPoint TP23
@@ -3560,9 +3560,9 @@ Text Label 11100 7450 2    50   ~ 0
 VOCT_OCT_B
 Text Label 19700 4750 0    50   ~ 0
 VOCT_SEMI_A
-Text Label 19000 4750 2    50   ~ 0
-LED_0_T
 Text Label 19000 4050 2    50   ~ 0
+LED_0_T
+Text Label 19000 4750 2    50   ~ 0
 LED_1_T
 Text Label 19000 3950 2    50   ~ 0
 LED_2_T

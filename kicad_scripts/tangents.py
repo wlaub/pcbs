@@ -254,7 +254,15 @@ def add_trace_tangents(board):
 
 def add_traces(lines, layer, board):
 
-    for line in lines:
+    try:
+        a = layer[0]
+        layers = layer
+    except:
+        layers = [layer]*len(lines)
+
+    print(f'Add traces on layers {layers}')
+
+    for line, layer in zip(lines, layer):
         track = pcbnew.TRACK(board)
         config = board.GetDesignSettings()
 
@@ -264,6 +272,7 @@ def add_traces(lines, layer, board):
         track.SetLayer(layer) 
 
         board.Add(track) 
+
     pcbnew.Refresh()
 
 def add_circles(circles, width, layer, board):

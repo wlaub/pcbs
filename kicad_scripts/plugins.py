@@ -359,6 +359,122 @@ class RouteOuterTangents(pcbnew.ActionPlugin):
             add_traces(flat_lines, nodes[0].side_map[side], board)
 
 
+#################
+#################
+#################
+
+class ShiftClone(pcbnew.ActionPlugin):
+    def defaults(self):
+        self.name = "Shift clone"
+        self.category = "Routing"
+        self.description = "Duplicate the select track and shift it orthogonally by a specified displacement and direction"
+        self.show_toolbar_button = True# Optional, defaults to False
+        self.icon_file_name = os.path.join(os.path.dirname(__file__), 'shift_clone.png')
+        self.default_direction = 0
+        config = pcbnew.GetBoard().GetDesignSettings()
+        self.default_distance = config.GetSmallestClearanceValue()
+
+    def Run(self):
+        board = pcbnew.GetBoard()
+        config = board.GetDesignSettings()
+
+        dialog = ShiftCloneDialog(None, board, self)
+        dialog.Show(True)
+
+
+shiftcloneplugin = ShiftClone()
+
+class ShiftCloneDialog(wx.Dialog):
+    
+    def __init__(self, parent, board, plugin):
+        wx.Dialog.__init__(self, parent, title= "Shift Clone Configuration")
+        self.board = board
+        config = board.GetDesignSettings()
+        self.plugin = plugin
+
+        unit_name, ToUnit, self.FromUnit = get_units()
+
+        box = wx.BoxSizer(wx.VERTICAL)
+
+        self.panel = wx.Panel(self)
+
+        self.text_boxes = {}
+
+        subbox = wx.BoxSizer(wx.HORIZONTAL)
+
+
+        #left column
+        ssbox = wx.BoxSizer(wx.VERTICAL)
+        #width
+        label = wx.StaticText(self.panel, label = f"Displacement ({unit_name})")
+        ssbox.Add(label,   proportion=0)
+        _,_,w,h = label.GetRect()
+
+        self.distance = wx.TextCtrl(self.panel, value = str(ToUnit(plugin.default_distance)), size=(120, h*1.5))
+        ssbox.Add(self.distance,   proportion=0)
+
+        #go button
+
+        go_button = wx.Button(self.panel, label="Dew it", id=1)
+        ssbox.Add(go_button,  proportion=0)
+
+        subbox.Add(ssbox, 0, wx.RIGHT|wx.LEFT, 10)
+        
+        #right column
+
+        ssbox = wx.BoxSizer(wx.VERTICAL)
+        #clearance
+        """
+        label = wx.StaticText(self.panel, label = f"Clearance ({unit_name})")
+        ssbox.Add(label,   proportion=0)
+        _,_,w,h = label.GetRect()
+
+        self.clearance_width = wx.TextCtrl(self.panel, value = str(ToUnit(plugin.default_clearance)), size=(120, h*1.5))
+        ssbox.Add(self.clearance_width,   proportion=0)
+
+        #padding
+        label = wx.StaticText(self.panel, label = f"Extra Padding  ({unit_name})")
+        ssbox.Add(label,   proportion=0)
+        _,_,w,h = label.GetRect()
+
+        self.padding_width = wx.TextCtrl(self.panel, value = "0", size=(120, h*1.5))
+        ssbox.Add(self.padding_width,   proportion=0)
+        """
+        #Cancel button
+
+        cancel_button = wx.Button(self.panel, label="Do Not.", id=2)
+        ssbox.Add(cancel_button,  proportion=0)
+
+        subbox.Add(ssbox)
+        box.Add(subbox)
+
+        self.panel.SetSizer(box)
+        self.Bind(wx.EVT_BUTTON, self.OnPress, id=1)
+        self.Bind(wx.EVT_BUTTON, self.OnCancel, id=2)
+
+    def OnPress(self, event):
+        board = self.board
+        pattern = self.pattern.GetValue()
+
+        displacement = self.FromUnit(float(self.distance.GetValue()))
+
+        self.plugin.default_displacement = displacement
+
+        #Get selected traces
+            #Compute angle of trace
+            #compute offset of trace
+            #Compute new location of trace
+            #create trace
+            #drc?
+
+        self.Close()
+
+    def OnCancel(self, event):
+        self.Close()
+
+
+
+
 SpreadNets().register()
 FlipECOMarkers().register()
 busnodeplugin.register()        
