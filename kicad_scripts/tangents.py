@@ -262,7 +262,7 @@ def add_traces(lines, layer, board):
 
     print(f'Add traces on layers {layers}')
 
-    for line, layer in zip(lines, layer):
+    for line, layer in zip(lines, layers):
         track = pcbnew.TRACK(board)
         config = board.GetDesignSettings()
 
@@ -272,6 +272,7 @@ def add_traces(lines, layer, board):
         track.SetLayer(layer) 
 
         board.Add(track) 
+
 
     pcbnew.Refresh()
 
