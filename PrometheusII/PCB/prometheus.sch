@@ -2652,7 +2652,7 @@ Wire Wire Line
 	10000 6150 10100 6150
 Text Label 13300 5900 2    50   ~ 0
 FREQ_LOCK_P
-Text Label 13300 5300 2    50   ~ 0
+Text Label 13300 5400 2    50   ~ 0
 VOCT_FINE_P
 Text Label 13650 7000 0    50   ~ 0
 PARAM_1_P
@@ -2697,7 +2697,7 @@ Wire Wire Line
 	9500 6050 9300 6050
 Text Label 13300 5500 2    50   ~ 0
 VOCT_CV_P
-Text Label 13300 5400 2    50   ~ 0
+Text Label 13300 5300 2    50   ~ 0
 VOCT_ATV_P
 $Comp
 L power:GND #PWR0131
@@ -3578,9 +3578,9 @@ Text Label 11100 7000 2    50   ~ 0
 LFO
 Text Label 11100 6300 2    50   ~ 0
 _CV_FILT
-Text Label 11100 5300 2    50   ~ 0
-VOCT_FINE
 Text Label 11100 5400 2    50   ~ 0
+VOCT_FINE
+Text Label 11100 5300 2    50   ~ 0
 VOCT_ATV
 Text Label 11100 5700 2    50   ~ 0
 _PARAM_0_CV
