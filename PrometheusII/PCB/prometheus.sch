@@ -4401,15 +4401,15 @@ Wire Wire Line
 	4150 5100 5500 5100
 Wire Wire Line
 	4150 5700 7850 5700
-Text Label 7350 5300 0    50   ~ 0
-POLY_B
-Text Label 7350 5400 0    50   ~ 0
-VOCT_SEMI_A
 Text Label 7350 5200 0    50   ~ 0
+POLY_B
+Text Label 7350 5500 0    50   ~ 0
+VOCT_SEMI_A
+Text Label 7350 5300 0    50   ~ 0
 POLY_A
 Text Label 7350 5100 0    50   ~ 0
 VOCT_OCT_A
-Text Label 7350 5500 0    50   ~ 0
+Text Label 7350 5400 0    50   ~ 0
 VOCT_SEMI_B
 Wire Wire Line
 	5500 5100 7850 5100

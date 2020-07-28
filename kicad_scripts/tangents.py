@@ -464,13 +464,21 @@ class BusNode():
                 if side_map.get(side, None) != track.GetLayer(): continue
                 start_point = track.GetStart()
                 end_point = track.GetEnd()
-                #print(f'Checking hit at {start_point} and {end_point}')
-                start_hit = drw.HitTest(start_point)
-                end_hit = drw.HitTest(end_point)
-                if start_hit and not end_hit:
+
+                def dist(a,b): return (a[0]-b[0])**2+(a[1]-b[1])**2
+
+                if abs(dist(start_point, self.pos)-rad**2) < abs(dist(end_point, self.pos)-rad**2):
                     hits.append([start_point, end_point, track])
-                elif end_hit and not start_hit:
+                else:
                     hits.append([end_point, start_point, track])
+
+                #print(f'Checking hit at {start_point} and {end_point}')
+                #start_hit = drw.HitTest(start_point)
+                #end_hit = drw.HitTest(end_point)
+                #if start_hit and not end_hit:
+                #    hits.append([start_point, end_point, track])
+                #elif end_hit and not start_hit:
+                #    hits.append([end_point, start_point, track])
 
             print(f'Hits: {hits}')
 
