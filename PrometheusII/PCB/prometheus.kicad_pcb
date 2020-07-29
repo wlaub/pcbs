@@ -64,8 +64,8 @@
     (mod_edge_width 0.12)
     (mod_text_size 1 1)
     (mod_text_width 0.15)
-    (pad_size 0.8 0.8)
-    (pad_drill 0.5)
+    (pad_size 6.75 6.75)
+    (pad_drill 6.75)
     (pad_to_mask_clearance 0.051)
     (solder_mask_min_width 0.25)
     (aux_axis_origin -198.74 4.76)
@@ -6279,7 +6279,7 @@
     (pad "" np_thru_hole circle (at 0 0 180) (size 6.85 6.85) (drill 6.85) (layers *.Cu *.Mask))
   )
 
-  (module ttt_panels:PJ398SM_Unplated (layer F.Cu) (tedit 5F13B3C6) (tstamp 5F163EBC)
+  (module ttt_panels:PJ398SM_Unplated (layer F.Cu) (tedit 5F20E573) (tstamp 5F163EBC)
     (at -22.5 -44 180)
     (fp_text reference REF** (at 0 0.5) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
@@ -6287,10 +6287,10 @@
     (fp_text value PJ398SM_Unplated (at 0 -0.5) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (pad "" np_thru_hole circle (at 0 0 180) (size 6.75 6.75) (drill 6.5) (layers *.Cu *.Mask))
+    (pad "" np_thru_hole circle (at 0 0 180) (size 6.75 6.75) (drill 6.75) (layers *.Cu *.Mask))
   )
 
-  (module ttt_panels:PJ398SM_Unplated (layer F.Cu) (tedit 5F13B3C0) (tstamp 5F163EBC)
+  (module ttt_panels:PJ398SM_Unplated (layer F.Cu) (tedit 5F20E56B) (tstamp 5F163EBC)
     (at -22.5 -30 180)
     (fp_text reference REF** (at 0 0.5) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
@@ -6298,10 +6298,10 @@
     (fp_text value PJ398SM_Unplated (at 0 -0.5) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (pad "" np_thru_hole circle (at 0 0 180) (size 6.75 6.75) (drill 6.5) (layers *.Cu *.Mask))
+    (pad "" np_thru_hole circle (at 0 0 180) (size 6.75 6.75) (drill 6.75) (layers *.Cu *.Mask))
   )
 
-  (module ttt_panels:PJ398SM_Unplated (layer F.Cu) (tedit 5F13B3B9) (tstamp 5F163ED8)
+  (module ttt_panels:PJ398SM_Unplated (layer F.Cu) (tedit 5F20E561) (tstamp 5F163ED8)
     (at -22.5 -16 180)
     (fp_text reference REF** (at 0 0.5) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
@@ -6309,7 +6309,7 @@
     (fp_text value PJ398SM_Unplated (at 0 -0.5) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (pad "" np_thru_hole circle (at 0 0 180) (size 6.75 6.75) (drill 6.5) (layers *.Cu *.Mask))
+    (pad "" np_thru_hole circle (at 0 0 180) (size 6.75 6.75) (drill 6.75) (layers *.Cu *.Mask))
   )
 
   (module ttt_panels:PJ398SM_Plated (layer F.Cu) (tedit 5F13AF72) (tstamp 5F163E8C)
