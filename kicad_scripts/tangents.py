@@ -192,6 +192,19 @@ def get_nearest_tangent(lines, xp, yp):
                 best_dist = dist
     return best
 
+
+def shift(point, dist, a):
+    """
+    shift point by dist in direction a
+    """
+    result = [
+        point[0]+dist*math.cos(a),
+        point[1]+dist*math.sin(a)
+        ]
+    return result
+    
+def dist(a,b): return (a[0]-b[0])**2+(a[1]-b[1])**2
+
 def get_trace(r1, x1, y1, r2, x2, y2, over1, over2):
     """
     Given a circle of radius r1 at 0,0
@@ -465,7 +478,7 @@ class BusNode():
                 start_point = track.GetStart()
                 end_point = track.GetEnd()
 
-                def dist(a,b): return (a[0]-b[0])**2+(a[1]-b[1])**2
+
 
                 if abs(dist(start_point, self.pos)-rad**2) < abs(dist(end_point, self.pos)-rad**2):
                     hits.append([start_point, end_point, track])
