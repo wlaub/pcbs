@@ -3069,4 +3069,6 @@ Wire Wire Line
 Connection ~ 8900 4750
 Wire Wire Line
 	8900 4750 9200 4750
+Text Notes 5850 7300 0    50   ~ 0
+Cutoff 1/(6.28*r*c)\n2.843 kHz
 $EndSCHEMATC
