@@ -369,7 +369,7 @@ void loop() {
   int start_time = micros();
 
   /*Charlieplexed LEDs*/
-
+/*
   led_cycle_counter += 1;
   if (led_cycle_counter > 1000)
   {
@@ -378,7 +378,7 @@ void loop() {
     {
       led_map[i] = 1-led_map[i];
     }
-  }
+  }*/
 
   if(led_map[led_index] != 0)
   {
@@ -578,12 +578,12 @@ void loop() {
 //
 //  /******Update taps and indicators******/
 //  
-//  if (taps != new_taps)
-//  {
-//    digitalWrite(taps_led_pin, 1 - digitalRead(taps_led_pin));
-//  }
-//  taps = new_taps;
-//
+  if (taps != new_taps)
+  {
+    led_map[3] = 1-led_map[3];
+  }
+  taps = new_taps;
+
 //  //digitalWrite(lfsr1_in_pin, 0); //Uninverts LFSR1 during glitch, kinda buggy?
   if (glitch_counter > 0)
   {
@@ -633,7 +633,10 @@ void loop() {
   Serial.print("\n");
 
   int current_time = micros();
-  Serial.print(actual_len);
+  //Serial.print(actual_len);
+  Serial.print(len_knob);
+  Serial.print(",");
+  Serial.print(cv_len);
   Serial.print(",");
   Serial.print(current_time-start_time);
 //  Serial.print(",");
