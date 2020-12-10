@@ -44,35 +44,37 @@ const uint8_t pin_to_channel[] = { // pg 482
 
 
 
-int taps_maps [12] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+//int taps_maps [12] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}; //Moved to serial interface
 float poly_maps[8] = {0, 1, 1.2, 1.25, 1.333, 1.5, 1.5, 2};
 
-int clk_pin_0 = 12;
-int clk_pin_1 = 13;
+int clk_pin_0 = 0; //The LFSR Clocks
+int clk_pin_1 = 1;
 
-int lfsr0_in_pin = 32;
-int lfsr1_in_pin = 33;
+int lfsr0_in_pin = 7; //XOR'd with the LFSR feedback
+int lfsr1_in_pin = 6;
 
-int glitch_pin = 31;
-int freq_lock_pin = 29;
-int glitch_en_pin = 27;
-int ext_clk_en_pin = 30;
+//int glitch_pin = 31; //Moved to expander
+int freq_lock_pin = 13;  
+int glitch_en_pin = 23;
+//int ext_clk_en_pin = 30; //Moved to expander
 
-int lfo_led_pin  = 26;
-int taps_led_pin = 28;
+int lfo_led_pin  = 9;
+int led0_pin = 10;
+int led1_pin = 11;
+int led2_pin = 12;
 
-int voct_semi_pin = A10;
-int voct_fine_pin = A0;
-int voct_atv_pin = A1;
+//int voct_semi_pin = A10; //Moved to encoder
+int voct_fine_pin = A1; 
+int voct_atv_pin = A0;
 int voct_cv_pin = A2;
-int param_0_cv_pin = A3;
-int lfo_pin = A4;
+int param_0_cv_pin = A4;
+int lfo_pin = A6;
 int len_cv_pin = A5;
-int poly_pin = A6;
+//int poly_pin = A6; //Moved to encoder
 int param_1_pin = A7;
-int voct_oct_pin = A8;
-int len_knob_pin = A9;
-int param_0_pin = A11;
+//int voct_oct_pin = A8; //Moved to encoder
+int len_knob_pin = A8;
+int param_0_pin = A3;
 
 int lfo_counter = 0;
 
@@ -82,20 +84,24 @@ int glitch_in_state = 0;
 
 void init_taps()
 {
+  /*
   for (int i = 0; i < 12; ++i)
   {
     pinMode(taps_maps[i], OUTPUT);
     digitalWrite(taps_maps[i], 0);
   }
+  */
 }
 
 void set_taps(int taps)
 {
+  /*
   for (int i = 0; i < 12; ++i)
   {
     digitalWrite(taps_maps[i], (taps & 1));
     taps >>= 1;
   }
+  */
 }
 
 #define INIT_OUTPUT(pin, value)\
@@ -128,26 +134,25 @@ void setup() {
   digitalWrite(lfsr0_in_pin, 1);
   digitalWrite(lfsr1_in_pin, 1);
 
-  INIT_OUTPUT(taps_led_pin, 0)
   INIT_OUTPUT(lfo_led_pin, 0)
+  //INIT_OUTPUT(led0_pin, 0)
+  //INIT_OUTPUT(led1_pin, 0)
+  //INIT_OUTPUT(led2_pin, 0)
 
   pinMode(glitch_en_pin, INPUT);
-  pinMode(glitch_pin, INPUT);
+  //pinMode(glitch_pin, INPUT);
   pinMode(freq_lock_pin, INPUT);
-  pinMode(ext_clk_en_pin, INPUT);
+  //pinMode(ext_clk_en_pin, INPUT);
 
-  pinMode(A0, INPUT);
-  pinMode(A1, INPUT);
-  pinMode(A2, INPUT);
-  pinMode(A3, INPUT);
-  pinMode(A4, INPUT);
-  pinMode(A5, INPUT);
-  pinMode(A6, INPUT);
-  pinMode(A7, INPUT);
-  pinMode(A8, INPUT);
-  pinMode(A9, INPUT);
-  pinMode(A10, INPUT);
-  pinMode(A11, INPUT);
+  pinMode(voct_atv_pin, INPUT);
+  pinMode(voct_fine_pin, INPUT);
+  pinMode(voct_cv_pin, INPUT);
+  pinMode(param_0_pin, INPUT);
+  pinMode(param_0_cv_pin, INPUT);
+  pinMode(len_cv_pin, INPUT);
+  pinMode(lfo_pin, INPUT);
+  pinMode(param_1_pin, INPUT);
+  pinMode(len_knob_pin, INPUT);
 
   init_taps();
   set_taps(0x800);
@@ -327,44 +332,108 @@ void adc_interrupt()
 
 #define LOOP_PERIOD 200
 
+volatile int led_index = 0;
+//0 = L, 1 = H, 2 = Z. These are the pin states necessary to light a given LED
+char led0_state[] = {0,1,2,2,0,1,2};
+char led1_state[] = {1,0,0,1,2,2,2};
+char led2_state[] = {2,2,1,0,1,0,2};
+
+// Upper right, lower right, upper middle, lower middle, upper left, lower left
+char led_map[] = {0,0,1,1,0,0};
+
+int led_cycle_counter = 0;
+
+void set_led(int pin, int state)
+{
+  //Just configures the output according the scheme above
+  if(state == 0)
+  {
+    pinMode(pin, OUTPUT);
+    digitalWrite(pin, 0);
+  }
+  else if(state == 1)
+  {
+    pinMode(pin, OUTPUT);
+    digitalWrite(pin, 1);
+  }
+  else if(state == 2)
+  {
+    pinMode(pin, INPUT);
+  }
+  
+}
+
 void loop() {
   // put your main code here, to run repeatedly:
 
   int start_time = micros();
 
-  /**/
-  //Serial Test
-  int out_data = 0xaa;
-  for(int i = 0; i < 14; ++i) // mock write
-  {
-     /* digitalWrite(clk_pin_1, 0);
-      digitalWrite(clk_pin_1, out_data&0x1);
-      digitalWrite(clk_pin_1, 1);*/
-      out_data >>= 1;
-  }
-  for(int i = 0; i < 8; ++i) //mock read
-  {
-  /*    digitalWrite(clk_pin_1, 0);
-      digitalWrite(clk_pin_1, out_data&0x1);
-      digitalWrite(clk_pin_1, 1);*/
-      out_data >>= 1;
-  }
-  /**/
+  /*Charlieplexed LEDs*/
 
-  int voct_semi;
-  int voct_fine;
-  int voct_cv;
-  //int voct_oct; GLOBAL
-  int voct_atv;
-  voct_semi = adc_memory[pin_to_channel[voct_semi_pin]];
-  voct_fine = adc_memory[pin_to_channel[voct_fine_pin]];
-  voct_cv = adc_memory[pin_to_channel[voct_cv_pin]];
-  voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
-  voct_oct = adc_memory[pin_to_channel[voct_oct_pin]];
-  voct_oct -= half;
-  voct_oct = round(3.5*float(voct_oct)/half); //7 octaves
+  led_cycle_counter += 1;
+  if (led_cycle_counter > 1000)
+  {
+    led_cycle_counter = 0;
+    for(int i = 0; i < 6; ++i)  
+    {
+      led_map[i] = 1-led_map[i];
+    }
+  }
 
-  
+  if(led_map[led_index] != 0)
+  {
+    set_led(led0_pin, led0_state[led_index]);
+    set_led(led1_pin, led1_state[led_index]);
+    set_led(led2_pin, led2_state[led_index]);
+  }
+  else
+  {
+    set_led(led0_pin, led0_state[6]);
+    set_led(led1_pin, led1_state[6]);
+    set_led(led2_pin, led2_state[6]);
+
+  }
+
+  led_index += 1;
+  if (led_index >5)
+  {
+    led_index = 0;
+  }
+
+//  /**/
+//  
+//  //Serial Test
+//  int out_data = 0xaa;
+//  for(int i = 0; i < 14; ++i) // mock write
+//  {
+//     /* digitalWrite(clk_pin_1, 0);
+//      digitalWrite(clk_pin_1, out_data&0x1);
+//      digitalWrite(clk_pin_1, 1);*/
+//      out_data >>= 1;
+//  }
+//  for(int i = 0; i < 8; ++i) //mock read
+//  {
+//  /*    digitalWrite(clk_pin_1, 0);
+//      digitalWrite(clk_pin_1, out_data&0x1);
+//      digitalWrite(clk_pin_1, 1);*/
+//      out_data >>= 1;
+//  }
+//  /**/
+//
+//  int voct_semi;
+//  int voct_fine;
+//  int voct_cv;
+//  //int voct_oct; GLOBAL
+//  int voct_atv;
+//  voct_semi = adc_memory[pin_to_channel[voct_semi_pin]];
+//  voct_fine = adc_memory[pin_to_channel[voct_fine_pin]];
+//  voct_cv = adc_memory[pin_to_channel[voct_cv_pin]];
+//  voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
+//  voct_oct = adc_memory[pin_to_channel[voct_oct_pin]];
+//  voct_oct -= half;
+//  voct_oct = round(3.5*float(voct_oct)/half); //7 octaves
+//
+//  
   int param_0;
   int param_0_cv;
   int param_1;
@@ -381,63 +450,65 @@ void loop() {
 
 
   freq_lock = 1 - digitalRead(freq_lock_pin);
-  
-  /*  Serial.print(voct_cv);
-    Serial.print(",");
-    Serial.print(adc_memory[pin_to_channel[poly_pin]]);
-    Serial.print(",");
-*/
-    /*
-    Serial.print(voct_atv);
-    Serial.print(",");
-    Serial.print(voct_fine);
-    Serial.print(",");
-    Serial.print(voct_semi);
-    Serial.print(",");
-    Serial.print(param_0_cv);
-    Serial.print(",");
-    Serial.print(param_0);
-    Serial.print(",");
-    Serial.print(param_1);
-    Serial.print(",");
-    Serial.print(poly);
-    Serial.print(",");
-    Serial.print(len_cv);
-    Serial.print(",");
-    Serial.print(len_knob);
-*/    
-    /*Serial.print(",");
-    Serial.print(lfo);
-
-    Serial.print(",");
-    Serial.print(adc_memory[pin_to_channel[voct_oct_pin]]);
-
-
-    Serial.print(",");
-    Serial.print(adc_counter);*/
-    adc_counter = 0;
-    
-  
-  /******Internal LFO and glitch******/
+//  
+//  /*  Serial.print(voct_cv);
+//    Serial.print(",");
+//    Serial.print(adc_memory[pin_to_channel[poly_pin]]);
+//    Serial.print(",");
+//*/
+//    /*
+//    Serial.print(voct_atv);
+//    Serial.print(",");
+//    Serial.print(voct_fine);
+//    Serial.print(",");
+//    Serial.print(voct_semi);
+//    Serial.print(",");
+//    Serial.print(param_0_cv);
+//    Serial.print(",");
+//    Serial.print(param_0);
+//    Serial.print(",");
+//    Serial.print(param_1);
+//    Serial.print(",");
+//    Serial.print(poly);
+//    Serial.print(",");
+//    Serial.print(len_cv);
+//    Serial.print(",");
+//    Serial.print(len_knob);
+//*/    
+//    /*Serial.print(",");
+//    Serial.print(lfo);
+//
+//    Serial.print(",");
+//    Serial.print(adc_memory[pin_to_channel[voct_oct_pin]]);
+//
+//
+//    Serial.print(",");
+//    Serial.print(adc_counter);*/
+//    adc_counter = 0;
+//    
+//  
+//  /******Internal LFO and glitch******/
 
   int new_taps;
 
   int lfo;
-  poly = (adc_memory[pin_to_channel[poly_pin]]>>9);
   lfo = adc_memory[pin_to_channel[lfo_pin]];
+  //lfo = 1000;
 
   float lfo_result;
   lfo_result = pow(2,4.32*float(lfo)/(half)); //20 Hz to 1 Hz at center = 20 to 1/20Hz. log_2(400)= 8.64
   lfo_result *= 50000/LOOP_PERIOD; //20 Hz = 50e3 us
   lfo = int(lfo_result);  
 
-  //int glitch_enabled = 1 - digitalRead(glitch_en_pin);
-  int glitch_enabled = digitalRead(glitch_en_pin); //For rev00 w/ wrong switch
+  int glitch_enabled = 1 - digitalRead(glitch_en_pin);
+  //int glitch_enabled = digitalRead(glitch_en_pin); //For rev00 w/ wrong switch
   
-
-  int glitch_in = 1 - digitalRead(glitch_pin);
-  int ext_glitch = glitch_in - glitch_in_state;
-
+//  
+//
+//  int glitch_in = 1 - digitalRead(glitch_pin);
+//  int ext_glitch = glitch_in - glitch_in_state;
+//
+  
   if(glitch_enabled)
   {
     lfo_counter += 1;
@@ -447,9 +518,9 @@ void loop() {
     lfo_counter = 0;
   }
   if (
-      (glitch_enabled_memory != glitch_enabled && glitch_enabled)
-      || (lfo_counter > lfo && glitch_enabled)
-      || ext_glitch == 1
+      (glitch_enabled_memory != glitch_enabled && glitch_enabled) //The first tick on enabling
+      || (lfo_counter > lfo ) //subsequence ticks
+//      || ext_glitch == 1  //external glitch trigger
      )
   {
     lfo_counter = 0;
@@ -464,10 +535,11 @@ void loop() {
     digitalWrite(lfo_led_pin, 1);
   }
   glitch_enabled_memory = glitch_enabled;
-
-  glitch_in_state = glitch_in;
-
-  /******Length selection******/
+  
+//
+//  glitch_in_state = glitch_in;
+//
+//  /******Length selection******/
 
   float knob_len = float(len_knob) * 11 / 4000;
   float cv_len = -9.17*((float(len_cv)-2055)/(half));
@@ -503,60 +575,60 @@ void loop() {
 
   actual_len = get_actual_length(len);
 
-
-  /******Update taps and indicators******/
-  
-  if (taps != new_taps)
-  {
-    digitalWrite(taps_led_pin, 1 - digitalRead(taps_led_pin));
-  }
-  taps = new_taps;
-
-  //digitalWrite(lfsr1_in_pin, 0); //Uninverts LFSR1 during glitch, kinda buggy?
+//
+//  /******Update taps and indicators******/
+//  
+//  if (taps != new_taps)
+//  {
+//    digitalWrite(taps_led_pin, 1 - digitalRead(taps_led_pin));
+//  }
+//  taps = new_taps;
+//
+//  //digitalWrite(lfsr1_in_pin, 0); //Uninverts LFSR1 during glitch, kinda buggy?
   if (glitch_counter > 0)
   {
-    //digitalWrite(lfsr1_in_pin, 1); //Uninverts LFSR1 during glitch, kinda buggy/ tends to stick?
+//    //digitalWrite(lfsr1_in_pin, 1); //Uninverts LFSR1 during glitch, kinda buggy/ tends to stick?
     glitch_counter -= 1;
-    set_taps(glitch_taps);
-    actual_len=2048; //To freq lock during glitch
+//    set_taps(glitch_taps);
+//    actual_len=2048; //To freq lock during glitch
   }
-  else
-  {
-    set_taps(taps);
-  }
-
-  /******Read and process pitch control knobs******/
-
-  /*quantize to +/- 6 semitones*/
-  /*center*/
-  voct_semi -= half; 
-  //float semi;
-  semi = round(6*float(voct_semi)/half) / 12.0;
-
-  /*Scale tuning knob to +/- 1/12*/
-  /*Center*/
-  voct_fine -= half;
-  /*Deadzone at zero*/
-  if (voct_fine > -zero and voct_fine < zero)
-  {
-    voct_fine = 0;
-    //digitalWrite(XXX, 1); //This is where you would indicate deadzone if you had a light
-  }
-  else if (voct_fine <= -zero)
-  {
-    voct_fine += zero;
-  }
-  else if (voct_fine >= zero)
-  {
-    voct_fine -= zero;
-  }
-
-  fine = float(voct_fine) / (12.0 * (half - zero));
-
-  /*Terminate debug prints*/
-
- //   Serial.print(actual_len);
- //   Serial.print(",");
+//  else
+//  {
+//    set_taps(taps);
+//  }
+//
+//  /******Read and process pitch control knobs******/
+//
+//  /*quantize to +/- 6 semitones*/
+//  /*center*/
+//  voct_semi -= half; 
+//  //float semi;
+//  semi = round(6*float(voct_semi)/half) / 12.0;
+//
+//  /*Scale tuning knob to +/- 1/12*/
+//  /*Center*/
+//  voct_fine -= half;
+//  /*Deadzone at zero*/
+//  if (voct_fine > -zero and voct_fine < zero)
+//  {
+//    voct_fine = 0;
+//    //digitalWrite(XXX, 1); //This is where you would indicate deadzone if you had a light
+//  }
+//  else if (voct_fine <= -zero)
+//  {
+//    voct_fine += zero;
+//  }
+//  else if (voct_fine >= zero)
+//  {
+//    voct_fine -= zero;
+//  }
+//
+//  fine = float(voct_fine) / (12.0 * (half - zero));
+//
+//  /*Terminate debug prints*/
+//
+// //   Serial.print(actual_len);
+// //   Serial.print(",");
  
   Serial.print("\n");
 
@@ -564,8 +636,8 @@ void loop() {
   Serial.print(actual_len);
   Serial.print(",");
   Serial.print(current_time-start_time);
-  Serial.print(",");
-  Serial.print(1e6*adc_time_count/(float(adc_cumulative_time))); // Hz
+//  Serial.print(",");
+//  Serial.print(1e6*adc_time_count/(float(adc_cumulative_time))); // Hz
   adc_cumulative_time = 0;
   adc_time_count = 0;
   
