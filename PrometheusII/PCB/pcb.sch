@@ -1760,7 +1760,7 @@ L dk_LED-Indication-Discrete:LTST-C190KGKT LED_2
 U 1 1 6772958C
 P 2700 5000
 F 0 "LED_2" H 2650 4900 50  0000 C CNN
-F 1 "150060AS75000" V 2696 5228 60  0001 L CNN
+F 1 "150060AS75000" V 3100 4350 60  0000 L CNN
 F 2 "digikey-footprints:LED_0603" H 2900 5200 60  0001 L CNN
 F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 2900 5300 60  0001 L CNN
 F 4 "160-1435-1-ND" H 2900 5400 60  0001 L CNN "Digi-Key_PN"
@@ -1836,7 +1836,7 @@ L dk_LED-Indication-Discrete:LTST-C190KGKT LED_5
 U 1 1 677C3F83
 P 3200 4650
 F 0 "LED_5" H 3050 4500 50  0000 L CNN
-F 1 "LTST-C190KGKT" V 2450 4600 60  0000 L CNN
+F 1 "LTST-C190KGKT" V 2450 4050 60  0000 L CNN
 F 2 "digikey-footprints:LED_0603" H 3400 4850 60  0001 L CNN
 F 3 "http://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF" H 3400 4950 60  0001 L CNN
 F 4 "160-1435-1-ND" H 3400 5050 60  0001 L CNN "Digi-Key_PN"
@@ -3071,4 +3071,6 @@ Wire Wire Line
 	8900 4750 9200 4750
 Text Notes 5850 7300 0    50   ~ 0
 Cutoff 1/(6.28*r*c)\n2.843 kHz
+Text Notes 3000 5850 0    50   ~ 0
+Green = 18/-/71 mcd @ 20 mA\nOrange = 70/130/- mcd @ 20 mA\nIG = 13 mA -> 28 mcd -> RG = 100\nIO = 5 mA ->  35 mcd -> RO = 280
 $EndSCHEMATC

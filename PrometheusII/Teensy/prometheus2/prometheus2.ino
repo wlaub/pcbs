@@ -58,6 +58,8 @@ int freq_lock_pin = 13;
 int glitch_en_pin = 23;
 //int ext_clk_en_pin = 30; //Moved to expander
 
+int poly_sw_pin = 8;
+
 int lfo_led_pin  = 9;
 int led0_pin = 10;
 int led1_pin = 11;
@@ -120,6 +122,80 @@ void adc_interrupt();
 int taps = 0;
 int glitch_taps;
 
+int sck_pin = 2;
+int sdo_pin = 4;
+int sdi_pin = 3;
+int we_pin = 5;
+
+void write_lfsr(unsigned short taps, unsigned char oe0, unsigned char oe1)
+{
+  /*
+  Data is shifted in on rising edge
+  WE is active high
+  oe0 and oe1 must be 0 or 1
+  output buffer will be shifted left for convenience
+  0xXXTTT00
+  where TTT is the feedback configuration
+  XX is oe0 oee
+  */
+  unsigned short data = 0;
+  data |= taps<<2;
+  data |= oe0<<14;
+  data |= oe1<<15;
+  //data = 0b1000000000000000;
+
+  int rate = 0;
+  digitalWrite(sck_pin, 0);
+  digitalWrite(we_pin, 1);  
+  for(int i = 0; i < 14; ++i)
+  {
+    
+    digitalWrite(sck_pin, 0);
+    digitalWrite(sdi_pin, data>>15);
+    digitalWrite(sck_pin, 1);
+    data <<= 1;
+    
+  }
+  digitalWrite(we_pin, 0); //Output enables are latched in
+  digitalWrite(sck_pin, 0);
+}
+
+unsigned short read_lfsr()
+{
+  /*
+  Data is shifted out on rising edge of clock
+  inputs are locked latched in on WE high
+  data is
+  0000
+  CLK_SEL
+  VOCT_OCT_B
+  VOCT_OCT_A
+  POLY_B
+  POLY_A
+  VOCT_SEMI_B
+  VOCT_SEMI_A
+  GLITCH_IN
+  0000
+  */
+  unsigned short result = 0;
+  
+  digitalWrite(sck_pin, 0);
+  digitalWrite(we_pin, 1);  
+  digitalWrite(we_pin, 0);  
+  for(int i = 0; i < 12; ++i)
+  {
+        
+    result<<=1;
+    result|=digitalRead(sdo_pin);
+    digitalWrite(sck_pin, 1);
+    digitalWrite(sck_pin, 0);
+    
+  }
+  digitalWrite(we_pin, 0); //Output enables are latched in
+  digitalWrite(sck_pin, 0);
+  return result;
+}
+
 void setup() {
 
   __disable_irq();
@@ -153,6 +229,7 @@ void setup() {
   pinMode(lfo_pin, INPUT);
   pinMode(param_1_pin, INPUT);
   pinMode(len_knob_pin, INPUT);
+  pinMode(poly_sw_pin, INPUT);
 
   init_taps();
   set_taps(0x800);
@@ -226,6 +303,14 @@ ADACK = 20 MHz?
   ADC1_HC0 = 0x80;
 
   glitch_taps = get_taps(4095,65535,65535);
+
+  //Setup serial interface pins
+  pinMode(we_pin, OUTPUT); //Active high write enable
+  pinMode(sck_pin, OUTPUT);
+  pinMode(sdo_pin, INPUT); //LFSR serial data out to MCU
+  pinMode(sdi_pin, OUTPUT); //LFSR serial data in from MCU
+  //Initialize LFSR
+  write_lfsr(0x1, 1,0);
   
 }
 
@@ -296,7 +381,9 @@ void adc_interrupt()
   
     analogWriteFrequency(clk_pin_0, voct);
     analogWrite(clk_pin_0, 2);
-  
+    analogWriteFrequency(clk_pin_1, voct);
+   analogWrite(clk_pin_1, 2);
+  /*
     if (poly > 0)
     {
       analogWriteFrequency(clk_pin_1, voct * poly_maps[poly]);
@@ -307,6 +394,7 @@ void adc_interrupt()
       pinMode(clk_pin_1, OUTPUT);
       digitalWrite(clk_pin_1, 0);
     }
+    */
   }    
 
   adc_channel += 1;
@@ -363,10 +451,17 @@ void set_led(int pin, int state)
   
 }
 
+volatile int temp_counter = 0;
+
 void loop() {
   // put your main code here, to run repeatedly:
 
   int start_time = micros();
+
+  unsigned short iox = 0;
+  iox = read_lfsr();  
+
+
 
   /*Charlieplexed LEDs*/
 /*
@@ -505,9 +600,10 @@ void loop() {
   
 //  
 //
+  int glitch_in = 1-((iox>>4)&0x1);
 //  int glitch_in = 1 - digitalRead(glitch_pin);
-//  int ext_glitch = glitch_in - glitch_in_state;
-//
+  int ext_glitch = glitch_in - glitch_in_state;
+
   
   if(glitch_enabled)
   {
@@ -520,7 +616,7 @@ void loop() {
   if (
       (glitch_enabled_memory != glitch_enabled && glitch_enabled) //The first tick on enabling
       || (lfo_counter > lfo ) //subsequence ticks
-//      || ext_glitch == 1  //external glitch trigger
+      || ext_glitch == 1  //external glitch trigger
      )
   {
     lfo_counter = 0;
@@ -536,9 +632,9 @@ void loop() {
   }
   glitch_enabled_memory = glitch_enabled;
   
-//
-//  glitch_in_state = glitch_in;
-//
+
+  glitch_in_state = glitch_in;
+
 //  /******Length selection******/
 
   float knob_len = float(len_knob) * 11 / 4000;
@@ -582,21 +678,28 @@ void loop() {
   {
     led_map[3] = 1-led_map[3];
   }
-  taps = new_taps;
+  //taps = new_taps;
 
-//  //digitalWrite(lfsr1_in_pin, 0); //Uninverts LFSR1 during glitch, kinda buggy?
+  //digitalWrite(lfsr1_in_pin, 0); //Uninverts LFSR1 during glitch, kinda buggy?
   if (glitch_counter > 0)
   {
-//    //digitalWrite(lfsr1_in_pin, 1); //Uninverts LFSR1 during glitch, kinda buggy/ tends to stick?
+    //digitalWrite(lfsr1_in_pin, 1); //Uninverts LFSR1 during glitch, kinda buggy/ tends to stick?
     glitch_counter -= 1;
 //    set_taps(glitch_taps);
-//    actual_len=2048; //To freq lock during glitch
+    actual_len=2048; //To freq lock during glitch
+    new_taps = glitch_taps;
   }
 //  else
 //  {
 //    set_taps(taps);
 //  }
-//
+  if (taps != new_taps)
+  {
+    write_lfsr(new_taps, 1, 0);
+  }
+  taps = new_taps;
+
+
 //  /******Read and process pitch control knobs******/
 //
 //  /*quantize to +/- 6 semitones*/
@@ -630,15 +733,33 @@ void loop() {
 // //   Serial.print(actual_len);
 // //   Serial.print(",");
  
-  Serial.print("\n");
+  //Serial.print("\n");
 
   int current_time = micros();
   //Serial.print(actual_len);
-  Serial.print(len_knob);
+ /* Serial.print(len_knob);
   Serial.print(",");
   Serial.print(cv_len);
   Serial.print(",");
   Serial.print(current_time-start_time);
+
+  Serial.print(",");*/
+  //Serial.print(iox, BIN);
+
+
+  if(((iox>>5)&0x3) != 0x3)
+  {
+    Serial.print("\n");
+    Serial.print((iox>>5)&0x3);
+    temp_counter+=1;
+    Serial.print(",");
+    Serial.print(temp_counter);
+  }
+  else
+  {
+    temp_counter = 0;
+  }
+  
 //  Serial.print(",");
 //  Serial.print(1e6*adc_time_count/(float(adc_cumulative_time))); // Hz
   adc_cumulative_time = 0;
