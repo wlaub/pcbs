@@ -18,8 +18,8 @@ NET "OUTPUT0"  LOC = "P21"  ;
 NET "OUTPUT1"  LOC = "P19"  ; 
 NET "SCK"  LOC = "P43"  ; 
 NET "SDI"  LOC = "P42"  ; 
-NET "SDO"  LOC = "P41"  ;
-NET "WE"  LOC = "P40"  ;
+NET "SDO"  LOC = "P40"  ;
+NET "WE"  LOC = "P39"  ;
 
 #PACE: Start of PACE Area Constraints
 
