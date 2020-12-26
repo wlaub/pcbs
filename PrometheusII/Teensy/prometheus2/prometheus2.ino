@@ -327,7 +327,6 @@ volatile float fine;
 volatile float voct_atv_value;
 volatile int freq_lock;
 volatile int poly;
-volatile int param_1;
 
 volatile float voct = 0;
 volatile unsigned short actual_len;
@@ -571,40 +570,20 @@ void loop() {
   {
     led_map[UR] = 1;
   }
-  
-//  /**/
-//  
-//  //Serial Test
-//  int out_data = 0xaa;
-//  for(int i = 0; i < 14; ++i) // mock write
-//  {
-//     /* digitalWrite(clk_pin_1, 0);
-//      digitalWrite(clk_pin_1, out_data&0x1);
-//      digitalWrite(clk_pin_1, 1);*/
-//      out_data >>= 1;
-//  }
-//  for(int i = 0; i < 8; ++i) //mock read
-//  {
-//  /*    digitalWrite(clk_pin_1, 0);
-//      digitalWrite(clk_pin_1, out_data&0x1);
-//      digitalWrite(clk_pin_1, 1);*/
-//      out_data >>= 1;
-//  }
-//  /**/
-//
-//  int voct_semi;
+
+  /* Reading some knob values*/
+
   int voct_fine;
   int voct_cv;
 //  //int voct_oct; GLOBAL
-//  int voct_atv;
-//  voct_semi = adc_memory[pin_to_channel[voct_semi_pin]];
+
   voct_fine = adc_memory[pin_to_channel[voct_fine_pin]];
-  voct_cv = adc_memory[pin_to_channel[voct_cv_pin]];
-//  voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
+  //voct_cv = adc_memory[pin_to_channel[voct_cv_pin]];
+  //voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
 
   int param_0;
   int param_0_cv;
-  //int param_1;
+  int param_1;
   
   param_0 = adc_memory[pin_to_channel[param_0_pin]];
   param_0_cv = adc_memory[pin_to_channel[param_0_cv_pin]];
@@ -616,7 +595,7 @@ void loop() {
   len_cv = adc_memory[pin_to_channel[len_cv_pin]];
 
   freq_lock = 1 - digitalRead(freq_lock_pin);
-  led_map[UC] = freq_lock;
+  
 //  
 //  /*  Serial.print(voct_cv);
 //    Serial.print(",");
@@ -660,20 +639,15 @@ void loop() {
 
   int lfo;
   lfo = adc_memory[pin_to_channel[lfo_pin]];
-  //lfo = 1000;
 
   float lfo_result;
   lfo_result = pow(2,4.32*float(lfo)/(half)); //20 Hz to 1 Hz at center = 20 to 1/20Hz. log_2(400)= 8.64
-  lfo_result *= 50000/LOOP_PERIOD; //20 Hz = 50e3 us
+  lfo_result *= 50000/LOOP_PERIOD;            //20 Hz = 50e3 us
   lfo = int(lfo_result);  
 
   int glitch_enabled = 1 - digitalRead(glitch_en_pin);
-  //int glitch_enabled = digitalRead(glitch_en_pin); //For rev00 w/ wrong switch
   
-//  
-//
-  int glitch_in = 1-((iox>>4)&0x1);
-//  int glitch_in = 1 - digitalRead(glitch_pin);
+  int glitch_in = 1-((iox>>4)&0x1);  
   int ext_glitch = glitch_in - glitch_in_state;
 
   
@@ -687,8 +661,8 @@ void loop() {
   }
   if (
       (glitch_enabled_memory != glitch_enabled && glitch_enabled) //The first tick on enabling
-      || (lfo_counter > lfo ) //subsequence ticks
-      || ext_glitch == 1  //external glitch trigger
+      || (lfo_counter > lfo )                                     //subsequence ticks
+      || ext_glitch == 1                                          //external glitch trigger
      )
   {
     lfo_counter = 0;
@@ -707,14 +681,10 @@ void loop() {
 
   glitch_in_state = glitch_in;
 
-//  /******Length selection******/
+  /******Length selection******/
 
   float knob_len = float(len_knob) * 11 / 4000;
   float cv_len = -9.17*((float(len_cv)-2055)/(half));
-
-  //Serial.print(cv_len);
-  //Serial.print(",");
-  //Serial.print(len_cv);
 
   float param_0_alpha = -5.06*(float(param_0_cv)/(half)-1)/5;
 
@@ -739,33 +709,28 @@ void loop() {
     param_0_combined = (1+param_0_alpha)*param_0_combined;
   }
   
-  //new_taps = get_taps(len, param_0_combined, param_1 << 4);
-  new_taps = get_taps(len, param_0_combined, 4096<<4);
+  new_taps = get_taps(len, param_0_combined, param_1 << 4);
 
   actual_len = get_actual_length(len);
 
-//
-//  /******Update taps and indicators******/
-//  
+
+  /******Update taps and indicators******/
+  
   if (taps != new_taps)
   {
     led_map[LC] = 1-led_map[LC];
   }
-  //taps = new_taps;
+
 
   //digitalWrite(lfsr1_in_pin, 0); //Uninverts LFSR1 during glitch, kinda buggy?
   if (glitch_counter > 0)
   {
     //digitalWrite(lfsr1_in_pin, 1); //Uninverts LFSR1 during glitch, kinda buggy/ tends to stick?
     glitch_counter -= 1;
-//    set_taps(glitch_taps);
     actual_len=2048; //To freq lock during glitch
     new_taps = glitch_taps;
   }
-//  else
-//  {
-//    set_taps(taps);
-//  }
+
   if (taps != new_taps)
   {
     write_lfsr(new_taps, 1, 0);
@@ -775,10 +740,10 @@ void loop() {
 
 //  /******Read and process pitch control knobs******/
 
+  /*Map encoder counters to values*/
   semi = semi_enc_counter / 12.0;
-  voct_oct = oct_enc_counter;
+  voct_oct = oct_enc_counter; 
   
-  /*Scale tuning knob to +/- 1/12*/
   /*Center*/
   voct_fine -= half;
   /*Deadzone at zero*/
@@ -804,7 +769,6 @@ void loop() {
   }
 
   fine = float(voct_fine) / (12.0 * (half - zero));
-
   
 //
 //  /*Terminate debug prints*/
