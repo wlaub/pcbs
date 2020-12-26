@@ -327,6 +327,7 @@ volatile float fine;
 volatile float voct_atv_value;
 volatile int freq_lock;
 volatile int poly;
+volatile int param_1;
 
 volatile float voct = 0;
 volatile unsigned short actual_len;
@@ -382,7 +383,8 @@ void adc_interrupt()
     analogWriteFrequency(clk_pin_0, voct);
     analogWrite(clk_pin_0, 2);
     analogWriteFrequency(clk_pin_1, voct);
-   analogWrite(clk_pin_1, 2);
+    analogWrite(clk_pin_1, 2);
+   
   /*
     if (poly > 0)
     {
@@ -426,8 +428,15 @@ char led0_state[] = {0,1,2,2,0,1,2};
 char led1_state[] = {1,0,0,1,2,2,2};
 char led2_state[] = {2,2,1,0,1,0,2};
 
+#define UR 0
+#define LR 1
+#define UC 2
+#define LC 3
+#define UL 5
+#define LL 4
+
 // Upper right, lower right, upper middle, lower middle, upper left, lower left
-char led_map[] = {0,0,1,1,0,0};
+char led_map[] = {0,0,0,1,0,0};
 
 int led_cycle_counter = 0;
 
@@ -451,7 +460,11 @@ void set_led(int pin, int state)
   
 }
 
-volatile int temp_counter = 0;
+//TODO: Make these be automatically saved and loaded from nonvolatile memory
+volatile int semi_enc_counter = 0;
+volatile int poly_enc_counter = 0;
+volatile int oct_enc_counter = 0;
+volatile unsigned short prev_iox = 0;
 
 void loop() {
   // put your main code here, to run repeatedly:
@@ -495,6 +508,70 @@ void loop() {
     led_index = 0;
   }
 
+  /* Encoders*/
+
+  #define SEMI_ENCODER(x) ((x>>5)&3)
+  
+  if (SEMI_ENCODER(prev_iox) == 0)
+  {
+    if(SEMI_ENCODER(iox) == 2)
+    {
+    semi_enc_counter -= 1;  
+    }
+    else if(SEMI_ENCODER(iox) == 1)
+    {
+    semi_enc_counter += 1;  
+    }
+    
+  }
+  led_map[UL] = 0;
+  if(semi_enc_counter == 0)
+  {
+    led_map[UL] = 1;
+  }
+
+  #define POLY_ENCODER(x) ((x>>7)&3)
+  
+  if (POLY_ENCODER(prev_iox) == 0)
+  {
+    if(POLY_ENCODER(iox) == 2)
+    {
+    poly_enc_counter -= 1;  
+    }
+    else if(POLY_ENCODER(iox) == 1)
+    {
+    poly_enc_counter += 1;  
+    }
+    
+  }
+
+//TEMPORARY
+  led_map[UC] = 0;
+  if(poly_enc_counter == 0)
+  {
+    led_map[UC] = 1;
+  }
+
+  #define OCT_ENCODER(x) ((x>>9)&3)
+  
+  if (OCT_ENCODER(prev_iox) == 0)
+  {
+    if(OCT_ENCODER(iox) == 2)
+    {
+    oct_enc_counter -= 1;  
+    }
+    else if(OCT_ENCODER(iox) == 1)
+    {
+    oct_enc_counter += 1;  
+    }
+    
+  }
+  led_map[UR] = 0;
+  if(oct_enc_counter == 0)
+  {
+    led_map[UR] = 1;
+  }
+  
 //  /**/
 //  
 //  //Serial Test
@@ -516,22 +593,18 @@ void loop() {
 //  /**/
 //
 //  int voct_semi;
-//  int voct_fine;
-//  int voct_cv;
+  int voct_fine;
+  int voct_cv;
 //  //int voct_oct; GLOBAL
 //  int voct_atv;
 //  voct_semi = adc_memory[pin_to_channel[voct_semi_pin]];
-//  voct_fine = adc_memory[pin_to_channel[voct_fine_pin]];
-//  voct_cv = adc_memory[pin_to_channel[voct_cv_pin]];
+  voct_fine = adc_memory[pin_to_channel[voct_fine_pin]];
+  voct_cv = adc_memory[pin_to_channel[voct_cv_pin]];
 //  voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
-//  voct_oct = adc_memory[pin_to_channel[voct_oct_pin]];
-//  voct_oct -= half;
-//  voct_oct = round(3.5*float(voct_oct)/half); //7 octaves
-//
-//  
+
   int param_0;
   int param_0_cv;
-  int param_1;
+  //int param_1;
   
   param_0 = adc_memory[pin_to_channel[param_0_pin]];
   param_0_cv = adc_memory[pin_to_channel[param_0_cv_pin]];
@@ -542,9 +615,8 @@ void loop() {
   len_knob = adc_memory[pin_to_channel[len_knob_pin]];
   len_cv = adc_memory[pin_to_channel[len_cv_pin]];
 
-
-
   freq_lock = 1 - digitalRead(freq_lock_pin);
+  led_map[UC] = freq_lock;
 //  
 //  /*  Serial.print(voct_cv);
 //    Serial.print(",");
@@ -667,7 +739,8 @@ void loop() {
     param_0_combined = (1+param_0_alpha)*param_0_combined;
   }
   
-  new_taps = get_taps(len, param_0_combined, param_1 << 4);
+  //new_taps = get_taps(len, param_0_combined, param_1 << 4);
+  new_taps = get_taps(len, param_0_combined, 4096<<4);
 
   actual_len = get_actual_length(len);
 
@@ -676,7 +749,7 @@ void loop() {
 //  
   if (taps != new_taps)
   {
-    led_map[3] = 1-led_map[3];
+    led_map[LC] = 1-led_map[LC];
   }
   //taps = new_taps;
 
@@ -701,64 +774,65 @@ void loop() {
 
 
 //  /******Read and process pitch control knobs******/
-//
-//  /*quantize to +/- 6 semitones*/
-//  /*center*/
-//  voct_semi -= half; 
-//  //float semi;
-//  semi = round(6*float(voct_semi)/half) / 12.0;
-//
-//  /*Scale tuning knob to +/- 1/12*/
-//  /*Center*/
-//  voct_fine -= half;
-//  /*Deadzone at zero*/
-//  if (voct_fine > -zero and voct_fine < zero)
-//  {
-//    voct_fine = 0;
-//    //digitalWrite(XXX, 1); //This is where you would indicate deadzone if you had a light
-//  }
-//  else if (voct_fine <= -zero)
-//  {
-//    voct_fine += zero;
-//  }
-//  else if (voct_fine >= zero)
-//  {
-//    voct_fine -= zero;
-//  }
-//
-//  fine = float(voct_fine) / (12.0 * (half - zero));
+
+  semi = semi_enc_counter / 12.0;
+  voct_oct = oct_enc_counter;
+  
+  /*Scale tuning knob to +/- 1/12*/
+  /*Center*/
+  voct_fine -= half;
+  /*Deadzone at zero*/
+  if (voct_fine > -zero and voct_fine < zero)
+  {
+    voct_fine = 0;
+    //digitalWrite(XXX, 1); //This is where you would indicate deadzone if you had a light
+  }
+  else if (voct_fine <= -zero)
+  {
+    voct_fine += zero;
+  }
+  else if (voct_fine >= zero)
+  {
+    voct_fine -= zero;
+  }
+
+  //TEMPORARY
+  led_map[LL] = 0;
+  if(voct_fine == 0)
+  {
+    led_map[LL] = 1;
+  }
+
+  fine = float(voct_fine) / (12.0 * (half - zero));
+
+  
 //
 //  /*Terminate debug prints*/
 //
 // //   Serial.print(actual_len);
 // //   Serial.print(",");
  
-  //Serial.print("\n");
+  Serial.print("\n");
 
   int current_time = micros();
   //Serial.print(actual_len);
- /* Serial.print(len_knob);
+  Serial.print(len_knob);
   Serial.print(",");
   Serial.print(cv_len);
-  Serial.print(",");
-  Serial.print(current_time-start_time);
 
-  Serial.print(",");*/
+
+  //Serial.print(",");
+  //Serial.print(cv_len);
+  //Serial.print(",");
+  //Serial.print(current_time-start_time);
+
+  Serial.print(",");
+  
   //Serial.print(iox, BIN);
 
+  
 
-  if(((iox>>5)&0x3) != 0x3)
-  {
-    Serial.print("\n");
-    Serial.print((iox>>5)&0x3);
-    temp_counter+=1;
-    Serial.print(",");
-    Serial.print(temp_counter);
-  }
-  else
-  {
-    temp_counter = 0;
-  }
+  prev_iox = iox;
   
 //  Serial.print(",");
 //  Serial.print(1e6*adc_time_count/(float(adc_cumulative_time))); // Hz
