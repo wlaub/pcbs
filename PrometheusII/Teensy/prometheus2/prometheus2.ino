@@ -332,6 +332,7 @@ volatile float voct_atv_value;
 volatile int freq_lock;
 volatile int poly;
 volatile int poly_oct;
+volatile float poly_oct_val;
 
 volatile float voct = 0;
 volatile unsigned short actual_len;
@@ -393,7 +394,7 @@ void adc_interrupt()
     if (lfsr_en1 == 1)
     {
       
-      analogWriteFrequency(clk_pin_1, voct * poly_maps[poly] * pow(2, poly_oct));
+      analogWriteFrequency(clk_pin_1, voct * poly_maps[poly] * poly_oct_val);
       analogWrite(clk_pin_1, 2);
     }
     else
@@ -553,6 +554,7 @@ void loop() {
     poly = (poly_enc_counter+1)%poly_count+poly_count-1;
     poly_oct = floor(poly_enc_counter/float(poly_count));
   }
+  poly_oct_val = pow(2, poly_oct);
   
   if(poly_enc_counter == 0 && lfsr_en1 == 1)
   {
