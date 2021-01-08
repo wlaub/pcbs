@@ -4,6 +4,8 @@
 //In loops
 #define GLITCH_LEN 50
 
+#define DETUNE_LFSR1
+
 const uint8_t pin_to_channel[] = { // pg 482
         7,      // 0/A0  AD_B1_02
         8,      // 1/A1  AD_B1_03
@@ -46,7 +48,7 @@ const uint8_t pin_to_channel[] = { // pg 482
 
 //int taps_maps [12] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}; //Moved to serial interface
 const int poly_count = 6;
-float poly_maps[poly_count] = {1, 1.2, 1.25, 1.333, 1.5, 1.5};
+float poly_maps[poly_count] = {1, 1.2, 1.25, 1.333, 1.5, 1.667};
 
 int clk_pin_0 = 0; //The LFSR Clocks
 int clk_pin_1 = 1;
@@ -393,8 +395,12 @@ void adc_interrupt()
   
     if (lfsr_en1 == 1)
     {
-      
-      analogWriteFrequency(clk_pin_1, voct * poly_maps[poly] * poly_oct_val);
+      #ifdef DETUNE_LFSR1
+      float scale = actual_len*4;
+      analogWriteFrequency(clk_pin_1, floor((voct * poly_maps[poly] * poly_oct_val)/scale)*scale);
+      #else
+      analogWriteFrequency(clk_pin_1, (voct * poly_maps[poly] * poly_oct_val));
+      #endif
       analogWrite(clk_pin_1, 2);
     }
     else
@@ -807,7 +813,9 @@ void loop() {
   //Serial.print(actual_len);
   Serial.print(len_knob);
   Serial.print(",");
-  Serial.print(cv_len);
+  Serial.print(len_cv);
+  Serial.print(",");
+  Serial.print(actual_len);
 
 
   //Serial.print(",");
