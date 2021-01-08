@@ -45,7 +45,8 @@ const uint8_t pin_to_channel[] = { // pg 482
 
 
 //int taps_maps [12] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}; //Moved to serial interface
-float poly_maps[8] = {0, 1, 1.2, 1.25, 1.333, 1.5, 1.5, 2};
+const int poly_count = 6;
+float poly_maps[poly_count] = {1, 1.2, 1.25, 1.333, 1.5, 1.5};
 
 int clk_pin_0 = 0; //The LFSR Clocks
 int clk_pin_1 = 1;
@@ -126,6 +127,9 @@ int sck_pin = 2;
 int sdo_pin = 4;
 int sdi_pin = 3;
 int we_pin = 5;
+
+volatile unsigned char lfsr_en0 = 1;
+volatile unsigned char lfsr_en1 = 1;
 
 void write_lfsr(unsigned short taps, unsigned char oe0, unsigned char oe1)
 {
@@ -310,7 +314,7 @@ ADACK = 20 MHz?
   pinMode(sdo_pin, INPUT); //LFSR serial data out to MCU
   pinMode(sdi_pin, OUTPUT); //LFSR serial data in from MCU
   //Initialize LFSR
-  write_lfsr(0x1, 1,0);
+  write_lfsr(0x1, lfsr_en0,lfsr_en1);
   
 }
 
@@ -327,6 +331,7 @@ volatile float fine;
 volatile float voct_atv_value;
 volatile int freq_lock;
 volatile int poly;
+volatile int poly_oct;
 
 volatile float voct = 0;
 volatile unsigned short actual_len;
@@ -381,13 +386,14 @@ void adc_interrupt()
   
     analogWriteFrequency(clk_pin_0, voct);
     analogWrite(clk_pin_0, 2);
-    analogWriteFrequency(clk_pin_1, voct);
-    analogWrite(clk_pin_1, 2);
+//    analogWriteFrequency(clk_pin_1, voct);
+//    analogWrite(clk_pin_1, 2);
    
-  /*
-    if (poly > 0)
+  
+    if (lfsr_en1 == 1)
     {
-      analogWriteFrequency(clk_pin_1, voct * poly_maps[poly]);
+      
+      analogWriteFrequency(clk_pin_1, voct * poly_maps[poly] * pow(2, poly_oct));
       analogWrite(clk_pin_1, 2);
     }
     else
@@ -395,7 +401,7 @@ void adc_interrupt()
       pinMode(clk_pin_1, OUTPUT);
       digitalWrite(clk_pin_1, 0);
     }
-    */
+    
   }    
 
   adc_channel += 1;
@@ -470,22 +476,14 @@ void loop() {
 
   int start_time = micros();
 
+  int update_lfsr = 0;
+
   unsigned short iox = 0;
   iox = read_lfsr();  
 
 
 
   /*Charlieplexed LEDs*/
-/*
-  led_cycle_counter += 1;
-  if (led_cycle_counter > 1000)
-  {
-    led_cycle_counter = 0;
-    for(int i = 0; i < 6; ++i)  
-    {
-      led_map[i] = 1-led_map[i];
-    }
-  }*/
 
   if(led_map[led_index] != 0)
   {
@@ -543,6 +541,31 @@ void loop() {
     }
     
   }
+
+  poly = 0;
+  if(poly_enc_counter > 0)
+  {
+    poly = (poly_enc_counter-1)%poly_count;
+    poly_oct = floor((poly_enc_counter-1)/float(poly_count));
+  }
+  else if(poly_enc_counter < 0)
+  {
+    poly = (poly_enc_counter+1)%poly_count+poly_count-1;
+    poly_oct = floor(poly_enc_counter/float(poly_count));
+  }
+  
+  if(poly_enc_counter == 0 && lfsr_en1 == 1)
+  {
+    lfsr_en1 = 0;
+    update_lfsr = 1;
+    
+  }
+  else if(poly_enc_counter != 0 && lfsr_en1 == 0)
+  {
+    lfsr_en1 = 1;
+    update_lfsr = 1;
+  }
+    
 
 //TEMPORARY
   led_map[UC] = 0;
@@ -731,9 +754,9 @@ void loop() {
     new_taps = glitch_taps;
   }
 
-  if (taps != new_taps)
+  if (taps != new_taps || update_lfsr )
   {
-    write_lfsr(new_taps, 1, 0);
+    write_lfsr(new_taps, lfsr_en0, lfsr_en1);
   }
   taps = new_taps;
 
@@ -791,7 +814,9 @@ void loop() {
   //Serial.print(current_time-start_time);
 
   Serial.print(",");
-  
+  Serial.print(poly);
+  Serial.print(",");
+  Serial.print(poly_oct);
   //Serial.print(iox, BIN);
 
   
