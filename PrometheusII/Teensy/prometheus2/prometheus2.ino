@@ -474,6 +474,10 @@ void loop() {
   }
 
   fine = float(voct_fine) / (12.0 * (half - zero));
+
+
+  //REMEMBER
+  prev_iox = iox;
   
 //
 //  /*Terminate debug prints*/
@@ -505,8 +509,7 @@ void loop() {
   //Serial.print(iox, BIN);
 */
   
-
-  prev_iox = iox;
+  /* ADC Sample Rate Measurement and Printing*/
 
   int adc_count_duration = current_time - adc_last_time;
   if(adc_count_duration > ADC_MEAS_PERIOD)
@@ -523,36 +526,20 @@ void loop() {
   lfo_channel, 
 */
 
-    int idx;
-    float adc_rate;
-    
-    idx = voct_cv_channel;
-    adc_rate = adc_counter[idx]*1e6/(adc_count_duration); // There are 9 channels. This is the fastest evenly distributed sample rate per channel
-    adc_last_time = current_time;
-    adc_counter[idx] = 0;
-    Serial.print(adc_rate);
-    Serial.print(",");
+    PRINT_ADC_RATE(voct_cv_channel);
+    PRINT_ADC_RATE(len_cv_channel);
 
-    idx = len_cv_channel;
-    adc_rate = adc_counter[idx]*1e6/(adc_count_duration); // There are 9 channels. This is the fastest evenly distributed sample rate per channel
+    for(int i = 0; i < 16; ++i)
+    {
+      adc_counter[i] = 0;
+    }
     adc_last_time = current_time;
-    adc_counter[idx] = 0;
-    Serial.print(adc_rate);
-    Serial.print(",");
-
 
     //overhead in microseconds
     Serial.print(LOOP_PERIOD - (current_time-start_time));
 
     Serial.print("\n");
   }
-
-  
-  
-//  Serial.print(",");
-//  Serial.print(1e6*adc_time_count/(float(adc_cumulative_time))); // Hz
-  adc_cumulative_time = 0;
-  adc_time_count = 0;
   
   delayMicroseconds(LOOP_PERIOD - (current_time-start_time)); // 1000 Hz
 

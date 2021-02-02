@@ -1,10 +1,25 @@
 #ifndef ADC_INTERRUPT_H
 #define ADC_INTERRUPT_H
 
+//Accumulates ADC measurements for sum and dump filtering
 volatile int adc_accum[16] = {0};
-volatile int sample_counter = 0;
+
+//Count samples on each ADC for filtering
+volatile int sample_counter[16] = {0};
+
+//Store filtered ADC data for real
 volatile int adc_memory[16] = {0};
+
+//Filter configuration.
+#define FILTER_SHIFT 3
+#define FILTER_COUNT (0x1<<FILTER_SHIFT)
+
+
 volatile char adc_channel = 0;
+
+#define PRINT_ADC_RATE(x) \
+    Serial.print(adc_counter[x]*1e6/(adc_count_duration));\
+    Serial.print(",");
 
 //Number of times the adc interrupt has been called
 volatile int adc_counter[16] = {0};
@@ -13,11 +28,8 @@ int adc_last_time = 0;
 //Adc measurement interval in microseconds
 #define ADC_MEAS_PERIOD 10000
 
-int adc_cumulative_time = 0;
-int adc_time_count = 0;
 
 //ADC channel sequencing
-// voct_fine_pin, voct_atv_pin, voct_cv_pin, param_0_cv_pin, lfo_pin, len_cv_pin, param_1_pin, len_knob_pin, param_0_pin
 
 const int voct_cv_channel = pin_to_channel[voct_cv_pin];
 const int len_cv_channel = pin_to_channel[len_cv_pin];
@@ -29,7 +41,8 @@ const int param_1_channel = pin_to_channel[param_1_pin];
 const int len_knob_channel = pin_to_channel[len_knob_pin];
 const int param_0_channel = pin_to_channel[param_0_pin];
 
-#define VOCT_DECIM   voct_cv_channel,
+//adc_sequence used to interleave ADC channels and give more sample rate to high-bandwidth CV inputs (i.e. just v/oct)
+#define VOCT_DECIM  voct_cv_channel,
 volatile int adc_sequence[] = {
   VOCT_DECIM
   voct_fine_channel,
@@ -121,24 +134,30 @@ ADACK = 20 MHz?
 
 void adc_interrupt()
 {
-  //adc cycle counter update
-  ++adc_counter[adc_channel];
+  
+
+  /* ADC read and filter */
   
   //Read values
   adc_accum[adc_channel] += ADC1_R0;
 
+  //Simple sum and dump filtering
+  ++sample_counter[adc_channel];
+  sample_counter[adc_channel] %= FILTER_COUNT;
+  
   //Update buffers
-  if(sample_counter == 0)
+  if(sample_counter[adc_channel] == 0)
   {
-    //simple sum and dump filter accumulates N samples, divides by N when finished
-    adc_memory[adc_channel] = adc_accum[adc_channel] >> 1;
-    
+    adc_memory[adc_channel] = adc_accum[adc_channel] >> FILTER_SHIFT;
     adc_accum[adc_channel] = 0;
-
+    
+    /* ADC performance measurement */
+    ++adc_counter[adc_channel];
   }
 
-  //Pin-specific updates
-  if(adc_channel == voct_cv_channel)
+  /* Channel-specific high speed updates only when new data is available */
+  
+  if(adc_channel == voct_cv_channel && sample_counter[adc_channel] == 0)
   {  // V/oct pin
     float voct;
     int voct_atv = adc_memory[voct_atv_channel];
@@ -188,26 +207,7 @@ void adc_interrupt()
     
   }    
 
-/*
-  adc_channel += 1;
-  if(adc_channel > 0xf)
-  {
-    adc_channel = 0;
-
-    //lpf accumlator counter
-    sample_counter += 1;
-    if(sample_counter >= 2)
-    {
-      sample_counter = 0;
-    }
-    
-    int current_time = micros();
-    adc_cumulative_time += current_time - adc_last_time;
-    adc_last_time = current_time;
-    adc_time_count +=1;
-
-  }
-*/
+  /* Select next channel */
 
   ++adc_seq_index;
   adc_seq_index %= adc_seq_length;
