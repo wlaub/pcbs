@@ -1,85 +1,9 @@
 #include "lookup.h"
+#include "globals.h"
+#include "pinmap.h"
 #include "adc_interrupt.h"
+#include "leds.h"
 
-//In loops
-#define GLITCH_LEN 50
-
-#define DETUNE_LFSR1
-
-const uint8_t pin_to_channel[] = { // pg 482
-        7,      // 0/A0  AD_B1_02
-        8,      // 1/A1  AD_B1_03
-        12,     // 2/A2  AD_B1_07
-        11,     // 3/A3  AD_B1_06
-        6,      // 4/A4  AD_B1_01
-        5,      // 5/A5  AD_B1_00
-        15,     // 6/A6  AD_B1_10
-        0,      // 7/A7  AD_B1_11
-        13,     // 8/A8  AD_B1_08
-        14,     // 9/A9  AD_B1_09
-#if 0
-        128,    // 10
-        128,    // 11
-        128,    // 12
-        128,    // 13
-#else
-        1,      // 24/A10 AD_B0_12 
-        2,      // 25/A11 AD_B0_13
-        128+3,  // 26/A12 AD_B1_14 - only on ADC2, 3
-        128+4,  // 27/A13 AD_B1_15 - only on ADC2, 4
-#endif
-        7,      // 14/A0  AD_B1_02
-        8,      // 15/A1  AD_B1_03
-        12,     // 16/A2  AD_B1_07
-        11,     // 17/A3  AD_B1_06
-        6,      // 18/A4  AD_B1_01
-        5,      // 19/A5  AD_B1_00
-        15,     // 20/A6  AD_B1_10
-        0,      // 21/A7  AD_B1_11
-        13,     // 22/A8  AD_B1_08
-        14,     // 23/A9  AD_B1_09
-        1,      // 24/A10 AD_B0_12
-        2,      // 25/A11 AD_B0_13
-        128+3,  // 26/A12 AD_B1_14 - only on ADC2, 3
-        128+4   // 27/A13 AD_B1_15 - only on ADC2, 4
-};
-
-
-
-//int taps_maps [12] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}; //Moved to serial interface
-const int poly_count = 6;
-float poly_maps[poly_count] = {1, 1.2, 1.25, 1.333, 1.5, 1.667};
-
-int clk_pin_0 = 0; //The LFSR Clocks
-int clk_pin_1 = 1;
-
-int lfsr0_in_pin = 7; //XOR'd with the LFSR feedback
-int lfsr1_in_pin = 6;
-
-//int glitch_pin = 31; //Moved to expander
-int freq_lock_pin = 13;  
-int glitch_en_pin = 23;
-//int ext_clk_en_pin = 30; //Moved to expander
-
-int poly_sw_pin = 8;
-
-int lfo_led_pin  = 9;
-int led0_pin = 10;
-int led1_pin = 11;
-int led2_pin = 12;
-
-//int voct_semi_pin = A10; //Moved to encoder
-int voct_fine_pin = A1; 
-int voct_atv_pin = A0;
-int voct_cv_pin = A2;
-int param_0_cv_pin = A4;
-int lfo_pin = A6;
-int len_cv_pin = A5;
-//int poly_pin = A6; //Moved to encoder
-int param_1_pin = A7;
-//int voct_oct_pin = A8; //Moved to encoder
-int len_knob_pin = A8;
-int param_0_pin = A3;
 
 int lfo_counter = 0;
 
@@ -87,40 +11,9 @@ int glitch_counter = 0;
 
 int glitch_in_state = 0;
 
-void init_taps()
-{
-  /*
-  for (int i = 0; i < 12; ++i)
-  {
-    pinMode(taps_maps[i], OUTPUT);
-    digitalWrite(taps_maps[i], 0);
-  }
-  */
-}
-
-void set_taps(int taps)
-{
-  /*
-  for (int i = 0; i < 12; ++i)
-  {
-    digitalWrite(taps_maps[i], (taps & 1));
-    taps >>= 1;
-  }
-  */
-}
-
 #define INIT_OUTPUT(pin, value)\
   pinMode(pin, OUTPUT);\
   digitalWrite(pin, value);
-
-volatile int adc_accum[16] = {0};
-volatile int sample_counter = 0;
-volatile int adc_memory[16] = {0};
-volatile char adc_channel = 0;
-
-volatile int adc_counter = 0;
-
-void adc_interrupt();
 
 int taps = 0;
 int glitch_taps;
@@ -129,9 +22,6 @@ int sck_pin = 2;
 int sdo_pin = 4;
 int sdi_pin = 3;
 int we_pin = 5;
-
-volatile unsigned char lfsr_en0 = 1;
-volatile unsigned char lfsr_en1 = 1;
 
 void write_lfsr(unsigned short taps, unsigned char oe0, unsigned char oe1)
 {
@@ -237,71 +127,8 @@ void setup() {
   pinMode(len_knob_pin, INPUT);
   pinMode(poly_sw_pin, INPUT);
 
-  init_taps();
-  set_taps(0x800);
 
-  ADC1_GC |= 0x80; //Calibrate
-  while (ADC1_GC & 0x80);
-
-  ADC1_CFG &= 0xfffe0000;
-//              KJJIHHGFFEDDCBBAA
-  ADC1_CFG |= 0b00000010000001011;
-/*              K Data overwrite disabled (disable/enable)
-                 JJ 32 averages (4/8/16/32)
-                   I Software triggered (software/hardware)
-                    HH VREF - no options
-                      G High speed convserion (low/high speed)
-                       FF Sample period = 2/12 ADC clocks (short/long sample) (2/12, 4/16, 6/20, 8/24)
-                         E Low power mode (low / not low)
-                          DD ADCK = Input clock / 1 (/1, /2, /4, /8)
-                            C Short sample mode (short/long)
-                             BB 12-bit conversion (8/10/12/Reserved)
-                               AA Input Clock = IPG Clock (IPG, IPG/2, reserved, ADACK)
-0b01100010000001011 => ~19.5 kHz
-0b00000010000001011 => ~156 kHz
-*/
-  
-
-  ADC1_GC &= 0xffffff00;
-//             HGFEDCBA
-  ADC1_GC |= 0b00100001;
-/*             H Calibration start
-                G Continuous conversion (no/yes)
-                 F Hardware average enable (no/yes)
-                  E Compare function enable (no/yes)
-                   D Compare function gt enable (no/yes)
-                    C Compare function range enable (no/yes)
-                     B DMA enable (no/yes)
-                      A Asynchronous clock output enable (no/yes)
-*/
-
-/*
-Conversion time:
-
-4 ADCK
-2 bus clock
-1.5 us if ADACKEN = 0
-
-+
-
-AVGS * (Base + long)
-
-Base = 17/21/25 (8/10/12-bit)
-long = 3/13, 5/17, 7/21, 9/25 (sample period -> long sample mode)
-
-Max averaging, max sample time, max res:
-4+32*(25+25) = 1604 ADCK cycles + 1 bus cycles
-
-ADACK = 20 MHz?
-
-*/
-
-  ADC1_HC0 |= 0x80; //Enable interrupt
-
-  attachInterruptVector(IRQ_NUMBER_t::IRQ_ADC1, adc_interrupt);
-  NVIC_SET_PRIORITY(IRQ_NUMBER_t::IRQ_ADC1, 10);
-  NVIC_ENABLE_IRQ(IRQ_NUMBER_t::IRQ_ADC1);
-
+  configure_adc();
   Serial.begin(38400);
 
   __enable_irq();
@@ -321,156 +148,8 @@ ADACK = 20 MHz?
 }
 
 
-int freq = 10e6;
-int half = 2048;
-int zero = half / 16;
-
 int glitch_enabled_memory = 0;
 
-volatile int voct_oct;
-volatile float semi;
-volatile float fine;
-volatile float voct_atv_value;
-volatile int freq_lock;
-volatile int poly;
-volatile int poly_oct;
-volatile float poly_oct_val;
-
-volatile float voct = 0;
-volatile unsigned short actual_len;
-
-int adc_last_time = 0;
-int adc_cumulative_time = 0;
-int adc_time_count = 0;
-
-void adc_interrupt()
-{
-  
-  //Read values
-  ++adc_counter;
-  adc_accum[adc_channel] += ADC1_R0;
-
-  //Update buffers
-  if(sample_counter == 0)
-  {
-    adc_memory[adc_channel] = adc_accum[adc_channel] >> 1;
-    adc_accum[adc_channel] = 0;
-
-  }
-
-  //Pin-specific updates
-  if(adc_channel == pin_to_channel[voct_cv_pin])
-  {  // V/oct pin
-    float voct;
-    int voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
-    voct_atv -= zero;
-    if(voct_atv > 2*half - 2*zero)
-    {
-      voct_atv = 2*half-2*zero;
-    }
-    if(voct_atv < 0)
-    {
-      voct_atv = 0;
-    }
-    float voct_atv_value = float(voct_atv) / (2*half - 2*zero);
-    
-    float voct_cv_value = -2.95 * (float(adc_memory[pin_to_channel[voct_cv_pin]])/half - 1) * voct_atv_value;
-
-    voct = 261.63 * pow(2, voct_oct + semi + fine + voct_cv_value);
-
-    if (freq_lock != 0)
-    {
-      voct *= actual_len;
-    }
-    else
-    {
-      voct *= 2; //Normalizing shortest length pitch
-    }
-  
-    analogWriteFrequency(clk_pin_0, voct);
-    analogWrite(clk_pin_0, 2);
-//    analogWriteFrequency(clk_pin_1, voct);
-//    analogWrite(clk_pin_1, 2);
-   
-  
-    if (lfsr_en1 == 1)
-    {
-      #ifdef DETUNE_LFSR1
-      float scale = actual_len*4;
-      analogWriteFrequency(clk_pin_1, floor((voct * poly_maps[poly] * poly_oct_val)/scale)*scale);
-      #else
-      analogWriteFrequency(clk_pin_1, (voct * poly_maps[poly] * poly_oct_val));
-      #endif
-      analogWrite(clk_pin_1, 2);
-    }
-    else
-    {
-      pinMode(clk_pin_1, OUTPUT);
-      digitalWrite(clk_pin_1, 0);
-    }
-    
-  }    
-
-  adc_channel += 1;
-  if(adc_channel > 0xf)
-  {
-    adc_channel = 0;
-    sample_counter += 1;
-    if(sample_counter >= 2)
-    {
-      sample_counter = 0;
-    }
-    
-    int current_time = micros();
-    adc_cumulative_time += current_time - adc_last_time;
-    adc_last_time = current_time;
-    adc_time_count +=1;
-
-  }
-
-  ADC1_HC0 = (0x80|adc_channel);
-
-}
-
-#define LOOP_PERIOD 200
-
-volatile int led_index = 0;
-//0 = L, 1 = H, 2 = Z. These are the pin states necessary to light a given LED
-char led0_state[] = {0,1,2,2,0,1,2};
-char led1_state[] = {1,0,0,1,2,2,2};
-char led2_state[] = {2,2,1,0,1,0,2};
-
-#define UR 0
-#define LR 1
-#define UC 2
-#define LC 3
-#define UL 5
-#define LL 4
-
-// Upper right, lower right, upper middle, lower middle, upper left, lower left
-char led_map[] = {0,0,0,1,0,0};
-
-int led_cycle_counter = 0;
-
-void set_led(int pin, int state)
-{
-  //Just configures the output according the scheme above
-  if(state == 0)
-  {
-    pinMode(pin, OUTPUT);
-    digitalWrite(pin, 0);
-  }
-  else if(state == 1)
-  {
-    pinMode(pin, OUTPUT);
-    digitalWrite(pin, 1);
-  }
-  else if(state == 2)
-  {
-    pinMode(pin, INPUT);
-  }
-  
-}
 
 //TODO: Make these be automatically saved and loaded from nonvolatile memory
 volatile int semi_enc_counter = 0;
@@ -513,9 +192,7 @@ void loop() {
   }
 
   /* Encoders*/
-
-  #define SEMI_ENCODER(x) ((x>>5)&3)
-  
+ 
   if (SEMI_ENCODER(prev_iox) == 0)
   {
     if(SEMI_ENCODER(iox) == 2)
@@ -533,8 +210,6 @@ void loop() {
   {
     led_map[UL] = 1;
   }
-
-  #define POLY_ENCODER(x) ((x>>7)&3)
   
   if (POLY_ENCODER(prev_iox) == 0)
   {
@@ -581,9 +256,8 @@ void loop() {
   {
     led_map[UC] = 1;
   }
+//TEMPORARY
 
-  #define OCT_ENCODER(x) ((x>>9)&3)
-  
   if (OCT_ENCODER(prev_iox) == 0)
   {
     if(OCT_ENCODER(iox) == 2)
@@ -806,10 +480,11 @@ void loop() {
 //
 // //   Serial.print(actual_len);
 // //   Serial.print(",");
- 
-  Serial.print("\n");
 
   int current_time = micros();
+ /*
+  Serial.print("\n");
+
   //Serial.print(actual_len);
   Serial.print(len_knob);
   Serial.print(",");
@@ -828,10 +503,51 @@ void loop() {
   Serial.print(",");
   Serial.print(poly_oct);
   //Serial.print(iox, BIN);
-
+*/
   
 
   prev_iox = iox;
+
+  int adc_count_duration = current_time - adc_last_time;
+  if(adc_count_duration > ADC_MEAS_PERIOD)
+  {
+    /*
+  voct_cv_channel,
+  len_cv_channel, 
+  param_0_cv_channel,
+  voct_atv_channel,
+  len_knob_channel,
+  voct_fine_channel,
+  param_0_channel,
+  param_1_channel, 
+  lfo_channel, 
+*/
+
+    int idx;
+    float adc_rate;
+    
+    idx = voct_cv_channel;
+    adc_rate = adc_counter[idx]*1e6/(adc_count_duration); // There are 9 channels. This is the fastest evenly distributed sample rate per channel
+    adc_last_time = current_time;
+    adc_counter[idx] = 0;
+    Serial.print(adc_rate);
+    Serial.print(",");
+
+    idx = len_cv_channel;
+    adc_rate = adc_counter[idx]*1e6/(adc_count_duration); // There are 9 channels. This is the fastest evenly distributed sample rate per channel
+    adc_last_time = current_time;
+    adc_counter[idx] = 0;
+    Serial.print(adc_rate);
+    Serial.print(",");
+
+
+    //overhead in microseconds
+    Serial.print(LOOP_PERIOD - (current_time-start_time));
+
+    Serial.print("\n");
+  }
+
+  
   
 //  Serial.print(",");
 //  Serial.print(1e6*adc_time_count/(float(adc_cumulative_time))); // Hz
