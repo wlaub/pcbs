@@ -129,7 +129,7 @@ void setup() {
 
 
   configure_adc();
-  Serial.begin(38400);
+  Serial.begin(115200);
 
   __enable_irq();
 
@@ -508,26 +508,36 @@ void loop() {
   Serial.print(poly_oct);
   //Serial.print(iox, BIN);
 */
+
+/* ADC Channel Plotting */
+
+//  Serial.print(adc_memory[voct_cv_channel]);Serial.print(",");
+//  Serial.print(adc_memory[len_cv_channel]); Serial.print(",");
+//  Serial.print(adc_memory[param_0_cv_channel]); Serial.print(",");
+//  Serial.print(adc_memory[voct_atv_channel]); Serial.print(",");
+  Serial.print(adc_memory[len_knob_channel]); Serial.print(",");
+//  Serial.print(adc_memory[voct_fine_channel]); Serial.print(",");
+//  Serial.print(adc_memory[param_0_channel]); Serial.print(",");
+//  Serial.print(adc_memory[param_1_channel]); Serial.print(",");
+//  Serial.print(adc_memory[lfo_channel]); Serial.print(",");
+
+  
+  Serial.print("\n");
   
   /* ADC Sample Rate Measurement and Printing*/
-
+/*
   int adc_count_duration = current_time - adc_last_time;
   if(adc_count_duration > ADC_MEAS_PERIOD)
   {
-    /*
-  voct_cv_channel,
-  len_cv_channel, 
-  param_0_cv_channel,
-  voct_atv_channel,
-  len_knob_channel,
-  voct_fine_channel,
-  param_0_channel,
-  param_1_channel, 
-  lfo_channel, 
-*/
 
-    PRINT_ADC_RATE(voct_cv_channel);
-    PRINT_ADC_RATE(len_cv_channel);
+//    PRINT_ADC_RATE(voct_cv_channel);
+//    PRINT_ADC_RATE(len_cv_channel);
+//    PRINT_ADC_RATE(param_0_cv_channel);
+//    PRINT_ADC_RATE(voct_atv_channel);
+//    PRINT_ADC_RATE(len_knob_channel);
+//    PRINT_ADC_RATE(voct_fine_channel);
+//    PRINT_ADC_RATE(param_0_channel);
+//    PRINT_ADC_RATE(param_1_channel);
 
     for(int i = 0; i < 16; ++i)
     {
@@ -540,6 +550,7 @@ void loop() {
 
     Serial.print("\n");
   }
+  */
   
   delayMicroseconds(LOOP_PERIOD - (current_time-start_time)); // 1000 Hz
 

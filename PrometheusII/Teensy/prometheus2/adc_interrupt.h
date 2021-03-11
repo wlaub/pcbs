@@ -1,6 +1,8 @@
 #ifndef ADC_INTERRUPT_H
 #define ADC_INTERRUPT_H
 
+volatile char adc_channel = 0;
+
 //Accumulates ADC measurements for sum and dump filtering
 volatile int adc_accum[16] = {0};
 
@@ -15,8 +17,7 @@ volatile int adc_memory[16] = {0};
 #define FILTER_COUNT (0x1<<FILTER_SHIFT)
 
 
-volatile char adc_channel = 0;
-
+//ADC sample rate measurement
 #define PRINT_ADC_RATE(x) \
     Serial.print(adc_counter[x]*1e6/(adc_count_duration));\
     Serial.print(",");
