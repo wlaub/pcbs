@@ -13,7 +13,7 @@ volatile int sample_counter[16] = {0};
 volatile int adc_memory[16] = {0};
 
 //Filter configuration.
-#define FILTER_SHIFT 3
+#define FILTER_SHIFT 1
 #define FILTER_COUNT (0x1<<FILTER_SHIFT)
 
 
@@ -45,22 +45,9 @@ const int param_0_channel = pin_to_channel[param_0_pin];
 //adc_sequence used to interleave ADC channels and give more sample rate to high-bandwidth CV inputs (i.e. just v/oct)
 #define VOCT_DECIM  voct_cv_channel,
 volatile int adc_sequence[] = {
-  VOCT_DECIM
-  voct_fine_channel,
-  VOCT_DECIM
-  voct_atv_channel,
-  VOCT_DECIM
-  param_0_cv_channel,
-  VOCT_DECIM
-  lfo_channel, 
-  VOCT_DECIM
+  voct_cv_channel,
   len_cv_channel, 
-  VOCT_DECIM
-  param_1_channel, 
-  VOCT_DECIM
-  len_knob_channel,
-  VOCT_DECIM
-  param_0_channel,
+  param_0_cv_channel,
   };
 volatile int adc_seq_index = 0;  
 const int adc_seq_length = sizeof(adc_sequence)/sizeof(int);
@@ -133,6 +120,14 @@ ADACK = 20 MHz?
   
 }
 
+typedef struct
+{
+  unsigned short flags;
+  unsigned short channels[3];
+} packet;
+
+int sample_time = 0;
+
 void adc_interrupt()
 {
   
@@ -156,58 +151,26 @@ void adc_interrupt()
     ++adc_counter[adc_channel];
   }
 
+  /*Write out the data*/
+
+  if(adc_seq_index == 0)
+  {
+    int delta_time = (micros() - sample_time);
+    sample_time = micros();
+    packet pack;
+    pack.flags = 0x8000 | (delta_time & 0x7fff);
+    for(int i = 0; i < adc_seq_length; ++i)
+    {
+      pack.channels[i] = adc_memory[adc_sequence[i]]&0x7fff;
+    }
+
+    Serial.write((unsigned char *)(&pack), sizeof(packet));
+    
+    
+  }
+
   /* Channel-specific high speed updates only when new data is available */
   
-  if(adc_channel == voct_cv_channel && sample_counter[adc_channel] == 0)
-  {  // V/oct pin
-    float voct;
-    int voct_atv = adc_memory[voct_atv_channel];
-    voct_atv -= zero;
-    if(voct_atv > 2*half - 2*zero)
-    {
-      voct_atv = 2*half-2*zero;
-    }
-    if(voct_atv < 0)
-    {
-      voct_atv = 0;
-    }
-    float voct_atv_value = float(voct_atv) / (2*half - 2*zero);
-    
-    float voct_cv_value = -2.95 * (float(adc_memory[voct_cv_channel])/half - 1) * voct_atv_value;
-
-    voct = 261.63 * pow(2, voct_oct + semi + fine + voct_cv_value);
-
-    if (freq_lock != 0)
-    {
-      voct *= actual_len;
-    }
-    else
-    {
-      voct *= 2; //Normalizing shortest length pitch
-    }
-  
-    analogWriteFrequency(clk_pin_0, voct);
-    analogWrite(clk_pin_0, 2);
-   
-  
-    if (lfsr_en1 == 1)
-    {
-      #ifdef DETUNE_LFSR1
-        float scale = actual_len*4;
-        analogWriteFrequency(clk_pin_1, floor((voct * poly_maps[poly] * poly_oct_val)/scale)*scale);
-      #else
-        analogWriteFrequency(clk_pin_1, (voct * poly_maps[poly] * poly_oct_val));
-      #endif
-      analogWrite(clk_pin_1, 2);
-    }
-    else
-    {
-      pinMode(clk_pin_1, OUTPUT);
-      digitalWrite(clk_pin_1, 0);
-    }
-    
-  }    
-
   /* Select next channel */
 
   ++adc_seq_index;
