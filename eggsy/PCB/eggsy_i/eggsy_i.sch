@@ -1,0 +1,384 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 14
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 3000 1750 1000 500 
+U 60693B66
+F0 "12V Current Sense" 50
+F1 "12v_current_sense.sch" 50
+F2 "12VOUT" O R 4000 1850 50 
+F3 "12V_I" O R 4000 2150 50 
+F4 "12VIN" I L 3000 1850 50 
+$EndSheet
+$Sheet
+S 3000 750  1000 500 
+U 60693B99
+F0 "5V Current Sense" 50
+F1 "5v_current_sense.sch" 50
+F2 "5VOUT" O R 4000 850 50 
+F3 "5V_I" O R 4000 1150 50 
+F4 "5VIN" I L 3000 850 50 
+$EndSheet
+$Sheet
+S 3000 2750 1000 500 
+U 60693BCC
+F0 "-12 V Current Snese" 50
+F1 "-12v_current_sense.sch" 50
+F2 "-12VOUT" O R 4000 2850 50 
+F3 "-12V_I" O R 4000 3150 50 
+F4 "-12VIN" I L 3000 2850 50 
+$EndSheet
+$Sheet
+S 5500 750  1000 500 
+U 60693C2D
+F0 "12 V Switch" 50
+F1 "12v_switch.sch" 50
+F2 "5VIN" I L 5500 850 50 
+F3 "5VOUT" O R 6500 850 50 
+F4 "5V_PGOOD" O R 6500 1000 50 
+F5 "5V_FAULT" O R 6500 1150 50 
+F6 "5V_EN" I L 5500 1150 50 
+$EndSheet
+$Sheet
+S 5500 1750 1000 500 
+U 60693C5F
+F0 "5 V Switch" 50
+F1 "5v_switch.sch" 50
+F2 "12VIN" I L 5500 1850 50 
+F3 "12VOUT" O R 6500 1850 50 
+F4 "12V_PGOOD" O R 6500 2000 50 
+F5 "12V_FAULT" O R 6500 2150 50 
+F6 "12V_EN" I L 5500 2150 50 
+$EndSheet
+$Sheet
+S 5500 2750 1000 500 
+U 60693C7C
+F0 "-12 V Switch" 50
+F1 "-12v_switch.sch" 50
+F2 "-12VIN" I L 5500 2850 50 
+F3 "-12VOUT" O R 6500 2850 50 
+F4 "-12V_PGOOD" O R 6500 3000 50 
+F5 "-12V_FAULT" O R 6500 3150 50 
+F6 "-12V_EN" I L 5500 3150 50 
+$EndSheet
+$Sheet
+S 7500 1400 1000 1000
+U 60693C9A
+F0 "Power Exuent" 50
+F1 "power_exuent.sch" 50
+F2 "5V" I L 7500 1650 50 
+F3 "12V" I L 7500 1850 50 
+F4 "-12V" I L 7500 2050 50 
+F5 "5V_V" O R 8500 1750 50 
+F6 "12V_V" O R 8500 1850 50 
+F7 "-12V_V" O R 8500 1950 50 
+$EndSheet
+$Sheet
+S 7500 3750 1000 2500
+U 60693CC8
+F0 "Panel Controls" 50
+F1 "panel_controls.sch" 50
+F2 "POWER_SW" O L 7500 5300 50 
+F3 "PROG_SW" O L 7500 5400 50 
+F4 "5V_I" I L 7500 3900 50 
+F5 "12V_I" I L 7500 4000 50 
+F6 "-12V_I" I L 7500 4100 50 
+F7 "5V_PGOOD" I L 7500 4300 50 
+F8 "12V_PGOOD" I L 7500 4400 50 
+F9 "-12V_PGOOD" I L 7500 4500 50 
+F10 "5V_FAULT" I L 7500 4900 50 
+F11 "12V_FAULT" I L 7500 5000 50 
+F12 "-12V_FAULT" I L 7500 5100 50 
+$EndSheet
+$Sheet
+S 5500 3750 1000 2500
+U 60693D62
+F0 "Microcontroller" 50
+F1 "microcontroller.sch" 50
+F2 "VOUT_EN" I L 5500 3850 50 
+F3 "5V_I" I L 5500 4000 50 
+F4 "12V_IN" I L 5500 4100 50 
+F5 "-12V_I" I L 5500 4200 50 
+F6 "5V_V" I R 6500 5900 50 
+F7 "12V_V" I R 6500 6000 50 
+F8 "-12V_V" I R 6500 6100 50 
+F9 "5V_PGOOD" I R 6500 4300 50 
+F10 "12V_PGOOD" I R 6500 4400 50 
+F11 "-12V_PGOOD" I R 6500 4500 50 
+F12 "5V_FAULT" I R 6500 4900 50 
+F13 "12V_FAULT" I R 6500 5000 50 
+F14 "-12V_FAULT" I R 6500 5100 50 
+F15 "POWER_SW" I R 6500 5300 50 
+F16 "PROG_SW" I R 6500 5400 50 
+F17 "12V_REF_EN" O L 5500 4700 50 
+F18 "5V_REF_EN" O L 5500 4600 50 
+F19 "-12V_REF_EN" O L 5500 4800 50 
+$EndSheet
+$Sheet
+S 3000 3750 1000 500 
+U 60693DAC
+F0 "12/5 V Current Reference" 50
+F1 "5_12_current_ref.sch" 50
+F2 "5VIN" I R 4000 3850 50 
+F3 "5V_EN" I R 4000 4050 50 
+F4 "12VIN" I R 4000 3950 50 
+F5 "12V_EN" I R 4000 4150 50 
+$EndSheet
+$Sheet
+S 3000 4750 1000 500 
+U 60693E11
+F0 "-12 V Current Reference" 50
+F1 "-12_current_ref.sch" 50
+F2 "-12VIN" I R 4000 4850 50 
+F3 "EN" I R 4000 5150 50 
+$EndSheet
+$Sheet
+S 1050 3500 950  1000
+U 60694FB6
+F0 "Power Supplies" 50
+F1 "power_supplies.sch" 50
+$EndSheet
+$Sheet
+S 1000 1350 1000 1000
+U 60693B3F
+F0 "Power Entry" 50
+F1 "power_entry.sch" 50
+F2 "5V" O R 2000 1650 50 
+F3 "12V" O R 2000 1850 50 
+F4 "-12V" O R 2000 2050 50 
+$EndSheet
+Wire Wire Line
+	2000 1650 2500 1650
+Wire Wire Line
+	2500 1650 2500 850 
+Wire Wire Line
+	2500 850  3000 850 
+Wire Wire Line
+	2000 1850 3000 1850
+Wire Wire Line
+	2000 2050 2500 2050
+Wire Wire Line
+	2500 2050 2500 2850
+Wire Wire Line
+	2500 2850 3000 2850
+Wire Wire Line
+	4000 1850 4200 1850
+Wire Wire Line
+	4000 2850 4300 2850
+Wire Wire Line
+	4000 850  4100 850 
+Wire Wire Line
+	4100 850  4100 3850
+Wire Wire Line
+	4100 3850 4000 3850
+Connection ~ 4100 850 
+Wire Wire Line
+	4100 850  5500 850 
+Wire Wire Line
+	4200 1850 4200 3950
+Wire Wire Line
+	4200 3950 4000 3950
+Connection ~ 4200 1850
+Wire Wire Line
+	4200 1850 5500 1850
+Wire Wire Line
+	4300 2850 4300 4850
+Wire Wire Line
+	4300 4850 4000 4850
+Connection ~ 4300 2850
+Wire Wire Line
+	4300 2850 5500 2850
+Wire Wire Line
+	5500 3850 5400 3850
+Wire Wire Line
+	5400 3850 5400 3150
+Wire Wire Line
+	5400 3150 5500 3150
+Wire Wire Line
+	5400 3150 5400 2150
+Wire Wire Line
+	5400 2150 5500 2150
+Connection ~ 5400 3150
+Wire Wire Line
+	5400 2150 5400 1150
+Wire Wire Line
+	5400 1150 5500 1150
+Connection ~ 5400 2150
+Wire Wire Line
+	4000 1150 5200 1150
+Wire Wire Line
+	5200 1150 5200 3400
+Wire Wire Line
+	5200 4000 5500 4000
+Wire Wire Line
+	5500 4100 5100 4100
+Wire Wire Line
+	5100 4100 5100 3600
+Wire Wire Line
+	5100 2150 4000 2150
+Wire Wire Line
+	5500 4200 5000 4200
+Wire Wire Line
+	5000 4200 5000 3150
+Wire Wire Line
+	5000 3150 4000 3150
+Wire Wire Line
+	4800 4600 4800 4050
+Wire Wire Line
+	4800 4050 4000 4050
+Wire Wire Line
+	4800 4600 5500 4600
+Wire Wire Line
+	4700 4700 4700 4150
+Wire Wire Line
+	4700 4150 4000 4150
+Wire Wire Line
+	4700 4700 5500 4700
+Wire Wire Line
+	5500 4800 4700 4800
+Wire Wire Line
+	4700 4800 4700 5150
+Wire Wire Line
+	4700 5150 4000 5150
+Wire Wire Line
+	7500 1650 7400 1650
+Wire Wire Line
+	7400 1650 7400 850 
+Wire Wire Line
+	7400 850  6500 850 
+Wire Wire Line
+	7500 1850 6500 1850
+Wire Wire Line
+	7500 2050 7400 2050
+Wire Wire Line
+	7400 2050 7400 2850
+Wire Wire Line
+	7400 2850 6500 2850
+Wire Wire Line
+	7500 3900 7400 3900
+Wire Wire Line
+	7400 3900 7400 3400
+Wire Wire Line
+	7400 3400 5200 3400
+Connection ~ 5200 3400
+Wire Wire Line
+	5200 3400 5200 4000
+Wire Wire Line
+	7500 4000 7300 4000
+Wire Wire Line
+	7300 4000 7300 3500
+Wire Wire Line
+	7300 3500 5100 3500
+Connection ~ 5100 3500
+Wire Wire Line
+	5100 3500 5100 2150
+Wire Wire Line
+	7500 4100 7200 4100
+Wire Wire Line
+	7200 4100 7200 3600
+Wire Wire Line
+	7200 3600 5100 3600
+Connection ~ 5100 3600
+Wire Wire Line
+	5100 3600 5100 3500
+Wire Wire Line
+	6500 4500 6650 4500
+Wire Wire Line
+	7500 5000 6750 5000
+Wire Wire Line
+	6500 5100 6600 5100
+Wire Wire Line
+	6500 5300 7500 5300
+Wire Wire Line
+	7500 5400 6500 5400
+Wire Wire Line
+	6500 4300 6950 4300
+Wire Wire Line
+	6500 4900 6900 4900
+Wire Wire Line
+	6500 3150 6600 3150
+Wire Wire Line
+	6600 3150 6600 5100
+Connection ~ 6600 5100
+Wire Wire Line
+	6600 5100 7500 5100
+Wire Wire Line
+	7500 4400 6800 4400
+Wire Wire Line
+	6500 3000 6650 3000
+Wire Wire Line
+	6650 3000 6650 4500
+Connection ~ 6650 4500
+Wire Wire Line
+	6650 4500 7500 4500
+Wire Wire Line
+	6500 2150 6750 2150
+Wire Wire Line
+	6750 2150 6750 5000
+Connection ~ 6750 5000
+Wire Wire Line
+	6750 5000 6500 5000
+Wire Wire Line
+	6500 2000 6800 2000
+Wire Wire Line
+	6800 2000 6800 4400
+Connection ~ 6800 4400
+Wire Wire Line
+	6800 4400 6500 4400
+Wire Wire Line
+	6900 1150 6900 4900
+Wire Wire Line
+	6500 1150 6900 1150
+Connection ~ 6900 4900
+Wire Wire Line
+	6900 4900 7500 4900
+Wire Wire Line
+	6950 4300 6950 1000
+Wire Wire Line
+	6500 1000 6950 1000
+Connection ~ 6950 4300
+Wire Wire Line
+	6950 4300 7500 4300
+Wire Wire Line
+	8500 1950 8600 1950
+Wire Wire Line
+	8600 1950 8600 6350
+Wire Wire Line
+	8600 6350 7350 6350
+Wire Wire Line
+	7350 6350 7350 6100
+Wire Wire Line
+	7350 6100 6500 6100
+Wire Wire Line
+	8500 1850 8700 1850
+Wire Wire Line
+	8700 1850 8700 6450
+Wire Wire Line
+	8700 6450 7250 6450
+Wire Wire Line
+	7250 6450 7250 6000
+Wire Wire Line
+	7250 6000 6500 6000
+Wire Wire Line
+	6500 5900 7150 5900
+Wire Wire Line
+	7150 5900 7150 6500
+Wire Wire Line
+	7150 6500 8800 6500
+Wire Wire Line
+	8800 6500 8800 1750
+Wire Wire Line
+	8800 1750 8500 1750
+$EndSCHEMATC
