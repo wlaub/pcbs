@@ -3,3 +3,5 @@ digikey-kicad-library/
 *.raw
 *.kicad_pcb-bak
 *.sch-bak
+*.swp
+*.bck

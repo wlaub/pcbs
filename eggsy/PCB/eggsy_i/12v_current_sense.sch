@@ -13,4 +13,10 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Text HLabel 3250 3250 0    50   Input ~ 0
+12VIN
+Text HLabel 5800 2750 0    50   Output ~ 0
+12VOUT
+Text HLabel 5450 3250 0    50   Output ~ 0
+12V_I
 $EndSCHEMATC
