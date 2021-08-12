@@ -5174,6 +5174,8 @@ Text Notes 9050 6950 0    50   ~ 0
 Cutoff 1/(6.28*r*c)\n4.825 kHz
 Text Notes 7350 800  0    50   ~ 0
 499/100n:\nCutoff = 3.191 kHz\nMin fs = 6.382 KSPS
-Text Notes 17850 6650 0    50   ~ 0
-0 = 230 / 1,2 = 50 nom.\nR11 = 230\nR10, R86 = 50\n
+Text Notes 17850 6750 0    50   ~ 0
+Nominal:\n0+1 = 0+2 = 100\n1+2 = 280\nR11 = 0\nR10, R86 = 100\n
+Text Notes 17900 4950 0    50   ~ 0
+0 to 1, 0 to 2 are green\n1 to 2 are orange
 $EndSCHEMATC

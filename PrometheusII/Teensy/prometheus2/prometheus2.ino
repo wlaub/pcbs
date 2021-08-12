@@ -92,6 +92,8 @@ unsigned short read_lfsr()
   return result;
 }
 
+volatile int poly_sw_prev = 0;
+
 void setup() {
 
   __disable_irq();
@@ -127,6 +129,7 @@ void setup() {
   pinMode(len_knob_pin, INPUT);
   pinMode(poly_sw_pin, INPUT);
 
+  poly_sw_prev = 1-digitalRead(poly_sw_pin);
 
   configure_adc();
   Serial.begin(115200);
@@ -153,9 +156,18 @@ int glitch_enabled_memory = 0;
 
 //TODO: Make these be automatically saved and loaded from nonvolatile memory
 volatile int semi_enc_counter = 0;
-volatile int poly_enc_counter = 0;
+volatile int polyphony_counter = 0;
 volatile int oct_enc_counter = 0;
 volatile unsigned short prev_iox = 0;
+
+signed char poly_mode = 0;
+signed char prev_poly_mode = 0;
+volatile int poly_active = 0;
+
+volatile int length_lock = 0;
+unsigned int len = 1;
+
+unsigned char taps_toggle = 0;
 
 void loop() {
   // put your main code here, to run repeatedly:
@@ -167,6 +179,26 @@ void loop() {
   unsigned short iox = 0;
   iox = read_lfsr();  
 
+  /* Poly switch operation*/
+
+  int poly_sw_val = 1-digitalRead(poly_sw_pin);
+  if(poly_sw_val != poly_sw_prev)
+  {
+    poly_sw_prev = poly_sw_val;
+    if(poly_sw_val == 0)//Release edge
+    {
+      if(poly_mode == POLY_LENGTH_LOCK && prev_poly_mode == poly_mode)
+      {
+        length_lock = 1-length_lock;
+      }
+
+      prev_poly_mode = poly_mode;
+    }
+    else //Press edge
+    {
+      
+    }
+  }
 
 
   /*Charlieplexed LEDs*/
@@ -205,57 +237,63 @@ void loop() {
     }
     
   }
-  led_map[UL] = 0;
-  if(semi_enc_counter == 0)
-  {
-    led_map[UL] = 1;
-  }
-  
+
+  signed char poly_delta = 0;
   if (POLY_ENCODER(prev_iox) == 0)
   {
     if(POLY_ENCODER(iox) == 2)
     {
-    poly_enc_counter -= 1;  
+      poly_delta = -1;
     }
     else if(POLY_ENCODER(iox) == 1)
     {
-    poly_enc_counter += 1;  
+      poly_delta = 1;
     }
     
   }
 
-  poly = 0;
-  if(poly_enc_counter > 0)
+  if(poly_sw_val == 1)
   {
-    poly = (poly_enc_counter-1)%poly_count;
-    poly_oct = floor((poly_enc_counter-1)/float(poly_count));
+    poly_mode += poly_delta;
+    if(poly_mode > 5)
+    {
+      poly_mode -= 6;
+    }
+    else if(poly_mode < 0)
+    {
+      poly_mode += 6;
+    }
   }
-  else if(poly_enc_counter < 0)
+  else
   {
-    poly = (poly_enc_counter+1)%poly_count+poly_count-1;
-    poly_oct = floor(poly_enc_counter/float(poly_count));
-  }
-  poly_oct_val = pow(2, poly_oct);
-  
-  if(poly_enc_counter == 0 && lfsr_en1 == 1)
-  {
-    lfsr_en1 = 0;
-    update_lfsr = 1;
+    polyphony_counter += poly_delta;
+    poly = 0;
+    if(polyphony_counter > 0)
+    {
+      poly = (polyphony_counter-1)%poly_count;
+      poly_oct = floor((polyphony_counter-1)/float(poly_count));
+    }
+    else if(polyphony_counter < 0)
+    {
+      poly = (polyphony_counter+1)%poly_count+poly_count-1;
+      poly_oct = floor(polyphony_counter/float(poly_count));
+    }
+    poly_oct_val = pow(2, poly_oct);
     
-  }
-  else if(poly_enc_counter != 0 && lfsr_en1 == 0)
-  {
-    lfsr_en1 = 1;
-    update_lfsr = 1;
-  }
-    
+    if(polyphony_counter == 0 && lfsr_en1 == 1)
+    {
+      lfsr_en1 = 0;
+      update_lfsr = 1;
+      
+    }
+    else if(polyphony_counter != 0 && lfsr_en1 == 0)
+    {
+      lfsr_en1 = 1;
+      update_lfsr = 1;
+    }
+  } 
 
-//TEMPORARY
-  led_map[UC] = 0;
-  if(poly_enc_counter == 0)
-  {
-    led_map[UC] = 1;
-  }
+
 //TEMPORARY
 
   if (OCT_ENCODER(prev_iox) == 0)
@@ -270,11 +308,7 @@ void loop() {
     }
     
   }
-  led_map[UR] = 0;
-  if(oct_enc_counter == 0)
-  {
-    led_map[UR] = 1;
-  }
+
 
   /* Reading some knob values*/
 
@@ -299,7 +333,7 @@ void loop() {
   len_knob = adc_memory[pin_to_channel[len_knob_pin]];
   len_cv = adc_memory[pin_to_channel[len_cv_pin]];
 
-  freq_lock = 1 - digitalRead(freq_lock_pin);
+  freq_lock = digitalRead(freq_lock_pin);
   
 //  
 //  /*  Serial.print(voct_cv);
@@ -393,15 +427,18 @@ void loop() {
 
   float param_0_alpha = -5.06*(float(param_0_cv)/(half)-1)/5;
 
-  unsigned int len = int(pow(2, 1 + knob_len + cv_len));
-  if (len < 2)
+  if(length_lock == 0)
   {
-    len = 2;
-  }
-  if (len > 4095)
-  {
-    len = 4095;
-
+    len = int(pow(2, 1 + knob_len + cv_len));
+    if (len < 2)
+    {
+      len = 2;
+    }
+    if (len > 4095)
+    {
+      len = 4095;
+  
+    }
   }
 
   int param_0_combined = (param_0 << 4);
@@ -423,7 +460,7 @@ void loop() {
   
   if (taps != new_taps)
   {
-    led_map[LC] = 1-led_map[LC];
+    taps_toggle = 1-taps_toggle;
   }
 
 
@@ -466,16 +503,52 @@ void loop() {
     voct_fine -= zero;
   }
 
-  //TEMPORARY
-  led_map[LL] = 0;
-  if(voct_fine == 0)
-  {
-    led_map[LL] = 1;
-  }
+
 
   fine = float(voct_fine) / (12.0 * (half - zero));
 
+   led_map[LL] = 0; 
+   led_map[LC] = 0;
+   led_map[LR] = 0;
+   led_map[UL] = 0;
+   led_map[UC] = 0;
+   led_map[UR] = 0;
+  /*LED Configuration*/
+  if(poly_sw_prev == 0)
+  {
+    if(semi_enc_counter == 0)
+    {
+      led_map[UL] = 1;
+    }
 
+    if(poly_mode == POLY_POLYPHONY)
+    {
+      if(polyphony_counter == 0)
+      {
+        led_map[UC] = 1;
+      }
+    }
+
+    if(oct_enc_counter == 0)
+    {
+      led_map[UR] = 1;
+    }
+    
+    if(voct_fine == 0)
+    {
+      led_map[LL] = 1;
+    }
+    led_map[LC] = taps_toggle;  
+
+    led_map[LR] = length_lock;
+
+  }
+  else
+  {
+
+     led_map[led_num_map[poly_mode]] = 1;
+  }
+  
   //REMEMBER
   prev_iox = iox;
   
@@ -508,18 +581,21 @@ void loop() {
   Serial.print(poly_oct);
   //Serial.print(iox, BIN);
 */
-
+  Serial.print(actual_len);Serial.print(",");
 /* ADC Channel Plotting */
+
+
 
 //  Serial.print(adc_memory[voct_cv_channel]);Serial.print(",");
 //  Serial.print(adc_memory[len_cv_channel]); Serial.print(",");
 //  Serial.print(adc_memory[param_0_cv_channel]); Serial.print(",");
 //  Serial.print(adc_memory[voct_atv_channel]); Serial.print(",");
-  Serial.print(adc_memory[len_knob_channel]); Serial.print(",");
+Serial.print(adc_memory[len_knob_channel]); Serial.print(",");
 //  Serial.print(adc_memory[voct_fine_channel]); Serial.print(",");
 //  Serial.print(adc_memory[param_0_channel]); Serial.print(",");
 //  Serial.print(adc_memory[param_1_channel]); Serial.print(",");
 //  Serial.print(adc_memory[lfo_channel]); Serial.print(",");
+
 
   
   Serial.print("\n");

@@ -13,10 +13,21 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 3250 3250 0    50   Input ~ 0
+Text HLabel 1450 1350 0    50   Input ~ 0
 12VIN
-Text HLabel 5800 2750 0    50   Output ~ 0
+Text HLabel 10150 3700 0    50   Output ~ 0
 12VOUT
-Text HLabel 5450 3250 0    50   Output ~ 0
+Text HLabel 9800 4200 0    50   Output ~ 0
 12V_I
+$Comp
+L TTT_lib:LT6105HMS8-PBF U?
+U 1 1 607D3F1E
+P 3850 2600
+F 0 "U?" H 4950 2987 60  0000 C CNN
+F 1 "LT6105HMS8-PBF" H 4950 2881 60  0000 C CNN
+F 2 "MSOP-8_MS_LIT" H 4950 2840 60  0001 C CNN
+F 3 "" H 3850 2600 60  0000 C CNN
+	1    3850 2600
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

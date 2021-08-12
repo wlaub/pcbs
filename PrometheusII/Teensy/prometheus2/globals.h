@@ -20,6 +20,11 @@ int freq = 10e6;
 int half = 2048;
 int zero = half / 16;
 
+//Poly modes
+
+#define POLY_LENGTH_LOCK 0
+#define POLY_POLYPHONY 1
+
 //Global knob values
 
 volatile int voct_oct;
