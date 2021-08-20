@@ -146,7 +146,7 @@ void setup() {
   pinMode(sdo_pin, INPUT); //LFSR serial data out to MCU
   pinMode(sdi_pin, OUTPUT); //LFSR serial data in from MCU
   //Initialize LFSR
-  write_lfsr(0x1, lfsr_en0,lfsr_en1);
+  write_lfsr(0x1, lfsr_en0, lfsr_en1);
   
 }
 
@@ -163,6 +163,7 @@ volatile unsigned short prev_iox = 0;
 signed char poly_mode = 0;
 signed char prev_poly_mode = 0;
 volatile int poly_active = 0;
+signed char poly_changed = 0;
 
 volatile int length_lock = 0;
 unsigned int len = 1;
@@ -187,16 +188,18 @@ void loop() {
     poly_sw_prev = poly_sw_val;
     if(poly_sw_val == 0)//Release edge
     {
-      if(poly_mode == POLY_LENGTH_LOCK && prev_poly_mode == poly_mode)
+      if(poly_changed == 0)
       {
-        length_lock = 1-length_lock;
+        if(poly_mode == POLY_LENGTH_LOCK && prev_poly_mode == poly_mode)
+        {
+          length_lock = 1-length_lock;
+        }
       }
-
       prev_poly_mode = poly_mode;
     }
     else //Press edge
     {
-      
+      poly_changed = 0;
     }
   }
 
@@ -254,14 +257,18 @@ void loop() {
 
   if(poly_sw_val == 1)
   {
-    poly_mode += poly_delta;
-    if(poly_mode > 5)
+    if(poly_delta != 0)
     {
-      poly_mode -= 6;
-    }
-    else if(poly_mode < 0)
-    {
-      poly_mode += 6;
+      poly_changed = 1;
+      poly_mode += poly_delta;
+      if(poly_mode > 5)
+      {
+        poly_mode -= 6;
+      }
+      else if(poly_mode < 0)
+      {
+        poly_mode += 6;
+      }
     }
   }
   else if(poly_mode == POLY_POLYPHONY)

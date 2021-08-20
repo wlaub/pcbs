@@ -43,6 +43,6 @@ volatile float voct = 0;
 volatile unsigned short actual_len;
 
 volatile unsigned char lfsr_en0 = 1;
-volatile unsigned char lfsr_en1 = 1;
+volatile unsigned char lfsr_en1 = 0;
 
 #endif
