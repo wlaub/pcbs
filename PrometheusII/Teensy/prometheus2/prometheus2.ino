@@ -438,7 +438,7 @@ void loop() {
   {
     len = int(pow(2, 1 + knob_len + cv_len));
   }
-  else
+  else if(poly_mode == POLY_LENGTH_LOCK && poly_sw_val == 0)
   {
     if(poly_delta == 1)
     {
