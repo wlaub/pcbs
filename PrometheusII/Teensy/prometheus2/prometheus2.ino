@@ -264,7 +264,7 @@ void loop() {
       poly_mode += 6;
     }
   }
-  else
+  else if(poly_mode == POLY_POLYPHONY)
   {
     polyphony_counter += poly_delta;
     poly = 0;
@@ -430,15 +430,26 @@ void loop() {
   if(length_lock == 0)
   {
     len = int(pow(2, 1 + knob_len + cv_len));
-    if (len < 2)
+  }
+  else
+  {
+    if(poly_delta == 1)
     {
-      len = 2;
+      len = get_next_length(len);
     }
-    if (len > 4095)
+    else if (poly_delta == -1)
     {
-      len = 4095;
-  
+      len = get_prev_length(len);
     }
+  }
+  if (len < 2)
+  {
+    len = 2;
+  }
+  if (len > 4095)
+  {
+    len = 4095;
+
   }
 
   int param_0_combined = (param_0 << 4);

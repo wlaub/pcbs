@@ -8,6 +8,15 @@ typedef struct {
 
 } IndexEntry;
 
+unsigned short get_prev_length(unsigned short length)
+{
+  return length_map[length*2];
+}
+unsigned short get_next_length(unsigned short length)
+{
+  return length_map[length*2+1];
+}
+
 unsigned short get_actual_length(unsigned short length)
 {
     unsigned int base_address = ((unsigned int*)(buffer))[length];
