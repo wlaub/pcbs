@@ -354,7 +354,7 @@ void loop() {
 //  //int voct_oct; GLOBAL
 
   voct_fine = adc_memory[pin_to_channel[voct_fine_pin]];
-  //voct_cv = adc_memory[pin_to_channel[voct_cv_pin]];
+  voct_cv = adc_memory[pin_to_channel[voct_cv_pin]];
   //voct_atv = adc_memory[pin_to_channel[voct_atv_pin]];
 
   int param_0;
@@ -569,40 +569,112 @@ void loop() {
   /*LED Configuration*/
   if(poly_sw_prev == 0)
   {
-    if(semi_enc_counter == 0)
+    if(poly_mode != POLY_CAL)
     {
-      led_map[UL] = 1;
-    }
-
-    if(poly_mode == POLY_POLYPHONY)
-    {
-      if(polyphony_counter == 0)
+      if(semi_enc_counter == 0)
       {
-        led_map[UC] = 1;
+        led_map[UL] = 1;
+      }
+  
+      if(poly_mode == POLY_POLYPHONY)
+      {
+        if(polyphony_counter == 0)
+        {
+          led_map[UC] = 1;
+        }
+      }
+  
+      if(oct_enc_counter == 0)
+      {
+        led_map[UR] = 1;
+      }
+      
+      if(voct_fine == 0)
+      {
+        led_map[LL] = 1;
+      }
+      led_map[LC] = taps_toggle;  
+  
+      if(length_lock)
+      {
+        if(calc_len == len)
+        {
+          led_map[LR] = blinker;
+        }
+        else
+        {
+          led_map[LR] = length_lock;
+        }
       }
     }
+    else
+    {
+      led_map[LC] = blinker;
 
-    if(oct_enc_counter == 0)
-    {
-      led_map[UR] = 1;
-    }
-    
-    if(voct_fine == 0)
-    {
-      led_map[LL] = 1;
-    }
-    led_map[LC] = taps_toggle;  
-
-    if(length_lock)
-    {
-      if(calc_len == len)
+      
+      float voct_cv_value = -2.95 * (float(adc_memory[voct_cv_channel])/half - 1); //TODO: make this DRY
+      int voct_cal_sel;
+      if(voct_cv_value < -2.5) // error
       {
-        led_map[LR] = blinker;
+        voct_cal_sel = -5;
+      }
+      else if(voct_cv_value < -1.5) // -2
+      {
+        voct_cal_sel = -2;
+      }
+      else if(voct_cv_value < -0.5) // -1
+      {
+        voct_cal_sel = -1;
+      }
+      else if(voct_cv_value < 0.5) // 0
+      {
+        voct_cal_sel = 0;
+      }
+      else if(voct_cv_value < 1.5) // 1
+      {
+        voct_cal_sel = 1;
+      }
+      else if(voct_cv_value < 2.5) // 2
+      {
+        voct_cal_sel = 2;
       }
       else
       {
-        led_map[LR] = length_lock;
+        voct_cal_sel = 5;
       }
+      
+      if(voct_cal_sel == -2 )
+      {
+        led_map[LL] = 1;
+      }
+      else if(voct_cal_sel == -1)
+      {
+        led_map[UL] = 1;
+      }
+      else if(voct_cal_sel == 0)
+      {
+        led_map[UC] = 1;
+      }
+      else if(voct_cal_sel == 1)
+      {
+        led_map[UR] = 1;
+      }
+      else if(voct_cal_sel == 2)
+      {
+        led_map[LR] = 1;
+      }
+      else if(voct_cal_sel < -2)
+      {
+        led_map[LL] = blinker;
+        led_map[UL] = blinker;
+      }
+      else if(voct_cal_sel > 2)
+      {
+        led_map[LR] = blinker;
+        led_map[UR] = blinker;
+      }
+
+      
     }
 
   }
