@@ -167,13 +167,27 @@ signed char poly_changed = 0;
 
 volatile int length_lock = 0;
 unsigned int len = 1;
+int blink_counter = 0;
+int blinker = 0;
 
 unsigned char taps_toggle = 0;
+
+
+int poly_down_time = 0;
+int poly_held_time = 0;
 
 void loop() {
   // put your main code here, to run repeatedly:
 
   int start_time = micros();
+
+  
+  ++blink_counter;
+  if (blink_counter == BLINK_RATE)
+  {
+    blink_counter = 0;
+    blinker = 1-blinker;
+  }
 
   int update_lfsr = 0;
 
@@ -188,6 +202,7 @@ void loop() {
     poly_sw_prev = poly_sw_val;
     if(poly_sw_val == 0)//Release edge
     {
+      poly_held_time = start_time - poly_down_time;
       if(poly_changed == 0)
       {
         if(poly_mode == POLY_LENGTH_LOCK && prev_poly_mode == poly_mode)
@@ -200,9 +215,13 @@ void loop() {
     else //Press edge
     {
       poly_changed = 0;
+      poly_down_time = start_time;
     }
   }
-
+  if(poly_sw_val == 1)
+  {
+    poly_held_time = start_time - poly_down_time;
+  }
 
   /*Charlieplexed LEDs*/
 
@@ -434,12 +453,17 @@ void loop() {
 
   float param_0_alpha = -5.06*(float(param_0_cv)/(half)-1)/5;
 
+  int calc_len;
+  calc_len = int(pow(2, 1 + knob_len + cv_len));
+
   if(length_lock == 0)
   {
-    len = int(pow(2, 1 + knob_len + cv_len));
+    
+    len = calc_len;
   }
   else if(poly_mode == POLY_LENGTH_LOCK && poly_sw_val == 0)
   {
+    
     if(poly_delta == 1)
     {
       len = get_next_length(len);
@@ -558,13 +582,23 @@ void loop() {
     }
     led_map[LC] = taps_toggle;  
 
-    led_map[LR] = length_lock;
+    if(length_lock)
+    {
+      if(calc_len == len)
+      {
+        led_map[LR] = blinker;
+      }
+      else
+      {
+        led_map[LR] = length_lock;
+      }
+    }
 
   }
   else
   {
 
-     led_map[led_num_map[poly_mode]] = 1;
+     led_map[led_num_map[poly_mode]] = (poly_held_time > 5000000) ? blinker : 1;
   }
   
   //REMEMBER

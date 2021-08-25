@@ -10,6 +10,8 @@
 //length of a glitch in main loop cycles
 #define GLITCH_LEN 10000/LOOP_PERIOD
 
+//blink duration in main loop cycles
+#define BLINK_RATE 2000
 
 //Option to detune lfsr1 from lfsr0 by rounding
 #define DETUNE_LFSR1
