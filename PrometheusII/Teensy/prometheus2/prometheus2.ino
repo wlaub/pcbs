@@ -209,6 +209,10 @@ void loop() {
         {
           length_lock = 1-length_lock;
         }
+        else if(poly_mode == POLY_POLYPHONY && poly_held_time > POLY_HOLD_TIME)
+        {
+          polyphony_counter = 0;
+        }
       }
       prev_poly_mode = poly_mode;
     }
@@ -597,8 +601,21 @@ void loop() {
   }
   else
   {
-
-     led_map[led_num_map[poly_mode]] = (poly_held_time > 5000000) ? blinker : 1;
+    if(poly_changed == 0)
+    {
+      if(poly_mode == POLY_POLYPHONY && poly_held_time > POLY_HOLD_TIME)
+      {
+        led_map[led_num_map[poly_mode]] = blinker;
+      }
+      else
+      {
+        led_map[led_num_map[poly_mode]] = 1;
+      }
+    }
+    else
+    {
+      led_map[led_num_map[poly_mode]] = 1;
+    }
   }
   
   //REMEMBER

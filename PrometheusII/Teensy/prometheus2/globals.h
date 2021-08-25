@@ -24,6 +24,8 @@ int zero = half / 16;
 
 //Poly modes
 
+#define POLY_HOLD_TIME 5000000 // 5 seconds in microseconds
+
 #define POLY_LENGTH_LOCK 0
 #define POLY_POLYPHONY 1
 
