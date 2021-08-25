@@ -213,6 +213,13 @@ void loop() {
         {
           polyphony_counter = 0;
         }
+        else if(poly_mode == POLY_RESET && poly_held_time > POLY_HOLD_TIME)
+        {
+          polyphony_counter = 0;
+          oct_enc_counter = 0;
+          semi_enc_counter = 0;
+        }
+        
       }
       prev_poly_mode = poly_mode;
     }
@@ -603,7 +610,7 @@ void loop() {
   {
     if(poly_changed == 0)
     {
-      if(poly_mode == POLY_POLYPHONY && poly_held_time > POLY_HOLD_TIME)
+      if((poly_mode == POLY_POLYPHONY || poly_mode == POLY_RESET) && poly_held_time > POLY_HOLD_TIME)
       {
         led_map[led_num_map[poly_mode]] = blinker;
       }

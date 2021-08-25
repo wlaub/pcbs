@@ -28,6 +28,7 @@ int zero = half / 16;
 
 #define POLY_LENGTH_LOCK 0
 #define POLY_POLYPHONY 1
+#define POLY_RESET 5
 
 //Global knob values
 
