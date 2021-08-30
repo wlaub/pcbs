@@ -31,16 +31,25 @@ int zero = half / 16;
 #define POLY_CAL 2
 #define POLY_RESET 5
 
+//Configurations
+
+struct PitchConfig 
+{
+  signed char octave = 0;
+  signed char semitone = 0;
+  unsigned char enabled = 0;
+};
+
+volatile struct PitchConfig main_pitch;
+volatile struct PitchConfig aux_pitch;
+
 //Global knob values
 
-volatile int voct_oct;
-volatile float semi;
+//volatile int voct_oct;
+
 volatile float fine;
 volatile float voct_atv_value;
 volatile int freq_lock;
-volatile int poly;
-volatile int poly_oct;
-volatile float poly_oct_val;
 
 volatile float voct = 0;
 
@@ -48,7 +57,5 @@ volatile float voct = 0;
 
 volatile unsigned short actual_len;
 
-volatile unsigned char lfsr_en0 = 1;
-volatile unsigned char lfsr_en1 = 0;
 
 #endif

@@ -160,7 +160,7 @@ void adc_interrupt()
   
   if(adc_channel == voct_cv_channel && sample_counter[adc_channel] == 0)
   {  // V/oct pin
-    float voct;
+    float voct, voct_aux;
     int voct_atv = adc_memory[voct_atv_channel];
     voct_atv -= zero;
     if(voct_atv > 2*half - 2*zero)
@@ -175,28 +175,31 @@ void adc_interrupt()
     
     float voct_cv_value = -2.95 * (float(adc_memory[voct_cv_channel])/half - 1) * voct_atv_value;
 
-    voct = 261.63 * pow(2, voct_oct + semi + fine + voct_cv_value);
+    voct = 261.63 * pow(2, main_pitch.octave + main_pitch.semitone/12.0f + fine + voct_cv_value);
+    voct_aux = 261.63 * pow(2, aux_pitch.octave + aux_pitch.semitone/12.0f + fine + voct_cv_value);
 
     if (freq_lock != 0)
     {
       voct *= actual_len;
+      voct_aux *= actual_len;
     }
     else
     {
       voct *= 2; //Normalizing shortest length pitch
+      voct_aux *= 2;
     }
   
     analogWriteFrequency(clk_pin_0, voct);
     analogWrite(clk_pin_0, 2);
    
   
-    if (lfsr_en1 == 1)
+    if (aux_pitch.enabled == 1)
     {
       #ifdef DETUNE_LFSR1
         float scale = actual_len*4;
-        analogWriteFrequency(clk_pin_1, floor((voct * poly_maps[poly] * poly_oct_val)/scale)*scale);
+        analogWriteFrequency(clk_pin_1, floor((voct_aux)/scale)*scale);
       #else
-        analogWriteFrequency(clk_pin_1, (voct * poly_maps[poly] * poly_oct_val));
+        analogWriteFrequency(clk_pin_1, (voct_aux));
       #endif
       analogWrite(clk_pin_1, 2);
     }

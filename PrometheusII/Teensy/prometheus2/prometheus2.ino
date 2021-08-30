@@ -146,7 +146,8 @@ void setup() {
   pinMode(sdo_pin, INPUT); //LFSR serial data out to MCU
   pinMode(sdi_pin, OUTPUT); //LFSR serial data in from MCU
   //Initialize LFSR
-  write_lfsr(0x1, lfsr_en0, lfsr_en1);
+  main_pitch.enabled = 1;
+  write_lfsr(0x1, main_pitch.enabled, aux_pitch.enabled);
   
 }
 
@@ -155,9 +156,7 @@ int glitch_enabled_memory = 0;
 
 
 //TODO: Make these be automatically saved and loaded from nonvolatile memory
-volatile int semi_enc_counter = 0;
 volatile int polyphony_counter = 0;
-volatile int oct_enc_counter = 0;
 volatile unsigned short prev_iox = 0;
 
 signed char poly_mode = 0;
@@ -209,15 +208,25 @@ void loop() {
         {
           length_lock = 1-length_lock;
         }
-        else if(poly_mode == POLY_POLYPHONY && poly_held_time > POLY_HOLD_TIME)
+        else if(poly_mode == POLY_POLYPHONY)
         {
-          polyphony_counter = 0;
+          if(poly_held_time > POLY_HOLD_TIME)
+          {
+            aux_pitch.octave = 0;
+            aux_pitch.semitone = 0;
+          }
+          else
+          {
+            aux_pitch.enabled = 1-aux_pitch.enabled;
+            update_lfsr = 1;            
+          }
         }
         else if(poly_mode == POLY_RESET && poly_held_time > POLY_HOLD_TIME)
         {
-          polyphony_counter = 0;
-          oct_enc_counter = 0;
-          semi_enc_counter = 0;
+          main_pitch.octave = 0;
+          main_pitch.semitone = 0;
+          aux_pitch.octave = 0;
+          aux_pitch.semitone = 0;
         }
         
       }
@@ -257,19 +266,6 @@ void loop() {
   }
 
   /* Encoders*/
- 
-  if (SEMI_ENCODER(prev_iox) == 0)
-  {
-    if(SEMI_ENCODER(iox) == 2)
-    {
-    semi_enc_counter -= 1;  
-    }
-    else if(SEMI_ENCODER(iox) == 1)
-    {
-    semi_enc_counter += 1;  
-    }
-    
-  }
 
   signed char poly_delta = 0;
   if (POLY_ENCODER(prev_iox) == 0)
@@ -303,45 +299,62 @@ void loop() {
   }
   else if(poly_mode == POLY_POLYPHONY)
   {
-    polyphony_counter += poly_delta;
-    poly = 0;
-    if(polyphony_counter > 0)
-    {
-      poly = (polyphony_counter-1)%poly_count;
-      poly_oct = floor((polyphony_counter-1)/float(poly_count));
-    }
-    else if(polyphony_counter < 0)
-    {
-      poly = (polyphony_counter+1)%poly_count+poly_count-1;
-      poly_oct = floor(polyphony_counter/float(poly_count));
-    }
-    poly_oct_val = pow(2, poly_oct);
-    
-    if(polyphony_counter == 0 && lfsr_en1 == 1)
-    {
-      lfsr_en1 = 0;
-      update_lfsr = 1;
-      
-    }
-    else if(polyphony_counter != 0 && lfsr_en1 == 0)
-    {
-      lfsr_en1 = 1;
-      update_lfsr = 1;
-    }
+    //TODO: configuration sequencing?
   } 
 
 
 //TEMPORARY
 
+  if (SEMI_ENCODER(prev_iox) == 0)
+  {
+    if(SEMI_ENCODER(iox) == 2)
+    {
+      if(poly_mode != POLY_POLYPHONY)
+      {
+        main_pitch.semitone -= 1;
+      }
+      else
+      {
+        aux_pitch.semitone -= 1;
+      }
+    }
+    else if(SEMI_ENCODER(iox) == 1)
+    {
+      if(poly_mode != POLY_POLYPHONY)
+      {
+        main_pitch.semitone += 1;
+      }
+      else
+      {
+        aux_pitch.semitone += 1;
+      }
+    }
+    
+  }
+
   if (OCT_ENCODER(prev_iox) == 0)
   {
     if(OCT_ENCODER(iox) == 2)
     {
-    oct_enc_counter -= 1;  
+      if(poly_mode != POLY_POLYPHONY)
+      {
+        main_pitch.octave -= 1;
+      }
+      else
+      {
+        aux_pitch.octave -= 1;
+      }
     }
     else if(OCT_ENCODER(iox) == 1)
     {
-    oct_enc_counter += 1;  
+      if(poly_mode != POLY_POLYPHONY)
+      {
+        main_pitch.octave += 1;
+      }
+      else
+      {
+        aux_pitch.octave += 1;
+      }
     }
     
   }
@@ -528,16 +541,13 @@ void loop() {
 
   if (taps != new_taps || update_lfsr )
   {
-    write_lfsr(new_taps, lfsr_en0, lfsr_en1);
+    write_lfsr(new_taps, main_pitch.enabled, aux_pitch.enabled);
   }
   taps = new_taps;
 
 
 //  /******Read and process pitch control knobs******/
 
-  /*Map encoder counters to values*/
-  semi = semi_enc_counter / 12.0;
-  voct_oct = oct_enc_counter; 
   
   /*Center*/
   voct_fine -= half;
@@ -556,37 +566,47 @@ void loop() {
     voct_fine -= zero;
   }
 
-
-
   fine = float(voct_fine) / (12.0 * (half - zero));
 
-   led_map[LL] = 0; 
-   led_map[LC] = 0;
-   led_map[LR] = 0;
-   led_map[UL] = 0;
-   led_map[UC] = 0;
-   led_map[UR] = 0;
+  led_map[LL] = 0; 
+  led_map[LC] = 0;
+  led_map[LR] = 0;
+  led_map[UL] = 0;
+  led_map[UC] = 0;
+  led_map[UR] = 0;
   /*LED Configuration*/
   if(poly_sw_prev == 0)
   {
     if(poly_mode != POLY_CAL)
     {
-      if(semi_enc_counter == 0)
-      {
-        led_map[UL] = 1;
-      }
+
   
-      if(poly_mode == POLY_POLYPHONY)
+      if(aux_pitch.enabled == 1)
       {
-        if(polyphony_counter == 0)
+        led_map[UC] = 1;
+      }
+      
+      if(poly_mode != POLY_POLYPHONY)
+      {
+        if(main_pitch.octave == 0)
         {
-          led_map[UC] = 1;
+          led_map[UR] = 1;
+        }
+        if(main_pitch.semitone == 0)
+        {
+          led_map[UL] = 1;
         }
       }
-  
-      if(oct_enc_counter == 0)
+      else
       {
-        led_map[UR] = 1;
+        if(aux_pitch.octave == 0)
+        {
+          led_map[UR] = 1;
+        }
+        if(aux_pitch.semitone == 0)
+        {
+          led_map[UL] = 1;
+        }
       }
       
       if(voct_fine == 0)
