@@ -175,8 +175,10 @@ void adc_interrupt()
     
     float voct_cv_value = -2.95 * (float(adc_memory[voct_cv_channel])/half - 1) * voct_atv_value;
 
-    voct = 261.63 * pow(2, main_pitch.octave + main_pitch.semitone/12.0f + fine + voct_cv_value);
-    voct_aux = 261.63 * pow(2, aux_pitch.octave + aux_pitch.semitone/12.0f + fine + voct_cv_value);
+    float pitch_base = main_pitch.octave + main_pitch.semitone/12.0f + fine + voct_cv_value;
+
+    voct = 261.63 * pow(2, pitch_base);
+    voct_aux = 261.63 * pow(2, aux_pitch.octave + aux_pitch.semitone/12.0f + pitch_base);
 
     if (freq_lock != 0)
     {
