@@ -42,15 +42,15 @@ const int param_1_channel = pin_to_channel[param_1_pin];
 const int len_knob_channel = pin_to_channel[len_knob_pin];
 const int param_0_channel = pin_to_channel[param_0_pin];
 
-//adc_sequence used to interleave ADC channels and give more sample rate to high-bandwidth CV inputs (i.e. just v/oct)
-#define VOCT_DECIM  voct_cv_channel,
+//adc_sequence used to interleave ADC channels and give more sample rate to high-bandwidth CV inputs (i.e. just param_0_cv, which is fm)
+#define VOCT_DECIM  param_0_cv_channel,
 volatile int adc_sequence[] = {
   VOCT_DECIM
   voct_fine_channel,
   VOCT_DECIM
   voct_atv_channel,
   VOCT_DECIM
-  param_0_cv_channel,
+  voct_cv_channel,
   VOCT_DECIM
   lfo_channel, 
   VOCT_DECIM
@@ -172,24 +172,38 @@ void adc_interrupt()
       voct_atv = 0;
     }
     float voct_atv_value = float(voct_atv) / (2*half - 2*zero);
-    
-    float voct_cv_value = -2.95 * (float(adc_memory[voct_cv_channel])/half - 1) * voct_atv_value;
 
-    float pitch_base = main_pitch.octave + main_pitch.semitone/12.0f + fine + voct_cv_value;
+    if(voct_atv_value < 0.5) //0 to FM_HALF_SCALE
+    {
+      voct_atv_value *= 2*FM_HALF_SCALE;
+    }
+    else //FM_HALF_SCALE to FM_SCALE
+    {
+      float alpha = 2*(voct_atv_value-0.5);
+      voct_atv_value = FM_HALF_SCALE*(1-alpha) + FM_SCALE*(alpha);
+    }
+
+    float fm_cv_value = -5.06 *(float(adc_memory[pin_to_channel[param_0_cv_pin]])/half -1)/5; //-1 to 1
+    fm_cv_value *= voct_atv_value;
+    
+    float voct_cv_value = -2.95 * (float(adc_memory[voct_cv_channel])/half - 1);
+
+    float pitch_base = main_pitch.octave + main_pitch.semitone/12.0f + fine + voct_cv_value + fm_cv_value;
 
     voct = 261.63 * pow(2, pitch_base);
     voct_aux = 261.63 * pow(2, aux_pitch.octave + aux_pitch.semitone/12.0f + pitch_base);
 
+    float voct_mult;
     if (freq_lock != 0)
     {
-      voct *= actual_len;
-      voct_aux *= actual_len;
+      voct_mult = actual_len;
     }
     else
     {
-      voct *= 2; //Normalizing shortest length pitch
-      voct_aux *= 2;
+      voct_mult = 2; //Normalizing shortest length pitch
     }
+    voct *= voct_mult;
+    voct_aux *= voct_mult;
   
     analogWriteFrequency(clk_pin_0, voct);
     analogWrite(clk_pin_0, 2);

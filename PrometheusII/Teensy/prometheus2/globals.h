@@ -16,6 +16,10 @@
 //Option to detune lfsr1 from lfsr0 by rounding
 #define DETUNE_LFSR1
 
+//FM configuration
+#define FM_SCALE 2
+#define FM_HALF_SCALE (0.5/12)
+
 //Knob deadzones
 
 int freq = 10e6;

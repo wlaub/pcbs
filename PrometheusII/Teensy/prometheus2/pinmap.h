@@ -62,15 +62,15 @@ int led0_pin = 10;
 int led1_pin = 11;
 int led2_pin = 12;
 
-int voct_fine_pin = A1; 
-int voct_atv_pin = A0;
+int voct_fine_pin = A0; 
+int voct_atv_pin = A3;
 int voct_cv_pin = A2;
 int param_0_cv_pin = A4;
 int lfo_pin = A6;
 int len_cv_pin = A5;
 int param_1_pin = A7;
 int len_knob_pin = A8;
-int param_0_pin = A3;
+int param_0_pin = A1;
 
 //For extracting pins/encoders from expander register value
 #define SEMI_ENCODER(x) ((x>>5)&3)
