@@ -603,11 +603,11 @@ void loop() {
       {
         if(aux_pitch.octave == 0)
         {
-          led_map[UR] = 1;
+          led_map[UR] = blinker;
         }
         if(aux_pitch.semitone == 0)
         {
-          led_map[UL] = 1;
+          led_map[UL] = blinker;
         }
       }
       

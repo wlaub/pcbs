@@ -161,6 +161,7 @@ void adc_interrupt()
   if(adc_channel == voct_cv_channel && sample_counter[adc_channel] == 0)
   {  // V/oct pin
     float voct, voct_aux;
+    
     int voct_atv = adc_memory[voct_atv_channel];
     voct_atv -= zero;
     if(voct_atv > 2*half - 2*zero)
