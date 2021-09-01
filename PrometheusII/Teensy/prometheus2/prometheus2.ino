@@ -1,4 +1,5 @@
 #include "lookup.h"
+#include "config.h"
 #include "globals.h"
 #include "pinmap.h"
 #include "adc_interrupt.h"
@@ -212,8 +213,7 @@ void loop() {
         {
           if(poly_held_time > POLY_HOLD_TIME)
           {
-            aux_pitch.octave = 0;
-            aux_pitch.semitone = 0;
+            RESET_PITCH_CONFIG(aux_pitch)
           }
           else
           {
@@ -223,10 +223,8 @@ void loop() {
         }
         else if(poly_mode == POLY_RESET && poly_held_time > POLY_HOLD_TIME)
         {
-          main_pitch.octave = 0;
-          main_pitch.semitone = 0;
-          aux_pitch.octave = 0;
-          aux_pitch.semitone = 0;
+          RESET_PITCH_CONFIG(main_pitch)
+          RESET_PITCH_CONFIG(aux_pitch)
         }
         
       }
@@ -311,22 +309,22 @@ void loop() {
     {
       if(poly_mode != POLY_POLYPHONY)
       {
-        main_pitch.semitone -= 1;
+        DEC_PITCH_CONFIG_SEMITONE(main_pitch);
       }
       else
       {
-        aux_pitch.semitone -= 1;
+        DEC_PITCH_CONFIG_SEMITONE(aux_pitch);
       }
     }
     else if(SEMI_ENCODER(iox) == 1)
     {
       if(poly_mode != POLY_POLYPHONY)
       {
-        main_pitch.semitone += 1;
+        INC_PITCH_CONFIG_SEMITONE(main_pitch);
       }
       else
       {
-        aux_pitch.semitone += 1;
+        INC_PITCH_CONFIG_SEMITONE(aux_pitch);
       }
     }
     
@@ -723,7 +721,7 @@ void loop() {
   Serial.print(poly_oct);
   //Serial.print(iox, BIN);
 */
-  Serial.print(actual_len);Serial.print(",");
+  //Serial.print(actual_len);Serial.print(",");
 /* ADC Channel Plotting */
 
 
@@ -732,7 +730,7 @@ void loop() {
 //  Serial.print(adc_memory[len_cv_channel]); Serial.print(",");
 //  Serial.print(adc_memory[param_0_cv_channel]); Serial.print(",");
 //  Serial.print(adc_memory[voct_atv_channel]); Serial.print(",");
-Serial.print(adc_memory[len_knob_channel]); Serial.print(",");
+//  Serial.print(adc_memory[len_knob_channel]); Serial.print(",");
 //  Serial.print(adc_memory[voct_fine_channel]); Serial.print(",");
 //  Serial.print(adc_memory[param_0_channel]); Serial.print(",");
 //  Serial.print(adc_memory[param_1_channel]); Serial.print(",");
@@ -740,17 +738,17 @@ Serial.print(adc_memory[len_knob_channel]); Serial.print(",");
 
 
   
-  Serial.print("\n");
+//  Serial.print("\n");
   
   /* ADC Sample Rate Measurement and Printing*/
-/*
+
   int adc_count_duration = current_time - adc_last_time;
   if(adc_count_duration > ADC_MEAS_PERIOD)
   {
 
-//    PRINT_ADC_RATE(voct_cv_channel);
+    PRINT_ADC_RATE(voct_cv_channel);
 //    PRINT_ADC_RATE(len_cv_channel);
-//    PRINT_ADC_RATE(param_0_cv_channel);
+    PRINT_ADC_RATE(param_0_cv_channel);
 //    PRINT_ADC_RATE(voct_atv_channel);
 //    PRINT_ADC_RATE(len_knob_channel);
 //    PRINT_ADC_RATE(voct_fine_channel);
@@ -764,11 +762,13 @@ Serial.print(adc_memory[len_knob_channel]); Serial.print(",");
     adc_last_time = current_time;
 
     //overhead in microseconds
-    Serial.print(LOOP_PERIOD - (current_time-start_time));
+    //Serial.print(LOOP_PERIOD - (current_time-start_time));
+    //Main loop rate in Hz
+    Serial.print(1e6/(current_time-start_time));
 
     Serial.print("\n");
   }
-  */
+  
   
   delayMicroseconds(LOOP_PERIOD - (current_time-start_time)); // 1000 Hz
 

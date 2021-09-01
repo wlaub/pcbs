@@ -17,8 +17,8 @@
 #define DETUNE_LFSR1
 
 //FM configuration
-#define FM_SCALE 2
-#define FM_HALF_SCALE (0.5/12)
+#define FM_SCALE 0.5
+#define FM_HALF_SCALE 0.05
 
 //Knob deadzones
 
@@ -38,13 +38,6 @@ int zero = half / 16;
 
 //Configurations
 
-struct PitchConfig 
-{
-  signed char octave = 0;
-  signed char semitone = 0;
-  unsigned char enabled = 0;
-};
-
 volatile struct PitchConfig main_pitch;
 volatile struct PitchConfig aux_pitch;
 
@@ -53,10 +46,7 @@ volatile struct PitchConfig aux_pitch;
 //volatile int voct_oct;
 
 volatile float fine;
-volatile float voct_atv_value;
 volatile int freq_lock;
-
-volatile float voct = 0;
 
 //Global LFSR configuration
 
