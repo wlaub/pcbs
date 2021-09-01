@@ -579,57 +579,29 @@ void loop() {
   /*LED Configuration*/
   if(poly_sw_prev == 0)
   {
-    if(poly_mode != POLY_CAL)
+    if(poly_mode == POLY_RESET)
     {
-
-  
-      if(aux_pitch.enabled == 1)
-      {
-        led_map[UC] = 1;
-      }
-      
-      if(poly_mode != POLY_POLYPHONY)
-      {
-        if(main_pitch.octave == 0)
-        {
-          led_map[UR] = 1;
-        }
-        if(main_pitch.semitone == 0)
-        {
-          led_map[UL] = 1;
-        }
-      }
-      else
-      {
-        if(aux_pitch.octave == 0)
-        {
-          led_map[UR] = blinker;
-        }
-        if(aux_pitch.semitone == 0)
-        {
-          led_map[UL] = blinker;
-        }
-      }
-      
-      if(voct_fine == 0)
-      {
-        led_map[LL] = 1;
-      }
-      led_map[LC] = taps_toggle;  
-  
-      if(length_lock)
-      {
-        if(calc_len == len)
-        {
-          led_map[LR] = blinker;
-        }
-        else
-        {
-          led_map[LR] = length_lock;
-        }
-      }
+      led_map[UL] = blinker;
+      led_map[UC] = blinker;
+      led_map[UR] = blinker;
     }
-    else
+    else if(poly_mode == POLY_LENGTH_LOCK)
+    {
+      LEDS_LFSR1_STATUS(UC)
+      LEDS_LFSR0_PITCH(UL, UR)
+      LEDS_FINE_STATUS(LL)
+      LEDS_TAPS_TOGGLE(LC)
+      LEDS_LENGTH_LOCK_STATUS(LR)
+    }
+    else if(poly_mode == POLY_POLYPHONY)
+    {
+      LEDS_LFSR1_STATUS(UC)
+      LEDS_LFSR1_PITCH(UL, UR)
+      LEDS_FINE_STATUS(LL)
+      LEDS_TAPS_TOGGLE(LC)
+      LEDS_LENGTH_LOCK_STATUS(LR)
+    }
+    else if(poly_mode == POLY_CAL)
     {
       led_map[LC] = blinker;
 

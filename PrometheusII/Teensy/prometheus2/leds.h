@@ -48,4 +48,54 @@ void set_led(int pin, int state)
   
 }
 
+/* LED Configuration Macros  */
+
+#define LEDS_LFSR1_STATUS(_LED)\
+      if(aux_pitch.enabled == 1)\
+      {\
+        led_map[_LED] = 1;\
+      }\
+
+#define LEDS_LFSR0_PITCH(_SEMI, _OCT)\
+      if(main_pitch.semitone == 0)\
+      {\
+        led_map[_SEMI] = 1;\
+      }\
+      if(main_pitch.octave == 0)\
+      {\
+        led_map[_OCT] = 1;\
+      }\
+
+#define LEDS_LFSR1_PITCH(_SEMI, _OCT)\
+      if(aux_pitch.semitone == 0)\
+      {\
+        led_map[_SEMI] = blinker;\
+      }\
+      if(aux_pitch.octave == 0)\
+      {\
+        led_map[_OCT] = blinker;\
+      }\
+
+#define LEDS_TAPS_TOGGLE(_LED)\
+      led_map[_LED] = taps_toggle;\
+
+#define LEDS_LENGTH_LOCK_STATUS(_LED)\
+      if(length_lock)\
+      {\
+        if(calc_len == len)\
+        {\
+          led_map[_LED] = blinker;\
+        }\
+        else\
+        {\
+          led_map[_LED] = length_lock;\
+        }\
+      }\
+
+#define LEDS_FINE_STATUS(_LED)\
+      if(voct_fine == 0)\
+      {\
+        led_map[_LED] = 1;\
+      }\
+
 #endif

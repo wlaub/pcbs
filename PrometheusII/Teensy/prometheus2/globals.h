@@ -33,6 +33,7 @@ int zero = half / 16;
 #define POLY_LENGTH_LOCK 0
 #define POLY_POLYPHONY 1
 #define POLY_CAL 2
+#define POLY_CONFIG 4
 #define POLY_RESET 5
 
 //Configurations
