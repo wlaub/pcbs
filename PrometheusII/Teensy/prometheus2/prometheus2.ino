@@ -147,6 +147,8 @@ void setup() {
   pinMode(sdo_pin, INPUT); //LFSR serial data out to MCU
   pinMode(sdi_pin, OUTPUT); //LFSR serial data in from MCU
   //Initialize LFSR
+  analogWrite(clk_pin_0, 2);
+
   main_pitch.enabled = 1;
   write_lfsr(0x1, main_pitch.enabled, aux_pitch.enabled);
   

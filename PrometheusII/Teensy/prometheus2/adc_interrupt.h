@@ -46,11 +46,11 @@ const int param_0_channel = pin_to_channel[param_0_pin];
 #define VOCT_DECIM  param_0_cv_channel,
 volatile int adc_sequence[] = {
   VOCT_DECIM
+  voct_cv_channel,
+  VOCT_DECIM
   voct_fine_channel,
   VOCT_DECIM
   voct_atv_channel,
-  VOCT_DECIM
-  voct_cv_channel,
   VOCT_DECIM
   lfo_channel, 
   VOCT_DECIM
@@ -134,7 +134,10 @@ ADACK = 20 MHz?
 }
 
 float voct, voct_aux;
-float voct_atv_value;
+float voct_atv_value, voct_cv_value;
+float pitch_base;
+float voct_mult;
+
 
 void adc_interrupt()
 {
@@ -163,12 +166,10 @@ void adc_interrupt()
   if(adc_channel == voct_cv_channel && sample_counter[adc_channel] == 0)
   {  // V/oct pin
    
-    float voct_cv_value = -2.95 * (float(adc_memory[voct_cv_channel])/half - 1);
+    voct_cv_value = -2.95 * (float(adc_memory[voct_cv_channel])/half - 1);
 
-    float pitch_base = main_pitch.octave + main_pitch.semitone_val + fine + voct_cv_value;
+    pitch_base = main_pitch.octave + main_pitch.semitone_val + fine + voct_cv_value;
     voct = 261.63 * pow(2, pitch_base);
-    voct_aux = 261.63 * pow(2, aux_pitch.octave + aux_pitch.semitone_val + pitch_base);
-    float voct_mult;
     if (freq_lock != 0)
     {
       voct_mult = actual_len;
@@ -178,8 +179,13 @@ void adc_interrupt()
       voct_mult = 2; //Normalizing shortest length pitch
     }
     voct *= voct_mult;
+   
+  }
+  else if(adc_channel == voct_fine_channel && sample_counter[adc_channel] == 0)
+  { //fine tuning pin happens next after voct cv pin
+    //lfsr1 pitch is computed here because pow is too expensive to do twice in one call
+    voct_aux = 261.63 * pow(2, aux_pitch.octave + aux_pitch.semitone_val + pitch_base);
     voct_aux *= voct_mult;
-    
   }
   else if(adc_channel == voct_atv_channel && sample_counter[adc_channel] == 0)
   { //FM amount pin
@@ -201,8 +207,8 @@ void adc_interrupt()
     voct_atv_value *= -5.06/(5*half);
   }
   else if(adc_channel == param_0_cv_channel && sample_counter[adc_channel] == 0)
-  {  // FM CV pin
-
+  { // FM CV pin
+    //This is the current bottleneck
     float fm_cv_value = float(adc_memory[pin_to_channel[param_0_cv_pin]]-half); //-1 to 1
     fm_cv_value *= voct_atv_value;
     fm_cv_value += 1;
@@ -210,9 +216,10 @@ void adc_interrupt()
     float voct_eff, voct_aux_eff;
     voct_eff = voct*fm_cv_value;
     voct_aux_eff = voct_aux*fm_cv_value;
-  
+
+    //These operations are very heavy for some reason
     analogWriteFrequency(clk_pin_0, voct_eff);
-    analogWrite(clk_pin_0, 2);
+    analogWrite(clk_pin_0, 2); 
   
     if (aux_pitch.enabled == 1)
     {
@@ -226,6 +233,7 @@ void adc_interrupt()
     }
     else
     {
+      //This is also slightly expensive
       pinMode(clk_pin_1, OUTPUT);
       digitalWrite(clk_pin_1, 0);
     }
