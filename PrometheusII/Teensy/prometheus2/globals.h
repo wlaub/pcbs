@@ -18,7 +18,7 @@
 
 //FM configuration
 #define FM_SCALE 0.5
-#define FM_HALF_SCALE 0.05
+#define FM_HALF_SCALE 0.03
 
 //Knob deadzones
 

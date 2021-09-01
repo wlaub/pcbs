@@ -196,16 +196,20 @@ void adc_interrupt()
       float alpha = 2*(voct_atv_value-0.5);
       voct_atv_value = FM_HALF_SCALE*(1-alpha) + FM_SCALE*(alpha);
     }
+
+    //Pre-apply scaling factors for FM CV
+    voct_atv_value *= -5.06/(5*half);
   }
   else if(adc_channel == param_0_cv_channel && sample_counter[adc_channel] == 0)
   {  // FM CV pin
 
-    float fm_cv_value = -5.06 *(float(adc_memory[pin_to_channel[param_0_cv_pin]])/half -1)/5; //-1 to 1
+    float fm_cv_value = float(adc_memory[pin_to_channel[param_0_cv_pin]]-half); //-1 to 1
     fm_cv_value *= voct_atv_value;
+    fm_cv_value += 1;
 
     float voct_eff, voct_aux_eff;
-    voct_eff = voct*(1+fm_cv_value);
-    voct_aux_eff = voct_aux*(1+fm_cv_value);
+    voct_eff = voct*fm_cv_value;
+    voct_aux_eff = voct_aux*fm_cv_value;
   
     analogWriteFrequency(clk_pin_0, voct_eff);
     analogWrite(clk_pin_0, 2);
