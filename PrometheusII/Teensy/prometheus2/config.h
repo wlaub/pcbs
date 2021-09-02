@@ -31,6 +31,6 @@ struct PitchConfig
 
 unsigned char global_config[6]= {0};
 #define GLOBAL_CONFIG_DETUNE 0
-
+#define GLOBAL_CONFIG_PARAM_CV 4
   
 #endif

@@ -221,6 +221,10 @@ void adc_interrupt()
     float fm_cv_value = float(adc_memory[pin_to_channel[param_0_cv_pin]]-half); //-1 to 1
     fm_cv_value *= voct_atv_value;
     fm_cv_value += 1;
+    if(global_config[GLOBAL_CONFIG_PARAM_CV])
+    {
+      fm_cv_value = 1;
+    }
 
     float voct_eff, voct_aux_eff;
     voct_eff = voct*fm_cv_value;

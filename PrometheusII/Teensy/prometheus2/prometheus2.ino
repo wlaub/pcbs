@@ -537,16 +537,18 @@ void loop() {
   }
 
   int param_0_combined = (param_0 << 4);
-  /* TODO: make configurable
-  if(param_0_alpha > 0)
+  
+  if(global_config[GLOBAL_CONFIG_PARAM_CV])
   {
-    param_0_combined = param_0_alpha*65545+(1-param_0_alpha)*param_0_combined;
+    if(param_0_alpha > 0)
+    {
+      param_0_combined = param_0_alpha*65545+(1-param_0_alpha)*param_0_combined;
+    }
+    else
+    {
+      param_0_combined = (1+param_0_alpha)*param_0_combined;
+    }
   }
-  else
-  {
-    param_0_combined = (1+param_0_alpha)*param_0_combined;
-  }
-  */
   
   new_taps = get_taps(len, param_0_combined, param_1 << 4);
 
