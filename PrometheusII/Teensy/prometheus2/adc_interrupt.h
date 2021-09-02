@@ -15,7 +15,7 @@ volatile int sample_counter[16] = {0};
 volatile int adc_memory[16] = {0};
 
 //Filter configuration.
-#define FILTER_SHIFT 3
+#define FILTER_SHIFT 2
 #define FILTER_COUNT (0x1<<FILTER_SHIFT)
 
 
@@ -165,86 +165,88 @@ void adc_interrupt()
   }
 
   /* Channel-specific high speed updates only when new data is available */
-  if(adc_channel == voct_cv_channel && sample_counter[adc_channel] == 0)
-  {  // V/oct pin
-   
-    voct_cv_value = -2.95 * (float(adc_memory[voct_cv_channel])/half - 1);
-
-    pitch_base = main_pitch.octave + main_pitch.semitone_val + fine + voct_cv_value;
-    voct = 261.63 * pow(2, pitch_base);
-    if (freq_lock != 0)
-    {
-      voct_mult = actual_len;
-    }
-    else
-    {
-      voct_mult = 2; //Normalizing shortest length pitch
-    }
-    voct *= voct_mult;
-   
-  }
-  else if(adc_channel == voct_fine_channel && sample_counter[adc_channel] == 0)
-  { //fine tuning pin happens next after voct cv pin
-    //lfsr1 pitch is computed here because pow is too expensive to do twice in one call
-    voct_aux = 261.63 * pow(2, aux_pitch.octave + aux_pitch.semitone_val + pitch_base);
-    voct_aux *= voct_mult;
-
-    if(global_config[GLOBAL_CONFIG_DETUNE])
-    {
-      float scale = actual_len*4;
-      voct_aux = floor(voct_aux/scale)*scale;
-    }
-
-  }
-  else if(adc_channel == voct_atv_channel && sample_counter[adc_channel] == 0)
-  { //FM amount pin
-    int voct_atv = adc_memory[voct_atv_channel];
-    
-    voct_atv_value = float(voct_atv)/4096;
-
-    if(voct_atv_value < 0.5) //0 to FM_HALF_SCALE
-    {
-      voct_atv_value *= 2*FM_HALF_SCALE;
-    }
-    else //FM_HALF_SCALE to FM_SCALE
-    {
-      float alpha = 2*(voct_atv_value-0.5);
-      voct_atv_value = FM_HALF_SCALE*(1-alpha) + FM_SCALE*(alpha);
-    }
-
-    //Pre-apply scaling factors for FM CV
-    voct_atv_value *= -5.06/(5*half);
-  }
-  else if(adc_channel == param_0_cv_channel && sample_counter[adc_channel] == 0)
-  { // FM CV pin
-    //This is the current bottleneck
-    float fm_cv_value = float(adc_memory[pin_to_channel[param_0_cv_pin]]-half); //-1 to 1
-    fm_cv_value *= voct_atv_value;
-    fm_cv_value += 1;
-    if(global_config[GLOBAL_CONFIG_PARAM_CV])
-    {
-      fm_cv_value = 1;
-    }
-
-    float voct_eff, voct_aux_eff;
-    voct_eff = voct*fm_cv_value;
-    voct_aux_eff = voct_aux*fm_cv_value;
-
-    clock_0_write_freq(voct_eff);
+  //if(sample_counter[adc_channel] == 0)
+  {
+    if(adc_channel == voct_cv_channel)
+    {  // V/oct pin
+     
+      voct_cv_value = -2.95 * (float(adc_memory[voct_cv_channel])/half - 1);
   
-    if (aux_pitch.enabled == 1)
-    {
-      clock_1_write_freq(voct_aux_eff);
+      pitch_base = main_pitch.octave + main_pitch.semitone_val + fine + voct_cv_value;
+      voct = 261.63 * pow(2, pitch_base);
+      if (freq_lock != 0)
+      {
+        voct_mult = actual_len;
+      }
+      else
+      {
+        voct_mult = 2; //Normalizing shortest length pitch
+      }
+      voct *= voct_mult;
+     
     }
-    else
-    {
-      //This is also slightly expensive, but less than clock_1_write_freq
-      pinMode(clk_pin_1, OUTPUT);
-      digitalWrite(clk_pin_1, 0);
+    else if(adc_channel == voct_fine_channel && sample_counter[adc_channel] == 0)
+    { //fine tuning pin happens next after voct cv pin
+      //lfsr1 pitch is computed here because pow is too expensive to do twice in one call
+      voct_aux = 261.63 * pow(2, aux_pitch.octave + aux_pitch.semitone_val + pitch_base);
+      voct_aux *= voct_mult;
+  
+      if(global_config[GLOBAL_CONFIG_DETUNE])
+      {
+        float scale = actual_len*4;
+        voct_aux = floor(voct_aux/scale)*scale;
+      }
+  
     }
+    else if(adc_channel == voct_atv_channel)
+    { //FM amount pin
+      int voct_atv = adc_memory[voct_atv_channel];
+      
+      voct_atv_value = float(voct_atv)/4096;
+  
+      if(voct_atv_value < 0.5) //0 to FM_HALF_SCALE
+      {
+        voct_atv_value *= 2*FM_HALF_SCALE;
+      }
+      else //FM_HALF_SCALE to FM_SCALE
+      {
+        float alpha = 2*(voct_atv_value-0.5);
+        voct_atv_value = FM_HALF_SCALE*(1-alpha) + FM_SCALE*(alpha);
+      }
+  
+      //Pre-apply scaling factors for FM CV
+      voct_atv_value *= -5.06/(5*half);
+    }
+    else if(adc_channel == param_0_cv_channel)
+    { // FM CV pin
+      //This is the current bottleneck
+      float fm_cv_value = float(adc_memory[pin_to_channel[param_0_cv_pin]]-half); //-1 to 1
+      fm_cv_value *= voct_atv_value;
+      fm_cv_value += 1;
+      if(global_config[GLOBAL_CONFIG_PARAM_CV])
+      {
+        fm_cv_value = 1;
+      }
+  
+      float voct_eff, voct_aux_eff;
+      voct_eff = voct*fm_cv_value;
+      voct_aux_eff = voct_aux*fm_cv_value;
+  
+      clock_0_write_freq(voct_eff);
     
-  }    
-
+      if (aux_pitch.enabled == 1)
+      {
+        clock_1_write_freq(voct_aux_eff);
+      }
+      else
+      {
+        //This is also slightly expensive, but less than clock_1_write_freq
+        pinMode(clk_pin_1, OUTPUT);
+        digitalWrite(clk_pin_1, 0);
+      }
+      
+    }    
+  }
   /* Select next channel */
 
   ++adc_seq_index;
