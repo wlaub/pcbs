@@ -1,6 +1,8 @@
 #ifndef ADC_INTERRUPT_H
 #define ADC_INTERRUPT_H
 
+#include "clock_control.h"
+
 volatile char adc_channel = 0;
 
 //Accumulates ADC measurements for sum and dump filtering
@@ -186,6 +188,11 @@ void adc_interrupt()
     //lfsr1 pitch is computed here because pow is too expensive to do twice in one call
     voct_aux = 261.63 * pow(2, aux_pitch.octave + aux_pitch.semitone_val + pitch_base);
     voct_aux *= voct_mult;
+    #ifdef DETUNE_LFSR1
+      float scale = actual_len*4;
+      voct_aux = floor(voct_aux/scale)*scale;
+    #endif
+
   }
   else if(adc_channel == voct_atv_channel && sample_counter[adc_channel] == 0)
   { //FM amount pin
@@ -217,23 +224,15 @@ void adc_interrupt()
     voct_eff = voct*fm_cv_value;
     voct_aux_eff = voct_aux*fm_cv_value;
 
-    //These operations are very heavy for some reason
-    analogWriteFrequency(clk_pin_0, voct_eff);
-    analogWrite(clk_pin_0, 2); 
+    clock_0_write_freq(voct_eff);
   
     if (aux_pitch.enabled == 1)
     {
-      #ifdef DETUNE_LFSR1
-        float scale = actual_len*4;
-        analogWriteFrequency(clk_pin_1, floor((voct_aux_eff)/scale)*scale);
-      #else
-        analogWriteFrequency(clk_pin_1, (voct_aux_eff));
-      #endif
-      analogWrite(clk_pin_1, 2);
+      clock_1_write_freq(voct_aux_eff);
     }
     else
     {
-      //This is also slightly expensive
+      //This is also slightly expensive, but less than clock_1_write_freq
       pinMode(clk_pin_1, OUTPUT);
       digitalWrite(clk_pin_1, 0);
     }
