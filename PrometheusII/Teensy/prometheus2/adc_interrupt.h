@@ -188,10 +188,12 @@ void adc_interrupt()
     //lfsr1 pitch is computed here because pow is too expensive to do twice in one call
     voct_aux = 261.63 * pow(2, aux_pitch.octave + aux_pitch.semitone_val + pitch_base);
     voct_aux *= voct_mult;
-    #ifdef DETUNE_LFSR1
+
+    if(global_config[GLOBAL_CONFIG_DETUNE])
+    {
       float scale = actual_len*4;
       voct_aux = floor(voct_aux/scale)*scale;
-    #endif
+    }
 
   }
   else if(adc_channel == voct_atv_channel && sample_counter[adc_channel] == 0)

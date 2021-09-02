@@ -13,6 +13,8 @@ type, module, channel, muxval
 1: 1,0,0,4
 sub module = module & 0x03 == module in this case
 
+~/Downloads/arduino-1.8.10/hardware/teensy/avr/cores/teensy4
+
 */
 
 /*

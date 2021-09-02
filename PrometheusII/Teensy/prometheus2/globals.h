@@ -12,6 +12,7 @@
 
 //blink duration in main loop cycles
 #define BLINK_RATE 2000
+#define FAST_BLINK_RATE 1000
 
 //Option to detune lfsr1 from lfsr0 by rounding
 #define DETUNE_LFSR1

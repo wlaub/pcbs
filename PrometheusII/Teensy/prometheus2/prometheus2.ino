@@ -162,6 +162,8 @@ int glitch_enabled_memory = 0;
 volatile int polyphony_counter = 0;
 volatile unsigned short prev_iox = 0;
 
+signed char global_config_sel = 0;
+
 signed char poly_mode = 0;
 signed char prev_poly_mode = 0;
 volatile int poly_active = 0;
@@ -169,8 +171,12 @@ signed char poly_changed = 0;
 
 volatile int length_lock = 0;
 unsigned int len = 1;
+
 int blink_counter = 0;
 int blinker = 0;
+int fast_blink_counter = 0;
+int fast_blinker = 0;
+
 
 unsigned char taps_toggle = 0;
 
@@ -189,6 +195,13 @@ void loop() {
   {
     blink_counter = 0;
     blinker = 1-blinker;
+  }
+
+  ++fast_blink_counter;
+  if (fast_blink_counter == FAST_BLINK_RATE)
+  {
+    fast_blink_counter = 0;
+    fast_blinker = 1-fast_blinker;
   }
 
   int update_lfsr = 0;
@@ -227,6 +240,10 @@ void loop() {
         {
           RESET_PITCH_CONFIG(main_pitch)
           RESET_PITCH_CONFIG(aux_pitch)
+        }
+        else if(poly_mode == POLY_CONFIG)
+        {
+          global_config[global_config_sel] = 1- global_config[global_config_sel];
         }
         
       }
@@ -300,7 +317,19 @@ void loop() {
   else if(poly_mode == POLY_POLYPHONY)
   {
     //TODO: configuration sequencing?
-  } 
+  }
+  else if(poly_mode == POLY_CONFIG)
+  {
+      global_config_sel += poly_delta;
+      if(global_config_sel > 5)
+      {
+        global_config_sel -= 6;
+      }
+      else if(poly_mode < 0)
+      {
+        global_config_sel += 6;
+      }
+  }
 
 
 //TEMPORARY
@@ -669,6 +698,23 @@ void loop() {
       }
 
       
+    }
+    else if(poly_mode == POLY_CONFIG)
+    {
+      led_map[led_num_map[0]] = global_config[0]; 
+      led_map[led_num_map[1]] = global_config[1];
+      led_map[led_num_map[2]] = global_config[2];
+      led_map[led_num_map[3]] = global_config[3];
+      led_map[led_num_map[4]] = global_config[4];
+      led_map[led_num_map[5]] = global_config[5];
+      if(global_config[global_config_sel])
+      {
+        led_map[led_num_map[global_config_sel]] = fast_blinker;
+      }
+      else
+      {
+        led_map[led_num_map[global_config_sel]] = blinker;
+      }
     }
 
   }

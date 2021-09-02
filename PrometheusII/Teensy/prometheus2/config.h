@@ -28,5 +28,9 @@ struct PitchConfig
   --_CONFIG.semitone;\
   _CONFIG.semitone_val = float(_CONFIG.semitone)/12.0;\
 
+
+unsigned char global_config[6]= {0};
+#define GLOBAL_CONFIG_DETUNE 0
+
   
 #endif
