@@ -28,14 +28,23 @@ for filename in filenames:
         return 1.037594*x + .04203
 
     xvals = [(x['bias_min']+x['bias_max'])/2 for x in data]
+    xmin = [ x['bias_max'] for x in data]
+    xmax = [ x['bias_max'] for x in data]
     if bias_remap:
         xvals = [bias_map(x) for x in xvals]
+        xmin = [bias_map(x) for x in xmin]
+        xmax = [bias_map(x) for x in xmax]
+
+    xlim[0] = min(xlim[0], min(xmin))
+    xlim[1] = max(xlim[1], max(xmax))
+
+    xmin = [x-y for x,y in zip(xvals, xmin)]
+    xmax = [x-y for x,y in zip(xvals, xmax)]
+
     yvals = [x['duration']*1000 for x in data]
 
-    xlim[0] = min(xlim[0], min(xvals))
-    xlim[1] = max(xlim[1], max(xvals))
-
     plt.scatter(xvals, yvals, s=2, label=label, alpha = 0.5)
+    plt.errorbar(xvals, yvals, xerr=[xmin, xmax], fmt='None', zorder=-1, c='gray', elinewidth=1)
 
 plt.title('Measured filter decay times')
 if bias_remap:
