@@ -35,7 +35,7 @@ for filename in filenames:
     xlim[0] = min(xlim[0], min(xvals))
     xlim[1] = max(xlim[1], max(xvals))
 
-    plt.scatter(xvals, yvals, s=1, label=label, alpha = 0.5)
+    plt.scatter(xvals, yvals, s=2, label=label, alpha = 0.5)
 
 plt.title('Measured filter decay times')
 if bias_remap:
