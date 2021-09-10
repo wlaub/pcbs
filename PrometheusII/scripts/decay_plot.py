@@ -15,6 +15,8 @@ xlim = [1000,-1000]
 
 bias_remap = False
 
+sample_periods = []
+
 for filename in filenames:
 
     with open(filename, 'r') as fp:
@@ -28,6 +30,7 @@ for filename in filenames:
         return 1.037594*x + .04203
 
     xvals = [(x['bias_min']+x['bias_max'])/2 for x in data]
+#    xvals = [x.get('bias_avg', (x['bias_min']+x['bias_max'])/2) for x in data]
     xmin = [ x['bias_max'] for x in data]
     xmax = [ x['bias_max'] for x in data]
     if bias_remap:
@@ -38,6 +41,8 @@ for filename in filenames:
     xlim[0] = min(xlim[0], min(xmin))
     xlim[1] = max(xlim[1], max(xmax))
 
+    sample_periods.extend(list(set([x['sample_period'] for x in data])))
+
     xmin = [x-y for x,y in zip(xvals, xmin)]
     xmax = [x-y for x,y in zip(xvals, xmax)]
 
@@ -45,6 +50,9 @@ for filename in filenames:
 
     plt.scatter(xvals, yvals, s=2, label=label, alpha = 0.5)
     plt.errorbar(xvals, yvals, xerr=[xmin, xmax], fmt='None', zorder=-1, c='gray', elinewidth=1)
+
+#for ts in sample_periods:
+#    plt.axhline(ts)
 
 plt.title('Measured filter decay times')
 if bias_remap:
@@ -56,6 +64,6 @@ plt.xlim(*xlim)
 plt.legend()
 plt.grid(True)
 ax = plt.gca()
-ax.set_yscale('log')
+#ax.set_yscale('log')
 plt.show()
 
