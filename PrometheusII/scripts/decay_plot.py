@@ -13,8 +13,10 @@ for path in sys.argv[1:]:
 
 xlim = [1000,-1000]
 
-bias_remap = False
-do_offset = False
+bias_remap = True
+do_scale = True
+do_offset = True
+do_errorbars = False
 
 sample_periods = []
 
@@ -23,10 +25,13 @@ for filename in filenames:
     with open(filename, 'r') as fp:
         raw = json.load(fp)
 
-    offset = raw.get('offset', 1)
+    scale = raw.get('scale', 1)
+    offset = raw.get('offset', 0)
     label = raw.get('title', os.path.basename(filename))
+    if do_scale:
+        label = f'{label} ({1/scale:.3f})'
     if do_offset:
-        label = f'{label} ({1/offset:.3f})'
+        label = f'{label} ({offset:.2f})'
     data = raw['data']
     data = list(filter(lambda x: x['valid'] != 0, data))
 
@@ -44,6 +49,13 @@ for filename in filenames:
         xmin = [bias_map(x) for x in xmin]
         xmax = [bias_map(x) for x in xmax]
 
+    if do_offset:
+        xvals = [x+offset for x in xvals]
+        xmin = [x+offset for x in xmin]
+        xmax = [x+offset for x in xmax]
+
+
+
     xlim[0] = min(xlim[0], min(xmin))
     xlim[1] = max(xlim[1], max(xmax))
 
@@ -53,21 +65,24 @@ for filename in filenames:
     xmax = [x-y for x,y in zip(xvals, xmax)]
 
     yvals = [x['duration']*1000 for x in data]
-    if do_offset:
-        yvals = [x/offset for x in yvals]
+    if do_scale:
+        yvals = [x/scale for x in yvals]
 
     plt.scatter(xvals, yvals, s=2, label=label, alpha = 0.5)
-    plt.errorbar(xvals, yvals, xerr=[xmin, xmax], fmt='None', zorder=-1, c='gray', elinewidth=1, alpha = 0.5)
+    if do_errorbars:
+        plt.errorbar(xvals, yvals, xerr=[xmin, xmax], fmt='None', zorder=-1, c='gray', elinewidth=1, alpha = 0.5)
 
 #for ts in sample_periods:
 #    plt.axhline(ts)
 
 plt.title('Measured filter decay times')
-if bias_remap:
-    plt.xlabel('Bias Voltage (V)')
-else:
-    plt.xlabel('Unmapped Bias Voltage (V)')
+xlabel = 'Bias Voltage (V)'
 if do_offset:
+    xlabel = 'Offset ' + xlabel
+if not bias_remap:
+    xlabel = 'Unmapped ' + xlabel
+plt.xlabel(xlabel)
+if do_scale:
     plt.ylabel('Normalized Decay Time (ms)')
 else:
     plt.ylabel('Decay Time (ms)')

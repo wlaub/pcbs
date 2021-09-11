@@ -1,0 +1,3319 @@
+{
+    "title": "Cap B / JFET B",
+    "offset": -0.73,
+    "scale": 1.4299999999999999,
+    "data": [
+        {
+            "timestamp": 1631322724387,
+            "valid": 1,
+            "duration": 0.0036249998956918716,
+            "bias_min": -4.6538667678833008,
+            "bias_max": -4.6525793075561523,
+            "bias_avg": -4.6532040656298053,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322725732,
+            "valid": 1,
+            "duration": 0.0036041666753590107,
+            "bias_min": -4.6543817520141602,
+            "bias_max": -4.6528992652893066,
+            "bias_avg": -4.6539589518067466,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322727074,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6555600166320801,
+            "bias_max": -4.6533002853393555,
+            "bias_avg": -4.654435193815897,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322728407,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6541643142700195,
+            "bias_max": -4.6532578468322754,
+            "bias_avg": -4.6537030574887295,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322729749,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6565399169921875,
+            "bias_max": -4.6324372291564941,
+            "bias_avg": -4.6518039731092236,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322731092,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6541423797607422,
+            "bias_max": -4.6529908180236816,
+            "bias_avg": -4.653556956801304,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322732437,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6545524597167969,
+            "bias_max": -4.6523685455322266,
+            "bias_avg": -4.6529871059018513,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322733772,
+            "valid": 1,
+            "duration": 0.0036041666753590107,
+            "bias_min": -4.6532769203186035,
+            "bias_max": -4.6522274017333984,
+            "bias_avg": -4.6529683377701421,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322735118,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6545300483703613,
+            "bias_max": -4.6533899307250977,
+            "bias_avg": -4.6539359148158583,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322736463,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6542458534240723,
+            "bias_max": -4.6530857086181641,
+            "bias_avg": -4.6536017489987751,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322737807,
+            "valid": 1,
+            "duration": 0.0036041666753590107,
+            "bias_min": -4.6553330421447754,
+            "bias_max": -4.6520252227783203,
+            "bias_avg": -4.6531956126924197,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322739151,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.656501293182373,
+            "bias_max": -4.6324987411499023,
+            "bias_avg": -4.6517371770947475,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322740493,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6537618637084961,
+            "bias_max": -4.6525402069091797,
+            "bias_avg": -4.6531893763431285,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322741827,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6533403396606445,
+            "bias_max": -4.6525039672851562,
+            "bias_avg": -4.6529181558032366,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322743170,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6536417007446289,
+            "bias_max": -4.6525635719299316,
+            "bias_avg": -4.6529953507489941,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322744514,
+            "valid": 1,
+            "duration": 0.0036041666753590107,
+            "bias_min": -4.6535401344299316,
+            "bias_max": -4.6523089408874512,
+            "bias_avg": -4.6528103144871702,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322745860,
+            "valid": 1,
+            "duration": 0.0035833332221955061,
+            "bias_min": -4.6555771827697754,
+            "bias_max": -4.6314606666564941,
+            "bias_avg": -4.6516259243321976,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322754415,
+            "valid": 1,
+            "duration": 0.0050625000149011612,
+            "bias_min": -4.8776168823242188,
+            "bias_max": -4.8765926361083984,
+            "bias_avg": -4.877191023571501,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322755761,
+            "valid": 1,
+            "duration": 0.0050833332352340221,
+            "bias_min": -4.8785152435302734,
+            "bias_max": -4.8772625923156738,
+            "bias_avg": -4.8778561939958669,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322757106,
+            "valid": 1,
+            "duration": 0.0050625000149011612,
+            "bias_min": -4.8786611557006836,
+            "bias_max": -4.8773717880249023,
+            "bias_avg": -4.8778646021713445,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322758450,
+            "valid": 1,
+            "duration": 0.0050833332352340221,
+            "bias_min": -4.878023624420166,
+            "bias_max": -4.8757476806640625,
+            "bias_avg": -4.8763957453555751,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322759793,
+            "valid": 1,
+            "duration": 0.0050833332352340221,
+            "bias_min": -4.878756046295166,
+            "bias_max": -4.8770923614501953,
+            "bias_avg": -4.8776284163115458,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322761137,
+            "valid": 1,
+            "duration": 0.0051041664555668831,
+            "bias_min": -4.8790478706359863,
+            "bias_max": -4.8771677017211914,
+            "bias_avg": -4.8782922627974532,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322762483,
+            "valid": 1,
+            "duration": 0.0051041664555668831,
+            "bias_min": -4.8806838989257812,
+            "bias_max": -4.8768215179443359,
+            "bias_avg": -4.8781788611898618,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322763819,
+            "valid": 1,
+            "duration": 0.0050833332352340221,
+            "bias_min": -4.8808345794677734,
+            "bias_max": -4.8566012382507324,
+            "bias_avg": -4.8769786318794628,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322765166,
+            "valid": 1,
+            "duration": 0.0050833332352340221,
+            "bias_min": -4.8804821968078613,
+            "bias_max": -4.8560338020324707,
+            "bias_avg": -4.8765381261950633,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322766513,
+            "valid": 1,
+            "duration": 0.0050833332352340221,
+            "bias_min": -4.8812918663024902,
+            "bias_max": -4.8561687469482422,
+            "bias_avg": -4.8768312794263249,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322767859,
+            "valid": 1,
+            "duration": 0.0050625000149011612,
+            "bias_min": -4.8801002502441406,
+            "bias_max": -4.8555188179016113,
+            "bias_avg": -4.8759986500681185,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322769205,
+            "valid": 1,
+            "duration": 0.0050625000149011612,
+            "bias_min": -4.8802871704101562,
+            "bias_max": -4.8561339378356934,
+            "bias_avg": -4.8758547060774191,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322770550,
+            "valid": 1,
+            "duration": 0.0050833332352340221,
+            "bias_min": -4.8781723976135254,
+            "bias_max": -4.8764142990112305,
+            "bias_avg": -4.8771855889773761,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322771894,
+            "valid": 1,
+            "duration": 0.0050833332352340221,
+            "bias_min": -4.8776140213012695,
+            "bias_max": -4.8764429092407227,
+            "bias_avg": -4.8770408903966187,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322773238,
+            "valid": 1,
+            "duration": 0.0050833332352340221,
+            "bias_min": -4.8777146339416504,
+            "bias_max": -4.875999927520752,
+            "bias_avg": -4.8769651475499884,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322774582,
+            "valid": 1,
+            "duration": 0.0051041664555668831,
+            "bias_min": -4.8774557113647461,
+            "bias_max": -4.8754234313964844,
+            "bias_avg": -4.8762959538673867,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322775918,
+            "valid": 1,
+            "duration": 0.0051041664555668831,
+            "bias_min": -4.8779358863830566,
+            "bias_max": -4.8766345977783203,
+            "bias_avg": -4.8775694243761958,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322777264,
+            "valid": 1,
+            "duration": 0.0051041664555668831,
+            "bias_min": -4.8783769607543945,
+            "bias_max": -4.8767518997192383,
+            "bias_avg": -4.8773915894177495,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322778611,
+            "valid": 1,
+            "duration": 0.0051041664555668831,
+            "bias_min": -4.8779826164245605,
+            "bias_max": -4.8754763603210449,
+            "bias_avg": -4.8766248158046182,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322779923,
+            "valid": 1,
+            "duration": 0.0050833332352340221,
+            "bias_min": -4.8773326873779297,
+            "bias_max": -4.8757896423339844,
+            "bias_avg": -4.8764879683979219,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322788544,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1655464172363281,
+            "bias_max": -5.1412053108215332,
+            "bias_avg": -5.1615102861968563,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322789892,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1653299331665039,
+            "bias_max": -5.14093017578125,
+            "bias_avg": -5.16180942332001,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322791239,
+            "valid": 1,
+            "duration": 0.010374999605119228,
+            "bias_min": -5.1650738716125488,
+            "bias_max": -5.1406188011169434,
+            "bias_avg": -5.1614541442518735,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322792587,
+            "valid": 1,
+            "duration": 0.010374999605119228,
+            "bias_min": -5.1653041839599609,
+            "bias_max": -5.1409792900085449,
+            "bias_avg": -5.1615581052849091,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322793946,
+            "valid": 1,
+            "duration": 0.010374999605119228,
+            "bias_min": -5.1655049324035645,
+            "bias_max": -5.1405692100524902,
+            "bias_avg": -5.1618814449233703,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322795296,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.164891242980957,
+            "bias_max": -5.1614885330200195,
+            "bias_avg": -5.1622596727290624,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322796646,
+            "valid": 1,
+            "duration": 0.010374999605119228,
+            "bias_min": -5.1630024909973145,
+            "bias_max": -5.1608915328979492,
+            "bias_avg": -5.1617685101597184,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322797997,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.16259765625,
+            "bias_max": -5.160679817199707,
+            "bias_avg": -5.1615063851508101,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322799357,
+            "valid": 1,
+            "duration": 0.010333333164453506,
+            "bias_min": -5.1628994941711426,
+            "bias_max": -5.1409192085266113,
+            "bias_avg": -5.1617962698782645,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322800707,
+            "valid": 1,
+            "duration": 0.010333333164453506,
+            "bias_min": -5.164909839630127,
+            "bias_max": -5.1403627395629883,
+            "bias_avg": -5.1613607656571174,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322802057,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1646556854248047,
+            "bias_max": -5.1613473892211914,
+            "bias_avg": -5.1622906268482476,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322803405,
+            "valid": 1,
+            "duration": 0.010333333164453506,
+            "bias_min": -5.1631660461425781,
+            "bias_max": -5.161287784576416,
+            "bias_avg": -5.1617777510996792,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322804752,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1629323959350586,
+            "bias_max": -5.160944938659668,
+            "bias_avg": -5.1617526298077774,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322806098,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1626873016357422,
+            "bias_max": -5.160740852355957,
+            "bias_avg": -5.1617066366092059,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322807445,
+            "valid": 1,
+            "duration": 0.010374999605119228,
+            "bias_min": -5.1632270812988281,
+            "bias_max": -5.161099910736084,
+            "bias_avg": -5.1619451524742157,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322808794,
+            "valid": 1,
+            "duration": 0.010374999605119228,
+            "bias_min": -5.1629157066345215,
+            "bias_max": -5.1608414649963379,
+            "bias_avg": -5.1617021694719556,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322810143,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1628990173339844,
+            "bias_max": -5.160862922668457,
+            "bias_avg": -5.1616683505190686,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322811502,
+            "valid": 1,
+            "duration": 0.010374999605119228,
+            "bias_min": -5.1629443168640137,
+            "bias_max": -5.1611571311950684,
+            "bias_avg": -5.1620504291182066,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322812853,
+            "valid": 1,
+            "duration": 0.010312499478459358,
+            "bias_min": -5.164393424987793,
+            "bias_max": -5.1400890350341797,
+            "bias_avg": -5.1609263458637278,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322814203,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1654720306396484,
+            "bias_max": -5.1410341262817383,
+            "bias_avg": -5.1618681683146974,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322815553,
+            "valid": 1,
+            "duration": 0.010333333164453506,
+            "bias_min": -5.1634321212768555,
+            "bias_max": -5.1607871055603027,
+            "bias_avg": -5.161639676940057,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322816912,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1629538536071777,
+            "bias_max": -5.1607036590576172,
+            "bias_avg": -5.1618476988564073,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322818260,
+            "valid": 1,
+            "duration": 0.010333333164453506,
+            "bias_min": -5.162867546081543,
+            "bias_max": -5.1602182388305664,
+            "bias_avg": -5.1610293340298439,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322819607,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1633620262145996,
+            "bias_max": -5.1606321334838867,
+            "bias_avg": -5.1617770175818709,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322820954,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1621527671813965,
+            "bias_max": -5.1607251167297363,
+            "bias_avg": -5.1614511574298083,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322822301,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1628427505493164,
+            "bias_max": -5.1606106758117676,
+            "bias_avg": -5.1612989053399989,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322823649,
+            "valid": 1,
+            "duration": 0.010374999605119228,
+            "bias_min": -5.1620512008666992,
+            "bias_max": -5.16064453125,
+            "bias_avg": -5.1613590133238034,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322824998,
+            "valid": 1,
+            "duration": 0.010354166850447655,
+            "bias_min": -5.1622123718261719,
+            "bias_max": -5.1603736877441406,
+            "bias_avg": -5.1614879871038362,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322833085,
+            "valid": 1,
+            "duration": 0.032104168087244034,
+            "bias_min": -5.4002618789672852,
+            "bias_max": -5.375673770904541,
+            "bias_avg": -5.397035789056539,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322834465,
+            "valid": 1,
+            "duration": 0.032062500715255737,
+            "bias_min": -5.40130615234375,
+            "bias_max": -5.376225471496582,
+            "bias_avg": -5.3971221873015072,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322835826,
+            "valid": 1,
+            "duration": 0.032083332538604736,
+            "bias_min": -5.4007477760314941,
+            "bias_max": -5.3762001991271973,
+            "bias_avg": -5.3968992768944082,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322837195,
+            "valid": 1,
+            "duration": 0.032104168087244034,
+            "bias_min": -5.4003458023071289,
+            "bias_max": -5.375727653503418,
+            "bias_avg": -5.3968133406543171,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322838564,
+            "valid": 1,
+            "duration": 0.032145831733942032,
+            "bias_min": -5.399937629699707,
+            "bias_max": -5.3755006790161133,
+            "bias_avg": -5.3970376315707131,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322839934,
+            "valid": 1,
+            "duration": 0.032166667282581329,
+            "bias_min": -5.4003739356994629,
+            "bias_max": -5.375697135925293,
+            "bias_avg": -5.3965718431176297,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322841305,
+            "valid": 1,
+            "duration": 0.032145831733942032,
+            "bias_min": -5.4014797210693359,
+            "bias_max": -5.3754801750183105,
+            "bias_avg": -5.3967518651941262,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322842687,
+            "valid": 1,
+            "duration": 0.032104168087244034,
+            "bias_min": -5.4005646705627441,
+            "bias_max": -5.375849723815918,
+            "bias_avg": -5.3968386111671007,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322844059,
+            "valid": 1,
+            "duration": 0.032124999910593033,
+            "bias_min": -5.399634838104248,
+            "bias_max": -5.3750948905944824,
+            "bias_avg": -5.3965843450543787,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322845432,
+            "valid": 1,
+            "duration": 0.032124999910593033,
+            "bias_min": -5.4003047943115234,
+            "bias_max": -5.3753557205200195,
+            "bias_avg": -5.3968772028516083,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322846804,
+            "valid": 1,
+            "duration": 0.032083332538604736,
+            "bias_min": -5.4007501602172852,
+            "bias_max": -5.3763971328735352,
+            "bias_avg": -5.3967564610691809,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322848176,
+            "valid": 1,
+            "duration": 0.032083332538604736,
+            "bias_min": -5.4006786346435547,
+            "bias_max": -5.3757133483886719,
+            "bias_avg": -5.3968052907423543,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322849548,
+            "valid": 1,
+            "duration": 0.032083332538604736,
+            "bias_min": -5.3996315002441406,
+            "bias_max": -5.3750872611999512,
+            "bias_avg": -5.3967718848934423,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322850918,
+            "valid": 1,
+            "duration": 0.03204166516661644,
+            "bias_min": -5.400177001953125,
+            "bias_max": -5.3756284713745117,
+            "bias_avg": -5.3964886122779205,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322852288,
+            "valid": 1,
+            "duration": 0.032083332538604736,
+            "bias_min": -5.4005393981933594,
+            "bias_max": -5.3757658004760742,
+            "bias_avg": -5.3965204508273636,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322853657,
+            "valid": 1,
+            "duration": 0.032124999910593033,
+            "bias_min": -5.3997840881347656,
+            "bias_max": -5.3751158714294434,
+            "bias_avg": -5.3962661004715855,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322855028,
+            "valid": 1,
+            "duration": 0.032104168087244034,
+            "bias_min": -5.4002933502197266,
+            "bias_max": -5.3753032684326172,
+            "bias_avg": -5.396875642012807,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322856408,
+            "valid": 1,
+            "duration": 0.032124999910593033,
+            "bias_min": -5.3998970985412598,
+            "bias_max": -5.3750143051147461,
+            "bias_avg": -5.3963711456566008,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322857782,
+            "valid": 1,
+            "duration": 0.032124999910593033,
+            "bias_min": -5.4004535675048828,
+            "bias_max": -5.3757758140563965,
+            "bias_avg": -5.3966556148924871,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322859155,
+            "valid": 1,
+            "duration": 0.032062500715255737,
+            "bias_min": -5.4000539779663086,
+            "bias_max": -5.3752412796020508,
+            "bias_avg": -5.3963265691661775,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322860529,
+            "valid": 1,
+            "duration": 0.03204166516661644,
+            "bias_min": -5.3994998931884766,
+            "bias_max": -5.3752622604370117,
+            "bias_avg": -5.3964702980726065,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322861902,
+            "valid": 1,
+            "duration": 0.031999997794628143,
+            "bias_min": -5.3995890617370605,
+            "bias_max": -5.3743515014648438,
+            "bias_avg": -5.3963626899446053,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322863284,
+            "valid": 1,
+            "duration": 0.031999997794628143,
+            "bias_min": -5.4001970291137695,
+            "bias_max": -5.3752031326293945,
+            "bias_avg": -5.396237107925117,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322864657,
+            "valid": 1,
+            "duration": 0.032020833343267441,
+            "bias_min": -5.4000349044799805,
+            "bias_max": -5.3749456405639648,
+            "bias_avg": -5.3963391745175802,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322866028,
+            "valid": 1,
+            "duration": 0.031979165971279144,
+            "bias_min": -5.4001407623291016,
+            "bias_max": -5.3751745223999023,
+            "bias_avg": -5.3965459537816747,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322867399,
+            "valid": 1,
+            "duration": 0.031999997794628143,
+            "bias_min": -5.3995614051818848,
+            "bias_max": -5.3744926452636719,
+            "bias_avg": -5.3962354442725582,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322868768,
+            "valid": 1,
+            "duration": 0.032020833343267441,
+            "bias_min": -5.4006223678588867,
+            "bias_max": -5.3758120536804199,
+            "bias_avg": -5.3961835614876383,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322870137,
+            "valid": 1,
+            "duration": 0.032020833343267441,
+            "bias_min": -5.399601936340332,
+            "bias_max": -5.3749008178710938,
+            "bias_avg": -5.3960335429954158,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322871507,
+            "valid": 1,
+            "duration": 0.032062500715255737,
+            "bias_min": -5.3999233245849609,
+            "bias_max": -5.3752565383911133,
+            "bias_avg": -5.3963862078928804,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322872879,
+            "valid": 1,
+            "duration": 0.03204166516661644,
+            "bias_min": -5.3992581367492676,
+            "bias_max": -5.3745193481445312,
+            "bias_avg": -5.3963854926770312,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322874251,
+            "valid": 1,
+            "duration": 0.032020833343267441,
+            "bias_min": -5.4005947113037109,
+            "bias_max": -5.3760361671447754,
+            "bias_avg": -5.3965015535472505,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322875623,
+            "valid": 1,
+            "duration": 0.031979165971279144,
+            "bias_min": -5.4002928733825684,
+            "bias_max": -5.3754758834838867,
+            "bias_avg": -5.3963425698420124,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322877005,
+            "valid": 1,
+            "duration": 0.031999997794628143,
+            "bias_min": -5.3996362686157227,
+            "bias_max": -5.3748459815979004,
+            "bias_avg": -5.3959840334330993,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322878378,
+            "valid": 1,
+            "duration": 0.031979165971279144,
+            "bias_min": -5.3990688323974609,
+            "bias_max": -5.3741116523742676,
+            "bias_avg": -5.3959492779710008,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322879750,
+            "valid": 1,
+            "duration": 0.031958334147930145,
+            "bias_min": -5.4001021385192871,
+            "bias_max": -5.3752841949462891,
+            "bias_avg": -5.3958669973942879,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322881121,
+            "valid": 1,
+            "duration": 0.031958334147930145,
+            "bias_min": -5.4001641273498535,
+            "bias_max": -5.3755168914794922,
+            "bias_avg": -5.3960421268756571,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322882491,
+            "valid": 1,
+            "duration": 0.031937498599290848,
+            "bias_min": -5.3997282981872559,
+            "bias_max": -5.3746500015258789,
+            "bias_avg": -5.3961759808012184,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322906589,
+            "valid": 1,
+            "duration": 0.098354168236255646,
+            "bias_min": -5.5320143699645996,
+            "bias_max": -5.5061144828796387,
+            "bias_avg": -5.5278056836991816,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322908029,
+            "valid": 1,
+            "duration": 0.098395831882953644,
+            "bias_min": -5.5321865081787109,
+            "bias_max": -5.5062384605407715,
+            "bias_avg": -5.5278638681819219,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322909470,
+            "valid": 1,
+            "duration": 0.098312497138977051,
+            "bias_min": -5.5319638252258301,
+            "bias_max": -5.5059666633605957,
+            "bias_avg": -5.5275056629419375,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322910910,
+            "valid": 1,
+            "duration": 0.098395831882953644,
+            "bias_min": -5.5315084457397461,
+            "bias_max": -5.5058627128601074,
+            "bias_avg": -5.5273525046009953,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322912350,
+            "valid": 1,
+            "duration": 0.09833332896232605,
+            "bias_min": -5.5320048332214355,
+            "bias_max": -5.5060906410217285,
+            "bias_avg": -5.5276360001604434,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322913788,
+            "valid": 1,
+            "duration": 0.09833332896232605,
+            "bias_min": -5.5320577621459961,
+            "bias_max": -5.5063605308532715,
+            "bias_avg": -5.5277410842604553,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322915225,
+            "valid": 1,
+            "duration": 0.098354168236255646,
+            "bias_min": -5.5318641662597656,
+            "bias_max": -5.5062484741210938,
+            "bias_avg": -5.527588079097387,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322916652,
+            "valid": 1,
+            "duration": 0.098437495529651642,
+            "bias_min": -5.5318760871887207,
+            "bias_max": -5.5061435699462891,
+            "bias_avg": -5.5275710301676755,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322918090,
+            "valid": 1,
+            "duration": 0.098416663706302643,
+            "bias_min": -5.5317268371582031,
+            "bias_max": -5.5063872337341309,
+            "bias_avg": -5.5276310294488038,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322919528,
+            "valid": 1,
+            "duration": 0.098624996840953827,
+            "bias_min": -5.531886100769043,
+            "bias_max": -5.5064077377319336,
+            "bias_avg": -5.5276418832167318,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322920967,
+            "valid": 1,
+            "duration": 0.098604165017604828,
+            "bias_min": -5.5316610336303711,
+            "bias_max": -5.5064773559570312,
+            "bias_avg": -5.5274727186843355,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322922407,
+            "valid": 1,
+            "duration": 0.098437495529651642,
+            "bias_min": -5.5318760871887207,
+            "bias_max": -5.5064678192138672,
+            "bias_avg": -5.5274799379217558,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322923849,
+            "valid": 1,
+            "duration": 0.098458334803581238,
+            "bias_min": -5.5313434600830078,
+            "bias_max": -5.506284236907959,
+            "bias_avg": -5.5273433316828484,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322925289,
+            "valid": 1,
+            "duration": 0.098375000059604645,
+            "bias_min": -5.5318264961242676,
+            "bias_max": -5.506077766418457,
+            "bias_avg": -5.5276629072485814,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322926729,
+            "valid": 1,
+            "duration": 0.098416663706302643,
+            "bias_min": -5.5320720672607422,
+            "bias_max": -5.5066242218017578,
+            "bias_avg": -5.5276012028000494,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322928168,
+            "valid": 1,
+            "duration": 0.09833332896232605,
+            "bias_min": -5.5325279235839844,
+            "bias_max": -5.5063109397888184,
+            "bias_avg": -5.5274121615846274,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322948415,
+            "valid": 1,
+            "duration": 1.2059791088104248,
+            "bias_min": -5.7109766006469727,
+            "bias_max": -5.6840572357177734,
+            "bias_avg": -5.7064554129978502,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322950964,
+            "valid": 1,
+            "duration": 1.2044999599456787,
+            "bias_min": -5.7107362747192383,
+            "bias_max": -5.6838517189025879,
+            "bias_avg": -5.7060802343625063,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322953505,
+            "valid": 1,
+            "duration": 1.1998958587646484,
+            "bias_min": -5.7110238075256348,
+            "bias_max": -5.6839141845703125,
+            "bias_avg": -5.7060041008273785,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322956053,
+            "valid": 1,
+            "duration": 1.2017707824707031,
+            "bias_min": -5.7109889984130859,
+            "bias_max": -5.6838693618774414,
+            "bias_avg": -5.7061110157936445,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322958601,
+            "valid": 1,
+            "duration": 1.2024999856948853,
+            "bias_min": -5.7117242813110352,
+            "bias_max": -5.6838126182556152,
+            "bias_avg": -5.7062954310650476,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322961139,
+            "valid": 1,
+            "duration": 1.2005000114440918,
+            "bias_min": -5.7106533050537109,
+            "bias_max": -5.6832418441772461,
+            "bias_avg": -5.7061657989321359,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322963674,
+            "valid": 1,
+            "duration": 1.1984167098999023,
+            "bias_min": -5.7107753753662109,
+            "bias_max": -5.6839981079101562,
+            "bias_avg": -5.7061350311127832,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322966218,
+            "valid": 1,
+            "duration": 1.2002500295639038,
+            "bias_min": -5.7110652923583984,
+            "bias_max": -5.6839122772216797,
+            "bias_avg": -5.7061307525118297,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322968756,
+            "valid": 1,
+            "duration": 1.1980832815170288,
+            "bias_min": -5.7105755805969238,
+            "bias_max": -5.6836128234863281,
+            "bias_avg": -5.7059451045699454,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322971302,
+            "valid": 1,
+            "duration": 1.1968541145324707,
+            "bias_min": -5.7113642692565918,
+            "bias_max": -5.6837139129638672,
+            "bias_avg": -5.7059233783129688,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322973839,
+            "valid": 1,
+            "duration": 1.1956249475479126,
+            "bias_min": -5.7105965614318848,
+            "bias_max": -5.6838469505310059,
+            "bias_avg": -5.7059768403650351,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322976372,
+            "valid": 1,
+            "duration": 1.1932083368301392,
+            "bias_min": -5.7104587554931641,
+            "bias_max": -5.6836357116699219,
+            "bias_avg": -5.7058865667351064,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322978903,
+            "valid": 1,
+            "duration": 1.1929583549499512,
+            "bias_min": -5.7102084159851074,
+            "bias_max": -5.6835002899169922,
+            "bias_avg": -5.7057152788628489,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322981433,
+            "valid": 1,
+            "duration": 1.1943333148956299,
+            "bias_min": -5.7105612754821777,
+            "bias_max": -5.6833243370056152,
+            "bias_avg": -5.705728703026927,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322983967,
+            "valid": 1,
+            "duration": 1.1940833330154419,
+            "bias_min": -5.7108068466186523,
+            "bias_max": -5.6840062141418457,
+            "bias_avg": -5.7059657325115012,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322986502,
+            "valid": 1,
+            "duration": 1.1926666498184204,
+            "bias_min": -5.7108011245727539,
+            "bias_max": -5.6836423873901367,
+            "bias_avg": -5.7059012286119319,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322989045,
+            "valid": 1,
+            "duration": 1.1910208463668823,
+            "bias_min": -5.7106904983520508,
+            "bias_max": -5.6836471557617188,
+            "bias_avg": -5.7058641967228949,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322991575,
+            "valid": 1,
+            "duration": 1.1909999847412109,
+            "bias_min": -5.7103252410888672,
+            "bias_max": -5.6835289001464844,
+            "bias_avg": -5.7058601125078043,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322994106,
+            "valid": 1,
+            "duration": 1.1867707967758179,
+            "bias_min": -5.7102842330932617,
+            "bias_max": -5.6833624839782715,
+            "bias_avg": -5.7054993160026477,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322996623,
+            "valid": 1,
+            "duration": 1.1879791021347046,
+            "bias_min": -5.7099361419677734,
+            "bias_max": -5.6828527450561523,
+            "bias_avg": -5.7054099276330783,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631322999152,
+            "valid": 1,
+            "duration": 1.1861041784286499,
+            "bias_min": -5.7102432250976562,
+            "bias_max": -5.6833987236022949,
+            "bias_avg": -5.7053163375021638,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323001683,
+            "valid": 1,
+            "duration": 1.1850416660308838,
+            "bias_min": -5.709998607635498,
+            "bias_max": -5.6830453872680664,
+            "bias_avg": -5.7053276722719808,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323004212,
+            "valid": 1,
+            "duration": 1.1827082633972168,
+            "bias_min": -5.7099223136901855,
+            "bias_max": -5.6829214096069336,
+            "bias_avg": -5.705281283222539,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323006738,
+            "valid": 1,
+            "duration": 1.1835833787918091,
+            "bias_min": -5.7100133895874023,
+            "bias_max": -5.6831188201904297,
+            "bias_avg": -5.7055059774471051,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323009254,
+            "valid": 1,
+            "duration": 1.1837500333786011,
+            "bias_min": -5.7101016044616699,
+            "bias_max": -5.6831159591674805,
+            "bias_avg": -5.7053359237954213,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323011779,
+            "valid": 1,
+            "duration": 1.1848958730697632,
+            "bias_min": -5.7104926109313965,
+            "bias_max": -5.6832337379455566,
+            "bias_avg": -5.705412869489062,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323014306,
+            "valid": 1,
+            "duration": 1.1859375238418579,
+            "bias_min": -5.7103872299194336,
+            "bias_max": -5.6834263801574707,
+            "bias_avg": -5.705560791474662,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323016827,
+            "valid": 1,
+            "duration": 1.1838124990463257,
+            "bias_min": -5.7098512649536133,
+            "bias_max": -5.6826567649841309,
+            "bias_avg": -5.7053001698455237,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323028921,
+            "valid": 1,
+            "duration": 5.4952292442321777,
+            "bias_min": -5.7892584800720215,
+            "bias_max": -5.7620706558227539,
+            "bias_avg": -5.784471020100411,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323035764,
+            "valid": 1,
+            "duration": 5.4952292442321777,
+            "bias_min": -5.7891988754272461,
+            "bias_max": -5.7618942260742188,
+            "bias_avg": -5.784422015783691,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323042594,
+            "valid": 1,
+            "duration": 5.498478889465332,
+            "bias_min": -5.789487361907959,
+            "bias_max": -5.7618660926818848,
+            "bias_avg": -5.7845059240880214,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323049438,
+            "valid": 1,
+            "duration": 5.470395565032959,
+            "bias_min": -5.7897348403930664,
+            "bias_max": -5.7618274688720703,
+            "bias_avg": -5.7844748854847348,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323056245,
+            "valid": 1,
+            "duration": 5.4633541107177734,
+            "bias_min": -5.7891659736633301,
+            "bias_max": -5.7617311477661133,
+            "bias_avg": -5.7843766390240194,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323063050,
+            "valid": 1,
+            "duration": 5.4596247673034668,
+            "bias_min": -5.7896833419799805,
+            "bias_max": -5.7613329887390137,
+            "bias_avg": -5.7844126859216241,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323069852,
+            "valid": 1,
+            "duration": 5.4323124885559082,
+            "bias_min": -5.7892322540283203,
+            "bias_max": -5.7617688179016113,
+            "bias_avg": -5.7842603481962804,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323076618,
+            "valid": 1,
+            "duration": 5.4431667327880859,
+            "bias_min": -5.789182186126709,
+            "bias_max": -5.761833667755127,
+            "bias_avg": -5.784375762033493,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323083412,
+            "valid": 1,
+            "duration": 5.4314165115356445,
+            "bias_min": -5.7897968292236328,
+            "bias_max": -5.7616958618164062,
+            "bias_avg": -5.7843600162941877,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323090175,
+            "valid": 1,
+            "duration": 5.4443955421447754,
+            "bias_min": -5.7895808219909668,
+            "bias_max": -5.7618803977966309,
+            "bias_avg": -5.7843444787477631,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323096960,
+            "valid": 1,
+            "duration": 5.4283747673034668,
+            "bias_min": -5.7892799377441406,
+            "bias_max": -5.761713981628418,
+            "bias_avg": -5.7842304170776311,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323103732,
+            "valid": 1,
+            "duration": 5.4183540344238281,
+            "bias_min": -5.7893171310424805,
+            "bias_max": -5.7615222930908203,
+            "bias_avg": -5.7842032133243348,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323110491,
+            "valid": 1,
+            "duration": 5.4202289581298828,
+            "bias_min": -5.7892279624938965,
+            "bias_max": -5.7616071701049805,
+            "bias_avg": -5.7841996543822223,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323117249,
+            "valid": 1,
+            "duration": 5.4185833930969238,
+            "bias_min": -5.789332389831543,
+            "bias_max": -5.7613205909729004,
+            "bias_avg": -5.7842434146745525,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323124008,
+            "valid": 1,
+            "duration": 5.4266457557678223,
+            "bias_min": -5.7892999649047852,
+            "bias_max": -5.7609653472900391,
+            "bias_avg": -5.784233129066747,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323130782,
+            "valid": 1,
+            "duration": 5.4117083549499512,
+            "bias_min": -5.7891154289245605,
+            "bias_max": -5.7615242004394531,
+            "bias_avg": -5.7840282082949592,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323137525,
+            "valid": 1,
+            "duration": 5.3864583969116211,
+            "bias_min": -5.7887964248657227,
+            "bias_max": -5.7612948417663574,
+            "bias_avg": -5.7838532562805449,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323144257,
+            "valid": 1,
+            "duration": 5.3551459312438965,
+            "bias_min": -5.7888259887695312,
+            "bias_max": -5.7608222961425781,
+            "bias_avg": -5.7834919886697067,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323150948,
+            "valid": 1,
+            "duration": 5.3573956489562988,
+            "bias_min": -5.7883520126342773,
+            "bias_max": -5.7604308128356934,
+            "bias_avg": -5.7834762907327661,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323157652,
+            "valid": 1,
+            "duration": 5.350895881652832,
+            "bias_min": -5.7889509201049805,
+            "bias_max": -5.7609329223632812,
+            "bias_avg": -5.7834862211951634,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323164341,
+            "valid": 1,
+            "duration": 5.3438334465026855,
+            "bias_min": -5.788996696472168,
+            "bias_max": -5.760401725769043,
+            "bias_avg": -5.7833718707407344,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323171027,
+            "valid": 1,
+            "duration": 5.3486042022705078,
+            "bias_min": -5.7881617546081543,
+            "bias_max": -5.7601923942565918,
+            "bias_avg": -5.7833184389564289,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323177718,
+            "valid": 1,
+            "duration": 5.3319582939147949,
+            "bias_min": -5.788355827331543,
+            "bias_max": -5.7605271339416504,
+            "bias_avg": -5.7832908954890287,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323184385,
+            "valid": 1,
+            "duration": 5.3383750915527344,
+            "bias_min": -5.7881994247436523,
+            "bias_max": -5.7606725692749023,
+            "bias_avg": -5.7832600465709136,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323191068,
+            "valid": 1,
+            "duration": 5.3374791145324707,
+            "bias_min": -5.7885370254516602,
+            "bias_max": -5.7607274055480957,
+            "bias_avg": -5.7833893032085957,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323280489,
+            "valid": 1,
+            "duration": 70.734664916992188,
+            "bias_min": -5.9140114784240723,
+            "bias_max": -5.8846893310546875,
+            "bias_avg": -5.9079565246076182,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323395263,
+            "valid": 1,
+            "duration": 113.70114135742188,
+            "bias_min": -5.9456486701965332,
+            "bias_max": -5.9168314933776855,
+            "bias_avg": -5.9399824516654469,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323541022,
+            "valid": 1,
+            "duration": 198.85285949707031,
+            "bias_min": -6.0103564262390137,
+            "bias_max": -5.9804372787475586,
+            "bias_avg": -6.0041753247210243,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631323777000,
+            "valid": 1,
+            "duration": 223.02554321289062,
+            "bias_min": -6.1752700805664062,
+            "bias_max": -6.1453924179077148,
+            "bias_avg": -6.1691541344494985,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631324069370,
+            "valid": 1,
+            "duration": 24.341228485107422,
+            "bias_min": -5.8606195449829102,
+            "bias_max": -5.8314428329467773,
+            "bias_avg": -5.8547958363493162,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631324109800,
+            "valid": 1,
+            "duration": 0.26627081632614136,
+            "bias_min": -5.6172728538513184,
+            "bias_max": -5.5905108451843262,
+            "bias_avg": -5.6128666006747423,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631324111403,
+            "valid": 1,
+            "duration": 0.26747915148735046,
+            "bias_min": -5.6180644035339355,
+            "bias_max": -5.5898933410644531,
+            "bias_avg": -5.6126786283321755,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631324113006,
+            "valid": 1,
+            "duration": 0.26808333396911621,
+            "bias_min": -5.6175394058227539,
+            "bias_max": -5.5893840789794922,
+            "bias_avg": -5.6126074069473439,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631324114612,
+            "valid": 1,
+            "duration": 0.26860415935516357,
+            "bias_min": -5.6178731918334961,
+            "bias_max": -5.5905098915100098,
+            "bias_avg": -5.6126201874917818,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631324116227,
+            "valid": 1,
+            "duration": 0.26895833015441895,
+            "bias_min": -5.618260383605957,
+            "bias_max": -5.5902290344238281,
+            "bias_avg": -5.6127433541945759,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631324117834,
+            "valid": 1,
+            "duration": 0.26887500286102295,
+            "bias_min": -5.6170177459716797,
+            "bias_max": -5.5906062126159668,
+            "bias_avg": -5.6126764786071632,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631324119452,
+            "valid": 1,
+            "duration": 0.26866665482521057,
+            "bias_min": -5.6171884536743164,
+            "bias_max": -5.5899410247802734,
+            "bias_avg": -5.6126393550456903,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        },
+        {
+            "timestamp": 1631324121060,
+            "valid": 1,
+            "duration": 0.26908332109451294,
+            "bias_min": -5.6176562309265137,
+            "bias_max": -5.5897383689880371,
+            "bias_avg": -5.6126928240494598,
+            "sample_period": 2.0833333110203966e-5,
+            "custom_data": "",
+            "config": {
+                "threshold_low": 0.10000000149011612,
+                "threshold_high": 0.30000001192092896,
+                "pulse_count": 2,
+                "pulse_length": 0.10000000149011612,
+                "pulse_spacing": 0.5,
+                "pulse_holdoff": 0.5
+            }
+        }
+    ]
+}
