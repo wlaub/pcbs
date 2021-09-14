@@ -157,51 +157,54 @@ class PlotHandler():
             'A': ['A', A*.5, A*2, A],
             'mbias': ['Mid', mbias-.1, mbias+.1, mbias],
             'tbias': ['Top', tbias-.1, tbias+.1, tbias],
-            'rt': ['Rt', 0,.1, .05],
+            'rt': ['Rt', 0,.03, .015],
             'rb': ['Rb', 0,1,0],
-            'maxbias': ['Max Bias', maxbias*1.05, maxbias*.95, maxbias ]
+            'maxbias': ['Max\nBias', maxbias*1.05, maxbias*.95, maxbias ],
+            'offset': ['Offset', -1, 1, 0],
             }
-        self.active_params = ['rt', 'maxbias']
+        self.active_params = ['rt', 'maxbias', 'offset']
     
         self.sliders = []
-        self.params = { k:v[3] for k,v in self.param_defaults.items()}
+        self.params =[ { k:v[3] for k,v in self.param_defaults.items()} for x in datasets]
         gap = .08/len(self.active_params)
         for idx, key in enumerate(self.active_params):
 
             name, minval, maxval, defval = self.param_defaults[key]
             print(f'Registering {key} {name}')
-            sliderax = plt.axes([.92+gap*idx, .05, .01, .9])
+            stagger = .01*(idx%2)
+            sliderax = plt.axes([.92+gap*idx, .05+stagger, .01, .9-2*stagger])
             slider = mplwidgets.Slider(sliderax, name, 
                 valmin = minval, valmax = maxval, valinit = defval,
                 orientation='vertical'
                 )
-            self.params[key] = defval
             slider.on_changed(lambda x, key=key: self.update_slider(key, x))
             self.sliders.append(slider)
  
 
     def update_slider(self, key, val):
-        print(f'{key}: {val}')
-        self.params[key] = val
+        self.params[0][key] = val
         self.plot_all() 
 
     def plot_all(self):
         ax = self.ax
-        
+
+        pc = pot_curve.CurvedPot(res=100)       
         ax.clear()
-        interp = get_interp_func(self.params['mbias'], self.params['tbias'])
-        pc = pot_curve.CurvedPot()
-        pc.update(self.params['rt'], self.params['rb'])
-        for data in self.datasets:
+        for idx, data in enumerate(self.datasets):
+            idx = 0
+            params = self.params[idx]
+    
             data.reset_xvals()
-            data.map_xvals(lambda x: x+data.offset)
+            data.map_xvals(lambda x: x+data.offset+params['offset'])
             data.map_xvals(es8_to_dmm)
 #            data.map_xvals(dmm_to_log, B=self.B, A = self.A)
 #            data.map_xvals(dmm_to_piecewise, self.mbias, self.tbias)
+#            interp = get_interp_func(params['mbias'], params['tbias'])
 #            data.map_xvals(interp)
 #            data.map_xvals(lambda x: x/self.scale)
 
-            data.map_xvals(dmm_to_knob, [bias_range[0], self.params['maxbias']])
+            pc.update(params['rt'], params['rb'])
+            data.map_xvals(dmm_to_knob, [bias_range[0], params['maxbias']])
             data.map_xvals(pc.interp)
 
 
@@ -225,7 +228,7 @@ class PlotHandler():
         ax.axhline(1000, linestyle='--', linewidth=0.5, c='k')
         ax.axvline(.95, linestyle='--', linewidth=2, c='k')
         
-        ax.set_title(f'Knob to Decay Time, bias range {bias_range[0]:.2f} to {bias_range[1]:.2f} V')
+        ax.set_title(f'Knob to Decay Time, bias range {bias_range[0]:.2f} to {self.params[0]["maxbias"]:.3f} V')
         ax.set_ylabel('Decay time (ms)')
         ax.set_xlabel('Knob Position')
         ax.set_xlim(0,1)
