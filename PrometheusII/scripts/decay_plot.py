@@ -23,10 +23,9 @@ def es8_to_dmm(x):
 
 bias_range = [0, -6.85]
 
-def dmm_to_knob(x):
+def dmm_to_knob(x, dmm=bias_range):
 #    dmm = [-4.76, -6.72]
 #    dmm = [-4.76, -7.19]
-    dmm = bias_range
     m = 1/(dmm[1]-dmm[0])
     b = -dmm[0]*m
     return m*x+b
@@ -146,104 +145,53 @@ class PlotHandler():
         self.datasets = datasets
         self.targets = targets
 
-        B = self.B = -.216404
-        A = self.A = 35185671051388.64
+        B = -.216404
+        A = 35185671051388.64
+        mbias = -6.471
+        tbias = -6.6448
+        maxbias = bias_range[1]
 
-        self.scale = 1
-        sliderax = plt.axes([.91, .05, .01, .9])       
-        self.scale_slider = mplwidgets.Slider(sliderax, 'Scale',
-                valmin = 0,
-                valmax = 1,
-                valinit = self.scale,
-                orientation='vertical',
-                )
-        self.scale_slider.on_changed(self.update_scale)
- 
-        if False:
-            sliderax = plt.axes([.93, .05, .01, .9])
-            self.B_slider = mplwidgets.Slider(sliderax, 'B', valmin=-.22, valmax=-.2, valinit=B, orientation='vertical')
-            self.B_slider.on_changed(self.update_B)
+        self.param_defaults = {
+            'scale': ['Scale', 0,1,1],
+            'B': ['B', -.22, -.2, -.216404],
+            'A': ['A', A*.5, A*2, A],
+            'mbias': ['Mid', mbias-.1, mbias+.1, mbias],
+            'tbias': ['Top', tbias-.1, tbias+.1, tbias],
+            'rt': ['Rt', 0,.1, .05],
+            'rb': ['Rb', 0,1,0],
+            'maxbias': ['Max Bias', maxbias*1.05, maxbias*.95, maxbias ]
+            }
+        self.active_params = ['rt', 'maxbias']
+    
+        self.sliders = []
+        self.params = { k:v[3] for k,v in self.param_defaults.items()}
+        gap = .08/len(self.active_params)
+        for idx, key in enumerate(self.active_params):
 
-            sliderax = plt.axes([.95, .05, .01, .9])
-            self.A_slider = mplwidgets.Slider(sliderax, 'A', valmin=A*0.5, valmax=A*2, valinit=A, orientation='vertical')
-            self.A_slider.on_changed(self.update_A)
-
-        mbias = self.mbias = -6.471
-        tbias = self.tbias = -6.6448
-        if False:
-            sliderax = plt.axes([.94, .05, .01, .9])
-            self.slider_mbias = mplwidgets.Slider(sliderax, 'Mid', 
-                valmin = mbias-.1,
-                valmax = mbias+.1,
-                valinit = mbias,
-                orientation='vertical',
+            name, minval, maxval, defval = self.param_defaults[key]
+            print(f'Registering {key} {name}')
+            sliderax = plt.axes([.92+gap*idx, .05, .01, .9])
+            slider = mplwidgets.Slider(sliderax, name, 
+                valmin = minval, valmax = maxval, valinit = defval,
+                orientation='vertical'
                 )
-            self.slider_mbias.on_changed(self.update_mbias)
-            sliderax = plt.axes([.97, .05, .01, .9])
-            self.slider_tbias = mplwidgets.Slider(sliderax, 'Top', 
-                valmin = tbias-.1,
-                valmax = tbias+.1,
-                valinit = tbias,
-                orientation='vertical',
-                )
-            self.slider_tbias.on_changed(self.update_tbias)
-
-        rt = self.rt = .1
-        rb = self.rb = 0
-        if True:
-            sliderax = plt.axes([.94, .05, .01, .9])
-            self.slider_mbias = mplwidgets.Slider(sliderax, 'Rt', 
-                valmin = 0,
-                valmax = .1,
-                valinit = rt,
-                orientation='vertical',
-                )
-            self.slider_mbias.on_changed(self.update_rt)
-            sliderax = plt.axes([.97, .05, .01, .9])
-            self.slider_rbbias = mplwidgets.Slider(sliderax, 'Rb', 
-                valmin = 0,
-                valmax = 1,
-                valinit = rb,
-                orientation='vertical',
-                )
-            self.slider_rbbias.on_changed(self.update_rb)
+            self.params[key] = defval
+            slider.on_changed(lambda x, key=key: self.update_slider(key, x))
+            self.sliders.append(slider)
  
 
-    def update_rt(self, val):
-        self.rt = val
-        self.plot_all()
-    def update_rb(self, val):
-        self.rb = val
-        self.plot_all()
-
-
-
-    def update_scale(self, val):
-        self.scale = val
-        self.plot_all()
-
-    def update_mbias(self, val):
-        self.mbias = val
-        self.plot_all()
-    def update_tbias(self, val):
-        self.tbias = val
-        self.plot_all()
-
-    def update_A(self, val):
-        self.A = val
-        self.plot_all()
-
-    def update_B(self, val):
-        self.B = val
-        self.plot_all()
+    def update_slider(self, key, val):
+        print(f'{key}: {val}')
+        self.params[key] = val
+        self.plot_all() 
 
     def plot_all(self):
         ax = self.ax
         
         ax.clear()
-        interp = get_interp_func(self.mbias, self.tbias)
+        interp = get_interp_func(self.params['mbias'], self.params['tbias'])
         pc = pot_curve.CurvedPot()
-        pc.update(self.rt, self.rb)
+        pc.update(self.params['rt'], self.params['rb'])
         for data in self.datasets:
             data.reset_xvals()
             data.map_xvals(lambda x: x+data.offset)
@@ -253,7 +201,7 @@ class PlotHandler():
 #            data.map_xvals(interp)
 #            data.map_xvals(lambda x: x/self.scale)
 
-            data.map_xvals(dmm_to_knob)
+            data.map_xvals(dmm_to_knob, [bias_range[0], self.params['maxbias']])
             data.map_xvals(pc.interp)
 
 
@@ -275,6 +223,7 @@ class PlotHandler():
         ax.plot(*zip(*self.targets), label='Knob Targets', c='k', linestyle='--', zorder=-1, linewidth=1)
 
         ax.axhline(1000, linestyle='--', linewidth=0.5, c='k')
+        ax.axvline(.95, linestyle='--', linewidth=2, c='k')
         
         ax.set_title(f'Knob to Decay Time, bias range {bias_range[0]:.2f} to {bias_range[1]:.2f} V')
         ax.set_ylabel('Decay time (ms)')
