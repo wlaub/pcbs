@@ -103,7 +103,8 @@ class DataSet():
             if len(tchunk) == 0:
                 tchunk.append([y,x])
             else:
-                if y/tchunk[-1][0] > 1.1:
+                py = tchunk[-1][0]
+                if y/py > 1.1 or abs(y-py) > 300:
                     chunks.append(tchunk)
                     tchunk = []
                 tchunk.append([y,x])
@@ -115,26 +116,34 @@ class DataSet():
             nxvals.append(np.average(oxvals))
             nyvals.append(np.average(oyvals))
 
-        self.base_xvals = nxvals
-        self.base_yvals = nyvals
-        self.yvals =  self.base_yvals
+        self.base_simp_xvals = nxvals
+        self.simp_yvals = nyvals
+#        self.yvals =  self.base_yvals
         self.simple = True
 
     def reset_xvals(self):
         self.xvals = self.base_xvals
         self.xmin = self.base_xmin
         self.xmax = self.base_xmax
+        if self.simple:
+            self.simp_xvals = self.base_simp_xvals
 
     def map_xvals(self, func, *args, **kwargs):
         self.xvals = [func(x, *args, **kwargs) for x in self.xvals]
         self.xmin = [func(x, *args, **kwargs) for x in self.xmin]
         self.xmax = [func(x, *args, **kwargs) for x in self.xmax]
+        if self.simple:
+            self.simp_xvals = [func(x, *args, **kwargs) for x in self.simp_xvals]
  
     def plot(self, ax):
-        if not self.simple:
-            ax.scatter(self.xvals, self.yvals, s=2, label=self.title, alpha=0.5)
-        else:
-            ax.plot(self.xvals, self.yvals, label=self.title, linewidth=1)
+        kwargs = {
+            's': 2,
+            'alpha': 0.5
+            }
+        if not self.simple: kwargs['label'] = self.title
+        ax.scatter(self.xvals, self.yvals, **kwargs)
+        if self.simple:
+            ax.plot(self.simp_xvals, self.simp_yvals, label=self.title, linewidth=1)
 
 class PlotHandler():
 
@@ -164,7 +173,7 @@ class PlotHandler():
             }
         self.active_params = ['rt', 'maxbias', 'offset']
     
-        self.sliders = []
+        self.sliders = {}
         self.params =[ { k:v[3] for k,v in self.param_defaults.items()} for x in datasets]
         gap = .08/len(self.active_params)
         for idx, key in enumerate(self.active_params):
@@ -178,20 +187,40 @@ class PlotHandler():
                 orientation='vertical'
                 )
             slider.on_changed(lambda x, key=key: self.update_slider(key, x))
-            self.sliders.append(slider)
+            self.sliders[key] = slider
+
+        self.param_idx = 0
+        self.buttons = []
+        self.param_label = self.fig.text(.5, .98, self.datasets[0].title)
+
+        for delta in [-1,1]:
+            buttax = plt.axes([.5+(delta)*.025, .95, .05, .025])
+            button = mplwidgets.Button(buttax, ['<','','>'][delta+1], )
+            button.on_clicked(lambda x, dx=delta: self.update_param_idx(dx))
+            self.buttons.append(button)
+
  
+    def update_param_idx(self, delta):
+        self.param_idx += delta
+        count = len(self.datasets)
+        if self.param_idx < 0: self.param_idx += count
+        if self.param_idx >= count: self.param_idx -= count
+        self.param_label.set_text(self.datasets[self.param_idx].title)
+        for idx, key in enumerate(self.active_params):
+            self.sliders[key].set_val(self.params[self.param_idx][key])
 
     def update_slider(self, key, val):
-        self.params[0][key] = val
-        self.plot_all() 
+        oldval = self.params[self.param_idx][key]
+        self.params[self.param_idx][key] = val
+        if oldval != val:
+            self.plot_all() 
 
     def plot_all(self):
         ax = self.ax
 
-        pc = pot_curve.CurvedPot(res=100)       
+        pc = pot_curve.CurvedPot(res=100)
         ax.clear()
         for idx, data in enumerate(self.datasets):
-            idx = 0
             params = self.params[idx]
     
             data.reset_xvals()

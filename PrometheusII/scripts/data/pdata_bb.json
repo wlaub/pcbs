@@ -1,6 +1,6 @@
 {
-    "title": "Cap B / JFET B",
-    "offset": -0.73,
+    "title": "Cap B / JFET B 1",
+    "offset": -0.72999999999999998,
     "scale": 1.4299999999999999,
     "data": [
         {
@@ -3315,5 +3315,5 @@
                 "pulse_holdoff": 0.5
             }
         }
-    ]
+   ]
 }
