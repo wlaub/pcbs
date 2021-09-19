@@ -20,6 +20,7 @@ class CurvedPot():
         return 1/(1/a+1/b)
 
     def map_value(self, x):
+
         rt = 1-x
         if self.top:
             rt = self.par(rt, self.top)
@@ -36,6 +37,7 @@ class CurvedPot():
         self.bot = rb
         self.xvals = xvals = [x/res for x in range(res)]
         self.yvals = yvals = [self.map_value(x) for x in xvals] 
+
         interp = scipy.interpolate.interp1d(
             yvals, xvals,
             bounds_error=False, 
@@ -55,9 +57,10 @@ class PlotHandler():
         self.ax = ax
 
 
-        self.top = 1
-        self.bot = 1
+        self.top = 0
+        self.bot = 0.015
 
+        """
         sliderax = self.get_sliderax(0)
         self.top_slider = mplwidgets.Slider(sliderax, 'Top',
                 valmin = 0,
@@ -66,16 +69,17 @@ class PlotHandler():
                 orientation='vertical',
                 )
         self.top_slider.on_changed(self.update_top)
+        """
 
-        sliderax = self.get_sliderax(1)
+        sliderax = self.get_sliderax(0.5)
         self.bot_slider = mplwidgets.Slider(sliderax, 'Bot',
                 valmin = 0,
-                valmax = 1,
+                valmax =.01,
                 valinit = self.bot,
                 orientation='vertical',
                 )
         self.bot_slider.on_changed(self.update_bot)
- 
+
 
     def update_top(self, val):
         self.top = val
@@ -97,13 +101,32 @@ class PlotHandler():
 
 #        xvals = [x/1000 for x in range(1000)]
 #        yvals = [pc.interp(x) for x in xvals]
-    
-        ax.plot(xvals, yvals, linewidth=1, label='curve')
+   
 
-        ax.set_ylabel('Knob Output')
+        ax.axhline(10e-3, linestyle = '--', c='k')
+        ax.axvline(.95, linestyle='--', c='k')
+
+
+        vcctol = 0.1
+        pottol = 0.2
+
+        vcc = [3.3*(1-vcctol), 3.3, 3.3*(1+vcctol)]
+        rtol = [1-pottol, 1, 1+pottol]
+        labels = ['Minimum', 'Nominal', 'Maximum']
+
+        for idx in range(3):
+            pc.update(self.top, self.bot*rtol[idx])
+            xvals = pc.xvals
+            yvals = pc.yvals    
+            tyvals = [y*vcc[idx] for y in yvals]
+            ax.plot(xvals, tyvals, linewidth=1, label=labels[idx])
+
+        ax.set_title(f'VCC Tolerance: {vcctol:.1%} | Pot Tolerance: {pottol:.1%}')
+
+        ax.set_ylabel('Knob Output (V)')
         ax.set_xlabel('Knob Position')
         ax.set_xlim(0,1)
-        ax.set_ylim(0,1)
+        ax.set_ylim(0,.1)
         ax.grid()
         ax.legend()
 

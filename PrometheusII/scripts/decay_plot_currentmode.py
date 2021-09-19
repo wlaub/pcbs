@@ -221,6 +221,7 @@ class PlotHandler():
 
         pc = pot_curve.CurvedPot(res=100)
         ax.clear()
+        """
         for idx, data in enumerate(self.datasets):
             params = self.params[idx]
     
@@ -240,29 +241,37 @@ class PlotHandler():
 
         for data in self.datasets:
             data.plot(ax)
+        """
 
         for data in self.datasets:
             data.reset_xvals()
             data.map_xvals(lambda x: x)
-            data.map_xvals(es8_to_dmm)
-            data.map_xvals(dmm_to_knob)
+
+            data.map_xvals(lambda x: x*0.03090785)
+            data.map_xvals(lambda x: x*1000/10)
+#            data.map_xvals(es8_to_dmm)
+#            data.map_xvals(dmm_to_knob)
 #            data.map_xvals(parknob_to_knob, .1)
 
         for data in self.datasets:
+            data.yvals = [1/y for y in data.yvals]
+            data.simp_yvals = [1/y for y in data.simp_yvals]
             data.plot(ax)
 
 
 
-        ax.plot(*zip(*self.targets), label='Knob Targets', c='k', linestyle='--', zorder=-1, linewidth=1)
+#        ax.plot(*zip(*self.targets), label='Knob Targets', c='k', linestyle='--', zorder=-1, linewidth=1)
 
-        ax.axhline(1000, linestyle='--', linewidth=0.5, c='k')
-        ax.axvline(.95, linestyle='--', linewidth=2, c='k')
+#        ax.axhline(1000, linestyle='--', linewidth=0.5, c='k')
+#        ax.axvline(.95, linestyle='--', linewidth=2, c='k')
         
         ax.set_title(f'Knob to Decay Time, bias range {bias_range[0]:.2f} to {self.params[0]["maxbias"]:.3f} V')
-        ax.set_ylabel('Decay time (ms)')
-        ax.set_xlabel('Knob Position')
-        ax.set_xlim(0,1)
-        ax.set_ylim(0, 15e3)
+        ax.set_ylabel('Inverse decay time (kHz)')
+#        ax.set_xlabel('Knob Position')
+#        ax.set_xlim(0,1)
+#        ax.set_ylim(0, 15e3)
+        ax.set_xlabel(' ES-8 pre-attenuation control voltage (V)')
+#        ax.set_yscale('log')
         ax.grid()
         ax.legend()
 
