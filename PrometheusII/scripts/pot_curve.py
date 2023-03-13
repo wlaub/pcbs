@@ -45,6 +45,54 @@ class CurvedPot():
             )
         self.interp = interp
 
+class PotNetwork():
+    def __init__(self, res=1000):
+        self.res = res
+        self.rt = 0 #resistance above and below the pot
+        self.rb = 0
+        self.rtp = 0 #parallel resistance on top and bottom legs
+        self.rbp = 0
+        self.knee = 0.5
+
+    def update(self, rt = None, rb = None, rtp = None, rbp = None, knee=None):
+        if rt != None:
+            self.rt = rt
+        if rb != None:
+            self.rb = rb
+        if rtp != None:
+            self.rtp = rtp
+        if rbp != None:
+            self.rbp = rbp
+        if knee != None:
+            self.knee = knee
+  
+    def log_map(self, x):
+        z = self.knee
+        if x < 0.5:
+            return x*z*2
+        else:
+            return z+(x-.5)*(1-z)/.5
+ 
+    def rtop(self, x):
+        res = self.rt
+        rleg = 1-self.log_map(x)
+        if self.rtp == 0:
+            res += rleg
+        else:
+            res += 1/(1/rleg + 1/self.rtp)
+        return res
+
+    def rbot(self, x):
+        res = self.rb
+        rleg = self.log_map(x)
+        if self.rbp == 0:
+            res += rleg
+        else:
+            res += 1/(1/rleg + 1/self.rbp)
+        return res
+
+    def rtotal(self, x):
+        return self.rtop(x) + self.rbot(x)
 
 class PlotHandler():
 

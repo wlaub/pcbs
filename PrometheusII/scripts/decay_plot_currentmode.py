@@ -84,66 +84,37 @@ class DataSet():
         self.offset = raw.get('offset', 0)
         self.title = raw.get('title', os.path.basename(filename))
  
-        self.base_xvals = [x.get('bias_avg', (x['bias_min']+x['bias_max'])/2) for x in data]
-        self.base_xmin = [ x['bias_max'] for x in data]
-        self.base_xmax = [ x['bias_max'] for x in data]
+        self.xvals = [x.get('bias_avg', (x['bias_min']+x['bias_max'])/2) for x in data]
+        self.xmin = [ x['bias_max'] for x in data]
+        self.xmax = [ x['bias_max'] for x in data]
 
-        self.base_yvals = [x['duration']*1000 for x in data]
-        self.yvals = self.base_yvals
+        self.yvals = [x['duration'] for x in data]
 
-        self.simple = False
-        self.simplify()
-        self.reset_xvals()
+        self.fit_line()
 
-    def simplify(self):
-        mixed = sorted(zip(self.base_yvals, self.base_xvals))
-        chunks = []
-        tchunk = []
-        for y,x in mixed:
-            if len(tchunk) == 0:
-                tchunk.append([y,x])
-            else:
-                py = tchunk[-1][0]
-                if y/py > 1.1 or abs(y-py) > 300:
-                    chunks.append(tchunk)
-                    tchunk = []
-                tchunk.append([y,x])
+    def fit_line(self):
+        res = np.polyfit(self.xvals, [1/x for x in self.yvals], 1)
+        self.slope, self.offset = res
+        self.xoff = self.offset/self.slope 
 
-        nxvals = []
-        nyvals = []
-        for chunk in chunks:
-            oyvals, oxvals = zip(*chunk)
-            nxvals.append(np.average(oxvals))
-            nyvals.append(np.average(oyvals))
+        self.xoff = max(-min(self.xvals), self.xoff)
 
-        self.base_simp_xvals = nxvals
-        self.simp_yvals = nyvals
-#        self.yvals =  self.base_yvals
-        self.simple = True
+        self.timefunc = lambda x: 1/(x*self.slope)
 
-    def reset_xvals(self):
-        self.xvals = self.base_xvals
-        self.xmin = self.base_xmin
-        self.xmax = self.base_xmax
-        if self.simple:
-            self.simp_xvals = self.base_simp_xvals
-
-    def map_xvals(self, func, *args, **kwargs):
-        self.xvals = [func(x, *args, **kwargs) for x in self.xvals]
-        self.xmin = [func(x, *args, **kwargs) for x in self.xmin]
-        self.xmax = [func(x, *args, **kwargs) for x in self.xmax]
-        if self.simple:
-            self.simp_xvals = [func(x, *args, **kwargs) for x in self.simp_xvals]
- 
     def plot(self, ax):
         kwargs = {
             's': 2,
-            'alpha': 0.5
+            'alpha': 1
             }
-        if not self.simple: kwargs['label'] = self.title
-        ax.scatter(self.xvals, self.yvals, **kwargs)
-        if self.simple:
-            ax.plot(self.simp_xvals, self.simp_yvals, label=self.title, linewidth=1)
+      
+        xmin = 1/(10*self.slope) 
+        xvals = [xmin+3.3*x/10000 for x in range(10000)]
+        yvals = [self.timefunc(x) for x in xvals] 
+        ax.plot(xvals, yvals)
+
+        kwargs['label'] = self.title
+        ax.scatter([x + self.xoff for x in self.xvals], [y for y in self.yvals], **kwargs)
+
 
 class PlotHandler():
 
@@ -154,25 +125,17 @@ class PlotHandler():
         self.datasets = datasets
         self.targets = targets
 
-        B = -.216404
-        A = 35185671051388.64
-        mbias = -6.471
-        tbias = -6.6448
-        maxbias = bias_range[1]
-        maxbias = -5.5
-
         self.param_defaults = {
             'scale': ['Scale', 0,1,1],
-            'B': ['B', -.22, -.2, -.216404],
-            'A': ['A', A*.5, A*2, A],
-            'mbias': ['Mid', mbias-.1, mbias+.1, mbias],
-            'tbias': ['Top', tbias-.1, tbias+.1, tbias],
-            'rt': ['Rt', 0,.03, .0169],
-            'rb': ['Rb', 0,1,0],
-            'maxbias': ['Max\nBias', maxbias*1.05, maxbias*.95, maxbias ],
-            'offset': ['Offset', 0, 1, 0],
+            'rt': ['Rt', 0,1,0],
+            'rb': ['Rb',1e-6,1e-1,1e-3],
+            'rtp': ['Rtp', 0,1,0],
+            'rbp': ['Rbp', 0,1e-1,0],
+            'gain': ['Gain',0, 1.5, 1],
+            'offset': ['Offset', 0, .1, 0.0],
+            'knee': ['Knee', 0,1,0.5],
             }
-        self.active_params = ['rt', 'maxbias', 'offset']
+        self.active_params = ['rb', 'offset', 'gain', 'rt']
     
         self.sliders = {}
         self.params =[ { k:v[3] for k,v in self.param_defaults.items()} for x in datasets]
@@ -221,57 +184,69 @@ class PlotHandler():
 
         pc = pot_curve.CurvedPot(res=100)
         ax.clear()
-        """
+
+        pot = pot_curve.PotNetwork(res=100)
+
+        res = 1000
+        xknob = [x/res for x in range(1,res)]
         for idx, data in enumerate(self.datasets):
-            params = self.params[idx]
-    
-            data.reset_xvals()
-            data.map_xvals(lambda x: x+params['offset'])
-            data.map_xvals(es8_to_dmm)
-#            data.map_xvals(dmm_to_log, B=self.B, A = self.A)
-#            data.map_xvals(dmm_to_piecewise, self.mbias, self.tbias)
-#            interp = get_interp_func(params['mbias'], params['tbias'])
-#            data.map_xvals(interp)
-#            data.map_xvals(lambda x: x/self.scale)
+            rbp = self.params[idx]['rbp']
+            rtp = self.params[idx]['rtp']
+            rb = self.params[idx]['rb']
+            rt = self.params[idx]['rt']
+            offset = self.params[idx]['offset']
+            knee = self.params[idx]['knee']
+            gain = self.params[idx]['gain']
+            def log_map(x):
+                z = .1
+                if x < 0.5:
+                    return x*z*2
+                else:
+                    return z+(x-.5)*(1-z)/.5
 
-            pc.update(params['rt'], params['rb'])
-            data.map_xvals(dmm_to_knob, [bias_range[0], params['maxbias']])
-            data.map_xvals(pc.interp)
+#            xknob = [log_map(x) for x in xknob]
+#            if rtp == 0:
+#                vknob = [rb/(rb+x+rt) for x in vknob]
+#            else:
+#                vknob = [rb/(rb+1/(1/x+1/rtp)+rt) for x in vknob]
+
+            pot.update(rt, rb, rtp, rbp, knee) 
+
+#            bvknob = [3.3*x*gain for x in vknob]
+
+            for ctol in [-.2, 0, .2]:
+                for pottol in [-.2, 0, .2]:
+                    pot.update(0, 0, rtp, rbp, knee) 
+                    vknob = [rb/(rb+pot.rbot(x)*(1+pottol)+rt) for x in xknob]
+                    vknob = [3.3*x*gain-offset for x in vknob]
+                    yvals = [data.timefunc(x)*(1+ctol) for x in vknob]
+                    ax.plot(xknob, yvals)
+
+#            pot.update(rt, rb, rtp, rbp, knee) 
+#            vknob = [pot.rbot(x)/(pot.rtop(x)+pot.rbot(x)) for x in xknob]
+#            vknob = [3.3*x*gain for x in vknob]
+#            yvals = [data.timefunc(x) for x in vknob]
+#            ax.plot(xknob, yvals)
 
 
-        for data in self.datasets:
-            data.plot(ax)
-        """
-
-        for data in self.datasets:
-            data.reset_xvals()
-            data.map_xvals(lambda x: x)
-
-            data.map_xvals(lambda x: x*0.03090785)
-            data.map_xvals(lambda x: x*1000/10)
-#            data.map_xvals(es8_to_dmm)
-#            data.map_xvals(dmm_to_knob)
-#            data.map_xvals(parknob_to_knob, .1)
-
-        for data in self.datasets:
-            data.yvals = [1/y for y in data.yvals]
-            data.simp_yvals = [1/y for y in data.simp_yvals]
-            data.plot(ax)
 
 
+#        for data in self.datasets:
+#            data.plot(ax)
 
-#        ax.plot(*zip(*self.targets), label='Knob Targets', c='k', linestyle='--', zorder=-1, linewidth=1)
+        linestyle = {'linestyle':'--', 'c':'k', 'linewidth':1}
+        ax.axhline(50e-3, **linestyle)
+        ax.axhline(1, **linestyle)
 
-#        ax.axhline(1000, linestyle='--', linewidth=0.5, c='k')
-#        ax.axvline(.95, linestyle='--', linewidth=2, c='k')
-        
-        ax.set_title(f'Knob to Decay Time, bias range {bias_range[0]:.2f} to {self.params[0]["maxbias"]:.3f} V')
-        ax.set_ylabel('Inverse decay time (kHz)')
+        ax.set_title(f'')
+        ax.set_ylabel('Decay time (s)')
 #        ax.set_xlabel('Knob Position')
-#        ax.set_xlim(0,1)
-#        ax.set_ylim(0, 15e3)
-        ax.set_xlabel(' ES-8 pre-attenuation control voltage (V)')
-#        ax.set_yscale('log')
+        ax.set_xlim(0,1)
+        ax.set_ylim(1e-3, 10)
+        ax.set_xlabel('Knob Position')
+#        ax.set_xlabel(' ES-8 pre-attenuation control voltage (V)')
+#        ax.set_xscale('log')
+        ax.set_yscale('log')
         ax.grid()
         ax.legend()
 
