@@ -1,0 +1,6 @@
+
+* RJ45 footprints are wrong, but the pins can bend to fit.
+* The WS2812Serial library doesn't support the routed pins except for pin 8, so those must be bodged
+* It might be nice to route 5V to the MCU through a jumper to support operation without usb power natively
+
+
