@@ -58,24 +58,39 @@ void setup() {
   for(int j = 0; j < 5; ++j)
   {
     leds[j].begin();
-    leds[j].setBrightness(55);
+    leds[j].setBrightness(255);
     fill(j, 0);
   }
 }
 
-
+volatile byte throb = 0;
+volatile int throbdir = 5;
 
 void loop() {
   // draw something
-  fill(0, RED);
-  fill(1, GREEN);
-  fill(2, BLUE);
-  fill(3, RED|GREEN);
-  fill(4, RED|BLUE);
+  fill(0, throb<<16);
+  fill(1, throb<<8);
+  fill(2, throb);
+  fill(3, throb<<24);
+  fill(4, (255-throb)<<24);
 
   for(int j = 0; j < 5; ++j)
   {
     leds[j].show();
+  }
+
+  if(throbdir > 0 && 255-throbdir <= throb)
+  {
+    throb = 255;
+    throbdir *= -1;
+  }
+  else if(throbdir < 0 && throb <= -throbdir)
+  {
+    throb = 0;
+    throbdir *= -1;
+  }
+  else{
+    throb += throbdir;
   }
 
   delay(33); // approx 30 Hz refresh rate

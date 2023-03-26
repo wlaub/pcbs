@@ -1,4 +1,4 @@
-19122747927771568
+19121069258822456
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -84062,13 +84062,6 @@ Zigbee_Module_MRF24J40MD
 0
 12
 12
-footprints
-CD4504BPWR
-
-
-0
-16
-16
 ttt_lib
 Fixed_Potentiometer_Bourns_PTV09A-1_Single_Vertical
 Potentiometer, vertical, Bourns PTV09A-1 Single, http://www.bourns.com/docs/Product-Datasheets/ptv09.pdf
