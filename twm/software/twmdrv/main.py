@@ -31,10 +31,6 @@ def compose(idx, data):
     result += b'\xff'*8
     return result
 
-data = make_colors(0, 255,0,0,0);
-print(compose(2, data))
-
-
 with serial.Serial('/dev/ttyACM0', 115200) as ser:
     for offset in range(30):
         start_time = time.time()
