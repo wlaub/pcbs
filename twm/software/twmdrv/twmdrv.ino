@@ -45,9 +45,9 @@ const int led_count[5] = {NUMLED1, NUMLED2, NUMLED3, NUMLED4, NUMLED5};
 #define ORANGE 0x00FF4200
 #define WHITE  0xAA000000
 
-void fill(int i, int color)
+void fill(int i, int color, int spacing)
 {
-  for(int j = 0; j < led_count[i]; ++j)
+  for(int j = 0; j < led_count[i]; j+=spacing)
   {
     leds[i].setPixel(j,color);
   }
@@ -55,43 +55,81 @@ void fill(int i, int color)
 }
 
 void setup() {
+  Serial.begin(115200);
+
   for(int j = 0; j < 5; ++j)
   {
     leds[j].begin();
     leds[j].setBrightness(255);
-    fill(j, 0);
+    fill(j, 0,1);
   }
+  pinMode(13, OUTPUT);
+  digitalWrite(13, 1);
 }
 
 volatile byte throb = 0;
 volatile int throbdir = 5;
 
+volatile int serial_offset = 0;
+volatile int serial_state = 0;
+volatile int serial_index = 0;
+
+byte asc_to_byte(byte value)
+{
+  if(value >= '0' && value <= '9')
+  {
+    return value-'0';
+  }
+  if(value >='a' && value <= 'f')
+  {
+    return value-'a' + 10;
+  }
+  if(value >='A' && value <= 'F')
+  {
+    return value-'A' + 10;
+  }
+  return 0xff;
+}
+
 void loop() {
-  // draw something
-  fill(0, throb<<16);
-  fill(1, throb<<8);
-  fill(2, throb);
-  fill(3, throb<<24);
-  fill(4, (255-throb)<<24);
 
-  for(int j = 0; j < 5; ++j)
+  unsigned int available = Serial.available();
+  if (serial_state == 0 && available > 0)
   {
-    leds[j].show();
+    serial_index = Serial.read();
+    if(serial_index >= 0 && serial_index < 5)
+    {
+      serial_state = 1;
+      serial_offset = 0;
+    }
+    
+  }
+  else if (serial_state == 1 && available >= 8)
+  {
+    unsigned int color = 0;
+    byte new_byte = 0;
+    for(int i = 0; i < 4; ++i)
+    {
+      byte upper = asc_to_byte(Serial.read());
+      byte lower = asc_to_byte(Serial.read());
+      if(upper > 0xf)
+      {
+        serial_state = 0;
+        leds[serial_index].show();
+      }
+      else
+      {
+        new_byte = (upper<<4)|(lower);
+        color <<= 8;
+        color |= new_byte;
+      }
+    }
+    if (serial_state == 1)
+    {
+      leds[serial_index].setPixel(serial_offset, color);
+      serial_offset += 1;
+    }
   }
 
-  if(throbdir > 0 && 255-throbdir <= throb)
-  {
-    throb = 255;
-    throbdir *= -1;
-  }
-  else if(throbdir < 0 && throb <= -throbdir)
-  {
-    throb = 0;
-    throbdir *= -1;
-  }
-  else{
-    throb += throbdir;
-  }
-
-  delay(33); // approx 30 Hz refresh rate
+  delay(1); // approx 30 Hz refresh rate
 }
