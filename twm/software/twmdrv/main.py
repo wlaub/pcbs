@@ -1,6 +1,7 @@
 import serial
 import struct
 import time
+import sys
 
 class Color:
     def __init__(self, r,g,b,w):
@@ -31,17 +32,44 @@ def compose(idx, data):
     result += b'\xff'*8
     return result
 
+r,g,b,w = map(int, sys.argv[1:5])
+c = Color(r,g,b,w)
+k = Color(0,0,0,0)
+
+data = [k]*30
+for i in range(30):
+    data[i] = c
+
+hwdata=[
+*([Color(0,0,0,0)]*1),
+*([Color(0,0,0,128)]*7),
+*([Color(0,0,0,0)]*7),
+]
+
+#sides = [k, Color(255,0,0,0), k]*5
+#sides.append(sides[0])
+
+sides = [k, k, Color(255,0,0,0), k, k]*3
+sides[7] = Color(255,0,0,8)
+
 with serial.Serial('/dev/ttyACM0', 115200) as ser:
-    for offset in range(30):
-        start_time = time.time()
-        data = make_colors(offset, 0,0,0,255)
-        raw = compose(0, data)
-        ser.write(raw)
 
-        data = make_colors(offset, 0,0,0,255)
-        raw = compose(1, data)
-        ser.write(raw)
+    ser.write(compose(1, [k]*15))
+    ser.write(compose(2, [k]*15))
+    ser.write(compose(3, [k]*15))
+    ser.write(compose(4, [k]*15))
+
+    ser.write(compose(0, data))
+#    for i in [1,2,3,4]:
+#        ser.write(compose(i, sides))
 
 
+#    ser.write(compose(1, data[:15]))
+#    ser.write(compose(3, data[:15]))
+#    ser.write(compose(1, hwdata))
+#    ser.write(compose(1, [Color(0,0,0,255)]*15))
+#    ser.write(compose(2, [Color(0,0,0,4)]*15))
+#    ser.write(compose(3, [Color(0,0,0,0)]*15))
+#    ser.write(compose(4, [Color(4,0,8,0)]*15))
 
-        time.sleep(.1)
+   

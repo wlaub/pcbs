@@ -993,4 +993,6 @@ Wire Wire Line
 	3900 1800 3700 1800
 Wire Wire Line
 	3700 1800 3700 1750
+Text Notes 6300 2800 0    50   ~ 0
+DNP
 $EndSCHEMATC
